@@ -1,0 +1,34 @@
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.exe
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.pdb
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.xml
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Form1.resources
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
+C:\Users\Administrador\AppData\Local\Temporary Projects\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.exe
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.pdb
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.xml
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Form1.resources
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMParametros.resources
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.DisersionesTop.resources
+C:\trabajo_programacion3\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
+C:\trabajo_programacion3\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
+C:\trabajo_programacion3\Seguimiento Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
+C:\trabajo_programacion3\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.exe
+C:\trabajo_programacion3\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.pdb
+C:\trabajo_programacion3\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.xml
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.DisersionesTop.resources
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Form1.resources
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMParametros.resources
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
+C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
