@@ -43,3 +43,4 @@ C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento
 C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMParametros.resources
 C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
 C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento-Alumnos\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
