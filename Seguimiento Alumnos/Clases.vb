@@ -10,7 +10,16 @@
     Protected _EstadoCivil As Integer
     Public Sub New(vNombre As String, vApellido As String, vDocumento As Integer, vFechaNac As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As Integer, vEstadoCivil As Integer)
         Nombre = vNombre
-        'Falta terminar
+        Apellido = vApellido
+        Documento = vDocumento
+        FechaN = vFechaNac
+        Telefono = vTelefono
+        Localidad = vLocalidad
+        Calle = vCalle
+        Altura = vAltura
+        EstadoCivil = vEstadoCivil
+
+
     End Sub
     Public Sub New()
 
@@ -32,7 +41,64 @@
             _Apellido = value
         End Set
     End Property
-    'Falta terminar Encapsulamiento
+    Public Property Documento As Integer
+        Get
+            Return _Documento
+        End Get
+        Set(value As Integer)
+            _Documento = value
+        End Set
+    End Property
+    Public Property FechaN As Date
+        Get
+            Return _FechaNac
+        End Get
+        Set(value As Date)
+            _FechaNac = value
+        End Set
+    End Property
+    Public Property Telefono As Integer
+        Get
+            Return _Telefono
+        End Get
+        Set(value As Integer)
+            _Telefono = value
+        End Set
+    End Property
+    Public Property Localidad As String
+        Get
+            Return _Localidad
+        End Get
+        Set(value As String)
+            _Localidad = value
+        End Set
+    End Property
+    Public Property Calle As String
+        Get
+            Return _Calle
+        End Get
+        Set(value As String)
+            _Calle = value
+        End Set
+    End Property
+    Public Property Altura As Integer
+        Get
+            Return _Altura
+        End Get
+        Set(value As Integer)
+            _Altura = value
+        End Set
+    End Property
+    Public Property EstadoCivil As Integer
+        Get
+            Return _EstadoCivil
+        End Get
+        Set(value As Integer)
+            _EstadoCivil = value
+        End Set
+    End Property
+
+
 
     Public Function ValidarPersona() As Boolean
         'Funcion para validar la persona
@@ -44,9 +110,9 @@
             MsgBox("Ingrese el documento del alumno", MsgBoxStyle.Exclamation, "Sistema")
         ElseIf Not IsNumeric(Documento) Then
             MsgBox("Ingrese el documento de forma numérica", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf FechaNac = "" Then
+        ElseIf FechaN = "" Then
             MsgBox("Ingrese la fecha de nacimiento", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Not IsDate(FechaNac) Then
+        ElseIf Not IsDate(FechaN) Then
             MsgBox("Ingrese la fecha en el formato correcto (DD/MM/AAAA)", MsgBoxStyle.Exclamation, "Sistema")
         ElseIf Telefono = "" Then
             MsgBox("Ingrese un número de teléfono", MsgBoxStyle.Exclamation, "Sistema")
