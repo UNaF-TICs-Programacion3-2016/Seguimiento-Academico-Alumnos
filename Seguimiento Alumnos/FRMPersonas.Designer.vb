@@ -25,7 +25,7 @@ Partial Class FRMPersonas
         Me.CMDSalir = New System.Windows.Forms.Button()
         Me.CMDGuardar = New System.Windows.Forms.Button()
         Me.CMDBuscar = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.CMDCancelar = New System.Windows.Forms.Button()
         Me.CMDEliminar = New System.Windows.Forms.Button()
         Me.CMDModificar = New System.Windows.Forms.Button()
         Me.CMDNuevo = New System.Windows.Forms.Button()
@@ -92,14 +92,14 @@ Partial Class FRMPersonas
         Me.CMDBuscar.Text = "Buscar"
         Me.CMDBuscar.UseVisualStyleBackColor = True
         '
-        'Button4
+        'CMDCancelar
         '
-        Me.Button4.Location = New System.Drawing.Point(392, 141)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(75, 23)
-        Me.Button4.TabIndex = 22
-        Me.Button4.Text = "Cancelar"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.CMDCancelar.Location = New System.Drawing.Point(392, 141)
+        Me.CMDCancelar.Name = "CMDCancelar"
+        Me.CMDCancelar.Size = New System.Drawing.Size(75, 23)
+        Me.CMDCancelar.TabIndex = 22
+        Me.CMDCancelar.Text = "Cancelar"
+        Me.CMDCancelar.UseVisualStyleBackColor = True
         '
         'CMDEliminar
         '
@@ -411,7 +411,7 @@ Partial Class FRMPersonas
         Me.Controls.Add(Me.CMDSalir)
         Me.Controls.Add(Me.CMDGuardar)
         Me.Controls.Add(Me.CMDBuscar)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.CMDCancelar)
         Me.Controls.Add(Me.CMDEliminar)
         Me.Controls.Add(Me.CMDModificar)
         Me.Controls.Add(Me.CMDNuevo)
@@ -433,7 +433,7 @@ Partial Class FRMPersonas
     Friend WithEvents CMDSalir As System.Windows.Forms.Button
     Friend WithEvents CMDGuardar As System.Windows.Forms.Button
     Friend WithEvents CMDBuscar As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents CMDCancelar As System.Windows.Forms.Button
     Friend WithEvents CMDEliminar As System.Windows.Forms.Button
     Friend WithEvents CMDModificar As System.Windows.Forms.Button
     Friend WithEvents CMDNuevo As System.Windows.Forms.Button

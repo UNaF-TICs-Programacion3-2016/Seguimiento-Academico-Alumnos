@@ -83,6 +83,12 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FRMDatos.Designer.vb">
+      <DependentUpon>FRMDatos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FRMDatos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FRMParametros.Designer.vb">
       <DependentUpon>FRMParametros.vb</DependentUpon>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMDatos.resx">
+      <DependentUpon>FRMDatos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMParametros.resx">
       <DependentUpon>FRMParametros.vb</DependentUpon>
