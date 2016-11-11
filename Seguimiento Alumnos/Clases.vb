@@ -18,8 +18,6 @@
         Calle = vCalle
         Altura = vAltura
         EstadoCivil = vEstadoCivil
-
-
     End Sub
     Public Sub New()
 
@@ -98,7 +96,17 @@
         End Set
     End Property
 
-
+    Public Sub Cargar_DatosPersona(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As Integer, vEstadoCivil As Integer)
+        Nombre = vNombre
+        Apellido = vApellido
+        Documento = vDocumento
+        FechaN = vFechaN
+        Telefono = vTelefono
+        Localidad = vLocalidad
+        Calle = vCalle
+        Altura = vAltura
+        EstadoCivil = vEstadoCivil
+    End Sub
 
     Public Function ValidarPersona() As Boolean
         'Funcion para validar la persona
@@ -139,8 +147,56 @@ Public Class Alumno
     Private _Ingreso As Integer
     Private _Egreso As Integer
     Private _Promedio As Double
+    Public Property Colegio As Integer
+        Get
+            Return _colegio
+        End Get
+        Set(value As Integer)
+            _colegio = value
+        End Set
+    End Property
+    Public Property Orientacion As Integer
+        Get
+            Return _Orientacion
+        End Get
+        Set(value As Integer)
+            _Orientacion = value
+        End Set
+    End Property
+    Public Property Ingreso As Integer
+        Get
+            Return _Ingreso
+        End Get
+        Set(value As Integer)
+            _Ingreso = value
+        End Set
+    End Property
 
-    
+    Public Property Egreso As Integer
+        Get
+            Return _Egreso
+        End Get
+        Set(value As Integer)
+            _Egreso = value
+        End Set
+    End Property
+
+    Public Property Promedio As Double
+        Get
+            Return _Promedio
+        End Get
+        Set(value As Double)
+            _Promedio = value
+        End Set
+    End Property
+
+    Public Sub Cargar_AntAcademicos(vColegio As Integer, vOrientacion As Integer, vIngreso As Integer, vEgreso As Integer, vPromedio As Double)
+        Colegio = vColegio
+        Orientacion = vOrientacion
+        Ingreso = vIngreso
+        Egreso = vEgreso
+        Promedio = vPromedio
+    End Sub
     Public Function ValidarAntAcademicos() As Boolean
         If _colegio = "" Then
             MsgBox("Seleccione un colegio", MsgBoxStyle.Exclamation, "Sistema")
@@ -168,6 +224,4 @@ Public Class Alumno
         End If
         Return False
     End Function
-
-    
 End Class

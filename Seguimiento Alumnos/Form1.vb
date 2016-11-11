@@ -25,4 +25,12 @@
     Private Sub GrupoResultados_Enter(sender As Object, e As EventArgs) Handles GrupoResultados.Enter
 
     End Sub
+
+    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
+
+    End Sub
+
+    Private Sub AsistenciasPorClaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsistenciasPorClaseToolStripMenuItem.Click
+        FRMPersonas.Show()
+    End Sub
 End Class

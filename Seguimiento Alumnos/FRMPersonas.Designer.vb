@@ -29,18 +29,13 @@ Partial Class FRMPersonas
         Me.CMDEliminar = New System.Windows.Forms.Button()
         Me.CMDModificar = New System.Windows.Forms.Button()
         Me.CMDNuevo = New System.Windows.Forms.Button()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.DatosPersonalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AntecedentesAcadémicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatagridAlumnos = New System.Windows.Forms.DataGridView()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.CMDSeleccionar = New System.Windows.Forms.Button()
         Me.DatosPersonales = New System.Windows.Forms.GroupBox()
-        Me.AntecedentesAc = New System.Windows.Forms.GroupBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DTPIngreso = New System.Windows.Forms.DateTimePicker()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.DTPEgreso = New System.Windows.Forms.DateTimePicker()
-        Me.CBOOrientacion = New System.Windows.Forms.ComboBox()
-        Me.TXTPromedio = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -53,12 +48,21 @@ Partial Class FRMPersonas
         Me.TXTNrodoc = New System.Windows.Forms.TextBox()
         Me.TXTApellido = New System.Windows.Forms.TextBox()
         Me.TXTNombre = New System.Windows.Forms.TextBox()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.DatosPersonalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AntecedentesAcadémicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AntecedentesAc = New System.Windows.Forms.GroupBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DTPIngreso = New System.Windows.Forms.DateTimePicker()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.DTPEgreso = New System.Windows.Forms.DateTimePicker()
+        Me.CBOOrientacion = New System.Windows.Forms.ComboBox()
+        Me.TXTPromedio = New System.Windows.Forms.TextBox()
+        Me.MenuStrip1.SuspendLayout()
+        CType(Me.DatagridAlumnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DatosPersonales.SuspendLayout()
         Me.AntecedentesAc.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'CMDSalir
@@ -124,9 +128,55 @@ Partial Class FRMPersonas
         Me.CMDNuevo.Text = "Nuevo"
         Me.CMDNuevo.UseVisualStyleBackColor = True
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosPersonalesToolStripMenuItem, Me.AntecedentesAcadémicosToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(474, 24)
+        Me.MenuStrip1.TabIndex = 27
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'DatosPersonalesToolStripMenuItem
+        '
+        Me.DatosPersonalesToolStripMenuItem.Name = "DatosPersonalesToolStripMenuItem"
+        Me.DatosPersonalesToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
+        Me.DatosPersonalesToolStripMenuItem.Text = "Datos Personales"
+        '
+        'AntecedentesAcadémicosToolStripMenuItem
+        '
+        Me.AntecedentesAcadémicosToolStripMenuItem.Name = "AntecedentesAcadémicosToolStripMenuItem"
+        Me.AntecedentesAcadémicosToolStripMenuItem.Size = New System.Drawing.Size(159, 20)
+        Me.AntecedentesAcadémicosToolStripMenuItem.Text = "Antecedentes Académicos"
+        '
+        'DatagridAlumnos
+        '
+        Me.DatagridAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DatagridAlumnos.Location = New System.Drawing.Point(492, 46)
+        Me.DatagridAlumnos.Name = "DatagridAlumnos"
+        Me.DatagridAlumnos.Size = New System.Drawing.Size(274, 218)
+        Me.DatagridAlumnos.TabIndex = 32
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(584, 27)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(83, 13)
+        Me.Label7.TabIndex = 33
+        Me.Label7.Text = "Buscar Alumnos"
+        '
+        'CMDSeleccionar
+        '
+        Me.CMDSeleccionar.Location = New System.Drawing.Point(587, 270)
+        Me.CMDSeleccionar.Name = "CMDSeleccionar"
+        Me.CMDSeleccionar.Size = New System.Drawing.Size(75, 23)
+        Me.CMDSeleccionar.TabIndex = 34
+        Me.CMDSeleccionar.Text = "Seleccionar"
+        Me.CMDSeleccionar.UseVisualStyleBackColor = True
+        '
         'DatosPersonales
         '
-        Me.DatosPersonales.Controls.Add(Me.AntecedentesAc)
         Me.DatosPersonales.Controls.Add(Me.Label6)
         Me.DatosPersonales.Controls.Add(Me.Label5)
         Me.DatosPersonales.Controls.Add(Me.Label4)
@@ -139,115 +189,12 @@ Partial Class FRMPersonas
         Me.DatosPersonales.Controls.Add(Me.TXTNrodoc)
         Me.DatosPersonales.Controls.Add(Me.TXTApellido)
         Me.DatosPersonales.Controls.Add(Me.TXTNombre)
-        Me.DatosPersonales.Location = New System.Drawing.Point(12, 25)
+        Me.DatosPersonales.Location = New System.Drawing.Point(12, 27)
         Me.DatosPersonales.Name = "DatosPersonales"
         Me.DatosPersonales.Size = New System.Drawing.Size(374, 249)
-        Me.DatosPersonales.TabIndex = 26
+        Me.DatosPersonales.TabIndex = 35
         Me.DatosPersonales.TabStop = False
         Me.DatosPersonales.Text = "Datos Personales"
-        '
-        'AntecedentesAc
-        '
-        Me.AntecedentesAc.Controls.Add(Me.ComboBox1)
-        Me.AntecedentesAc.Controls.Add(Me.DTPIngreso)
-        Me.AntecedentesAc.Controls.Add(Me.Label8)
-        Me.AntecedentesAc.Controls.Add(Me.Label9)
-        Me.AntecedentesAc.Controls.Add(Me.Label10)
-        Me.AntecedentesAc.Controls.Add(Me.Label11)
-        Me.AntecedentesAc.Controls.Add(Me.Label12)
-        Me.AntecedentesAc.Controls.Add(Me.DTPEgreso)
-        Me.AntecedentesAc.Controls.Add(Me.CBOOrientacion)
-        Me.AntecedentesAc.Controls.Add(Me.TXTPromedio)
-        Me.AntecedentesAc.Location = New System.Drawing.Point(0, 2)
-        Me.AntecedentesAc.Name = "AntecedentesAc"
-        Me.AntecedentesAc.Size = New System.Drawing.Size(373, 249)
-        Me.AntecedentesAc.TabIndex = 28
-        Me.AntecedentesAc.TabStop = False
-        Me.AntecedentesAc.Text = "Antecedentes Académicos"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(105, 21)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(97, 21)
-        Me.ComboBox1.TabIndex = 30
-        '
-        'DTPIngreso
-        '
-        Me.DTPIngreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPIngreso.Location = New System.Drawing.Point(105, 78)
-        Me.DTPIngreso.Name = "DTPIngreso"
-        Me.DTPIngreso.Size = New System.Drawing.Size(118, 20)
-        Me.DTPIngreso.TabIndex = 28
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(41, 135)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(51, 13)
-        Me.Label8.TabIndex = 29
-        Me.Label8.Text = "Promedio"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(30, 108)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(62, 13)
-        Me.Label9.TabIndex = 28
-        Me.Label9.Text = "Año Egreso"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(30, 78)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 13)
-        Me.Label10.TabIndex = 27
-        Me.Label10.Text = "Año Ingreso"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(30, 52)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(61, 13)
-        Me.Label11.TabIndex = 26
-        Me.Label11.Text = "Orientación"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 24)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(93, 13)
-        Me.Label12.TabIndex = 25
-        Me.Label12.Text = "Colegio de Egreso"
-        '
-        'DTPEgreso
-        '
-        Me.DTPEgreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPEgreso.Location = New System.Drawing.Point(105, 104)
-        Me.DTPEgreso.Name = "DTPEgreso"
-        Me.DTPEgreso.Size = New System.Drawing.Size(118, 20)
-        Me.DTPEgreso.TabIndex = 23
-        '
-        'CBOOrientacion
-        '
-        Me.CBOOrientacion.FormattingEnabled = True
-        Me.CBOOrientacion.Location = New System.Drawing.Point(105, 49)
-        Me.CBOOrientacion.Name = "CBOOrientacion"
-        Me.CBOOrientacion.Size = New System.Drawing.Size(112, 21)
-        Me.CBOOrientacion.TabIndex = 22
-        '
-        'TXTPromedio
-        '
-        Me.TXTPromedio.Location = New System.Drawing.Point(105, 132)
-        Me.TXTPromedio.Name = "TXTPromedio"
-        Me.TXTPromedio.Size = New System.Drawing.Size(48, 20)
-        Me.TXTPromedio.TabIndex = 21
         '
         'Label6
         '
@@ -348,33 +295,119 @@ Partial Class FRMPersonas
         Me.TXTNombre.Size = New System.Drawing.Size(121, 20)
         Me.TXTNombre.TabIndex = 19
         '
-        'MenuStrip1
+        'AntecedentesAc
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosPersonalesToolStripMenuItem, Me.AntecedentesAcadémicosToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(478, 24)
-        Me.MenuStrip1.TabIndex = 27
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.AntecedentesAc.Controls.Add(Me.ComboBox1)
+        Me.AntecedentesAc.Controls.Add(Me.DTPIngreso)
+        Me.AntecedentesAc.Controls.Add(Me.Label8)
+        Me.AntecedentesAc.Controls.Add(Me.Label9)
+        Me.AntecedentesAc.Controls.Add(Me.Label10)
+        Me.AntecedentesAc.Controls.Add(Me.Label11)
+        Me.AntecedentesAc.Controls.Add(Me.Label12)
+        Me.AntecedentesAc.Controls.Add(Me.DTPEgreso)
+        Me.AntecedentesAc.Controls.Add(Me.CBOOrientacion)
+        Me.AntecedentesAc.Controls.Add(Me.TXTPromedio)
+        Me.AntecedentesAc.Location = New System.Drawing.Point(13, 27)
+        Me.AntecedentesAc.Name = "AntecedentesAc"
+        Me.AntecedentesAc.Size = New System.Drawing.Size(373, 249)
+        Me.AntecedentesAc.TabIndex = 36
+        Me.AntecedentesAc.TabStop = False
+        Me.AntecedentesAc.Text = "Antecedentes Académicos"
         '
-        'DatosPersonalesToolStripMenuItem
+        'ComboBox1
         '
-        Me.DatosPersonalesToolStripMenuItem.Name = "DatosPersonalesToolStripMenuItem"
-        Me.DatosPersonalesToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
-        Me.DatosPersonalesToolStripMenuItem.Text = "Datos Personales"
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(105, 21)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(97, 21)
+        Me.ComboBox1.TabIndex = 30
         '
-        'AntecedentesAcadémicosToolStripMenuItem
+        'DTPIngreso
         '
-        Me.AntecedentesAcadémicosToolStripMenuItem.Name = "AntecedentesAcadémicosToolStripMenuItem"
-        Me.AntecedentesAcadémicosToolStripMenuItem.Size = New System.Drawing.Size(159, 20)
-        Me.AntecedentesAcadémicosToolStripMenuItem.Text = "Antecedentes Académicos"
+        Me.DTPIngreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPIngreso.Location = New System.Drawing.Point(105, 78)
+        Me.DTPIngreso.Name = "DTPIngreso"
+        Me.DTPIngreso.Size = New System.Drawing.Size(118, 20)
+        Me.DTPIngreso.TabIndex = 28
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(41, 135)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(51, 13)
+        Me.Label8.TabIndex = 29
+        Me.Label8.Text = "Promedio"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(30, 108)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(62, 13)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "Año Egreso"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(30, 78)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(64, 13)
+        Me.Label10.TabIndex = 27
+        Me.Label10.Text = "Año Ingreso"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(30, 52)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(61, 13)
+        Me.Label11.TabIndex = 26
+        Me.Label11.Text = "Orientación"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(6, 24)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(93, 13)
+        Me.Label12.TabIndex = 25
+        Me.Label12.Text = "Colegio de Egreso"
+        '
+        'DTPEgreso
+        '
+        Me.DTPEgreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPEgreso.Location = New System.Drawing.Point(105, 104)
+        Me.DTPEgreso.Name = "DTPEgreso"
+        Me.DTPEgreso.Size = New System.Drawing.Size(118, 20)
+        Me.DTPEgreso.TabIndex = 23
+        '
+        'CBOOrientacion
+        '
+        Me.CBOOrientacion.FormattingEnabled = True
+        Me.CBOOrientacion.Location = New System.Drawing.Point(105, 49)
+        Me.CBOOrientacion.Name = "CBOOrientacion"
+        Me.CBOOrientacion.Size = New System.Drawing.Size(112, 21)
+        Me.CBOOrientacion.TabIndex = 22
+        '
+        'TXTPromedio
+        '
+        Me.TXTPromedio.Location = New System.Drawing.Point(105, 132)
+        Me.TXTPromedio.Name = "TXTPromedio"
+        Me.TXTPromedio.Size = New System.Drawing.Size(48, 20)
+        Me.TXTPromedio.TabIndex = 21
         '
         'FRMPersonas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(478, 314)
+        Me.ClientSize = New System.Drawing.Size(474, 314)
+        Me.Controls.Add(Me.AntecedentesAc)
         Me.Controls.Add(Me.DatosPersonales)
+        Me.Controls.Add(Me.CMDSeleccionar)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.DatagridAlumnos)
         Me.Controls.Add(Me.CMDSalir)
         Me.Controls.Add(Me.CMDGuardar)
         Me.Controls.Add(Me.CMDBuscar)
@@ -386,12 +419,13 @@ Partial Class FRMPersonas
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMPersonas"
         Me.Text = "Alumnos"
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
+        CType(Me.DatagridAlumnos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DatosPersonales.ResumeLayout(False)
         Me.DatosPersonales.PerformLayout()
         Me.AntecedentesAc.ResumeLayout(False)
         Me.AntecedentesAc.PerformLayout()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -403,6 +437,12 @@ Partial Class FRMPersonas
     Friend WithEvents CMDEliminar As System.Windows.Forms.Button
     Friend WithEvents CMDModificar As System.Windows.Forms.Button
     Friend WithEvents CMDNuevo As System.Windows.Forms.Button
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents DatosPersonalesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AntecedentesAcadémicosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DatagridAlumnos As System.Windows.Forms.DataGridView
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents CMDSeleccionar As System.Windows.Forms.Button
     Friend WithEvents DatosPersonales As System.Windows.Forms.GroupBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -427,7 +467,4 @@ Partial Class FRMPersonas
     Friend WithEvents DTPEgreso As System.Windows.Forms.DateTimePicker
     Friend WithEvents CBOOrientacion As System.Windows.Forms.ComboBox
     Friend WithEvents TXTPromedio As System.Windows.Forms.TextBox
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents DatosPersonalesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AntecedentesAcadémicosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class
