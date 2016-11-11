@@ -29,11 +29,18 @@
     Private Sub FRMPersonas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DatosPersonales.Visible = True
         AntecedentesAc.Visible = False
+        Dim GestionBoton As New Botones(True, False, False, False, False, True, True)
+        GestionBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
     End Sub
 
     Private Sub CMDGuardar_Click(sender As Object, e As EventArgs) Handles CMDGuardar.Click
         If AlumnoNuevo.ValidarPersona Then
 
+
         End If
+    End Sub
+
+    Private Sub CMDModificar_Click(sender As Object, e As EventArgs) Handles CMDModificar.Click
+
     End Sub
 End Class

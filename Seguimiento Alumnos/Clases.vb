@@ -225,3 +225,92 @@ Public Class Alumno
         Return False
     End Function
 End Class
+
+Public Class Botones
+    Private _Nuevo As Boolean
+    Private _Guardar As Boolean
+    Private _Cancelar As Boolean
+    Private _Modificar As Boolean
+    Private _Borrar As Boolean
+    Private _Buscar As Boolean
+    Private _Salir As Boolean
+
+    Public Sub New(vNuevo As Boolean, vGuardar As Boolean, vModificar As Boolean, vCancelar As Boolean, vBorrar As Boolean, vBuscar As Boolean, vSalir As Boolean)
+        Nuevo = vNuevo
+        Guardar = vGuardar
+        Cancelar = vCancelar
+        Modificar = vModificar
+        Borrar = vBorrar
+        Buscar = vBuscar
+        Salir = vSalir
+    End Sub
+    Public Sub New()
+
+    End Sub
+    Public Property Nuevo As Boolean
+        Get
+            Return _Nuevo
+        End Get
+        Set(value As Boolean)
+            _Nuevo = value
+        End Set
+    End Property
+    Public Property Guardar As Boolean
+        Get
+            Return _Guardar
+        End Get
+        Set(value As Boolean)
+            _Guardar = value
+        End Set
+    End Property
+    Public Property Cancelar As Boolean
+        Get
+            Return _Cancelar
+        End Get
+        Set(value As Boolean)
+            _Cancelar = value
+        End Set
+    End Property
+    Public Property Modificar As Boolean
+        Get
+            Return _Modificar
+        End Get
+        Set(value As Boolean)
+            _Modificar = value
+        End Set
+    End Property
+    Public Property Borrar As Boolean
+        Get
+            Return _Borrar
+        End Get
+        Set(value As Boolean)
+            _Borrar = value
+        End Set
+    End Property
+    Public Property Buscar As Boolean
+        Get
+            Return _Buscar
+        End Get
+        Set(value As Boolean)
+            _Buscar = value
+        End Set
+    End Property
+    Public Property Salir As Boolean
+        Get
+            Return _Salir
+        End Get
+        Set(value As Boolean)
+            _Salir = value
+        End Set
+    End Property
+
+    Public Sub Gestionar_ABM(vnuevo As Button, vguardar As Button, vcancelar As Button, vmodificar As Button, vborrar As Button, vbuscar As Button, vsalir As Button)
+        vnuevo.Enabled = Nuevo
+        vguardar.Enabled = Guardar
+        vcancelar.Enabled = Cancelar
+        vmodificar.Enabled = Modificar
+        vborrar.Enabled = Borrar
+        vbuscar.Enabled = _Buscar
+        vsalir.Enabled = Salir
+    End Sub
+End Class
