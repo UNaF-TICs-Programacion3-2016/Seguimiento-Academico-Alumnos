@@ -189,6 +189,7 @@ Partial Class FRMPersonas
         Me.DatosPersonales.Controls.Add(Me.TXTNrodoc)
         Me.DatosPersonales.Controls.Add(Me.TXTApellido)
         Me.DatosPersonales.Controls.Add(Me.TXTNombre)
+        Me.DatosPersonales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DatosPersonales.Location = New System.Drawing.Point(12, 27)
         Me.DatosPersonales.Name = "DatosPersonales"
         Me.DatosPersonales.Size = New System.Drawing.Size(374, 249)
@@ -199,100 +200,112 @@ Partial Class FRMPersonas
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(6, 156)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(82, 13)
+        Me.Label6.Size = New System.Drawing.Size(95, 15)
         Me.Label6.TabIndex = 30
         Me.Label6.Text = "Carrera a cursar"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(25, 126)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(63, 13)
+        Me.Label5.Size = New System.Drawing.Size(69, 15)
         Me.Label5.TabIndex = 29
         Me.Label5.Text = "Fecha Nac."
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(19, 102)
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(25, 101)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(62, 13)
+        Me.Label4.Size = New System.Drawing.Size(70, 15)
         Me.Label4.TabIndex = 28
         Me.Label4.Text = "Estado Civil"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(19, 76)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(25, 76)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(62, 13)
+        Me.Label3.Size = New System.Drawing.Size(71, 15)
         Me.Label3.TabIndex = 27
         Me.Label3.Text = "Documento"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(42, 50)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.Size = New System.Drawing.Size(51, 15)
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Apellido"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(42, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(44, 13)
+        Me.Label1.Size = New System.Drawing.Size(52, 15)
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Nombre"
         '
         'CBOCarreras
         '
+        Me.CBOCarreras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOCarreras.FormattingEnabled = True
-        Me.CBOCarreras.Location = New System.Drawing.Point(90, 153)
+        Me.CBOCarreras.Location = New System.Drawing.Point(103, 153)
         Me.CBOCarreras.Name = "CBOCarreras"
-        Me.CBOCarreras.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarreras.Size = New System.Drawing.Size(121, 23)
         Me.CBOCarreras.TabIndex = 24
         '
         'DTPFechan
         '
+        Me.DTPFechan.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPFechan.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPFechan.Location = New System.Drawing.Point(90, 126)
+        Me.DTPFechan.Location = New System.Drawing.Point(103, 126)
         Me.DTPFechan.Name = "DTPFechan"
-        Me.DTPFechan.Size = New System.Drawing.Size(118, 20)
+        Me.DTPFechan.Size = New System.Drawing.Size(118, 21)
         Me.DTPFechan.TabIndex = 23
         '
         'CBOEc
         '
+        Me.CBOEc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOEc.FormattingEnabled = True
-        Me.CBOEc.Location = New System.Drawing.Point(87, 99)
+        Me.CBOEc.Location = New System.Drawing.Point(100, 99)
         Me.CBOEc.Name = "CBOEc"
-        Me.CBOEc.Size = New System.Drawing.Size(121, 21)
+        Me.CBOEc.Size = New System.Drawing.Size(121, 23)
         Me.CBOEc.TabIndex = 22
         '
         'TXTNrodoc
         '
-        Me.TXTNrodoc.Location = New System.Drawing.Point(87, 73)
+        Me.TXTNrodoc.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTNrodoc.Location = New System.Drawing.Point(100, 73)
         Me.TXTNrodoc.Name = "TXTNrodoc"
-        Me.TXTNrodoc.Size = New System.Drawing.Size(121, 20)
+        Me.TXTNrodoc.Size = New System.Drawing.Size(121, 21)
         Me.TXTNrodoc.TabIndex = 21
         '
         'TXTApellido
         '
-        Me.TXTApellido.Location = New System.Drawing.Point(87, 47)
+        Me.TXTApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTApellido.Location = New System.Drawing.Point(100, 47)
         Me.TXTApellido.Name = "TXTApellido"
-        Me.TXTApellido.Size = New System.Drawing.Size(121, 20)
+        Me.TXTApellido.Size = New System.Drawing.Size(121, 21)
         Me.TXTApellido.TabIndex = 20
         '
         'TXTNombre
         '
-        Me.TXTNombre.Location = New System.Drawing.Point(87, 21)
+        Me.TXTNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTNombre.Location = New System.Drawing.Point(100, 21)
         Me.TXTNombre.Name = "TXTNombre"
-        Me.TXTNombre.Size = New System.Drawing.Size(121, 20)
+        Me.TXTNombre.Size = New System.Drawing.Size(121, 21)
         Me.TXTNombre.TabIndex = 19
         '
         'AntecedentesAc
@@ -307,6 +320,7 @@ Partial Class FRMPersonas
         Me.AntecedentesAc.Controls.Add(Me.DTPEgreso)
         Me.AntecedentesAc.Controls.Add(Me.CBOOrientacion)
         Me.AntecedentesAc.Controls.Add(Me.TXTPromedio)
+        Me.AntecedentesAc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AntecedentesAc.Location = New System.Drawing.Point(13, 27)
         Me.AntecedentesAc.Name = "AntecedentesAc"
         Me.AntecedentesAc.Size = New System.Drawing.Size(373, 249)
@@ -316,86 +330,96 @@ Partial Class FRMPersonas
         '
         'ComboBox1
         '
+        Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(105, 21)
+        Me.ComboBox1.Location = New System.Drawing.Point(113, 29)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(97, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(97, 23)
         Me.ComboBox1.TabIndex = 30
         '
         'DTPIngreso
         '
+        Me.DTPIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPIngreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPIngreso.Location = New System.Drawing.Point(105, 78)
+        Me.DTPIngreso.Location = New System.Drawing.Point(105, 86)
         Me.DTPIngreso.Name = "DTPIngreso"
-        Me.DTPIngreso.Size = New System.Drawing.Size(118, 20)
+        Me.DTPIngreso.Size = New System.Drawing.Size(118, 21)
         Me.DTPIngreso.TabIndex = 28
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(41, 135)
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(41, 143)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(51, 13)
+        Me.Label8.Size = New System.Drawing.Size(61, 15)
         Me.Label8.TabIndex = 29
         Me.Label8.Text = "Promedio"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(30, 108)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(30, 116)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(62, 13)
+        Me.Label9.Size = New System.Drawing.Size(70, 15)
         Me.Label9.TabIndex = 28
         Me.Label9.Text = "Año Egreso"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(30, 78)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(30, 86)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 13)
+        Me.Label10.Size = New System.Drawing.Size(72, 15)
         Me.Label10.TabIndex = 27
         Me.Label10.Text = "Año Ingreso"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(30, 52)
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(30, 60)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(61, 13)
+        Me.Label11.Size = New System.Drawing.Size(70, 15)
         Me.Label11.TabIndex = 26
         Me.Label11.Text = "Orientación"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 24)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(6, 32)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(93, 13)
+        Me.Label12.Size = New System.Drawing.Size(108, 15)
         Me.Label12.TabIndex = 25
         Me.Label12.Text = "Colegio de Egreso"
         '
         'DTPEgreso
         '
+        Me.DTPEgreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DTPEgreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPEgreso.Location = New System.Drawing.Point(105, 104)
+        Me.DTPEgreso.Location = New System.Drawing.Point(105, 112)
         Me.DTPEgreso.Name = "DTPEgreso"
-        Me.DTPEgreso.Size = New System.Drawing.Size(118, 20)
+        Me.DTPEgreso.Size = New System.Drawing.Size(118, 21)
         Me.DTPEgreso.TabIndex = 23
         '
         'CBOOrientacion
         '
+        Me.CBOOrientacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOOrientacion.FormattingEnabled = True
-        Me.CBOOrientacion.Location = New System.Drawing.Point(105, 49)
+        Me.CBOOrientacion.Location = New System.Drawing.Point(105, 57)
         Me.CBOOrientacion.Name = "CBOOrientacion"
-        Me.CBOOrientacion.Size = New System.Drawing.Size(112, 21)
+        Me.CBOOrientacion.Size = New System.Drawing.Size(112, 23)
         Me.CBOOrientacion.TabIndex = 22
         '
         'TXTPromedio
         '
-        Me.TXTPromedio.Location = New System.Drawing.Point(105, 132)
+        Me.TXTPromedio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTPromedio.Location = New System.Drawing.Point(105, 140)
         Me.TXTPromedio.Name = "TXTPromedio"
-        Me.TXTPromedio.Size = New System.Drawing.Size(48, 20)
+        Me.TXTPromedio.Size = New System.Drawing.Size(48, 21)
         Me.TXTPromedio.TabIndex = 21
         '
         'FRMPersonas
@@ -403,7 +427,6 @@ Partial Class FRMPersonas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(474, 314)
-        Me.Controls.Add(Me.AntecedentesAc)
         Me.Controls.Add(Me.DatosPersonales)
         Me.Controls.Add(Me.CMDSeleccionar)
         Me.Controls.Add(Me.Label7)
@@ -416,6 +439,7 @@ Partial Class FRMPersonas
         Me.Controls.Add(Me.CMDModificar)
         Me.Controls.Add(Me.CMDNuevo)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.AntecedentesAc)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMPersonas"
         Me.Text = "Alumnos"

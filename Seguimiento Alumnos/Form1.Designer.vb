@@ -25,12 +25,14 @@ Partial Class Form1
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.DatosDelAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDelAlumnoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AsistenciasPorClaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExámenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MateriasDelAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AsistenciasPorClaseToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AntecedeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DatosPersonalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AntecedentesAcToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CarreraxAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MateriaxAlumnoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AsistenciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExamenesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DisersionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OtrosAntecedentesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DatosDeEscuelasSecundariasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrientacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CarrerasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -59,7 +61,6 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.OtrosAntecedentesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.GrupoSituacion.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,46 +86,58 @@ Partial Class Form1
         '
         'DatosDelAlumnoToolStripMenuItem1
         '
-        Me.DatosDelAlumnoToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsistenciasPorClaseToolStripMenuItem, Me.ExámenesToolStripMenuItem, Me.MateriasDelAlumnoToolStripMenuItem, Me.AsistenciasPorClaseToolStripMenuItem1, Me.AntecedeToolStripMenuItem, Me.DisersionesToolStripMenuItem, Me.OtrosAntecedentesToolStripMenuItem})
+        Me.DatosDelAlumnoToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosPersonalesToolStripMenuItem, Me.AntecedentesAcToolStripMenuItem, Me.CarreraxAlumnoToolStripMenuItem, Me.MateriaxAlumnoToolStripMenuItem1, Me.AsistenciaToolStripMenuItem, Me.ExamenesToolStripMenuItem, Me.DisersionesToolStripMenuItem, Me.OtrosAntecedentesToolStripMenuItem1})
         Me.DatosDelAlumnoToolStripMenuItem1.Name = "DatosDelAlumnoToolStripMenuItem1"
         Me.DatosDelAlumnoToolStripMenuItem1.Size = New System.Drawing.Size(233, 22)
         Me.DatosDelAlumnoToolStripMenuItem1.Text = "Datos del alumno"
         '
-        'AsistenciasPorClaseToolStripMenuItem
+        'DatosPersonalesToolStripMenuItem
         '
-        Me.AsistenciasPorClaseToolStripMenuItem.Name = "AsistenciasPorClaseToolStripMenuItem"
-        Me.AsistenciasPorClaseToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
-        Me.AsistenciasPorClaseToolStripMenuItem.Text = "Datos Personales"
+        Me.DatosPersonalesToolStripMenuItem.Name = "DatosPersonalesToolStripMenuItem"
+        Me.DatosPersonalesToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.DatosPersonalesToolStripMenuItem.Text = "Datos Personales"
         '
-        'ExámenesToolStripMenuItem
+        'AntecedentesAcToolStripMenuItem
         '
-        Me.ExámenesToolStripMenuItem.Name = "ExámenesToolStripMenuItem"
-        Me.ExámenesToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
-        Me.ExámenesToolStripMenuItem.Text = "Antecedentes Académicos"
+        Me.AntecedentesAcToolStripMenuItem.Name = "AntecedentesAcToolStripMenuItem"
+        Me.AntecedentesAcToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.AntecedentesAcToolStripMenuItem.Text = "Antecedentes Académicos"
         '
-        'MateriasDelAlumnoToolStripMenuItem
+        'CarreraxAlumnoToolStripMenuItem
         '
-        Me.MateriasDelAlumnoToolStripMenuItem.Name = "MateriasDelAlumnoToolStripMenuItem"
-        Me.MateriasDelAlumnoToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
-        Me.MateriasDelAlumnoToolStripMenuItem.Text = "Materias"
+        Me.CarreraxAlumnoToolStripMenuItem.Name = "CarreraxAlumnoToolStripMenuItem"
+        Me.CarreraxAlumnoToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.CarreraxAlumnoToolStripMenuItem.Text = "Carreras"
         '
-        'AsistenciasPorClaseToolStripMenuItem1
+        'MateriaxAlumnoToolStripMenuItem1
         '
-        Me.AsistenciasPorClaseToolStripMenuItem1.Name = "AsistenciasPorClaseToolStripMenuItem1"
-        Me.AsistenciasPorClaseToolStripMenuItem1.Size = New System.Drawing.Size(214, 22)
-        Me.AsistenciasPorClaseToolStripMenuItem1.Text = "Asistencias por Clase"
+        Me.MateriaxAlumnoToolStripMenuItem1.Name = "MateriaxAlumnoToolStripMenuItem1"
+        Me.MateriaxAlumnoToolStripMenuItem1.Size = New System.Drawing.Size(214, 22)
+        Me.MateriaxAlumnoToolStripMenuItem1.Text = "Materias"
         '
-        'AntecedeToolStripMenuItem
+        'AsistenciaToolStripMenuItem
         '
-        Me.AntecedeToolStripMenuItem.Name = "AntecedeToolStripMenuItem"
-        Me.AntecedeToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
-        Me.AntecedeToolStripMenuItem.Text = "Exámenes"
+        Me.AsistenciaToolStripMenuItem.Name = "AsistenciaToolStripMenuItem"
+        Me.AsistenciaToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.AsistenciaToolStripMenuItem.Text = "Asistencias por Clase"
+        '
+        'ExamenesToolStripMenuItem
+        '
+        Me.ExamenesToolStripMenuItem.Name = "ExamenesToolStripMenuItem"
+        Me.ExamenesToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.ExamenesToolStripMenuItem.Text = "Exámenes"
         '
         'DisersionesToolStripMenuItem
         '
         Me.DisersionesToolStripMenuItem.Name = "DisersionesToolStripMenuItem"
         Me.DisersionesToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
         Me.DisersionesToolStripMenuItem.Text = "Disersiones"
+        '
+        'OtrosAntecedentesToolStripMenuItem1
+        '
+        Me.OtrosAntecedentesToolStripMenuItem1.Name = "OtrosAntecedentesToolStripMenuItem1"
+        Me.OtrosAntecedentesToolStripMenuItem1.Size = New System.Drawing.Size(214, 22)
+        Me.OtrosAntecedentesToolStripMenuItem1.Text = "Otros Antecedentes"
         '
         'DatosDeEscuelasSecundariasToolStripMenuItem
         '
@@ -359,12 +372,6 @@ Partial Class Form1
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Puntaje: "
         '
-        'OtrosAntecedentesToolStripMenuItem
-        '
-        Me.OtrosAntecedentesToolStripMenuItem.Name = "OtrosAntecedentesToolStripMenuItem"
-        Me.OtrosAntecedentesToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
-        Me.OtrosAntecedentesToolStripMenuItem.Text = "Otros Antecedentes"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -396,13 +403,13 @@ Partial Class Form1
     Friend WithEvents OrientacionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CarrerasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ClasesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AsistenciasPorClaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ExámenesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents MateriasDelAlumnoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DatosPersonalesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AntecedentesAcToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CarreraxAlumnoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MotivosDeDisersiónToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AsistenciasPorClaseToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AntecedeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DisersionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MateriaxAlumnoToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AsistenciaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ExamenesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GrupoSituacion As System.Windows.Forms.GroupBox
     Friend WithEvents CMDSeleccionar As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -425,6 +432,7 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents SituaciónPorAlumnoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MotivosDeDisersiónUsualesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents OtrosAntecedentesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DisersionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OtrosAntecedentesToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

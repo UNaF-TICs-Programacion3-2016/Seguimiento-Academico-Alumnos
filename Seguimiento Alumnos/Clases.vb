@@ -313,4 +313,8 @@ Public Class Botones
         vbuscar.Enabled = _Buscar
         vsalir.Enabled = Salir
     End Sub
+
+    Public Sub Gestionar_Individual(Boton As Button, Valor As Boolean)
+        Boton.Enabled = Valor
+    End Sub
 End Class
