@@ -23,6 +23,6 @@
     End Sub
 
     Private Sub GrupoResultados_Enter(sender As Object, e As EventArgs) Handles GrupoResultados.Enter
-        MsgBox(" s")
+
     End Sub
 End Class

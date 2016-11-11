@@ -32,3 +32,14 @@ C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Form1
 C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMParametros.resources
 C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
 C:\trabajo_programacion3\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.exe
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.pdb
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.xml
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.DisersionesTop.resources
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Form1.resources
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMParametros.resources
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
