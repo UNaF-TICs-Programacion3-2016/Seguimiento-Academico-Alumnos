@@ -59,6 +59,7 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.OtrosAntecedentesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.GrupoSituacion.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,7 +85,7 @@ Partial Class Form1
         '
         'DatosDelAlumnoToolStripMenuItem1
         '
-        Me.DatosDelAlumnoToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsistenciasPorClaseToolStripMenuItem, Me.ExámenesToolStripMenuItem, Me.MateriasDelAlumnoToolStripMenuItem, Me.AsistenciasPorClaseToolStripMenuItem1, Me.AntecedeToolStripMenuItem, Me.DisersionesToolStripMenuItem})
+        Me.DatosDelAlumnoToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsistenciasPorClaseToolStripMenuItem, Me.ExámenesToolStripMenuItem, Me.MateriasDelAlumnoToolStripMenuItem, Me.AsistenciasPorClaseToolStripMenuItem1, Me.AntecedeToolStripMenuItem, Me.DisersionesToolStripMenuItem, Me.OtrosAntecedentesToolStripMenuItem})
         Me.DatosDelAlumnoToolStripMenuItem1.Name = "DatosDelAlumnoToolStripMenuItem1"
         Me.DatosDelAlumnoToolStripMenuItem1.Size = New System.Drawing.Size(233, 22)
         Me.DatosDelAlumnoToolStripMenuItem1.Text = "Datos del alumno"
@@ -358,6 +359,12 @@ Partial Class Form1
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Puntaje: "
         '
+        'OtrosAntecedentesToolStripMenuItem
+        '
+        Me.OtrosAntecedentesToolStripMenuItem.Name = "OtrosAntecedentesToolStripMenuItem"
+        Me.OtrosAntecedentesToolStripMenuItem.Size = New System.Drawing.Size(214, 22)
+        Me.OtrosAntecedentesToolStripMenuItem.Text = "Otros Antecedentes"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -418,5 +425,6 @@ Partial Class Form1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents SituaciónPorAlumnoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MotivosDeDisersiónUsualesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents OtrosAntecedentesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

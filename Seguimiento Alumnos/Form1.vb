@@ -32,5 +32,11 @@
 
     Private Sub AsistenciasPorClaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AsistenciasPorClaseToolStripMenuItem.Click
         FRMPersonas.Show()
+        FRMPersonas.DatosPersonales.Visible = True
+    End Sub
+
+    Private Sub ExámenesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExámenesToolStripMenuItem.Click
+        FRMPersonas.Show()
+        FRMPersonas.AntecedentesAc.Visible = True
     End Sub
 End Class
