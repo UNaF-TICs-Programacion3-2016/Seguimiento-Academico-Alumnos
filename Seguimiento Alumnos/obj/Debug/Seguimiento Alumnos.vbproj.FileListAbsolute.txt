@@ -51,3 +51,8 @@ C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumno
 C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMPersonas.resources
 C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
 C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
+C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.exe
+C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.pdb
+C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.xml
+C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
+C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb

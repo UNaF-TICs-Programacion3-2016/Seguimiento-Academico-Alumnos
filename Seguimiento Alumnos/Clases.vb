@@ -1,4 +1,6 @@
-﻿Public Class Persona
+﻿Imports System.Data.OracleClient
+
+Public Class Persona
     Protected _Nombre As String
     Protected _Apellido As String
     Protected _Documento As Integer
@@ -156,10 +158,8 @@ Public Class Alumno
             MsgBox("Ingrese una fecha de egreso correcta", MsgBoxStyle.Exclamation, "Sistema")
         ElseIf _Promedio = "" Then
             MsgBox("Ingrese el promedio del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Promedio < 6 Then
-            MsgBox("Ingrese un promedio válido, no menor a 6", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Promedio > 10 Then
-            MsgBox("ingrese un promedio válido, menor o igual a 10", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf _Promedio < 6 Or _Promedio > 10 Then
+            MsgBox("Ingrese un promedio válido, no sea menor a 6 y menor o igual a 10 ", MsgBoxStyle.Exclamation, "Sistema")
         ElseIf Len(_Promedio) > 2 Then
             MsgBox("Ingrese un promedio válido, máximo número 10", MsgBoxStyle.Exclamation, "Sistema")
         Else
@@ -170,4 +170,52 @@ Public Class Alumno
     End Function
 
     
+End Class
+
+Public Class BasedeDatos
+
+    Private Conn As New OracleConnection
+
+    Public Sub New()
+        Conexion.ConnectionString = "Data Source = localhost; User Id = UNAF; Password = unaf;"
+    End Sub
+
+    Public ReadOnly Property Conexion As OracleConnection
+        Get
+            Return Conn
+        End Get
+    End Property
+
+    Private Sub Conectar()
+        Try
+            Conexion.Open()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Desconectar()
+        Try
+            Conexion.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Function ObtenerDatosDesdeSQL(Consulta As String) As DataTable
+        Dim comando As New OracleCommand
+        Dim lector As OracleDataReader
+        Dim tabla As New DataTable
+        Conectar()
+        comando.Connection = Conexion
+        comando.CommandText = Consulta
+        lector = comando.ExecuteReader(CommandBehavior.CloseConnection)
+        tabla.Load(lector, LoadOption.OverwriteChanges)
+        Return tabla
+
+
+
+
+    End Function
+
 End Class
