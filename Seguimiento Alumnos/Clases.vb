@@ -1,5 +1,5 @@
 ﻿Imports System.Data.OracleClient
-Public Class Persona
+Public MustInherit Class Persona
     Protected _Nombre As String
     Protected _Apellido As String
     Protected _Documento As Integer
@@ -139,6 +139,10 @@ Public Class Persona
         End If
         Return False
     End Function
+    Public Function ObtenerIDdeTabla(Tabla As DataGridView, Indice As Integer) As Integer
+        'Este método pide el datagridview y la fila que seleccionamos (el dato Indice)
+        Return Val(Tabla.Item(0, Indice))   'Devuelve el ID de la tabla, que esta guardado en la primer columna
+    End Function
 End Class
 Public Class Alumno
     Inherits Persona
@@ -225,6 +229,24 @@ Public Class Alumno
         End If
         Return False
     End Function
+
+    Public Sub Reiniciar_Persona()
+        'Vacio las propiedades del alumno
+        Nombre = Nothing
+        Apellido = Nothing
+        Documento = Nothing
+        FechaN = Nothing
+        Telefono = Nothing
+        Localidad = Nothing
+        Calle = Nothing
+        Altura = Nothing
+        EstadoCivil = Nothing
+        Colegio = Nothing
+        Orientacion = Nothing
+        Ingreso = Nothing
+        Egreso = Nothing
+        Promedio = Nothing
+    End Sub
 End Class
 
 Public Class Botones

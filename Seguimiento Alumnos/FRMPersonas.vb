@@ -22,9 +22,21 @@
     Private Sub CMDBuscar_Click(sender As Object, e As EventArgs) Handles CMDBuscar.Click
         DatagridAlumnos.DataSource = AccesoDB.Obtener_Tabla("Select ID_ALUMNO As ID, PERSONA_NOMBRE as Nombre, PERSONA_APELLIDO As Apellido, PERSONA_DOCUMENTO As Documento From ALUMNO INNER JOIN PERSONA ON ID_PERSONA = RELA_PERSONA")
         Me.Width = 840
+        Dim gestionarbotones As New Botones(False, False, False, False, False, False, True)
+        gestionarbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
     End Sub
 
     Private Sub CMDSeleccionar_Click(sender As Object, e As EventArgs) Handles CMDSeleccionar.Click
+        If DatagridAlumnos.RowCount > 1 Then    'Si la cantidad de filas es mayor a 0 entonces
+            Dim Indice As Integer
+            Dim Tabla1 As New DataTable
+            Dim Tabla2 As New DataTable
+            Indice = AlumnoNuevo.ObtenerIDdeTabla(DatagridAlumnos, DatagridAlumnos.CurrentRow.Index) 'Sacamos id del seleccionado
+            Tabla1 = AccesoDB.Obtener_Tabla("Select ID_Alumno, ID_Persona, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From Alumnos Join Personas On ID_Persona = Rela_Persona Where ID_Alumno = " & Indice & ";")
+            Tabla2 = AccesoDB.Obtener_Tabla("Select * From ANTECEDENTE_ACADEMICO Inner Join ALUMNO ON ID_ALUMNO = RELA_ALUMNO Where ID_ALUMNO = " & Indice & ";"
+            AlumnoNuevo.Cargar_DatosPersona(Tabla1(0).ToString, Tabla1(1).ToString, Val(Tabla1(2)), Convert.ToDateTime(Tabla1(3)), Val(Tabla1(4)), Val(Tabla1(5)), Tabla1(6).ToString, Val(Tabla1(7)), Val(Tabla1(8)))
+            AlumnoNuevo.Cargar_AntAcademicos(Val(Tabla2(1)), Val(Tabla2(2)), Val(Tabla2(3)), Val(Tabla2(4)), Val(Tabla2(5)))
+        End If
         Me.Width = 555
     End Sub
 
@@ -88,6 +100,7 @@
     End Sub
 
     Private Sub CMDNuevo_Click(sender As Object, e As EventArgs) Handles CMDNuevo.Click
+        AlumnoNuevo.Reiniciar_Persona()
         AlumnoID = 0
         Dim GestionBotones As New Botones(False, True, False, True, False, False, True)
         GestionBotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
@@ -96,5 +109,9 @@
     Private Sub CMDCancelar_Click(sender As Object, e As EventArgs) Handles CMDCancelar.Click
         Dim gestionbotones As New Botones(True, False, False, False, False, True, True)
         gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+    End Sub
+
+    Private Sub DatagridAlumnos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DatagridAlumnos.CellContentClick
+
     End Sub
 End Class
