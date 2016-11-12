@@ -77,3 +77,6 @@ C:\Users\Carlos\Desktop\tp programacion\Seguimiento-Academico-Alumnos\Seguimient
 D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento-Alumnos\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMDatos.resources
 C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMDatos.resources
 C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMPersonas.resources
+C:\Users\lean\Desktop\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
+C:\Users\lean\Desktop\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
+C:\Users\lean\Desktop\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
