@@ -36,9 +36,11 @@
     Private Sub CMDGuardar_Click(sender As Object, e As EventArgs) Handles CMDGuardar.Click
         If AlumnoNuevo.ValidarPersona And AlumnoNuevo.ValidarAntAcademicos Then
             Dim AccesoDB As New GestorBD
+            'Cargamos el objeto
+            Dim Ecivil As Integer
+            Ecivil = AccesoDB.Obtener_ID("ESTADOCIVIL", "ID_ESTADOCIVIL", "ESTADOCIVIL_DESCRIPCION", CBOEc.Text)
+            AlumnoNuevo.Cargar_DatosPersona(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, 1, "", 1, Ecivil)
             Dim TXT As String
-            AlumnoNuevo.FechaN = Format(DTPFechan.Value, "DD/MM/YYYY")
-            AlumnoNuevo.EstadoCivil = AccesoDB.Obtener_ID("ESTADOCIVIL", "ID_ESTADOCIVIL", "ESTADOCIVIL_DESCRIPCION", CBOEc.Text)
             TXT = "Insert Into PERSONA(RELA_ESTADOCIVIL, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(" & AlumnoNuevo.EstadoCivil & ", '" & AlumnoNuevo.Nombre & "', '" & AlumnoNuevo.Apellido & "', " & AlumnoNuevo.Documento & ", " & AlumnoNuevo.FechaN & ", " & AlumnoNuevo.Telefono & ")"
             AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
         End If
