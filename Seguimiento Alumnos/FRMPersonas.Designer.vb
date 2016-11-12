@@ -59,6 +59,8 @@ Partial Class FRMPersonas
         Me.DTPEgreso = New System.Windows.Forms.DateTimePicker()
         Me.CBOOrientacion = New System.Windows.Forms.ComboBox()
         Me.TXTPromedio = New System.Windows.Forms.TextBox()
+        Me.TXTTelefono = New System.Windows.Forms.TextBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DatagridAlumnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DatosPersonales.SuspendLayout()
@@ -177,6 +179,8 @@ Partial Class FRMPersonas
         '
         'DatosPersonales
         '
+        Me.DatosPersonales.Controls.Add(Me.Label13)
+        Me.DatosPersonales.Controls.Add(Me.TXTTelefono)
         Me.DatosPersonales.Controls.Add(Me.Label6)
         Me.DatosPersonales.Controls.Add(Me.Label5)
         Me.DatosPersonales.Controls.Add(Me.Label4)
@@ -201,7 +205,7 @@ Partial Class FRMPersonas
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(6, 156)
+        Me.Label6.Location = New System.Drawing.Point(6, 188)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(95, 15)
         Me.Label6.TabIndex = 30
@@ -261,7 +265,7 @@ Partial Class FRMPersonas
         '
         Me.CBOCarreras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOCarreras.FormattingEnabled = True
-        Me.CBOCarreras.Location = New System.Drawing.Point(103, 153)
+        Me.CBOCarreras.Location = New System.Drawing.Point(103, 185)
         Me.CBOCarreras.Name = "CBOCarreras"
         Me.CBOCarreras.Size = New System.Drawing.Size(121, 23)
         Me.CBOCarreras.TabIndex = 24
@@ -422,6 +426,24 @@ Partial Class FRMPersonas
         Me.TXTPromedio.Size = New System.Drawing.Size(48, 21)
         Me.TXTPromedio.TabIndex = 21
         '
+        'TXTTelefono
+        '
+        Me.TXTTelefono.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTTelefono.Location = New System.Drawing.Point(101, 155)
+        Me.TXTTelefono.Name = "TXTTelefono"
+        Me.TXTTelefono.Size = New System.Drawing.Size(121, 21)
+        Me.TXTTelefono.TabIndex = 31
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(38, 158)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(55, 15)
+        Me.Label13.TabIndex = 32
+        Me.Label13.Text = "Telefono"
+        '
         'FRMPersonas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -491,4 +513,6 @@ Partial Class FRMPersonas
     Friend WithEvents DTPEgreso As System.Windows.Forms.DateTimePicker
     Friend WithEvents CBOOrientacion As System.Windows.Forms.ComboBox
     Friend WithEvents TXTPromedio As System.Windows.Forms.TextBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents TXTTelefono As System.Windows.Forms.TextBox
 End Class

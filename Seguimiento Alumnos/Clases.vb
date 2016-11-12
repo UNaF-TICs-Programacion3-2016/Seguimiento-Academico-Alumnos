@@ -1,4 +1,5 @@
-﻿Public Class Persona
+﻿Imports System.Data.OracleClient
+Public Class Persona
     Protected _Nombre As String
     Protected _Apellido As String
     Protected _Documento As Integer
@@ -317,4 +318,92 @@ Public Class Botones
     Public Sub Gestionar_Individual(Boton As Button, Valor As Boolean)
         Boton.Enabled = Valor
     End Sub
+End Class
+
+Public Class GestorBD
+    Private Conexion As New OracleConnection
+    Private Comando As New OracleCommand
+    Public O1 As VariantType
+    Public O2 As VariantType
+    Public O3 As VariantType
+    Public O4 As VariantType
+    Public O5 As VariantType
+    Public O6 As VariantType
+    Public O7 As VariantType
+    Public O8 As VariantType
+    Public O9 As VariantType
+
+
+    Private Sub Conectar()
+        Conexion.ConnectionString = "Data Source= localhos;User Id = grupo1; Password = 123;"
+        Conexion.Open()
+    End Sub
+    Private Sub Cerrar()
+        Conexion.Close()
+    End Sub
+
+    Public Sub Obtener_Datos(P1 As VariantType, P2 As VariantType, P3 As VariantType, P4 As VariantType, P5 As VariantType, P6 As VariantType, P7 As VariantType, P8 As VariantType, P9 As VariantType)
+        O1 = P1
+        O2 = P2
+        O3 = P3
+        O4 = P4
+        O5 = P5
+        O6 = P6
+        O7 = P7
+        O8 = P8
+        O9 = P9
+    End Sub
+
+    Public Sub Cargar_Datos(Consulta As String, P1 As String, P2 As String, P3 As String, P4 As String, P5 As String, P6 As String, P7 As String, P8 As String, P9 As String)
+        'Le damos muchos parametros, los que no esten en blanco son los que se asignaran (se manda el nombre del campo)
+        Try
+            Conectar() 'Llamamos al sub para conectar
+            Comando.Connection = Conexion
+            Comando.CommandType = CommandType.Text
+            Comando.CommandText = Consulta
+            If P1 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P1, P1))
+            End If
+            If P2 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P2, P2))
+            End If
+            If P3 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P3, P3))
+            End If
+            If P4 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P4, P4))
+            End If
+            If P5 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P5, P5))
+            End If
+            If P6 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P6, P6))
+            End If
+            If P7 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P7, P7))
+            End If
+            If P8 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P8, P8))
+            End If
+            If P9 <> "" Then
+                Comando.Parameters.Add(New OracleParameter(":" & P9, P9))
+            End If
+
+            Comando.ExecuteNonQuery()
+            Cerrar()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Function Obtener_ID(Tabla As String, ID As String, campo1 As String, Objeto As String)
+        Conectar()
+        Comando.Connection = Conexion
+        Dim Reader As OracleDataReader
+        Dim Tabla As New DataTable()
+        Comando.CommandText = "Select " & Objeto & " From " & Tabla & " where " & campo1 & " = '" & Objeto & "'"
+        Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection)
+        Tabla.Load(Reader, LoadOption.OverwriteChanges)
+        Return Tabla.Rows(0).Item(0)    'Devuelvo el ID
+    End Function
 End Class
