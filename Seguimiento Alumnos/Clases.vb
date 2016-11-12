@@ -335,7 +335,7 @@ Public Class GestorBD
 
 
     Private Sub Conectar()
-        Conexion.ConnectionString = "Data Source= localhos;User Id = grupo1; Password = 123;"
+        Conexion.ConnectionString = "Data Source= localhost;User Id = grupo1; Password = 123;"
         Conexion.Open()
     End Sub
     Private Sub Cerrar()
@@ -425,5 +425,46 @@ Public Class GestorBD
         Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection)
         Tableta.Load(Reader, LoadOption.OverwriteChanges)
         Return Tableta.Rows(0).Item(0)    'Devuelvo el ID
+    End Function
+
+    Public Function Obtener_Tabla(Consulta As String) As DataTable
+        'objetos reader de oracle y datatable
+        Dim Reader As OracleDataReader
+        Dim Tabla As New DataTable()
+        Try
+            Conectar()
+            Comando.Connection = Conexion
+            Comando.CommandType = CommandType.Text
+            Comando.CommandText = Consulta
+            Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection) 'hace que cuando se usa de usar la conexion se cierra
+
+            Tabla.Load(Reader, LoadOption.OverwriteChanges) 'Cargamos los datos del reader en el load
+            Return Tabla
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Exit Function
+        End Try
+
+    End Function
+
+    Public Function Detectar_Existente(tabla As String, id As Integer, campo As String) As Boolean
+        Try
+            Conectar()
+            Comando.Connection = Conexion
+            Dim Reader As OracleDataReader
+            Dim Tableta As New DataTable()
+            Comando.CommandText = "Select count(*) From " & tabla & " where " & campo & " = " & id & ""
+            Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection)
+            Tableta.Load(Reader, LoadOption.OverwriteChanges)
+            If Val(Tableta.Rows(0).Item(0)) > 0 Then
+                Return False
+            Else
+                Return True
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Exit Function
+        End Try
     End Function
 End Class

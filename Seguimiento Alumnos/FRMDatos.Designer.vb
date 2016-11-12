@@ -30,6 +30,7 @@ Partial Class FRMDatos
         Me.DisersiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OtrosAntecedentesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CarreraxAlumno = New System.Windows.Forms.GroupBox()
+        Me.Label33 = New System.Windows.Forms.Label()
         Me.CMDAgregarCarrera = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.CMDBuscar = New System.Windows.Forms.Button()
@@ -45,7 +46,7 @@ Partial Class FRMDatos
         Me.CBOCarrera2 = New System.Windows.Forms.ComboBox()
         Me.CBOEstado = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridMaterias = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.CBOMateria = New System.Windows.Forms.ComboBox()
@@ -102,7 +103,7 @@ Partial Class FRMDatos
         Me.TXTAlumno5 = New System.Windows.Forms.TextBox()
         Me.Antecedentes = New System.Windows.Forms.GroupBox()
         Me.Label29 = New System.Windows.Forms.Label()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridAnt = New System.Windows.Forms.DataGridView()
         Me.CMDBajaAnt = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -114,17 +115,16 @@ Partial Class FRMDatos
         Me.CMDBuscar6 = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.TXTAlumno6 = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.CarreraxAlumno.SuspendLayout()
         Me.Materia.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridMaterias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Asistencia.SuspendLayout()
         Me.Examenes.SuspendLayout()
         CType(Me.DataGridExamenes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Disersion.SuspendLayout()
         Me.Antecedentes.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridAnt, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -189,6 +189,16 @@ Partial Class FRMDatos
         Me.CarreraxAlumno.TabIndex = 1
         Me.CarreraxAlumno.TabStop = False
         Me.CarreraxAlumno.Text = "....."
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.Location = New System.Drawing.Point(234, 11)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(172, 20)
+        Me.Label33.TabIndex = 32
+        Me.Label33.Text = "Carreras del Alumno"
         '
         'CMDAgregarCarrera
         '
@@ -265,7 +275,7 @@ Partial Class FRMDatos
         Me.Materia.Controls.Add(Me.CBOCarrera2)
         Me.Materia.Controls.Add(Me.CBOEstado)
         Me.Materia.Controls.Add(Me.Label8)
-        Me.Materia.Controls.Add(Me.DataGridView1)
+        Me.Materia.Controls.Add(Me.DataGridMaterias)
         Me.Materia.Controls.Add(Me.Label7)
         Me.Materia.Controls.Add(Me.Button1)
         Me.Materia.Controls.Add(Me.CBOMateria)
@@ -335,13 +345,14 @@ Partial Class FRMDatos
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Estado"
         '
-        'DataGridView1
+        'DataGridMaterias
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(308, 66)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(400, 240)
-        Me.DataGridView1.TabIndex = 10
+        Me.DataGridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridMaterias.Location = New System.Drawing.Point(308, 66)
+        Me.DataGridMaterias.Name = "DataGridMaterias"
+        Me.DataGridMaterias.RowHeadersVisible = False
+        Me.DataGridMaterias.Size = New System.Drawing.Size(400, 240)
+        Me.DataGridMaterias.TabIndex = 10
         '
         'Label7
         '
@@ -611,6 +622,7 @@ Partial Class FRMDatos
         Me.DataGridExamenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridExamenes.Location = New System.Drawing.Point(310, 52)
         Me.DataGridExamenes.Name = "DataGridExamenes"
+        Me.DataGridExamenes.RowHeadersVisible = False
         Me.DataGridExamenes.Size = New System.Drawing.Size(328, 229)
         Me.DataGridExamenes.TabIndex = 24
         '
@@ -852,7 +864,7 @@ Partial Class FRMDatos
         'Antecedentes
         '
         Me.Antecedentes.Controls.Add(Me.Label29)
-        Me.Antecedentes.Controls.Add(Me.DataGridView2)
+        Me.Antecedentes.Controls.Add(Me.DataGridAnt)
         Me.Antecedentes.Controls.Add(Me.CMDBajaAnt)
         Me.Antecedentes.Controls.Add(Me.TextBox2)
         Me.Antecedentes.Controls.Add(Me.Label25)
@@ -881,13 +893,14 @@ Partial Class FRMDatos
         Me.Label29.TabIndex = 31
         Me.Label29.Text = "Antecedentes del Alumno"
         '
-        'DataGridView2
+        'DataGridAnt
         '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(338, 70)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(360, 234)
-        Me.DataGridView2.TabIndex = 30
+        Me.DataGridAnt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridAnt.Location = New System.Drawing.Point(338, 70)
+        Me.DataGridAnt.Name = "DataGridAnt"
+        Me.DataGridAnt.RowHeadersVisible = False
+        Me.DataGridAnt.Size = New System.Drawing.Size(360, 234)
+        Me.DataGridAnt.TabIndex = 30
         '
         'CMDBajaAnt
         '
@@ -984,28 +997,18 @@ Partial Class FRMDatos
         Me.TXTAlumno6.Size = New System.Drawing.Size(100, 20)
         Me.TXTAlumno6.TabIndex = 0
         '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label33.Location = New System.Drawing.Point(234, 11)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(172, 20)
-        Me.Label33.TabIndex = 32
-        Me.Label33.Text = "Carreras del Alumno"
-        '
         'FRMDatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 370)
-        Me.Controls.Add(Me.CarreraxAlumno)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Antecedentes)
         Me.Controls.Add(Me.Disersion)
         Me.Controls.Add(Me.Examenes)
         Me.Controls.Add(Me.Asistencia)
         Me.Controls.Add(Me.Materia)
+        Me.Controls.Add(Me.CarreraxAlumno)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMDatos"
         Me.Text = "Datos del alumno en cursada"
@@ -1015,7 +1018,7 @@ Partial Class FRMDatos
         Me.CarreraxAlumno.PerformLayout()
         Me.Materia.ResumeLayout(False)
         Me.Materia.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridMaterias, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Asistencia.ResumeLayout(False)
         Me.Asistencia.PerformLayout()
         Me.Examenes.ResumeLayout(False)
@@ -1025,7 +1028,7 @@ Partial Class FRMDatos
         Me.Disersion.PerformLayout()
         Me.Antecedentes.ResumeLayout(False)
         Me.Antecedentes.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridAnt, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1056,7 +1059,7 @@ Partial Class FRMDatos
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TXTFecha2 As System.Windows.Forms.TextBox
     Friend WithEvents TXTAlumno2 As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridMaterias As System.Windows.Forms.DataGridView
     Friend WithEvents CMDActualizar As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents CBOCarrera2 As System.Windows.Forms.ComboBox
@@ -1115,7 +1118,7 @@ Partial Class FRMDatos
     Friend WithEvents TXTAlumno6 As System.Windows.Forms.TextBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridAnt As System.Windows.Forms.DataGridView
     Friend WithEvents CMDBajaAnt As System.Windows.Forms.Button
     Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents Label30 As System.Windows.Forms.Label
