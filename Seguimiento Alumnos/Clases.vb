@@ -515,6 +515,46 @@ Public Class GestorBD
     End Function
 End Class
 
+Public Class Orientacion
+    Private vNombreorientacion As String
+    Private vCodigoorientacion As String
+
+
+    Public Sub New()
+
+    End Sub
+    Public Sub New(_Nombreorientacion As String, _Codigoorientacion As String)
+        Nombreorientacion = _Nombreorientacion
+        Codigoorientacion = _Codigoorientacion
+    End Sub
+
+    Public Property Nombreorientacion As String
+        Get
+            Return vNombreorientacion
+        End Get
+        Set(value As String)
+            vNombreorientacion = value
+        End Set
+    End Property
+
+    Public Property Codigoorientacion As String
+        Get
+            Return vCodigoorientacion
+        End Get
+        Set(value As String)
+            vCodigoorientacion = value
+        End Set
+    End Property
+
+    Public Function Mensaje(Tipo As String) As String
+        If Tipo = "Guardar" Then
+            Return "La carga de la orientacion " & Nombreorientacion & " se ha realizado correctamente."
+        ElseIf Tipo = "Modificar" Then
+            Return "La modificación de la orientacion " & Nombreorientacion & " se ha realizado correctamente."
+        End If
+    End Function
+End Class
+
 Public Class Materia
     Private vNombre As String
     Private vCodigo As String
