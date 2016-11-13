@@ -87,4 +87,44 @@
             .Antecedentes.Visible = True
         End With
     End Sub
+
+    Private Sub DatosDeEscuelasSecundariasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatosDeEscuelasSecundariasToolStripMenuItem.Click
+        With FormularioDatos2
+            .Show()
+            .Ocultar()
+            .Colegios.Visible = True
+        End With
+    End Sub
+
+    Private Sub OrientacionesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrientacionesToolStripMenuItem.Click
+        With FormularioDatos2
+            .Show()
+            .Ocultar()
+            .Orientaciones.Visible = True
+        End With
+    End Sub
+
+    Private Sub CarrerasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CarrerasToolStripMenuItem.Click
+        With FormularioDatos2
+            .Show()
+            .Ocultar()
+            .Carreras.Visible = True
+        End With
+    End Sub
+
+    Private Sub ClasesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClasesToolStripMenuItem.Click
+        With FormularioDatos2
+            .Show()
+            .Ocultar()
+            .ClasesporMateria.Visible = True
+        End With
+    End Sub
+
+    Private Sub MotivosDeDisersiónToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MotivosDeDisersiónToolStripMenuItem.Click
+        With FormularioDatos2
+            .Show()
+            .Ocultar()
+            .motivosdedisersion.Visible = True
+        End With
+    End Sub
 End Class

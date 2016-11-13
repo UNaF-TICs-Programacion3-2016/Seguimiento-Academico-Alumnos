@@ -82,3 +82,4 @@ C:\Users\lean\Desktop\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debu
 C:\Users\lean\Desktop\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
 C:\Users\Carlos\Desktop\tp programacion\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FormularioDatos2.resources
 C:\Users\Carlos\Desktop\tp programacion\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMDatos.resources
+D:\UNAF-TICs\Segundo Año\Segundo Cuatrimestre\Programación III\Seguimiento-Alumnos\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FormularioDatos2.resources

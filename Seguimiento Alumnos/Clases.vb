@@ -490,3 +490,42 @@ Public Class GestorBD
         End Try
     End Function
 End Class
+
+Public Class Materia
+    Private vNombre As String
+    Private vCodigo As String
+    Private vCarrera As Integer
+
+    Public Sub New()
+
+    End Sub
+    Public Sub New(_Nombre As String, _Codigo As String, _Carrera As Integer)
+        Nombre = _Nombre
+        Codigo = _Codigo
+        Carrera = _Carrera
+    End Sub
+    Public Property Nombre As String
+        Get
+            Return vNombre
+        End Get
+        Set(value As String)
+            vNombre = value
+        End Set
+    End Property
+    Public Property Codigo As String
+        Get
+            Return vCodigo
+        End Get
+        Set(value As String)
+            vCodigo = value
+        End Set
+    End Property
+    Public Property Carrera As Integer
+        Get
+            Return vCarrera
+        End Get
+        Set(value As Integer)
+            vCarrera = value
+        End Set
+    End Property
+End Class
