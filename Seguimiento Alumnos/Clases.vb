@@ -552,4 +552,47 @@ Public Class Materia
             vCarrera = value
         End Set
     End Property
+
+    Public Function Mensaje(Tipo As String) As String
+        If Tipo = "Guardar" Then
+            Return "La carga de la materia " & Nombre & " se ha realizado correctamente."
+        ElseIf Tipo = "Modificar" Then
+            Return "La modificación de la materia " & Nombre & " se ha realizado correctamente."
+        End If
+    End Function
+End Class
+Public Class Colegio
+    Private _Nombre As String
+    Private _Tipo As Integer
+    Public Sub New(vNombre As String, vTipo As Integer)
+        Nombre = vNombre
+        TipoColegio = vTipo
+    End Sub
+    Public Sub New()
+
+    End Sub
+    Public Property Nombre As String
+        Get
+            Return _Nombre
+        End Get
+        Set(value As String)
+            _Nombre = value
+        End Set
+    End Property
+
+    Public Property TipoColegio As Integer
+        Get
+            Return _Tipo
+        End Get
+        Set(value As Integer)
+            _Tipo = value
+        End Set
+    End Property
+    Public Function Mensaje(Tipo As String) As String
+        If Tipo = "Guardar" Then
+            Return "La carga del colegio " & Nombre & " se ha realizado correctamente."
+        ElseIf Tipo = "Modificar" Then
+            Return "La modificación del registro del colegio " & Colegio & " se ha realizado correctamente."
+        End If
+    End Function
 End Class

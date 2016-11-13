@@ -30,15 +30,31 @@ Partial Class FormularioDatos2
         Me.MotivosDeDisersiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MateriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Colegios = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.DataGridCol = New System.Windows.Forms.DataGridView()
+        Me.CMDCancelarCol = New System.Windows.Forms.Button()
+        Me.CMDModificarCol = New System.Windows.Forms.Button()
+        Me.CMDAgregarCol = New System.Windows.Forms.Button()
         Me.CBXtipo = New System.Windows.Forms.ComboBox()
         Me.LBLtipo = New System.Windows.Forms.Label()
         Me.TXTNombreCol = New System.Windows.Forms.TextBox()
         Me.LBLnombre = New System.Windows.Forms.Label()
         Me.Orientaciones = New System.Windows.Forms.GroupBox()
+        Me.DataGridOr = New System.Windows.Forms.DataGridView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.CMDCancelarOr = New System.Windows.Forms.Button()
+        Me.CMDModificarOr = New System.Windows.Forms.Button()
+        Me.TXTOrientacion = New System.Windows.Forms.TextBox()
+        Me.CMDAgregarOr = New System.Windows.Forms.Button()
         Me.CBXcolegios = New System.Windows.Forms.ComboBox()
         Me.LBLorientacion = New System.Windows.Forms.Label()
         Me.LBLcolegio = New System.Windows.Forms.Label()
         Me.Carreras = New System.Windows.Forms.GroupBox()
+        Me.DataGridCar = New System.Windows.Forms.DataGridView()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CMDCancelarCar = New System.Windows.Forms.Button()
+        Me.CMDModificarCar = New System.Windows.Forms.Button()
+        Me.CMDAgregarCar = New System.Windows.Forms.Button()
         Me.TXTduracion = New System.Windows.Forms.TextBox()
         Me.TXTnomb = New System.Windows.Forms.TextBox()
         Me.TXTcodig = New System.Windows.Forms.TextBox()
@@ -53,53 +69,37 @@ Partial Class FormularioDatos2
         Me.LBLanio = New System.Windows.Forms.Label()
         Me.LBLmateria = New System.Windows.Forms.Label()
         Me.motivosdedisersion = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.CMDCancelarDis = New System.Windows.Forms.Button()
+        Me.TXTModificarDis = New System.Windows.Forms.Button()
+        Me.CMDAgregarDis = New System.Windows.Forms.Button()
         Me.TXTMotivoDisersion = New System.Windows.Forms.TextBox()
         Me.LBLmotidisersion = New System.Windows.Forms.Label()
         Me.Materias = New System.Windows.Forms.GroupBox()
+        Me.CBOCarrera = New System.Windows.Forms.ComboBox()
+        Me.LBLcarrera = New System.Windows.Forms.Label()
+        Me.CMDCancelarMat = New System.Windows.Forms.Button()
+        Me.CMDModificarMat = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CMDAgregarMat = New System.Windows.Forms.Button()
         Me.TXBnomb = New System.Windows.Forms.TextBox()
         Me.TXBCod = New System.Windows.Forms.TextBox()
         Me.LBLNomb = New System.Windows.Forms.Label()
         Me.LBLcodigo = New System.Windows.Forms.Label()
-        Me.CMDAgregarMat = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.CMDModificarMat = New System.Windows.Forms.Button()
-        Me.CMDCancelarMat = New System.Windows.Forms.Button()
-        Me.CBOCarrera = New System.Windows.Forms.ComboBox()
-        Me.LBLcarrera = New System.Windows.Forms.Label()
-        Me.CMDAgregarOr = New System.Windows.Forms.Button()
-        Me.TXTOrientacion = New System.Windows.Forms.TextBox()
-        Me.CMDModificarOr = New System.Windows.Forms.Button()
-        Me.CMDCancelarOr = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.DataGridOr = New System.Windows.Forms.DataGridView()
-        Me.CMDAgregarCar = New System.Windows.Forms.Button()
-        Me.CMDModificarCar = New System.Windows.Forms.Button()
-        Me.CMDCancelarCar = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.DataGridCar = New System.Windows.Forms.DataGridView()
-        Me.CMDAgregarCol = New System.Windows.Forms.Button()
-        Me.CMDModificarCol = New System.Windows.Forms.Button()
-        Me.CMDCancelarCol = New System.Windows.Forms.Button()
-        Me.DataGridCol = New System.Windows.Forms.DataGridView()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.CMDAgregarDis = New System.Windows.Forms.Button()
-        Me.TXTModificarDis = New System.Windows.Forms.Button()
-        Me.CMDCancelarDis = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.Colegios.SuspendLayout()
+        CType(Me.DataGridCol, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Orientaciones.SuspendLayout()
+        CType(Me.DataGridOr, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Carreras.SuspendLayout()
+        CType(Me.DataGridCar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ClasesporMateria.SuspendLayout()
         Me.motivosdedisersion.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Materias.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridOr, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridCar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridCol, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -160,10 +160,55 @@ Partial Class FormularioDatos2
         Me.Colegios.Controls.Add(Me.LBLnombre)
         Me.Colegios.Location = New System.Drawing.Point(12, 27)
         Me.Colegios.Name = "Colegios"
-        Me.Colegios.Size = New System.Drawing.Size(608, 251)
+        Me.Colegios.Size = New System.Drawing.Size(618, 251)
         Me.Colegios.TabIndex = 1
         Me.Colegios.TabStop = False
         Me.Colegios.Text = "Colegios"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(403, 23)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(47, 13)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Colegios"
+        '
+        'DataGridCol
+        '
+        Me.DataGridCol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridCol.Location = New System.Drawing.Point(296, 39)
+        Me.DataGridCol.Name = "DataGridCol"
+        Me.DataGridCol.RowHeadersVisible = False
+        Me.DataGridCol.Size = New System.Drawing.Size(306, 150)
+        Me.DataGridCol.TabIndex = 7
+        '
+        'CMDCancelarCol
+        '
+        Me.CMDCancelarCol.Location = New System.Drawing.Point(66, 140)
+        Me.CMDCancelarCol.Name = "CMDCancelarCol"
+        Me.CMDCancelarCol.Size = New System.Drawing.Size(96, 23)
+        Me.CMDCancelarCol.TabIndex = 6
+        Me.CMDCancelarCol.Text = "Cancelar"
+        Me.CMDCancelarCol.UseVisualStyleBackColor = True
+        '
+        'CMDModificarCol
+        '
+        Me.CMDModificarCol.Location = New System.Drawing.Point(119, 106)
+        Me.CMDModificarCol.Name = "CMDModificarCol"
+        Me.CMDModificarCol.Size = New System.Drawing.Size(96, 23)
+        Me.CMDModificarCol.TabIndex = 5
+        Me.CMDModificarCol.Text = "Modificar"
+        Me.CMDModificarCol.UseVisualStyleBackColor = True
+        '
+        'CMDAgregarCol
+        '
+        Me.CMDAgregarCol.Location = New System.Drawing.Point(17, 106)
+        Me.CMDAgregarCol.Name = "CMDAgregarCol"
+        Me.CMDAgregarCol.Size = New System.Drawing.Size(96, 23)
+        Me.CMDAgregarCol.TabIndex = 4
+        Me.CMDAgregarCol.Text = "Agregar Nuevo"
+        Me.CMDAgregarCol.UseVisualStyleBackColor = True
         '
         'CBXtipo
         '
@@ -216,6 +261,57 @@ Partial Class FormularioDatos2
         Me.Orientaciones.TabStop = False
         Me.Orientaciones.Text = "Orientaciones"
         '
+        'DataGridOr
+        '
+        Me.DataGridOr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridOr.Location = New System.Drawing.Point(278, 34)
+        Me.DataGridOr.Name = "DataGridOr"
+        Me.DataGridOr.Size = New System.Drawing.Size(300, 162)
+        Me.DataGridOr.TabIndex = 9
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(390, 18)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(72, 13)
+        Me.Label2.TabIndex = 8
+        Me.Label2.Text = "Orientaciones"
+        '
+        'CMDCancelarOr
+        '
+        Me.CMDCancelarOr.Location = New System.Drawing.Point(66, 142)
+        Me.CMDCancelarOr.Name = "CMDCancelarOr"
+        Me.CMDCancelarOr.Size = New System.Drawing.Size(101, 23)
+        Me.CMDCancelarOr.TabIndex = 7
+        Me.CMDCancelarOr.Text = "Cancelar"
+        Me.CMDCancelarOr.UseVisualStyleBackColor = True
+        '
+        'CMDModificarOr
+        '
+        Me.CMDModificarOr.Location = New System.Drawing.Point(123, 106)
+        Me.CMDModificarOr.Name = "CMDModificarOr"
+        Me.CMDModificarOr.Size = New System.Drawing.Size(101, 23)
+        Me.CMDModificarOr.TabIndex = 6
+        Me.CMDModificarOr.Text = "Modificar"
+        Me.CMDModificarOr.UseVisualStyleBackColor = True
+        '
+        'TXTOrientacion
+        '
+        Me.TXTOrientacion.Location = New System.Drawing.Point(87, 60)
+        Me.TXTOrientacion.Name = "TXTOrientacion"
+        Me.TXTOrientacion.Size = New System.Drawing.Size(100, 20)
+        Me.TXTOrientacion.TabIndex = 5
+        '
+        'CMDAgregarOr
+        '
+        Me.CMDAgregarOr.Location = New System.Drawing.Point(12, 105)
+        Me.CMDAgregarOr.Name = "CMDAgregarOr"
+        Me.CMDAgregarOr.Size = New System.Drawing.Size(101, 23)
+        Me.CMDAgregarOr.TabIndex = 4
+        Me.CMDAgregarOr.Text = "Agregar Nuevo"
+        Me.CMDAgregarOr.UseVisualStyleBackColor = True
+        '
         'CBXcolegios
         '
         Me.CBXcolegios.FormattingEnabled = True
@@ -261,6 +357,51 @@ Partial Class FormularioDatos2
         Me.Carreras.TabIndex = 3
         Me.Carreras.TabStop = False
         Me.Carreras.Text = "Carreras"
+        '
+        'DataGridCar
+        '
+        Me.DataGridCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridCar.Location = New System.Drawing.Point(280, 34)
+        Me.DataGridCar.Name = "DataGridCar"
+        Me.DataGridCar.RowHeadersVisible = False
+        Me.DataGridCar.Size = New System.Drawing.Size(324, 185)
+        Me.DataGridCar.TabIndex = 11
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(418, 16)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 13)
+        Me.Label3.TabIndex = 10
+        Me.Label3.Text = "Carreras"
+        '
+        'CMDCancelarCar
+        '
+        Me.CMDCancelarCar.Location = New System.Drawing.Point(74, 161)
+        Me.CMDCancelarCar.Name = "CMDCancelarCar"
+        Me.CMDCancelarCar.Size = New System.Drawing.Size(101, 23)
+        Me.CMDCancelarCar.TabIndex = 9
+        Me.CMDCancelarCar.Text = "Cancelar"
+        Me.CMDCancelarCar.UseVisualStyleBackColor = True
+        '
+        'CMDModificarCar
+        '
+        Me.CMDModificarCar.Location = New System.Drawing.Point(133, 124)
+        Me.CMDModificarCar.Name = "CMDModificarCar"
+        Me.CMDModificarCar.Size = New System.Drawing.Size(101, 23)
+        Me.CMDModificarCar.TabIndex = 8
+        Me.CMDModificarCar.Text = "Modificar"
+        Me.CMDModificarCar.UseVisualStyleBackColor = True
+        '
+        'CMDAgregarCar
+        '
+        Me.CMDAgregarCar.Location = New System.Drawing.Point(16, 124)
+        Me.CMDAgregarCar.Name = "CMDAgregarCar"
+        Me.CMDAgregarCar.Size = New System.Drawing.Size(101, 23)
+        Me.CMDAgregarCar.TabIndex = 7
+        Me.CMDAgregarCar.Text = "Agregar Nueva"
+        Me.CMDAgregarCar.UseVisualStyleBackColor = True
         '
         'TXTduracion
         '
@@ -389,6 +530,50 @@ Partial Class FormularioDatos2
         Me.motivosdedisersion.TabStop = False
         Me.motivosdedisersion.Text = "Motivos de Disersión"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(401, 16)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(105, 13)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Motivos de Disersión"
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(308, 32)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(292, 174)
+        Me.DataGridView2.TabIndex = 9
+        '
+        'CMDCancelarDis
+        '
+        Me.CMDCancelarDis.Location = New System.Drawing.Point(87, 98)
+        Me.CMDCancelarDis.Name = "CMDCancelarDis"
+        Me.CMDCancelarDis.Size = New System.Drawing.Size(97, 23)
+        Me.CMDCancelarDis.TabIndex = 8
+        Me.CMDCancelarDis.Text = "Cancelar"
+        Me.CMDCancelarDis.UseVisualStyleBackColor = True
+        '
+        'TXTModificarDis
+        '
+        Me.TXTModificarDis.Location = New System.Drawing.Point(147, 69)
+        Me.TXTModificarDis.Name = "TXTModificarDis"
+        Me.TXTModificarDis.Size = New System.Drawing.Size(97, 23)
+        Me.TXTModificarDis.TabIndex = 7
+        Me.TXTModificarDis.Text = "Modificar"
+        Me.TXTModificarDis.UseVisualStyleBackColor = True
+        '
+        'CMDAgregarDis
+        '
+        Me.CMDAgregarDis.Location = New System.Drawing.Point(34, 69)
+        Me.CMDAgregarDis.Name = "CMDAgregarDis"
+        Me.CMDAgregarDis.Size = New System.Drawing.Size(97, 23)
+        Me.CMDAgregarDis.TabIndex = 6
+        Me.CMDAgregarDis.Text = "Agregar Nuevo"
+        Me.CMDAgregarDis.UseVisualStyleBackColor = True
+        '
         'TXTMotivoDisersion
         '
         Me.TXTMotivoDisersion.Location = New System.Drawing.Point(121, 31)
@@ -425,6 +610,67 @@ Partial Class FormularioDatos2
         Me.Materias.TabStop = False
         Me.Materias.Text = "Materias"
         '
+        'CBOCarrera
+        '
+        Me.CBOCarrera.FormattingEnabled = True
+        Me.CBOCarrera.Location = New System.Drawing.Point(73, 87)
+        Me.CBOCarrera.Name = "CBOCarrera"
+        Me.CBOCarrera.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarrera.TabIndex = 13
+        '
+        'LBLcarrera
+        '
+        Me.LBLcarrera.AutoSize = True
+        Me.LBLcarrera.Location = New System.Drawing.Point(19, 86)
+        Me.LBLcarrera.Name = "LBLcarrera"
+        Me.LBLcarrera.Size = New System.Drawing.Size(41, 13)
+        Me.LBLcarrera.TabIndex = 12
+        Me.LBLcarrera.Text = "Carrera"
+        '
+        'CMDCancelarMat
+        '
+        Me.CMDCancelarMat.Location = New System.Drawing.Point(60, 171)
+        Me.CMDCancelarMat.Name = "CMDCancelarMat"
+        Me.CMDCancelarMat.Size = New System.Drawing.Size(94, 25)
+        Me.CMDCancelarMat.TabIndex = 11
+        Me.CMDCancelarMat.Text = "Cancelar"
+        Me.CMDCancelarMat.UseVisualStyleBackColor = True
+        '
+        'CMDModificarMat
+        '
+        Me.CMDModificarMat.Location = New System.Drawing.Point(113, 140)
+        Me.CMDModificarMat.Name = "CMDModificarMat"
+        Me.CMDModificarMat.Size = New System.Drawing.Size(94, 25)
+        Me.CMDModificarMat.TabIndex = 10
+        Me.CMDModificarMat.Text = "Modificar"
+        Me.CMDModificarMat.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(278, 34)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(324, 185)
+        Me.DataGridView1.TabIndex = 9
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(397, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Materias"
+        '
+        'CMDAgregarMat
+        '
+        Me.CMDAgregarMat.Location = New System.Drawing.Point(13, 140)
+        Me.CMDAgregarMat.Name = "CMDAgregarMat"
+        Me.CMDAgregarMat.Size = New System.Drawing.Size(94, 25)
+        Me.CMDAgregarMat.TabIndex = 7
+        Me.CMDAgregarMat.Text = "Agregar Nuevo"
+        Me.CMDAgregarMat.UseVisualStyleBackColor = True
+        '
         'TXBnomb
         '
         Me.TXBnomb.Location = New System.Drawing.Point(73, 59)
@@ -457,264 +703,18 @@ Partial Class FormularioDatos2
         Me.LBLcodigo.TabIndex = 0
         Me.LBLcodigo.Text = "Código"
         '
-        'CMDAgregarMat
-        '
-        Me.CMDAgregarMat.Location = New System.Drawing.Point(13, 140)
-        Me.CMDAgregarMat.Name = "CMDAgregarMat"
-        Me.CMDAgregarMat.Size = New System.Drawing.Size(94, 25)
-        Me.CMDAgregarMat.TabIndex = 7
-        Me.CMDAgregarMat.Text = "Agregar Nuevo"
-        Me.CMDAgregarMat.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(397, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Materias"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(278, 34)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(324, 185)
-        Me.DataGridView1.TabIndex = 9
-        '
-        'CMDModificarMat
-        '
-        Me.CMDModificarMat.Location = New System.Drawing.Point(113, 140)
-        Me.CMDModificarMat.Name = "CMDModificarMat"
-        Me.CMDModificarMat.Size = New System.Drawing.Size(94, 25)
-        Me.CMDModificarMat.TabIndex = 10
-        Me.CMDModificarMat.Text = "Modificar"
-        Me.CMDModificarMat.UseVisualStyleBackColor = True
-        '
-        'CMDCancelarMat
-        '
-        Me.CMDCancelarMat.Location = New System.Drawing.Point(60, 171)
-        Me.CMDCancelarMat.Name = "CMDCancelarMat"
-        Me.CMDCancelarMat.Size = New System.Drawing.Size(94, 25)
-        Me.CMDCancelarMat.TabIndex = 11
-        Me.CMDCancelarMat.Text = "Cancelar"
-        Me.CMDCancelarMat.UseVisualStyleBackColor = True
-        '
-        'CBOCarrera
-        '
-        Me.CBOCarrera.FormattingEnabled = True
-        Me.CBOCarrera.Location = New System.Drawing.Point(73, 87)
-        Me.CBOCarrera.Name = "CBOCarrera"
-        Me.CBOCarrera.Size = New System.Drawing.Size(121, 21)
-        Me.CBOCarrera.TabIndex = 13
-        '
-        'LBLcarrera
-        '
-        Me.LBLcarrera.AutoSize = True
-        Me.LBLcarrera.Location = New System.Drawing.Point(19, 86)
-        Me.LBLcarrera.Name = "LBLcarrera"
-        Me.LBLcarrera.Size = New System.Drawing.Size(41, 13)
-        Me.LBLcarrera.TabIndex = 12
-        Me.LBLcarrera.Text = "Carrera"
-        '
-        'CMDAgregarOr
-        '
-        Me.CMDAgregarOr.Location = New System.Drawing.Point(12, 105)
-        Me.CMDAgregarOr.Name = "CMDAgregarOr"
-        Me.CMDAgregarOr.Size = New System.Drawing.Size(101, 23)
-        Me.CMDAgregarOr.TabIndex = 4
-        Me.CMDAgregarOr.Text = "Agregar Nuevo"
-        Me.CMDAgregarOr.UseVisualStyleBackColor = True
-        '
-        'TXTOrientacion
-        '
-        Me.TXTOrientacion.Location = New System.Drawing.Point(87, 60)
-        Me.TXTOrientacion.Name = "TXTOrientacion"
-        Me.TXTOrientacion.Size = New System.Drawing.Size(100, 20)
-        Me.TXTOrientacion.TabIndex = 5
-        '
-        'CMDModificarOr
-        '
-        Me.CMDModificarOr.Location = New System.Drawing.Point(123, 106)
-        Me.CMDModificarOr.Name = "CMDModificarOr"
-        Me.CMDModificarOr.Size = New System.Drawing.Size(101, 23)
-        Me.CMDModificarOr.TabIndex = 6
-        Me.CMDModificarOr.Text = "Modificar"
-        Me.CMDModificarOr.UseVisualStyleBackColor = True
-        '
-        'CMDCancelarOr
-        '
-        Me.CMDCancelarOr.Location = New System.Drawing.Point(66, 142)
-        Me.CMDCancelarOr.Name = "CMDCancelarOr"
-        Me.CMDCancelarOr.Size = New System.Drawing.Size(101, 23)
-        Me.CMDCancelarOr.TabIndex = 7
-        Me.CMDCancelarOr.Text = "Cancelar"
-        Me.CMDCancelarOr.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(390, 18)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(72, 13)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "Orientaciones"
-        '
-        'DataGridOr
-        '
-        Me.DataGridOr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridOr.Location = New System.Drawing.Point(278, 34)
-        Me.DataGridOr.Name = "DataGridOr"
-        Me.DataGridOr.Size = New System.Drawing.Size(300, 162)
-        Me.DataGridOr.TabIndex = 9
-        '
-        'CMDAgregarCar
-        '
-        Me.CMDAgregarCar.Location = New System.Drawing.Point(16, 124)
-        Me.CMDAgregarCar.Name = "CMDAgregarCar"
-        Me.CMDAgregarCar.Size = New System.Drawing.Size(101, 23)
-        Me.CMDAgregarCar.TabIndex = 7
-        Me.CMDAgregarCar.Text = "Agregar Nueva"
-        Me.CMDAgregarCar.UseVisualStyleBackColor = True
-        '
-        'CMDModificarCar
-        '
-        Me.CMDModificarCar.Location = New System.Drawing.Point(133, 124)
-        Me.CMDModificarCar.Name = "CMDModificarCar"
-        Me.CMDModificarCar.Size = New System.Drawing.Size(101, 23)
-        Me.CMDModificarCar.TabIndex = 8
-        Me.CMDModificarCar.Text = "Modificar"
-        Me.CMDModificarCar.UseVisualStyleBackColor = True
-        '
-        'CMDCancelarCar
-        '
-        Me.CMDCancelarCar.Location = New System.Drawing.Point(74, 161)
-        Me.CMDCancelarCar.Name = "CMDCancelarCar"
-        Me.CMDCancelarCar.Size = New System.Drawing.Size(101, 23)
-        Me.CMDCancelarCar.TabIndex = 9
-        Me.CMDCancelarCar.Text = "Cancelar"
-        Me.CMDCancelarCar.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(418, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 13)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Carreras"
-        '
-        'DataGridCar
-        '
-        Me.DataGridCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridCar.Location = New System.Drawing.Point(280, 34)
-        Me.DataGridCar.Name = "DataGridCar"
-        Me.DataGridCar.RowHeadersVisible = False
-        Me.DataGridCar.Size = New System.Drawing.Size(324, 185)
-        Me.DataGridCar.TabIndex = 11
-        '
-        'CMDAgregarCol
-        '
-        Me.CMDAgregarCol.Location = New System.Drawing.Point(17, 106)
-        Me.CMDAgregarCol.Name = "CMDAgregarCol"
-        Me.CMDAgregarCol.Size = New System.Drawing.Size(96, 23)
-        Me.CMDAgregarCol.TabIndex = 4
-        Me.CMDAgregarCol.Text = "Agregar Nuevo"
-        Me.CMDAgregarCol.UseVisualStyleBackColor = True
-        '
-        'CMDModificarCol
-        '
-        Me.CMDModificarCol.Location = New System.Drawing.Point(119, 106)
-        Me.CMDModificarCol.Name = "CMDModificarCol"
-        Me.CMDModificarCol.Size = New System.Drawing.Size(96, 23)
-        Me.CMDModificarCol.TabIndex = 5
-        Me.CMDModificarCol.Text = "Modificar"
-        Me.CMDModificarCol.UseVisualStyleBackColor = True
-        '
-        'CMDCancelarCol
-        '
-        Me.CMDCancelarCol.Location = New System.Drawing.Point(66, 140)
-        Me.CMDCancelarCol.Name = "CMDCancelarCol"
-        Me.CMDCancelarCol.Size = New System.Drawing.Size(96, 23)
-        Me.CMDCancelarCol.TabIndex = 6
-        Me.CMDCancelarCol.Text = "Cancelar"
-        Me.CMDCancelarCol.UseVisualStyleBackColor = True
-        '
-        'DataGridCol
-        '
-        Me.DataGridCol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridCol.Location = New System.Drawing.Point(296, 39)
-        Me.DataGridCol.Name = "DataGridCol"
-        Me.DataGridCol.RowHeadersVisible = False
-        Me.DataGridCol.Size = New System.Drawing.Size(306, 150)
-        Me.DataGridCol.TabIndex = 7
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(403, 23)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(47, 13)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Colegios"
-        '
-        'CMDAgregarDis
-        '
-        Me.CMDAgregarDis.Location = New System.Drawing.Point(34, 69)
-        Me.CMDAgregarDis.Name = "CMDAgregarDis"
-        Me.CMDAgregarDis.Size = New System.Drawing.Size(97, 23)
-        Me.CMDAgregarDis.TabIndex = 6
-        Me.CMDAgregarDis.Text = "Agregar Nuevo"
-        Me.CMDAgregarDis.UseVisualStyleBackColor = True
-        '
-        'TXTModificarDis
-        '
-        Me.TXTModificarDis.Location = New System.Drawing.Point(147, 69)
-        Me.TXTModificarDis.Name = "TXTModificarDis"
-        Me.TXTModificarDis.Size = New System.Drawing.Size(97, 23)
-        Me.TXTModificarDis.TabIndex = 7
-        Me.TXTModificarDis.Text = "Modificar"
-        Me.TXTModificarDis.UseVisualStyleBackColor = True
-        '
-        'CMDCancelarDis
-        '
-        Me.CMDCancelarDis.Location = New System.Drawing.Point(87, 98)
-        Me.CMDCancelarDis.Name = "CMDCancelarDis"
-        Me.CMDCancelarDis.Size = New System.Drawing.Size(97, 23)
-        Me.CMDCancelarDis.TabIndex = 8
-        Me.CMDCancelarDis.Text = "Cancelar"
-        Me.CMDCancelarDis.UseVisualStyleBackColor = True
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(308, 32)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(292, 174)
-        Me.DataGridView2.TabIndex = 9
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(401, 16)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(105, 13)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Motivos de Disersión"
-        '
         'FormularioDatos2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 304)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.Colegios)
         Me.Controls.Add(Me.motivosdedisersion)
         Me.Controls.Add(Me.ClasesporMateria)
         Me.Controls.Add(Me.Materias)
         Me.Controls.Add(Me.Orientaciones)
         Me.Controls.Add(Me.Carreras)
-        Me.Controls.Add(Me.Colegios)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormularioDatos2"
         Me.Text = "Datos del Sistema"
@@ -722,21 +722,21 @@ Partial Class FormularioDatos2
         Me.MenuStrip1.PerformLayout()
         Me.Colegios.ResumeLayout(False)
         Me.Colegios.PerformLayout()
+        CType(Me.DataGridCol, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Orientaciones.ResumeLayout(False)
         Me.Orientaciones.PerformLayout()
+        CType(Me.DataGridOr, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Carreras.ResumeLayout(False)
         Me.Carreras.PerformLayout()
+        CType(Me.DataGridCar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ClasesporMateria.ResumeLayout(False)
         Me.ClasesporMateria.PerformLayout()
         Me.motivosdedisersion.ResumeLayout(False)
         Me.motivosdedisersion.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Materias.ResumeLayout(False)
         Me.Materias.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridOr, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridCar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridCol, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
