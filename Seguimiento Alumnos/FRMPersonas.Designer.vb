@@ -582,7 +582,7 @@ Partial Class FRMPersonas
         Me.Controls.Add(Me.DatosPersonales)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMPersonas"
-        Me.Text = "Alumnos"
+        Me.Text = "Datos del Alumno"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DatagridAlumnos, System.ComponentModel.ISupportInitialize).EndInit()

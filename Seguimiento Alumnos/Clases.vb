@@ -340,6 +340,30 @@ Public Class Botones
     Public Sub Gestionar_Individual(Boton As Button, Valor As Boolean)
         Boton.Enabled = Valor
     End Sub
+    Public Shared Sub Gestionar_Formulario(ByVal F As Control, Habilitar As Boolean, Limpiar As Boolean)
+        Dim Control As Control
+        Dim TXT As TextBox
+        Dim CBO As ComboBox
+        Dim DTP As DateTimePicker
+        For Each Control In F.Controls
+            If TypeOf Control Is TextBox Then
+                TXT = Control
+                TXT.Enabled = Habilitar
+                If Limpiar = True Then
+                    TXT.Text = ""
+                End If
+            ElseIf TypeOf Control Is ComboBox Then
+                CBO = Control
+                If Limpiar = True Then
+                    CBO.Text = ""
+                End If
+                CBO.Enabled = Habilitar
+            ElseIf TypeOf Control Is DateTimePicker Then
+                DTP = Control
+                DTP.Enabled = Habilitar
+            End If
+        Next
+    End Sub
 End Class
 
 Public Class GestorBD

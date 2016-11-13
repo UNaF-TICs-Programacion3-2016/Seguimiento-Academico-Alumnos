@@ -36,8 +36,12 @@
             Tabla2 = AccesoDB.Obtener_Tabla("Select * From ANTECEDENTE_ACADEMICO Inner Join ALUMNO ON ID_ALUMNO = RELA_ALUMNO Where ID_ALUMNO = " & Indice & ";")
             AlumnoNuevo.Cargar_DatosPersona(Tabla1(0).ToString, Tabla1(1).ToString, Val(Tabla1(2)), Convert.ToDateTime(Tabla1(3)), Val(Tabla1(4)), Val(Tabla1(5)), Tabla1(6).ToString, Val(Tabla1(7)), Val(Tabla1(8)))
             AlumnoNuevo.Cargar_AntAcademicos(Val(Tabla2(1)), Val(Tabla2(2)), Val(Tabla2(3)), Val(Tabla2(4)), Val(Tabla2(5)))
+            Dim Gestionar2 As New Botones(True, False, True, False, True, True, True)
         End If
         Me.Width = 555
+        Dim GestionarBoton As New Botones(True, False, False, False, False, True, True)
+        GestionarBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+
     End Sub
 
     Private Sub FRMPersonas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -46,6 +50,9 @@
         DatosPersonales.Visible = True
         AntecedentesAc.Visible = False
         Dim GestionBoton As New Botones(True, False, False, False, False, True, True)
+        Botones.Gestionar_Formulario(Me.DatosPersonales, False, True)
+        Botones.Gestionar_Formulario(Me.AntecedentesAc, False, True)
+        
         GestionBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
 
         'Cargar combobox
@@ -72,11 +79,14 @@
                 Dim TXT As String
                 TXT = "Insert Into PERSONA(RELA_ESTADOCIVIL, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(" & AlumnoNuevo.EstadoCivil & ", '" & AlumnoNuevo.Nombre & "', '" & AlumnoNuevo.Apellido & "', " & AlumnoNuevo.Documento & ", " & AlumnoNuevo.FechaN & ", " & AlumnoNuevo.Telefono & ")"
                 AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
-                Dim gestionbotones As New Botones(True, False, True, False, True, True, True)
-                gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+                
             Else
                 'Si no es nuevo....
             End If
+            Dim gestionbotones As New Botones(True, False, True, False, True, True, True)
+            gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+            Botones.Gestionar_Formulario(Me.DatosPersonales, False, False)
+            Botones.Gestionar_Formulario(Me.AntecedentesAc, False, False)
         End If
     End Sub
 
@@ -104,6 +114,8 @@
         AlumnoID = 0
         Dim GestionBotones As New Botones(False, True, False, True, False, False, True)
         GestionBotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+        Botones.Gestionar_Formulario(Me.DatosPersonales, True, True)
+        Botones.Gestionar_Formulario(Me.AntecedentesAc, True, True)
     End Sub
 
     Private Sub CMDCancelar_Click(sender As Object, e As EventArgs) Handles CMDCancelar.Click

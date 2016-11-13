@@ -90,6 +90,12 @@
     <Compile Include="FormularioDatos2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FRMBuscarPersonas.Designer.vb">
+      <DependentUpon>FRMBuscarPersonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FRMBuscarPersonas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FRMDatos.Designer.vb">
       <DependentUpon>FRMDatos.vb</DependentUpon>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormularioDatos2.resx">
       <DependentUpon>FormularioDatos2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMBuscarPersonas.resx">
+      <DependentUpon>FRMBuscarPersonas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMDatos.resx">
       <DependentUpon>FRMDatos.vb</DependentUpon>
