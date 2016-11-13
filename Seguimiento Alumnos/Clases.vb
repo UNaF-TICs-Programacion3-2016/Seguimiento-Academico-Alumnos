@@ -592,7 +592,7 @@ Public Class Colegio
         If Tipo = "Guardar" Then
             Return "La carga del colegio " & Nombre & " se ha realizado correctamente."
         ElseIf Tipo = "Modificar" Then
-            Return "La modificación del registro del colegio " & Colegio & " se ha realizado correctamente."
+            Return "La modificación del registro del colegio " & Nombre & " se ha realizado correctamente."
         End If
     End Function
 End Class
