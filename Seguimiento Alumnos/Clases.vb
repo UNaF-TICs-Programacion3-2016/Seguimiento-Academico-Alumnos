@@ -636,3 +636,17 @@ Public Class Colegio
         End If
     End Function
 End Class
+Public Class Disercion
+    Private vNombre As String
+
+    Public Property Nombre As String
+        Get
+            Return vNombre
+        End Get
+        Set(value As String)
+            vNombre = value
+        End Set
+    End Property
+
+
+End Class
