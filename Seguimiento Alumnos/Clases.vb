@@ -606,6 +606,15 @@ Public MustInherit Class ObjetoBD
         End Set
     End Property
     Public MustOverride Function Mensaje(Tipo As String) As String
+    Public Overridable Function Validacion() As Boolean
+        If Nombre = "" Then
+            MsgBox("Ingrese un nombre", MsgBoxStyle.Exclamation, "Sistema")
+        Else
+            Return True
+            Exit Function
+        End If
+        Return False
+    End Function
 End Class
 Public Class Orientacion
     Inherits ObjetoBD
@@ -664,6 +673,21 @@ Public Class Materia
             Return "La modificación de la materia " & Nombre & " se ha realizado correctamente."
         End If
     End Function
+    Public Overrides Function Validacion() As Boolean
+        If Nombre = "" Then
+            MsgBox("Ingrese el nombre de la materia", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Codigo = "" Then
+            MsgBox("Ingrese un código para la materia", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Not IsNumeric(Carrera) Then
+            MsgBox("Seleccione una carrera", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Carrera < 0 Then
+            MsgBox("Seleccione una carrera", MsgBoxStyle.Exclamation, "Sistema")
+        Else
+            Return True
+            Exit Function
+        End If
+        Return False
+    End Function
 End Class
 Public Class Colegio
     Inherits ObjetoBD
@@ -691,6 +715,19 @@ Public Class Colegio
         ElseIf Tipo = "Modificar" Then
             Return "La modificación del registro del colegio " & Nombre & " se ha realizado correctamente."
         End If
+    End Function
+    Public Overrides Function Validacion() As Boolean
+        If Nombre = "" Then
+            MsgBox("Ingrese el nombre del colegio", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf TipoColegio < 0 Then
+            MsgBox("Seleccione un tipo de colegio", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Not IsNumeric(TipoColegio) Then
+            MsgBox("Seleccione un tipo de colegio", MsgBoxStyle.Exclamation, "Sistema")
+        Else
+            Return True
+            Exit Function
+        End If
+        Return False
     End Function
 End Class
 Public Class Disercion
@@ -754,6 +791,25 @@ Public Class ClasexMateria
             Return "La modificación de la clase " & Nombre & " se ha realizado correctamente."
         End If
     End Function
+    Public Overrides Function Validacion() As Boolean
+        If Not IsNumeric(CantClases) Then
+            MsgBox("Ingrese la cantidad de clases dictadas de forma numérica", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf CantClases < 1 Then
+            MsgBox("Ingrese la cantidad de clases dictadas", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Not IsNumeric(Año) Then
+            MsgBox("Ingrese el año corriente de la clase de forma numérica", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Año < 1 Then
+            MsgBox("Ingrese el año corriente de la clase", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Not IsNumeric(Materia) Then
+            MsgBox("Seleccione una materia", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Materia < 1 Then
+            MsgBox("Seleccione una materia", MsgBoxStyle.Exclamation, "Sistema")
+        Else
+            Return True
+            Exit Function
+        End If
+        Return False
+    End Function
 End Class
 
 Public Class Carrera
@@ -791,5 +847,20 @@ Public Class Carrera
         ElseIf Tipo = "Modificar" Then
             Return "La modificación del registro de la carrera " & Nombre & " se ha realizado correctamente."
         End If
+    End Function
+    Public Overrides Function Validacion() As Boolean
+        If Nombre = "" Then
+            MsgBox("Ingrese el nombre de la carrera", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Not IsNumeric(Años) Then
+            MsgBox("Ingrese la cantidad de años de forma numérica", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Años < 1 Then
+            MsgBox("Ingrese la cantidad de años de la carrera", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf CodCarrera = "" Then
+            MsgBox("Ingrese un código para la carrera", MsgBoxStyle.Exclamation, "Sistema")
+        Else
+            Return True
+            Exit Function
+        End If
+        Return False
     End Function
 End Class

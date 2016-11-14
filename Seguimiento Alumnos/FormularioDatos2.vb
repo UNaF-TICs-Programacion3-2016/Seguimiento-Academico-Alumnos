@@ -142,13 +142,15 @@
 
     Private Sub CMDAgregarCol_Click(sender As Object, e As EventArgs) Handles CMDAgregarCol.Click
         Dim oColegio As New Colegio(TXTNombreCol.Text, CBXtipo.SelectedIndex)
-        Dim TXT As String
-        TXT = "Insert Into COLEGIO(COLEGIO_NOMBRE, COLEGIO_TIPO) Values(:COLEGIO_NOMBRE, :COLEGIO_TIPO)"
-        AccesoDB.Obtener_Datos(TXTNombreCol.Text, CBXtipo.SelectedIndex, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "COLEGIO_NOMBRE", "COLEGIO_TIPO", "", "", "", "", "", "", "")
-        MsgBox(oColegio.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
-        Administrar_Botones(Colegios, True)
-        Actualizar_Grillas("Colegio") 'actualizar grilla colegio
+        If oColegio.Validacion Then
+            Dim TXT As String
+            TXT = "Insert Into COLEGIO(COLEGIO_NOMBRE, COLEGIO_TIPO) Values(:COLEGIO_NOMBRE, :COLEGIO_TIPO)"
+            AccesoDB.Obtener_Datos(TXTNombreCol.Text, CBXtipo.SelectedIndex, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "COLEGIO_NOMBRE", "COLEGIO_TIPO", "", "", "", "", "", "", "")
+            MsgBox(oColegio.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+            Administrar_Botones(Colegios, True)
+            Actualizar_Grillas("Colegio") 'actualizar grilla colegio
+        End If
     End Sub
     Private Sub Administrar_Botones(ByVal Grupo As Control, Valor As Boolean)
         Dim GestionBotones As New Botones
@@ -164,56 +166,66 @@
 
     Private Sub CMDAgregarDis_Click(sender As Object, e As EventArgs) Handles CMDAgregarDis.Click
         Dim oMotivoDis As New Disercion(TXTModificarDis.Text)
-        Dim TXT As String
-        TXT = "Insert Into MOTIVO_DISERSION(MOTIVO_DIS_DESCRIPCION) Values(:MOTIVO_DIS_DESCRIPCION)"
-        AccesoDB.Obtener_Datos(oMotivoDis.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
-        MsgBox(oMotivoDis.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
-        Administrar_Botones(motivosdedisersion, True)
-        Actualizar_Grillas("Disersion") 'Actualizar grilla motivos de desersion
+        If oMotivoDis.Validacion Then
+            Dim TXT As String
+            TXT = "Insert Into MOTIVO_DISERSION(MOTIVO_DIS_DESCRIPCION) Values(:MOTIVO_DIS_DESCRIPCION)"
+            AccesoDB.Obtener_Datos(oMotivoDis.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
+            MsgBox(oMotivoDis.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+            Administrar_Botones(motivosdedisersion, True)
+            Actualizar_Grillas("Disersion") 'Actualizar grilla motivos de desersion
+        End If
     End Sub
 
     Private Sub CMDAgregarClas_Click(sender As Object, e As EventArgs) Handles CMDAgregarClas.Click
         Dim oClase As New ClasexMateria(Val(CBOMateriasClas.SelectedValue), Val(TXBanio.Text), Val(TXBdictadas.Text))
-        Dim TXT As String
-        TXT = "Insert Into CLASE(RELA_MATERIA, CLASE_ANIO, CLASE_CANTDICTADAS) Values(:RELA_MATERIA, :CLASE_ANIO, :CLASE_CANTDICTADAS)"
-        AccesoDB.Obtener_Datos(oClase.Materia, oClase.Año, oClase.CantClases, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "RELA_MATERIA", "CLASE_ANIO", "CLASE_CANTDICTADAS", "", "", "", "", "", "")
-        MsgBox(oClase.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
-        Administrar_Botones(ClasesporMateria, True)
-        Actualizar_Grillas("Clase") 'actualizar grilla clase
+        If oClase.Validacion Then
+            Dim TXT As String
+            TXT = "Insert Into CLASE(RELA_MATERIA, CLASE_ANIO, CLASE_CANTDICTADAS) Values(:RELA_MATERIA, :CLASE_ANIO, :CLASE_CANTDICTADAS)"
+            AccesoDB.Obtener_Datos(oClase.Materia, oClase.Año, oClase.CantClases, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_MATERIA", "CLASE_ANIO", "CLASE_CANTDICTADAS", "", "", "", "", "", "")
+            MsgBox(oClase.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+            Administrar_Botones(ClasesporMateria, True)
+            Actualizar_Grillas("Clase") 'actualizar grilla 
+        End If
     End Sub
 
     Private Sub CMDAgregarMat_Click(sender As Object, e As EventArgs) Handles CMDAgregarMat.Click
         Dim oMateria As New Materia(TXBnomb.Text, TXBCod.Text, Val(CBOCarrera.SelectedValue))
-        Dim TXT As String
-        TXT = "Insert Into MATERIA(RELA_CARRERA, MATERIA_NOMBRE, COD_MATERIA) Values(:RELA_CARRERA, :MATERIA_NOMBRE, :COD_MATERIA)"
-        AccesoDB.Obtener_Datos(oMateria.Carrera, oMateria.Nombre, oMateria.Codigo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "RELA_CARRERA", "MATERIA_NOMBRE", "COD_MATERIA", "", "", "", "", "", "")
-        MsgBox(oMateria.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
-        Administrar_Botones(Materias, True)
-        Actualizar_Grillas("Materia") 'actualizar grilla materia
+        If oMateria.Validacion Then
+            Dim TXT As String
+            TXT = "Insert Into MATERIA(RELA_CARRERA, MATERIA_NOMBRE, COD_MATERIA) Values(:RELA_CARRERA, :MATERIA_NOMBRE, :COD_MATERIA)"
+            AccesoDB.Obtener_Datos(oMateria.Carrera, oMateria.Nombre, oMateria.Codigo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_CARRERA", "MATERIA_NOMBRE", "COD_MATERIA", "", "", "", "", "", "")
+            MsgBox(oMateria.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+            Administrar_Botones(Materias, True)
+            Actualizar_Grillas("Materia") 'actualizar grilla materia
+        End If
     End Sub
 
     Private Sub CMDAgregarOr_Click(sender As Object, e As EventArgs) Handles CMDAgregarOr.Click
         Dim oOrientacion As New Orientacion(TXTOrientacion.Text)
-        Dim TXT As String
-        TXT = "Insert Into ORIENTACION(ORIENTACION_DESCRIPCION) Values(:ORIENTACION_DESCRIPCION)"
-        AccesoDB.Obtener_Datos(oOrientacion.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "ORIENTACION_DESCRIPCION", "", "", "", "", "", "", "", "")
-        MsgBox(oOrientacion.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
-        Administrar_Botones(Orientaciones, True)
-        Actualizar_Grillas("Orientacion") 'actualizar grilla orientacion
+        If oOrientacion.Validacion Then
+            Dim TXT As String
+            TXT = "Insert Into ORIENTACION(ORIENTACION_DESCRIPCION) Values(:ORIENTACION_DESCRIPCION)"
+            AccesoDB.Obtener_Datos(oOrientacion.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "ORIENTACION_DESCRIPCION", "", "", "", "", "", "", "", "")
+            MsgBox(oOrientacion.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+            Administrar_Botones(Orientaciones, True)
+            Actualizar_Grillas("Orientacion") 'actualizar grilla orientacion
+        End If
     End Sub
 
     Private Sub CMDAgregarCar_Click(sender As Object, e As EventArgs) Handles CMDAgregarCar.Click
         Dim oCarrera As New Carrera(TXTnomb.Text, Val(TXTduracion.Text), TXTcodig.Text)
-        Dim TXT As String
-        TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANT_ANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANT_ANIOS, :COD_CARRERA)"
-        AccesoDB.Obtener_Datos(oCarrera.Nombre, oCarrera.Años, oCarrera.CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
-        MsgBox(oCarrera.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
-        Administrar_Botones(Carreras, True)
-        Actualizar_Grillas("Carrera") 'actualizar grilla carrera
+        If oCarrera.Validacion Then
+            Dim TXT As String
+            TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANT_ANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANT_ANIOS, :COD_CARRERA)"
+            AccesoDB.Obtener_Datos(oCarrera.Nombre, oCarrera.Años, oCarrera.CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
+            MsgBox(oCarrera.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+            Administrar_Botones(Carreras, True)
+            Actualizar_Grillas("Carrera") 'actualizar grilla carrera
+        End If
     End Sub
 End Class
