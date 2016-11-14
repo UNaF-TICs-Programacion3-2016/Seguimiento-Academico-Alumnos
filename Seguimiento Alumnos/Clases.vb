@@ -9,7 +9,7 @@ Public MustInherit Class Persona
     Protected _Calle As String
     Protected _Altura As Integer
     Protected _EstadoCivil As Integer
-    Public Sub New(vNombre As String, vApellido As String, vDocumento As Integer, vFechaNac As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As Integer, vEstadoCivil As Integer)
+    Public Sub New(vNombre As String, vApellido As String, vDocumento As Integer, vFechaNac As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As String, vAltura As Integer, vEstadoCivil As Integer)
         Nombre = vNombre
         Apellido = vApellido
         Documento = vDocumento
@@ -97,7 +97,7 @@ Public MustInherit Class Persona
         End Set
     End Property
 
-    Public Sub Cargar_DatosPersona(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As Integer, vEstadoCivil As Integer)
+    Public Sub Cargar_DatosPersona(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As String, vEstadoCivil As Integer)
         Nombre = vNombre
         Apellido = vApellido
         Documento = vDocumento
@@ -107,6 +107,36 @@ Public MustInherit Class Persona
         Calle = vCalle
         Altura = vAltura
         EstadoCivil = vEstadoCivil
+    End Sub
+
+    Public Sub Cargar_Cambios(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As String, vEstadoCivil As Integer)
+        If Nombre <> vNombre Then
+            Nombre = vNombre
+        End If
+        If Apellido <> vApellido Then
+            Apellido = vApellido
+        End If
+        If Documento <> vDocumento Then
+            Documento = vDocumento
+        End If
+        If FechaN <> vFechaN Then
+            FechaN = vFechaN
+        End If
+        If Telefono <> vTelefono Then
+            Telefono = vTelefono
+        End If
+        If Localidad <> vLocalidad Then
+            Localidad = vLocalidad
+        End If
+        If Calle <> vCalle Then
+            Calle = vCalle
+        End If
+        If Altura <> vAltura Then
+            Altura = vAltura
+        End If
+        If EstadoCivil <> vEstadoCivil Then
+            EstadoCivil = vEstadoCivil
+        End If
     End Sub
 
     Public Function ValidarPersona() As Boolean
@@ -602,6 +632,26 @@ Public Class GestorBD
         Tableta.Load(Reader, LoadOption.OverwriteChanges)
         Return Tableta.Rows(0).Item(0)    'Devuelvo el ID
     End Function
+
+    Public Sub Cargar_DataTable(Consulta As String, Table As DataTable)
+        'objetos reader de oracle y datatable
+        Dim Reader As OracleDataReader
+        Dim Comando As New OracleCommand
+        Try
+            Conectar()
+            Comando.Connection = Conexion
+            Comando.CommandType = CommandType.Text
+            Comando.CommandText = Consulta
+            Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection) 'hace que cuando se usa de usar la conexion se cierra
+
+            Table.Load(Reader, LoadOption.OverwriteChanges) 'Cargamos los datos del reader en el load
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Exit Sub
+        End Try
+
+    End Sub
 
     Public Function Obtener_Tabla(Consulta As String) As DataTable
         'objetos reader de oracle y datatable
