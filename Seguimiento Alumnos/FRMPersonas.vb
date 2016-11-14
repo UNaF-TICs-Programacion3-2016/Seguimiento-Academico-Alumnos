@@ -66,6 +66,11 @@
             .DisplayMember = "COLEGIO_NOMBRE"
             .ValueMember = "ID_COLEGIO"
         End With
+        With CBOPais
+            .DataSource = AccesoDB.Obtener_Tabla("Select * From PAIS")
+            .DisplayMember = "PAIS_NOMBRE"
+            .ValueMember = "ID_PAIS"
+        End With
     End Sub
 
     Private Sub CMDGuardar_Click(sender As Object, e As EventArgs) Handles CMDGuardar.Click
@@ -73,13 +78,22 @@
             If AlumnoID = 0 Then
                 'Si el alumno es nuevo....
                 'Cargamos el objeto
-                Dim Ecivil As Integer
-                Ecivil = AccesoDB.Obtener_ID("ESTADOCIVIL", "ID_ESTADOCIVIL", "ESTADOCIVIL_DESCRIPCION", CBOEc.Text)
-                AlumnoNuevo.Cargar_DatosPersona(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, 1, "", 1, Ecivil)
+                AlumnoNuevo.Cargar_DatosPersona(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
                 Dim TXT As String
-                TXT = "Insert Into PERSONA(RELA_ESTADOCIVIL, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(" & AlumnoNuevo.EstadoCivil & ", '" & AlumnoNuevo.Nombre & "', '" & AlumnoNuevo.Apellido & "', " & AlumnoNuevo.Documento & ", " & AlumnoNuevo.FechaN & ", " & AlumnoNuevo.Telefono & ")"
+                Dim IDPersona As Integer
+                TXT = "Insert Into PERSONA(RELA_ESTADOCIVIL, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(:RELA_ESTADOCIVIL, :PERSONA_NOMBRE, :PERSONA_APELLIDO, :PERSONA_DOCUMENTO, :PERSONA_FECHA_NAC, :PERSONA_TELEFONO)"
+                AccesoDB.Obtener_Datos(AlumnoNuevo.EstadoCivil, AlumnoNuevo.Nombre, AlumnoNuevo.Apellido, AlumnoNuevo.Documento, AlumnoNuevo.FechaN, AlumnoNuevo.Telefono, Nothing, Nothing, Nothing)
                 AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
-                
+                IDPersona = AccesoDB.Obtener_ID("PERSONA", "ID_PERSONA", "PERSONA_DOCUMENTO", AlumnoNuevo.Documento)
+
+                TXT = "Insert Into ALUMNO(RELA_PERSONA) values(:RELA_PERSONA)"
+                AccesoDB.Obtener_Datos(IDPersona, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+                AccesoDB.Cargar_Datos(TXT, "RELA_PERSONA", "", "", "", "", "", "", "", "")
+
+                TXT = "Insert Into DIRECCION(RELA_LOCALIDAD, RELA_PERSONA, DIRECCION_CALLE, DIRECCION_ALTURA) Values(:RELA_LOCALIDAD, :RELA_PERSONA, :DIRECCION_CALLE, :DIRECCION_ALTURA)"
+                AccesoDB.Obtener_Datos(AlumnoNuevo.Localidad, IDPersona, AlumnoNuevo.Calle, AlumnoNuevo.Altura, Nothing, Nothing, Nothing, Nothing, Nothing)
+                AccesoDB.Cargar_Datos(TXT, "RELA_LOCALIDAD", "RELA_PERSONA", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "")
+                MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema)
             Else
                 'Si no es nuevo....
             End If
@@ -125,5 +139,25 @@
 
     Private Sub DatagridAlumnos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DatagridAlumnos.CellContentClick
 
+    End Sub
+
+    Private Sub CBOPais_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOPais.SelectedIndexChanged
+        With CBOProvincia
+            .DataSource = Nothing
+            .Refresh()
+            .DataSource = AccesoDB.Obtener_Tabla("Select * From PROVINCIA where RELA_PAIS = " & CBOPais.SelectedValue & "")
+            .DisplayMember = "PROVINCIA_NOMBRE"
+            .ValueMember = "ID_PROVINCIA"
+        End With
+    End Sub
+
+    Private Sub CBOProvincia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOProvincia.SelectedIndexChanged
+        With CBOProvincia
+            .DataSource = Nothing
+            .Refresh()
+            .DataSource = AccesoDB.Obtener_Tabla("Select * From LOCALIDAD where RELA_LOCALIDAD = " & CBOProvincia.SelectedValue & "")
+            .DisplayMember = "LOCALIDAD_NOMBRE"
+            .ValueMember = "ID_LOCALIDAD"
+        End With
     End Sub
 End Class

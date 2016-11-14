@@ -578,8 +578,8 @@ Partial Class FRMPersonas
         Me.Controls.Add(Me.CMDModificar)
         Me.Controls.Add(Me.CMDNuevo)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.AntecedentesAc)
         Me.Controls.Add(Me.DatosPersonales)
+        Me.Controls.Add(Me.AntecedentesAc)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMPersonas"
         Me.Text = "Datos del Alumno"

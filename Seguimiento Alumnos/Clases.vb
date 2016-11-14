@@ -366,24 +366,33 @@ End Class
 
 Public Class GestorBD
     Private Conexion As New OracleConnection
-    Public S1 As String
-    Public N1 As Integer
-    Public S2 As String
-    Public N2 As Integer
-    Public S3 As String
-    Public N3 As Integer
-    Public S4 As String
-    Public N4 As Integer
-    Public S5 As String
-    Public N5 As Integer
-    Public S6 As String
-    Public N6 As Integer
-    Public S7 As String
-    Public N7 As Integer
-    Public S8 As String
-    Public N8 As Integer
-    Public S9 As String
-    Public N9 As Integer
+    Private S1 As String
+    Private N1 As Integer
+    Private D1 As Date
+    Private S2 As String
+    Private N2 As Integer
+    Private D2 As Date
+    Private S3 As String
+    Private N3 As Integer
+    Private D3 As Date
+    Private S4 As String
+    Private N4 As Integer
+    Private D4 As Date
+    Private S5 As String
+    Private N5 As Integer
+    Private D5 As Date
+    Private S6 As String
+    Private N6 As Integer
+    Private D6 As Date
+    Private S7 As String
+    Private N7 As Integer
+    Private D7 As Date
+    Private S8 As String
+    Private N8 As Integer
+    Private D8 As Date
+    Private S9 As String
+    Private N9 As Integer
+    Private D9 As Date
     Private Sub Conectar()
         Conexion.ConnectionString = "Data Source= localhost;User Id = grupo1; Password = 123;"
         Conexion.Open()
@@ -391,70 +400,99 @@ Public Class GestorBD
     Private Sub Cerrar()
         Conexion.Close()
     End Sub
-   
+    Private Sub Limpiar_Variables()
+        N1 = -1
+        N2 = -1
+        N3 = -1
+        N4 = -1
+        N5 = -1
+        N6 = -1
+        N7 = -1
+        N8 = -1
+        N9 = -1
+        S1 = ""
+        S2 = ""
+        S3 = ""
+        S4 = ""
+        S5 = ""
+        S6 = ""
+        S7 = ""
+        S8 = ""
+        S9 = ""
+        D1 = Nothing
+        D2 = Nothing
+        D3 = Nothing
+        D4 = Nothing
+        D5 = Nothing
+        D6 = Nothing
+        D7 = Nothing
+        D8 = Nothing
+        D9 = Nothing
+    End Sub
     Public Sub Obtener_Datos(P1 As Object, P2 As Object, P3 As Object, P4 As Object, P5 As Object, P6 As Object, P7 As Object, P8 As Object, P9 As Object)
-        If Not IsNumeric(P1) And P1 <> Nothing Then
+        Limpiar_Variables()
+        If IsDate(P1) Then
+            D1 = P1
+        ElseIf Not IsNumeric(P1) And P1 <> Nothing Then
             S1 = P1.ToString
-            N1 = -1
         ElseIf P1 > -1 Then
             N1 = Val(P1)
-            S1 = ""
         End If
-        If Not IsNumeric(P2) And P2 <> Nothing Then
+        If IsDate(P2) Then
+            D2 = P2
+        ElseIf Not IsNumeric(P2) And P2 <> Nothing Then
             S2 = P2.ToString
-            N2 = -1
         ElseIf P2 > -1 Then
             N2 = Val(P2)
-            S2 = ""
         End If
-        If Not IsNumeric(P3) And P3 <> Nothing Then
+        If IsDate(P3) Then
+            D3 = P3
+        ElseIf Not IsNumeric(P3) And P3 <> Nothing Then
             S3 = P3.ToString
-            N3 = -1
         ElseIf P3 > -1 Then
             N3 = Val(P3)
-            S3 = ""
         End If
-        If Not IsNumeric(P4) And P4 <> Nothing Then
+        If IsDate(P4) Then
+            D4 = P4
+        ElseIf Not IsNumeric(P4) And P4 <> Nothing Then
             S4 = P4.ToString
-            N4 = -1
         ElseIf P4 > -1 Then
             N4 = Val(P4)
-            S4 = ""
         End If
-        If Not IsNumeric(P5) And P5 <> Nothing Then
+        If IsDate(P5) Then
+            D5 = P5
+        ElseIf Not IsNumeric(P5) And P5 <> Nothing Then
             S5 = P5.ToString
-            N5 = -1
         ElseIf P5 > -1 Then
             N5 = Val(P5)
-            S5 = ""
         End If
-        If Not IsNumeric(P6) And P6 <> Nothing Then
+        If IsDate(P6) Then
+            D6 = P6
+        ElseIf Not IsNumeric(P6) And P6 <> Nothing Then
             S6 = P6.ToString
-            N6 = -1
         ElseIf P6 > -1 Then
             N6 = Val(P6)
-            S6 = ""
         End If
-        If Not IsNumeric(P7) And P7 <> Nothing Then
+        If IsDate(P7) Then
+            D7 = P7
+        ElseIf Not IsNumeric(P7) And P7 <> Nothing Then
             S7 = P7.ToString
-            N7 = -1
         ElseIf P7 > -1 Then
             N7 = Val(P7)
-            S7 = ""
         End If
-        If Not IsNumeric(P8) And P8 <> Nothing Then
+        If IsDate(P8) Then
+            D8 = P8
+        ElseIf Not IsNumeric(P8) And P8 <> Nothing Then
             S8 = P8.ToString
-            N8 = -1
         ElseIf P8 > -1 Then
-            N8 = Val(P8)
-            S8 = ""
+            N8 = Val(P8
         End If
-        If Not IsNumeric(P9) And P9 <> Nothing Then
+        If IsDate(P9) Then
+            D9 = P9
+        ElseIf Not IsNumeric(P9) And P9 <> Nothing Then
             S9 = P9.ToString
-            N9 = -1
         ElseIf P9 > -1 Then
             N9 = Val(P9)
-            S9 = ""
         End If
     End Sub
     Public Sub Cargar_Datos(Consulta As String, P1 As String, P2 As String, P3 As String, P4 As String, P5 As String, P6 As String, P7 As String, P8 As String, P9 As String)
@@ -466,28 +504,36 @@ Public Class GestorBD
             Comando.CommandType = CommandType.Text
             Comando.CommandText = Consulta
             If P1 <> "" Then
-                If S1 <> "" Then
+                If D1 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P1, D1))
+                ElseIf S1 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P1, S1))
                 ElseIf N1 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P1, N1))
                 End If
             End If
             If P2 <> "" Then
-                If S2 <> "" Then
+                If D2 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P2, D2))
+                ElseIf S2 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P2, S2))
                 ElseIf N2 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P2, N2))
                 End If
             End If
             If P3 <> "" Then
-                If S3 <> "" Then
+                If D3 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P3, D3))
+                ElseIf S3 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P3, S3))
                 ElseIf N3 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P3, N3))
                 End If
             End If
             If P4 <> "" Then
-                If S4 <> "" Then
+                If D4 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P4, D4))
+                ElseIf S4 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P4, S4))
                 ElseIf N4 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P4, N4))
@@ -501,28 +547,36 @@ Public Class GestorBD
                 End If
             End If
             If P6 <> "" Then
-                If S6 <> "" Then
+                If D6 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P6, D6))
+                ElseIf S6 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P6, S6))
                 ElseIf N6 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P6, N6))
                 End If
             End If
             If P7 <> "" Then
-                If S7 <> "" Then
+                If D7 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P7, D7))
+                ElseIf S7 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P7, S7))
                 ElseIf N7 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P7, N7))
                 End If
             End If
             If P8 <> "" Then
-                If S8 <> "" Then
+                If D8 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P8, D8))
+                ElseIf S8 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P8, S8))
                 ElseIf N8 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P8, N8))
                 End If
             End If
             If P9 <> "" Then
-                If S9 <> "" Then
+                If D9 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P9, D9))
+                ElseIf S9 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P9, S9))
                 ElseIf N9 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P9, N9))
