@@ -46,9 +46,7 @@ Partial Class FormularioDatos2
         Me.CMDModificarOr = New System.Windows.Forms.Button()
         Me.TXTOrientacion = New System.Windows.Forms.TextBox()
         Me.CMDAgregarOr = New System.Windows.Forms.Button()
-        Me.CBXcolegios = New System.Windows.Forms.ComboBox()
         Me.LBLorientacion = New System.Windows.Forms.Label()
-        Me.LBLcolegio = New System.Windows.Forms.Label()
         Me.Carreras = New System.Windows.Forms.GroupBox()
         Me.DataGridCar = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -87,7 +85,6 @@ Partial Class FormularioDatos2
         Me.TXBCod = New System.Windows.Forms.TextBox()
         Me.LBLNomb = New System.Windows.Forms.Label()
         Me.LBLcodigo = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.CMDAgregarClas = New System.Windows.Forms.Button()
         Me.CMDCancelarClas = New System.Windows.Forms.Button()
         Me.CMDModificarClas = New System.Windows.Forms.Button()
@@ -258,9 +255,7 @@ Partial Class FormularioDatos2
         Me.Orientaciones.Controls.Add(Me.CMDModificarOr)
         Me.Orientaciones.Controls.Add(Me.TXTOrientacion)
         Me.Orientaciones.Controls.Add(Me.CMDAgregarOr)
-        Me.Orientaciones.Controls.Add(Me.CBXcolegios)
         Me.Orientaciones.Controls.Add(Me.LBLorientacion)
-        Me.Orientaciones.Controls.Add(Me.LBLcolegio)
         Me.Orientaciones.Location = New System.Drawing.Point(12, 27)
         Me.Orientaciones.Name = "Orientaciones"
         Me.Orientaciones.Size = New System.Drawing.Size(620, 251)
@@ -287,7 +282,7 @@ Partial Class FormularioDatos2
         '
         'CMDCancelarOr
         '
-        Me.CMDCancelarOr.Location = New System.Drawing.Point(66, 142)
+        Me.CMDCancelarOr.Location = New System.Drawing.Point(72, 117)
         Me.CMDCancelarOr.Name = "CMDCancelarOr"
         Me.CMDCancelarOr.Size = New System.Drawing.Size(101, 23)
         Me.CMDCancelarOr.TabIndex = 7
@@ -296,7 +291,7 @@ Partial Class FormularioDatos2
         '
         'CMDModificarOr
         '
-        Me.CMDModificarOr.Location = New System.Drawing.Point(123, 106)
+        Me.CMDModificarOr.Location = New System.Drawing.Point(129, 81)
         Me.CMDModificarOr.Name = "CMDModificarOr"
         Me.CMDModificarOr.Size = New System.Drawing.Size(101, 23)
         Me.CMDModificarOr.TabIndex = 6
@@ -305,45 +300,28 @@ Partial Class FormularioDatos2
         '
         'TXTOrientacion
         '
-        Me.TXTOrientacion.Location = New System.Drawing.Point(87, 60)
+        Me.TXTOrientacion.Location = New System.Drawing.Point(93, 35)
         Me.TXTOrientacion.Name = "TXTOrientacion"
         Me.TXTOrientacion.Size = New System.Drawing.Size(100, 20)
         Me.TXTOrientacion.TabIndex = 5
         '
         'CMDAgregarOr
         '
-        Me.CMDAgregarOr.Location = New System.Drawing.Point(12, 105)
+        Me.CMDAgregarOr.Location = New System.Drawing.Point(18, 80)
         Me.CMDAgregarOr.Name = "CMDAgregarOr"
         Me.CMDAgregarOr.Size = New System.Drawing.Size(101, 23)
         Me.CMDAgregarOr.TabIndex = 4
         Me.CMDAgregarOr.Text = "Agregar Nuevo"
         Me.CMDAgregarOr.UseVisualStyleBackColor = True
         '
-        'CBXcolegios
-        '
-        Me.CBXcolegios.FormattingEnabled = True
-        Me.CBXcolegios.Location = New System.Drawing.Point(88, 26)
-        Me.CBXcolegios.Name = "CBXcolegios"
-        Me.CBXcolegios.Size = New System.Drawing.Size(104, 21)
-        Me.CBXcolegios.TabIndex = 2
-        '
         'LBLorientacion
         '
         Me.LBLorientacion.AutoSize = True
-        Me.LBLorientacion.Location = New System.Drawing.Point(19, 59)
+        Me.LBLorientacion.Location = New System.Drawing.Point(25, 34)
         Me.LBLorientacion.Name = "LBLorientacion"
         Me.LBLorientacion.Size = New System.Drawing.Size(61, 13)
         Me.LBLorientacion.TabIndex = 1
         Me.LBLorientacion.Text = "Orientacion"
-        '
-        'LBLcolegio
-        '
-        Me.LBLcolegio.AutoSize = True
-        Me.LBLcolegio.Location = New System.Drawing.Point(19, 29)
-        Me.LBLcolegio.Name = "LBLcolegio"
-        Me.LBLcolegio.Size = New System.Drawing.Size(42, 13)
-        Me.LBLcolegio.TabIndex = 0
-        Me.LBLcolegio.Text = "Colegio"
         '
         'Carreras
         '
@@ -473,10 +451,9 @@ Partial Class FormularioDatos2
         Me.ClasesporMateria.Controls.Add(Me.LBLmateria)
         Me.ClasesporMateria.Location = New System.Drawing.Point(12, 27)
         Me.ClasesporMateria.Name = "ClasesporMateria"
-        Me.ClasesporMateria.Size = New System.Drawing.Size(590, 245)
+        Me.ClasesporMateria.Size = New System.Drawing.Size(614, 245)
         Me.ClasesporMateria.TabIndex = 4
         Me.ClasesporMateria.TabStop = False
-        Me.ClasesporMateria.Text = "Clases por Materia"
         '
         'TXBdictadas
         '
@@ -521,7 +498,6 @@ Partial Class FormularioDatos2
         '
         'motivosdedisersion
         '
-        Me.motivosdedisersion.Controls.Add(Me.Button1)
         Me.motivosdedisersion.Controls.Add(Me.Label5)
         Me.motivosdedisersion.Controls.Add(Me.DataGridView2)
         Me.motivosdedisersion.Controls.Add(Me.CMDCancelarDis)
@@ -709,15 +685,6 @@ Partial Class FormularioDatos2
         Me.LBLcodigo.TabIndex = 0
         Me.LBLcodigo.Text = "Código"
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(3, 16)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'CMDAgregarClas
         '
         Me.CMDAgregarClas.Location = New System.Drawing.Point(17, 127)
@@ -748,7 +715,7 @@ Partial Class FormularioDatos2
         'DataGridView3
         '
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(278, 39)
+        Me.DataGridView3.Location = New System.Drawing.Point(287, 32)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.Size = New System.Drawing.Size(291, 196)
         Me.DataGridView3.TabIndex = 12
@@ -822,9 +789,7 @@ Partial Class FormularioDatos2
     Friend WithEvents CBXtipo As System.Windows.Forms.ComboBox
     Friend WithEvents LBLtipo As System.Windows.Forms.Label
     Friend WithEvents TXTNombreCol As System.Windows.Forms.TextBox
-    Friend WithEvents CBXcolegios As System.Windows.Forms.ComboBox
     Friend WithEvents LBLorientacion As System.Windows.Forms.Label
-    Friend WithEvents LBLcolegio As System.Windows.Forms.Label
     Friend WithEvents Carreras As System.Windows.Forms.GroupBox
     Friend WithEvents TXTduracion As System.Windows.Forms.TextBox
     Friend WithEvents TXTnomb As System.Windows.Forms.TextBox
@@ -877,7 +842,6 @@ Partial Class FormularioDatos2
     Friend WithEvents CMDModificarClas As System.Windows.Forms.Button
     Friend WithEvents CMDCancelarClas As System.Windows.Forms.Button
     Friend WithEvents CMDAgregarClas As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents CBOMateriasClas As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView

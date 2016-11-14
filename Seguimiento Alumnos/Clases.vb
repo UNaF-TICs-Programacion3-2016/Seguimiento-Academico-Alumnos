@@ -605,25 +605,13 @@ Public MustInherit Class ObjetoBD
 End Class
 Public Class Orientacion
     Inherits ObjetoBD
-    Private _Codigoorientacion As String
-
 
     Public Sub New()
 
     End Sub
-    Public Sub New(vNombreorientacion As String, vCodigoorientacion As String)
+    Public Sub New(vNombreorientacion As String)
         Nombre = vNombreorientacion
-        Codigoorientacion = vCodigoorientacion
     End Sub
-
-    Public Property Codigoorientacion As String
-        Get
-            Return _Codigoorientacion
-        End Get
-        Set(value As String)
-            _Codigoorientacion = value
-        End Set
-    End Property
 
     Public Overrides Function Mensaje(Tipo As String) As String
         If Tipo = "Guardar" Then
@@ -721,7 +709,16 @@ End Class
 Public Class ClasexMateria
     Inherits ObjetoBD
     Private _CantClases As Integer
+    Private _year As Integer
     Private _Materia As Integer
+    Public Sub New()
+
+    End Sub
+    Public Sub New(vMateria As Integer, vaño As Integer, vCantClases As Integer)
+        CantClases = vCantClases
+        Materia = vMateria
+        Año = vaño
+    End Sub
     Public Property CantClases As Integer
         Get
             Return _CantClases
@@ -738,11 +735,57 @@ Public Class ClasexMateria
             _Materia = value
         End Set
     End Property
+    Public Property Año As Integer
+        Get
+            Return _year
+        End Get
+        Set(value As Integer)
+            _year = value
+        End Set
+    End Property
     Public Overrides Function Mensaje(Tipo As String) As String
         If Tipo = "Guardar" Then
             Return "La carga de la clase " & Nombre & " se ha realizado correctamente."
         ElseIf Tipo = "Modificar" Then
-            Return "La modificación de la clase" & Nombre & " se ha realizado correctamente."
+            Return "La modificación de la clase " & Nombre & " se ha realizado correctamente."
+        End If
+    End Function
+End Class
+
+Public Class Carrera
+    Inherits ObjetoBD
+    Private _CantAnios As Integer
+    Private _CodCarrera As String
+    Public Sub New()
+
+    End Sub
+    Public Sub New(vNombre As String, vCantyear As Integer, vCodigo As String)
+        Nombre = vNombre
+        Años = vCantyear
+        CodCarrera = vCodigo
+    End Sub
+    Public Property Años As Integer
+        Get
+            Return _CantAnios
+        End Get
+        Set(value As Integer)
+            _CantAnios = value
+        End Set
+    End Property
+    Public Property CodCarrera As Integer
+        Get
+            Return _CodCarrera
+        End Get
+        Set(value As Integer)
+            _CodCarrera = value
+        End Set
+    End Property
+
+    Public Overrides Function Mensaje(Tipo As String) As String
+        If Tipo = "Guardar" Then
+            Return "La carga de la carrera " & Nombre & " se ha realizado correctamente."
+        ElseIf Tipo = "Modificar" Then
+            Return "La modificación del registro de la carrera " & Nombre & " se ha realizado correctamente."
         End If
     End Function
 End Class

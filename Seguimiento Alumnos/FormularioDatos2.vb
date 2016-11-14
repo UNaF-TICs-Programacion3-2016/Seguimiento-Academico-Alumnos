@@ -45,10 +45,10 @@
             .DisplayMember = "CARRERA_NOMBRE"
             .ValueMember = "ID_CARRERA"
         End With
-        With CBXcolegios
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_COLEGIO, COLEGIO_NOMBRE from COLEGIO")
-            .DisplayMember = "COLEGIO_NOMBRE"
-            .ValueMember = "ID_COLEGIO"
+        With CBOMateriasClas
+            .DataSource = AccesoDB.Obtener_Tabla("Select ID_MATERIA, MATERIA_NOMBRE from MATERIA")
+            .DisplayMember = "MATERIA_NOMBRE"
+            .ValueMember = "ID_MATERIA"
         End With
         With CBXtipo
             .Items.Add("Privado")
@@ -60,7 +60,7 @@
         e.KeyChar = ""
     End Sub
 
-    Private Sub CBXcolegios_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CBXcolegios.KeyPress
+    Private Sub CBXcolegios_KeyPress(sender As Object, e As KeyPressEventArgs)
         e.KeyChar = ""
     End Sub
 
@@ -100,12 +100,42 @@
     End Sub
 
     Private Sub CMDAgregarClas_Click(sender As Object, e As EventArgs) Handles CMDAgregarClas.Click
-        Dim oClase As New Clas(TXTModificarDis.Text)
+        Dim oClase As New ClasexMateria(Val(CBOMateriasClas.SelectedValue), Val(TXBanio.Text), Val(TXBdictadas.Text))
         Dim TXT As String
-        TXT = "Insert Into MOTIVO_DISERSION(MOTIVO_DIS_DESCRIPCION) Values(:MOTIVO_DIS_DESCRIPCION)"
-        AccesoDB.Obtener_Datos(oMotivoDis.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
-        MsgBox(oMotivoDis.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
-        Administrar_Botones(motivosdedisersion, True)
+        TXT = "Insert Into CLASE(RELA_MATERIA, CLASE_ANIO, CLASE_CANTDICTADAS) Values(:RELA_MATERIA, :CLASE_ANIO, :CLASE_CANTDICTADAS)"
+        AccesoDB.Obtener_Datos(oClase.Materia, oClase.Año, oClase.CantClases, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        AccesoDB.Cargar_Datos(TXT, "RELA_MATERIA", "CLASE_ANIO", "CLASE_CANTDICTADAS", "", "", "", "", "", "")
+        MsgBox(oClase.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+        Administrar_Botones(ClasesporMateria, True)
+    End Sub
+
+    Private Sub CMDAgregarMat_Click(sender As Object, e As EventArgs) Handles CMDAgregarMat.Click
+        Dim oMateria As New Materia(TXBnomb.Text, TXBCod.Text, Val(CBOCarrera.SelectedValue))
+        Dim TXT As String
+        TXT = "Insert Into MATERIA(RELA_CARRERA, MATERIA_NOMBRE, COD_MATERIA) Values(:RELA_CARRERA, :MATERIA_NOMBRE, :COD_MATERIA)"
+        AccesoDB.Obtener_Datos(oMateria.Carrera, oMateria.Nombre, oMateria.Codigo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        AccesoDB.Cargar_Datos(TXT, "RELA_CARRERA", "MATERIA_NOMBRE", "COD_MATERIA", "", "", "", "", "", "")
+        MsgBox(oMateria.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+        Administrar_Botones(Materias, True)
+    End Sub
+
+    Private Sub CMDAgregarOr_Click(sender As Object, e As EventArgs) Handles CMDAgregarOr.Click
+        Dim oOrientacion As New Orientacion(TXTOrientacion.Text)
+        Dim TXT As String
+        TXT = "Insert Into ORIENTACION(ORIENTACION_DESCRIPCION) Values(:ORIENTACION_DESCRIPCION)"
+        AccesoDB.Obtener_Datos(oOrientacion.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        AccesoDB.Cargar_Datos(TXT, "ORIENTACION_DESCRIPCION", "", "", "", "", "", "", "", "")
+        MsgBox(oOrientacion.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+        Administrar_Botones(Orientaciones, True)
+    End Sub
+
+    Private Sub CMDAgregarCar_Click(sender As Object, e As EventArgs) Handles CMDAgregarCar.Click
+        Dim oCarrera As New Carrera(TXTnomb.Text, Val(TXTduracion.Text), TXTcodig.Text)
+        Dim TXT As String
+        TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANTANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANTANIOS, :COD_CARRERA)"
+        AccesoDB.Obtener_Datos(oCarrera.Nombre, oCarrera.Años, oCarrera.CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANTANIOS", "COD_CARRERA", "", "", "", "", "", "")
+        MsgBox(oCarrera.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+        Administrar_Botones(Carreras, True)
     End Sub
 End Class
