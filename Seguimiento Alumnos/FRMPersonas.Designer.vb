@@ -461,7 +461,7 @@ Partial Class FRMPersonas
         '
         Me.CBOColegio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOColegio.FormattingEnabled = True
-        Me.CBOColegio.Location = New System.Drawing.Point(113, 29)
+        Me.CBOColegio.Location = New System.Drawing.Point(143, 29)
         Me.CBOColegio.Name = "CBOColegio"
         Me.CBOColegio.Size = New System.Drawing.Size(97, 23)
         Me.CBOColegio.TabIndex = 30
@@ -511,9 +511,9 @@ Partial Class FRMPersonas
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(30, 60)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(70, 15)
+        Me.Label11.Size = New System.Drawing.Size(66, 15)
         Me.Label11.TabIndex = 26
-        Me.Label11.Text = "Orientación"
+        Me.Label11.Text = "Modalidad"
         '
         'Label12
         '
@@ -521,9 +521,9 @@ Partial Class FRMPersonas
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(6, 32)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(108, 15)
+        Me.Label12.Size = New System.Drawing.Size(131, 15)
         Me.Label12.TabIndex = 25
-        Me.Label12.Text = "Colegio de Egreso"
+        Me.Label12.Text = "Colegio Donde Egresó"
         '
         'DTPEgreso
         '
