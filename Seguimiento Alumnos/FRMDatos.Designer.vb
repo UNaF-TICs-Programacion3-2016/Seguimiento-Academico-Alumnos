@@ -1003,12 +1003,12 @@ Partial Class FRMDatos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 370)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.Materia)
+        Me.Controls.Add(Me.CarreraxAlumno)
         Me.Controls.Add(Me.Antecedentes)
         Me.Controls.Add(Me.Disersion)
         Me.Controls.Add(Me.Examenes)
         Me.Controls.Add(Me.Asistencia)
-        Me.Controls.Add(Me.Materia)
-        Me.Controls.Add(Me.CarreraxAlumno)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMDatos"
         Me.Text = "Datos del alumno en cursada"
