@@ -99,4 +99,13 @@
         Administrar_Botones(motivosdedisersion, True)
     End Sub
 
+    Private Sub CMDAgregarClas_Click(sender As Object, e As EventArgs) Handles CMDAgregarClas.Click
+        Dim oClase As New Clas(TXTModificarDis.Text)
+        Dim TXT As String
+        TXT = "Insert Into MOTIVO_DISERSION(MOTIVO_DIS_DESCRIPCION) Values(:MOTIVO_DIS_DESCRIPCION)"
+        AccesoDB.Obtener_Datos(oMotivoDis.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        AccesoDB.Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
+        MsgBox(oMotivoDis.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+        Administrar_Botones(motivosdedisersion, True)
+    End Sub
 End Class

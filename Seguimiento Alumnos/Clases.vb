@@ -590,8 +590,21 @@ Public Class GestorBD
     End Function
 End Class
 
+Public MustInherit Class ObjetoBD
+    'Clase de objetos que van a ser cargados a la bd
+    Private _Nombre As String
+    Public Property Nombre As String
+        Get
+            Return _Nombre
+        End Get
+        Set(value As String)
+            _Nombre = value
+        End Set
+    End Property
+    Public MustOverride Function Mensaje(Tipo As String) As String
+End Class
 Public Class Orientacion
-    Private _Nombreorientacion As String
+    Inherits ObjetoBD
     Private _Codigoorientacion As String
 
 
@@ -599,18 +612,9 @@ Public Class Orientacion
 
     End Sub
     Public Sub New(vNombreorientacion As String, vCodigoorientacion As String)
-        Nombreorientacion = vNombreorientacion
+        Nombre = vNombreorientacion
         Codigoorientacion = vCodigoorientacion
     End Sub
-
-    Public Property Nombreorientacion As String
-        Get
-            Return _Nombreorientacion
-        End Get
-        Set(value As String)
-            _Nombreorientacion = value
-        End Set
-    End Property
 
     Public Property Codigoorientacion As String
         Get
@@ -621,17 +625,17 @@ Public Class Orientacion
         End Set
     End Property
 
-    Public Function Mensaje(Tipo As String) As String
+    Public Overrides Function Mensaje(Tipo As String) As String
         If Tipo = "Guardar" Then
-            Return "La carga de la orientacion " & Nombreorientacion & " se ha realizado correctamente."
+            Return "La carga de la orientacion " & Nombre & " se ha realizado correctamente."
         ElseIf Tipo = "Modificar" Then
-            Return "La modificación de la orientacion " & Nombreorientacion & " se ha realizado correctamente."
+            Return "La modificación de la orientacion " & Nombre & " se ha realizado correctamente."
         End If
     End Function
 End Class
 
 Public Class Materia
-    Private _Nombre As String
+    Inherits ObjetoBD
     Private _Codigo As String
     Private _Carrera As Integer
 
@@ -643,14 +647,7 @@ Public Class Materia
         Codigo = vCodigo
         Carrera = vCarrera
     End Sub
-    Public Property Nombre As String
-        Get
-            Return _Nombre
-        End Get
-        Set(value As String)
-            _Nombre = value
-        End Set
-    End Property
+
     Public Property Codigo As String
         Get
             Return _Codigo
@@ -668,7 +665,7 @@ Public Class Materia
         End Set
     End Property
 
-    Public Function Mensaje(Tipo As String) As String
+    Public Overrides Function Mensaje(Tipo As String) As String
         If Tipo = "Guardar" Then
             Return "La carga de la materia " & Nombre & " se ha realizado correctamente."
         ElseIf Tipo = "Modificar" Then
@@ -677,7 +674,7 @@ Public Class Materia
     End Function
 End Class
 Public Class Colegio
-    Private _Nombre As String
+    Inherits ObjetoBD
     Private _Tipo As Integer
     Public Sub New(vNombre As String, vTipo As Integer)
         Nombre = vNombre
@@ -686,14 +683,7 @@ Public Class Colegio
     Public Sub New()
 
     End Sub
-    Public Property Nombre As String
-        Get
-            Return _Nombre
-        End Get
-        Set(value As String)
-            _Nombre = value
-        End Set
-    End Property
+
 
     Public Property TipoColegio As Integer
         Get
@@ -703,7 +693,7 @@ Public Class Colegio
             _Tipo = value
         End Set
     End Property
-    Public Function Mensaje(Tipo As String) As String
+    Public Overrides Function Mensaje(Tipo As String) As String
         If Tipo = "Guardar" Then
             Return "La carga del colegio " & Nombre & " se ha realizado correctamente."
         ElseIf Tipo = "Modificar" Then
@@ -712,28 +702,47 @@ Public Class Colegio
     End Function
 End Class
 Public Class Disercion
-    Private _Nombre As String
-
-    Public Property Nombre As String
-        Get
-            Return _Nombre
-        End Get
-        Set(value As String)
-            _Nombre = value
-        End Set
-    End Property
+    Inherits ObjetoBD
     Public Sub New()
 
     End Sub
     Public Sub New(vNombre As String)
         Nombre = vNombre
-        End
     End Sub
-    Public Function Mensaje(Tipo As String) As String
+    Public Overrides Function Mensaje(Tipo As String) As String
         If Tipo = "Guardar" Then
             Return "La carga del motivo de deserción " & Nombre & " se ha realizado correctamente."
         ElseIf Tipo = "Modificar" Then
             Return "La modificación del motivo de deserción " & Nombre & " se ha realizado correctamente."
+        End If
+    End Function
+End Class
+
+Public Class ClasexMateria
+    Inherits ObjetoBD
+    Private _CantClases As Integer
+    Private _Materia As Integer
+    Public Property CantClases As Integer
+        Get
+            Return _CantClases
+        End Get
+        Set(value As Integer)
+            _CantClases = value
+        End Set
+    End Property
+    Public Property Materia As Integer
+        Get
+            Return _Materia
+        End Get
+        Set(value As Integer)
+            _Materia = value
+        End Set
+    End Property
+    Public Overrides Function Mensaje(Tipo As String) As String
+        If Tipo = "Guardar" Then
+            Return "La carga de la clase " & Nombre & " se ha realizado correctamente."
+        ElseIf Tipo = "Modificar" Then
+            Return "La modificación de la clase" & Nombre & " se ha realizado correctamente."
         End If
     End Function
 End Class

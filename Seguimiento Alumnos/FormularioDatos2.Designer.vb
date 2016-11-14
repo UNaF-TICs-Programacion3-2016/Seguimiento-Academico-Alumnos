@@ -64,7 +64,6 @@ Partial Class FormularioDatos2
         Me.ClasesporMateria = New System.Windows.Forms.GroupBox()
         Me.TXBdictadas = New System.Windows.Forms.TextBox()
         Me.TXBanio = New System.Windows.Forms.TextBox()
-        Me.TXBmater = New System.Windows.Forms.TextBox()
         Me.LBLdictadas = New System.Windows.Forms.Label()
         Me.LBLanio = New System.Windows.Forms.Label()
         Me.LBLmateria = New System.Windows.Forms.Label()
@@ -88,6 +87,13 @@ Partial Class FormularioDatos2
         Me.TXBCod = New System.Windows.Forms.TextBox()
         Me.LBLNomb = New System.Windows.Forms.Label()
         Me.LBLcodigo = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.CMDAgregarClas = New System.Windows.Forms.Button()
+        Me.CMDCancelarClas = New System.Windows.Forms.Button()
+        Me.CMDModificarClas = New System.Windows.Forms.Button()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.CBOMateriasClas = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.Colegios.SuspendLayout()
         CType(Me.DataGridCol, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,6 +106,7 @@ Partial Class FormularioDatos2
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Materias.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -453,9 +460,14 @@ Partial Class FormularioDatos2
         '
         'ClasesporMateria
         '
+        Me.ClasesporMateria.Controls.Add(Me.CBOMateriasClas)
+        Me.ClasesporMateria.Controls.Add(Me.Label6)
+        Me.ClasesporMateria.Controls.Add(Me.DataGridView3)
+        Me.ClasesporMateria.Controls.Add(Me.CMDModificarClas)
+        Me.ClasesporMateria.Controls.Add(Me.CMDCancelarClas)
+        Me.ClasesporMateria.Controls.Add(Me.CMDAgregarClas)
         Me.ClasesporMateria.Controls.Add(Me.TXBdictadas)
         Me.ClasesporMateria.Controls.Add(Me.TXBanio)
-        Me.ClasesporMateria.Controls.Add(Me.TXBmater)
         Me.ClasesporMateria.Controls.Add(Me.LBLdictadas)
         Me.ClasesporMateria.Controls.Add(Me.LBLanio)
         Me.ClasesporMateria.Controls.Add(Me.LBLmateria)
@@ -477,15 +489,8 @@ Partial Class FormularioDatos2
         '
         Me.TXBanio.Location = New System.Drawing.Point(79, 50)
         Me.TXBanio.Name = "TXBanio"
-        Me.TXBanio.Size = New System.Drawing.Size(100, 20)
+        Me.TXBanio.Size = New System.Drawing.Size(54, 20)
         Me.TXBanio.TabIndex = 4
-        '
-        'TXBmater
-        '
-        Me.TXBmater.Location = New System.Drawing.Point(79, 23)
-        Me.TXBmater.Name = "TXBmater"
-        Me.TXBmater.Size = New System.Drawing.Size(100, 20)
-        Me.TXBmater.TabIndex = 3
         '
         'LBLdictadas
         '
@@ -516,6 +521,7 @@ Partial Class FormularioDatos2
         '
         'motivosdedisersion
         '
+        Me.motivosdedisersion.Controls.Add(Me.Button1)
         Me.motivosdedisersion.Controls.Add(Me.Label5)
         Me.motivosdedisersion.Controls.Add(Me.DataGridView2)
         Me.motivosdedisersion.Controls.Add(Me.CMDCancelarDis)
@@ -703,18 +709,79 @@ Partial Class FormularioDatos2
         Me.LBLcodigo.TabIndex = 0
         Me.LBLcodigo.Text = "Código"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(3, 16)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 11
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'CMDAgregarClas
+        '
+        Me.CMDAgregarClas.Location = New System.Drawing.Point(17, 127)
+        Me.CMDAgregarClas.Name = "CMDAgregarClas"
+        Me.CMDAgregarClas.Size = New System.Drawing.Size(85, 22)
+        Me.CMDAgregarClas.TabIndex = 6
+        Me.CMDAgregarClas.Text = "Agregar Clase"
+        Me.CMDAgregarClas.UseVisualStyleBackColor = True
+        '
+        'CMDCancelarClas
+        '
+        Me.CMDCancelarClas.Location = New System.Drawing.Point(71, 157)
+        Me.CMDCancelarClas.Name = "CMDCancelarClas"
+        Me.CMDCancelarClas.Size = New System.Drawing.Size(75, 23)
+        Me.CMDCancelarClas.TabIndex = 7
+        Me.CMDCancelarClas.Text = "Cancelar"
+        Me.CMDCancelarClas.UseVisualStyleBackColor = True
+        '
+        'CMDModificarClas
+        '
+        Me.CMDModificarClas.Location = New System.Drawing.Point(120, 126)
+        Me.CMDModificarClas.Name = "CMDModificarClas"
+        Me.CMDModificarClas.Size = New System.Drawing.Size(75, 23)
+        Me.CMDModificarClas.TabIndex = 11
+        Me.CMDModificarClas.Text = "Modificar"
+        Me.CMDModificarClas.UseVisualStyleBackColor = True
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(278, 39)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(291, 196)
+        Me.DataGridView3.TabIndex = 12
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(390, 16)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(94, 13)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "Clases por Materia"
+        '
+        'CBOMateriasClas
+        '
+        Me.CBOMateriasClas.FormattingEnabled = True
+        Me.CBOMateriasClas.Location = New System.Drawing.Point(79, 23)
+        Me.CBOMateriasClas.Name = "CBOMateriasClas"
+        Me.CBOMateriasClas.Size = New System.Drawing.Size(121, 21)
+        Me.CBOMateriasClas.TabIndex = 14
+        '
         'FormularioDatos2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 304)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.motivosdedisersion)
         Me.Controls.Add(Me.ClasesporMateria)
         Me.Controls.Add(Me.Materias)
         Me.Controls.Add(Me.Orientaciones)
         Me.Controls.Add(Me.Carreras)
         Me.Controls.Add(Me.Colegios)
+        Me.Controls.Add(Me.motivosdedisersion)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormularioDatos2"
         Me.Text = "Datos del Sistema"
@@ -737,6 +804,7 @@ Partial Class FormularioDatos2
         Me.Materias.ResumeLayout(False)
         Me.Materias.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -767,7 +835,6 @@ Partial Class FormularioDatos2
     Friend WithEvents ClasesporMateria As System.Windows.Forms.GroupBox
     Friend WithEvents TXBdictadas As System.Windows.Forms.TextBox
     Friend WithEvents TXBanio As System.Windows.Forms.TextBox
-    Friend WithEvents TXBmater As System.Windows.Forms.TextBox
     Friend WithEvents LBLdictadas As System.Windows.Forms.Label
     Friend WithEvents LBLanio As System.Windows.Forms.Label
     Friend WithEvents LBLmateria As System.Windows.Forms.Label
@@ -807,4 +874,11 @@ Partial Class FormularioDatos2
     Friend WithEvents CMDAgregarDis As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents CMDModificarClas As System.Windows.Forms.Button
+    Friend WithEvents CMDCancelarClas As System.Windows.Forms.Button
+    Friend WithEvents CMDAgregarClas As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents CBOMateriasClas As System.Windows.Forms.ComboBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
 End Class
