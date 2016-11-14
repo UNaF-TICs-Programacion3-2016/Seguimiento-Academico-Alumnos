@@ -722,8 +722,18 @@ Public Class Disercion
             _Nombre = value
         End Set
     End Property
+    Public Sub New()
 
+    End Sub
     Public Sub New(vNombre As String)
         Nombre = vNombre
+        End
     End Sub
+    Public Function Mensaje(Tipo As String) As String
+        If Tipo = "Guardar" Then
+            Return "La carga del motivo de deserción " & Nombre & " se ha realizado correctamente."
+        ElseIf Tipo = "Modificar" Then
+            Return "La modificación del motivo de deserción " & Nombre & " se ha realizado correctamente."
+        End If
+    End Function
 End Class

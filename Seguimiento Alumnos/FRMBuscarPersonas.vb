@@ -2,8 +2,7 @@
     Dim AccesoBD As New GestorBD
 
     Private Sub FRMBuscarPersonas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
+        Cargar_Grilla()
     End Sub
 
     'Cambios en FRMBuscarPersonas
