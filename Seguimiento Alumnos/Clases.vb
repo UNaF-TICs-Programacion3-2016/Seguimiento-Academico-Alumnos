@@ -217,11 +217,9 @@ Public Class Alumno
             MsgBox("Ingrese una fecha de egreso correcta", MsgBoxStyle.Exclamation, "Sistema")
         ElseIf _Promedio = "" Then
             MsgBox("Ingrese el promedio del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Promedio < 6 Then
-            MsgBox("Ingrese un promedio válido, no menor a 6", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Promedio > 10 Then
-            MsgBox("ingrese un promedio válido, menor o igual a 10", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Len(_Promedio) > 2 Then
+        ElseIf _Promedio < 6 Or _Promedio > 10 Then
+            MsgBox("Ingrese un promedio válido, Que no se menor a 6 o mayor a 10", MsgBoxStyle.Exclamation, "Sistema")
+       ElseIf Len(_Promedio) > 2 Then
             MsgBox("Ingrese un promedio válido, máximo número 10", MsgBoxStyle.Exclamation, "Sistema")
         Else
             Return True
@@ -508,6 +506,7 @@ Public Class GestorBD
             Else
                 Return True
             End If
+
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             Exit Function
@@ -516,33 +515,33 @@ Public Class GestorBD
 End Class
 
 Public Class Orientacion
-    Private vNombreorientacion As String
-    Private vCodigoorientacion As String
+    Private _Nombreorientacion As String
+    Private _Codigoorientacion As String
 
 
     Public Sub New()
 
     End Sub
-    Public Sub New(_Nombreorientacion As String, _Codigoorientacion As String)
-        Nombreorientacion = _Nombreorientacion
-        Codigoorientacion = _Codigoorientacion
+    Public Sub New(vNombreorientacion As String, vCodigoorientacion As String)
+        Nombreorientacion = vNombreorientacion
+        Codigoorientacion = vCodigoorientacion
     End Sub
 
     Public Property Nombreorientacion As String
         Get
-            Return vNombreorientacion
+            Return _Nombreorientacion
         End Get
         Set(value As String)
-            vNombreorientacion = value
+            _Nombreorientacion = value
         End Set
     End Property
 
     Public Property Codigoorientacion As String
         Get
-            Return vCodigoorientacion
+            Return _Codigoorientacion
         End Get
         Set(value As String)
-            vCodigoorientacion = value
+            _Codigoorientacion = value
         End Set
     End Property
 
@@ -556,40 +555,40 @@ Public Class Orientacion
 End Class
 
 Public Class Materia
-    Private vNombre As String
-    Private vCodigo As String
-    Private vCarrera As Integer
+    Private _Nombre As String
+    Private _Codigo As String
+    Private _Carrera As Integer
 
     Public Sub New()
 
     End Sub
-    Public Sub New(_Nombre As String, _Codigo As String, _Carrera As Integer)
-        Nombre = _Nombre
-        Codigo = _Codigo
-        Carrera = _Carrera
+    Public Sub New(vNombre As String, vCodigo As String, vCarrera As Integer)
+        Nombre = vNombre
+        Codigo = vCodigo
+        Carrera = vCarrera
     End Sub
     Public Property Nombre As String
         Get
-            Return vNombre
+            Return _Nombre
         End Get
         Set(value As String)
-            vNombre = value
+            _Nombre = value
         End Set
     End Property
     Public Property Codigo As String
         Get
-            Return vCodigo
+            Return _Codigo
         End Get
         Set(value As String)
-            vCodigo = value
+            _Codigo = value
         End Set
     End Property
     Public Property Carrera As Integer
         Get
-            Return vCarrera
+            Return _Carrera
         End Get
         Set(value As Integer)
-            vCarrera = value
+            _Carrera = value
         End Set
     End Property
 
@@ -637,16 +636,18 @@ Public Class Colegio
     End Function
 End Class
 Public Class Disercion
-    Private vNombre As String
+    Private _Nombre As String
 
     Public Property Nombre As String
         Get
-            Return vNombre
+            Return _Nombre
         End Get
         Set(value As String)
-            vNombre = value
+            _Nombre = value
         End Set
     End Property
 
-
+    Public Sub New(vNombre As String)
+        Nombre = vNombre
+    End Sub
 End Class
