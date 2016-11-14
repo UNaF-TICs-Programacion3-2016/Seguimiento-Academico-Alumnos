@@ -48,6 +48,6 @@
 
   
     Private Sub CMDBuscar6_Click(sender As Object, e As EventArgs) Handles CMDBuscar6.Click
-        FRMPersonas.Show()
+        FRMBuscarPersonas.Show()
     End Sub
 End Class
