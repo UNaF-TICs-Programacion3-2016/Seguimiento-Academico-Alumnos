@@ -95,3 +95,15 @@ C:\Users\CasaD\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumno
 C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.exe
 C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.xml
 C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.pdb
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.exe
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.pdb
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\bin\Debug\Seguimiento Alumnos.xml
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.DisersionesTop.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Form1.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FormularioDatos2.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMBuscarPersonas.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMDatos.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMParametros.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMPersonas.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
+C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache

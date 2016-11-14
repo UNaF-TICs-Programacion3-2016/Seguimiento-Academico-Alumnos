@@ -7,25 +7,12 @@
     End Sub
 
     'Cambios en FRMBuscarPersonas
-    Private Sub CHKFiltrarNombre_CheckedChanged(sender As Object, e As EventArgs) Handles CHKFiltrarNombre.CheckedChanged
-        Deseleccionar()
-        CHKFiltrarNombre.Checked = True
-    End Sub
 
-    Private Sub CHKFiltrarApellido_CheckedChanged(sender As Object, e As EventArgs) Handles CHKFiltrarApellido.CheckedChanged
-        Deseleccionar()
-        CHKFiltrarApellido.Checked = True
-    End Sub
-
-    Private Sub CHKFiltrarDocumento_CheckedChanged(sender As Object, e As EventArgs) Handles CHKFiltrarDocumento.CheckedChanged
-        Deseleccionar()
-        CHKFiltrarDocumento.Checked = True
-    End Sub
 
     Private Sub Deseleccionar()
-        CHKFiltrarNombre.Checked = False
-        CHKFiltrarApellido.Checked = False
-        CHKFiltrarDocumento.Checked = False
+        CHKFiltrarNombre.CheckState = CheckState.Unchecked
+        CHKFiltrarApellido.CheckState = CheckState.Unchecked
+        CHKFiltrarDocumento.CheckState = CheckState.Unchecked
     End Sub
 
 
@@ -36,16 +23,45 @@
     Private Sub Cargar_Grilla()
         'Cargar Grilla
         Dim Consulta As String
-        DataGridAlumnos.Rows = 1
-        If CHKFiltrarNombre.Checked = True Then
+        DataGridAlumnos.DataSource = Nothing
+        DataGridAlumnos.Refresh()
+        If CHKFiltrarNombre.Enabled Then
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & TXTBuscar.Text & "'"
-        ElseIf CHKFiltrarApellido.Checked = True Then
+        ElseIf CHKFiltrarApellido.Enabled Then
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & TXTBuscar.Text & "'"
-        ElseIf CHKFiltrarDocumento.Checked = True Then
+        ElseIf CHKFiltrarDocumento.Enabled Then
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO Like '" & TXTBuscar.Text & "'"
         Else
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA"
         End If
         DataGridAlumnos.DataSource = AccesoBD.Obtener_Tabla(Consulta)
+    End Sub
+
+    Private Sub CHKFiltrarNombre_Click(sender As Object, e As EventArgs) Handles CHKFiltrarNombre.Click
+        If CHKFiltrarNombre.CheckState = CheckState.Checked Then
+            Deseleccionar()
+            CHKFiltrarNombre.CheckState = CheckState.Checked
+        Else
+            CHKFiltrarNombre.CheckState = CheckState.Unchecked
+        End If
+    End Sub
+
+
+    Private Sub CHKFiltrarApellido_Click(sender As Object, e As EventArgs) Handles CHKFiltrarApellido.Click
+        If CHKFiltrarApellido.CheckState = CheckState.Checked Then
+            Deseleccionar()
+            CHKFiltrarApellido.CheckState = CheckState.Checked
+        Else
+            CHKFiltrarApellido.CheckState = CheckState.Unchecked
+        End If
+    End Sub
+
+    Private Sub CHKFiltrarDocumento_Click(sender As Object, e As EventArgs) Handles CHKFiltrarDocumento.Click
+        If CHKFiltrarDocumento.CheckState = CheckState.Checked Then
+            Deseleccionar()
+            CHKFiltrarDocumento.CheckState = CheckState.Checked
+        Else
+            CHKFiltrarDocumento.CheckState = CheckState.Unchecked
+        End If
     End Sub
 End Class

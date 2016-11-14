@@ -69,9 +69,10 @@
     End Sub
 
     Private Sub CMDAgregarCol_Click(sender As Object, e As EventArgs) Handles CMDAgregarCol.Click
-        Dim oColegio As New Colegio
+        Dim oColegio As New Colegio(TXTNombreCol.Text, CBXtipo.SelectedIndex)
         Dim TXT As String
-        TXT = "Insert Into COLEGIO(COLEGIO_NOMBRE, COLEGIO_TIPO) Values(" & oColegio.Nombre & ", " & oColegio.TipoColegio & ");"
+        TXT = "Insert Into COLEGIO(COLEGIO_NOMBRE, COLEGIO_TIPO) Values(:COLEGIO_NOMBRE, :COLEGIO_TIPO)"
+        AccesoDB.Obtener_Datos(TXTNombreCol.Text, CBXtipo.SelectedIndex, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         AccesoDB.Cargar_Datos(TXT, "COLEGIO_NOMBRE", "COLEGIO_TIPO", "", "", "", "", "", "", "")
         MsgBox(oColegio.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(Colegios, True)
