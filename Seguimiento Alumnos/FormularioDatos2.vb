@@ -54,8 +54,80 @@
             .Items.Add("Privado")
             .Items.Add("Público")
         End With
+        'Cargar grillas
+        Actualizar_Grillas("Todas")
     End Sub
 
+    Private Sub Actualizar_Grillas(Cual As String)
+        If Cual = "Carrera" Then
+            With DataGridCar
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CARRERA As ID, CARRERA_NOMBRE As Carrera from CARRERA")
+            End With
+        ElseIf Cual = "Colegio" Then
+            With DataGridCol
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_COLEGIO As ID, COLEGIO_NOMBRE As Colegio from COLEGIO")
+            End With
+        ElseIf Cual = "Orientacion" Then
+            With DataGridOr
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION As ID, ORIENTACION_DESCRIPCION As Orientacion from ORIENTACION")
+            End With
+        ElseIf Cual = "Clase" Then
+            With DataGridClas
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CLASE As ID, MATERIA_NOMBRE As Materia, CLASE_ANIO As Ciclo, CLASE_CANTDICTADAS As Clases from CLASE Inner Join MATERIA On ID_MATERIA = RELA_MATERIA")
+            End With
+        ElseIf Cual = "Materia" Then
+            With DataGridMat
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MATERIA As ID, MATERIA_NOMBRE As Materia, COD_MATERIA AS CODIGO, CARRERA_NOMBRE As Carrera from MATERIA Inner Join CARRERA On ID_CARRERA = RELA_CARRERA")
+            End With
+        ElseIf Cual = "Disersion" Then
+            With DataGridDis
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MOTIVO_DIS As ID, MOTIVO_DIS_DESCRIPCION As Motivo from MOTIVO_DISERSION")
+            End With
+        ElseIf Cual = "Todas" Then
+            With DataGridCar
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CARRERA As ID, CARRERA_NOMBRE As Carrera from CARRERA")
+            End With
+            With DataGridCol
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_COLEGIO As ID, COLEGIO_NOMBRE As Colegio from COLEGIO")
+            End With
+            With DataGridOr
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION As ID, ORIENTACION_DESCRIPCION As Orientacion from ORIENTACION")
+            End With
+            With DataGridClas
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CLASE As ID, MATERIA_NOMBRE As Materia, CLASE_ANIO As Ciclo, CLASE_CANTDICTADAS As Clases from CLASE Inner Join MATERIA On ID_MATERIA = RELA_MATERIA")
+            End With
+            With DataGridMat
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MATERIA As ID, MATERIA_NOMBRE As Materia, COD_MATERIA AS CODIGO, CARRERA_NOMBRE As Carrera from MATERIA Inner Join CARRERA On ID_CARRERA = RELA_CARRERA")
+            End With
+            With DataGridDis
+                .DataSource = Nothing
+                .Refresh()
+                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MOTIVO_DIS As ID, MOTIVO_DIS_DESCRIPCION As Motivo from MOTIVO_DISERSION")
+            End With
+        End If
+    End Sub
     Private Sub CBOCarrera_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CBOCarrera.KeyPress
         e.KeyChar = ""
     End Sub
@@ -76,6 +148,7 @@
         AccesoDB.Cargar_Datos(TXT, "COLEGIO_NOMBRE", "COLEGIO_TIPO", "", "", "", "", "", "", "")
         MsgBox(oColegio.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(Colegios, True)
+        Actualizar_Grillas("Colegio") 'actualizar grilla colegio
     End Sub
     Private Sub Administrar_Botones(ByVal Grupo As Control, Valor As Boolean)
         Dim GestionBotones As New Botones
@@ -97,6 +170,7 @@
         AccesoDB.Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
         MsgBox(oMotivoDis.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(motivosdedisersion, True)
+        Actualizar_Grillas("Disersion") 'Actualizar grilla motivos de desersion
     End Sub
 
     Private Sub CMDAgregarClas_Click(sender As Object, e As EventArgs) Handles CMDAgregarClas.Click
@@ -107,6 +181,7 @@
         AccesoDB.Cargar_Datos(TXT, "RELA_MATERIA", "CLASE_ANIO", "CLASE_CANTDICTADAS", "", "", "", "", "", "")
         MsgBox(oClase.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(ClasesporMateria, True)
+        Actualizar_Grillas("Clase") 'actualizar grilla clase
     End Sub
 
     Private Sub CMDAgregarMat_Click(sender As Object, e As EventArgs) Handles CMDAgregarMat.Click
@@ -117,6 +192,7 @@
         AccesoDB.Cargar_Datos(TXT, "RELA_CARRERA", "MATERIA_NOMBRE", "COD_MATERIA", "", "", "", "", "", "")
         MsgBox(oMateria.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(Materias, True)
+        Actualizar_Grillas("Materia") 'actualizar grilla materia
     End Sub
 
     Private Sub CMDAgregarOr_Click(sender As Object, e As EventArgs) Handles CMDAgregarOr.Click
@@ -127,6 +203,7 @@
         AccesoDB.Cargar_Datos(TXT, "ORIENTACION_DESCRIPCION", "", "", "", "", "", "", "", "")
         MsgBox(oOrientacion.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(Orientaciones, True)
+        Actualizar_Grillas("Orientacion") 'actualizar grilla orientacion
     End Sub
 
     Private Sub CMDAgregarCar_Click(sender As Object, e As EventArgs) Handles CMDAgregarCar.Click
@@ -137,5 +214,6 @@
         AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
         MsgBox(oCarrera.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(Carreras, True)
+        Actualizar_Grillas("Carrera") 'actualizar grilla carrera
     End Sub
 End Class

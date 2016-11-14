@@ -163,8 +163,8 @@ Partial Class FRMDatos
         'DisersiónToolStripMenuItem
         '
         Me.DisersiónToolStripMenuItem.Name = "DisersiónToolStripMenuItem"
-        Me.DisersiónToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
-        Me.DisersiónToolStripMenuItem.Text = "Disersión"
+        Me.DisersiónToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.DisersiónToolStripMenuItem.Text = "Deserción"
         '
         'OtrosAntecedentesToolStripMenuItem
         '
@@ -763,9 +763,9 @@ Partial Class FRMDatos
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label30.Location = New System.Drawing.Point(282, 18)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(103, 20)
+        Me.Label30.Size = New System.Drawing.Size(109, 20)
         Me.Label30.TabIndex = 32
-        Me.Label30.Text = "Disersiones"
+        Me.Label30.Text = "Deserciones"
         '
         'CMDBaja
         '
@@ -1003,12 +1003,12 @@ Partial Class FRMDatos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 370)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.Materia)
-        Me.Controls.Add(Me.CarreraxAlumno)
-        Me.Controls.Add(Me.Antecedentes)
         Me.Controls.Add(Me.Disersion)
         Me.Controls.Add(Me.Examenes)
         Me.Controls.Add(Me.Asistencia)
+        Me.Controls.Add(Me.Materia)
+        Me.Controls.Add(Me.CarreraxAlumno)
+        Me.Controls.Add(Me.Antecedentes)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMDatos"
         Me.Text = "Datos del alumno en cursada"
