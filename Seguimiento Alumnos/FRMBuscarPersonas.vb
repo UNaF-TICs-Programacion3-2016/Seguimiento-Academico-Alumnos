@@ -9,23 +9,23 @@
     'Cambios en FRMBuscarPersonas
     Private Sub CHKFiltrarNombre_CheckedChanged(sender As Object, e As EventArgs) Handles CHKFiltrarNombre.CheckedChanged
         Deseleccionar()
-        CHKFiltrarNombre.Enabled
+        CHKFiltrarNombre.Checked = True
     End Sub
 
     Private Sub CHKFiltrarApellido_CheckedChanged(sender As Object, e As EventArgs) Handles CHKFiltrarApellido.CheckedChanged
         Deseleccionar()
-        CHKFiltrarApellido.Value = 1
+        CHKFiltrarApellido.Checked = True
     End Sub
 
     Private Sub CHKFiltrarDocumento_CheckedChanged(sender As Object, e As EventArgs) Handles CHKFiltrarDocumento.CheckedChanged
         Deseleccionar()
-        CHKFiltrarDocumento.Value = 1
+        CHKFiltrarDocumento.Checked = True
     End Sub
 
     Private Sub Deseleccionar()
-        CHKFiltrarNombre.Value = 0
-        CHKFiltrarApellido.Value = 0
-        CHKFiltrarDocumento.Value = 0
+        CHKFiltrarNombre.Checked = False
+        CHKFiltrarApellido.Checked = False
+        CHKFiltrarDocumento.Checked = False
     End Sub
 
 
@@ -37,11 +37,11 @@
         'Cargar Grilla
         Dim Consulta As String
         DataGridAlumnos.Rows = 1
-        If CHKFiltrarNombre.Enabled Then
+        If CHKFiltrarNombre.Checked = True Then
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & TXTBuscar.Text & "'"
-        ElseIf CHKFiltrarApellido.Enabled Then
+        ElseIf CHKFiltrarApellido.Checked = True Then
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & TXTBuscar.Text & "'"
-        ElseIf CHKFiltrarDocumento.Enabled Then
+        ElseIf CHKFiltrarDocumento.Checked = True Then
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO Like '" & TXTBuscar.Text & "'"
         Else
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA"
