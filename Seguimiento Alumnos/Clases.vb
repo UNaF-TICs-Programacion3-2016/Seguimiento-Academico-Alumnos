@@ -366,7 +366,6 @@ End Class
 
 Public Class GestorBD
     Private Conexion As New OracleConnection
-    Private Comando As New OracleCommand
     Public S1 As String
     Public N1 As Integer
     Public S2 As String
@@ -462,6 +461,7 @@ Public Class GestorBD
         'Le damos muchos parametros, los que no esten en blanco son los que se asignaran (se manda el nombre del campo)
         Try
             Conectar() 'Llamamos al sub para conectar
+            Dim Comando As New OracleCommand
             Comando.Connection = Conexion
             Comando.CommandType = CommandType.Text
             Comando.CommandText = Consulta
@@ -532,12 +532,14 @@ Public Class GestorBD
             Cerrar()
         Catch ex As Exception
             MsgBox(ex.Message)
+            Cerrar()
         End Try
     End Sub
 
     Public Function Obtener_ID(Tabla As String, ID As String, campo1 As String, Objeto As String)
         'Esta funcion devuelve una id de una tabla especifica a partir de un nombre
         Conectar()
+        Dim Comando As New OracleCommand
         Comando.Connection = Conexion
         Dim Reader As OracleDataReader
         Dim Tableta As New DataTable()
@@ -550,6 +552,7 @@ Public Class GestorBD
     Public Function Obtener_Tabla(Consulta As String) As DataTable
         'objetos reader de oracle y datatable
         Dim Reader As OracleDataReader
+        Dim Comando As New OracleCommand
         Dim Tabla As New DataTable()
         Try
             Conectar()
@@ -571,6 +574,7 @@ Public Class GestorBD
     Public Function Detectar_Existente(tabla As String, id As Integer, campo As String) As Boolean
         Try
             Conectar()
+            Dim Comando As New OracleCommand
             Comando.Connection = Conexion
             Dim Reader As OracleDataReader
             Dim Tableta As New DataTable()
@@ -772,11 +776,11 @@ Public Class Carrera
             _CantAnios = value
         End Set
     End Property
-    Public Property CodCarrera As Integer
+    Public Property CodCarrera As String
         Get
             Return _CodCarrera
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _CodCarrera = value
         End Set
     End Property

@@ -97,7 +97,7 @@
 
     Sub Cargar_Orientacion()
         Dim Value As Integer
-        Value = CBOColegio.SelectedValue
+        Value = Val(CBOColegio.SelectedValue)
         With CBOOrientacion
             .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION JOIN ORIENTACIONXCOLEGIO ON ID_ORIENTACION = RELA_ORIENTACION where RELA_COLEGIO = " & Value & ";")
             .DisplayMember = "COLEGIO_NOMBRE"

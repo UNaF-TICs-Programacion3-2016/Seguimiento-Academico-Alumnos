@@ -132,9 +132,9 @@
     Private Sub CMDAgregarCar_Click(sender As Object, e As EventArgs) Handles CMDAgregarCar.Click
         Dim oCarrera As New Carrera(TXTnomb.Text, Val(TXTduracion.Text), TXTcodig.Text)
         Dim TXT As String
-        TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANTANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANTANIOS, :COD_CARRERA)"
+        TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANT_ANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANT_ANIOS, :COD_CARRERA)"
         AccesoDB.Obtener_Datos(oCarrera.Nombre, oCarrera.Años, oCarrera.CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-        AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANTANIOS", "COD_CARRERA", "", "", "", "", "", "")
+        AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
         MsgBox(oCarrera.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
         Administrar_Botones(Carreras, True)
     End Sub
