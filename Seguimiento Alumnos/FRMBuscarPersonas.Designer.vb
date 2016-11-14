@@ -69,7 +69,7 @@ Partial Class FRMBuscarPersonas
         Me.CHKFiltrarApellido.Name = "CHKFiltrarApellido"
         Me.CHKFiltrarApellido.Size = New System.Drawing.Size(109, 17)
         Me.CHKFiltrarApellido.TabIndex = 3
-        Me.CHKFiltrarApellido.Text = "Filtrar por Nombre"
+        Me.CHKFiltrarApellido.Text = "Filtrar por Apellido"
         Me.CHKFiltrarApellido.UseVisualStyleBackColor = true
         '
         'CHKFiltrarDocumento
