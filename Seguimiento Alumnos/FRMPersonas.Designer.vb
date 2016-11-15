@@ -61,16 +61,16 @@ Partial Class FRMPersonas
         Me.TXTNombre = New System.Windows.Forms.TextBox()
         Me.AntecedentesAc = New System.Windows.Forms.GroupBox()
         Me.CBOColegio = New System.Windows.Forms.ComboBox()
-        Me.DTPIngreso = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.DTPEgreso = New System.Windows.Forms.DateTimePicker()
         Me.CBOOrientacion = New System.Windows.Forms.ComboBox()
         Me.TXTPromedio = New System.Windows.Forms.TextBox()
         Me.CMDEliminar = New System.Windows.Forms.Button()
+        Me.TXTIngreso = New System.Windows.Forms.TextBox()
+        Me.TXTEgreso = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DatagridAlumnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DatosPersonales.SuspendLayout()
@@ -439,14 +439,14 @@ Partial Class FRMPersonas
         '
         'AntecedentesAc
         '
+        Me.AntecedentesAc.Controls.Add(Me.TXTEgreso)
+        Me.AntecedentesAc.Controls.Add(Me.TXTIngreso)
         Me.AntecedentesAc.Controls.Add(Me.CBOColegio)
-        Me.AntecedentesAc.Controls.Add(Me.DTPIngreso)
         Me.AntecedentesAc.Controls.Add(Me.Label8)
         Me.AntecedentesAc.Controls.Add(Me.Label9)
         Me.AntecedentesAc.Controls.Add(Me.Label10)
         Me.AntecedentesAc.Controls.Add(Me.Label11)
         Me.AntecedentesAc.Controls.Add(Me.Label12)
-        Me.AntecedentesAc.Controls.Add(Me.DTPEgreso)
         Me.AntecedentesAc.Controls.Add(Me.CBOOrientacion)
         Me.AntecedentesAc.Controls.Add(Me.TXTPromedio)
         Me.AntecedentesAc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -465,15 +465,6 @@ Partial Class FRMPersonas
         Me.CBOColegio.Name = "CBOColegio"
         Me.CBOColegio.Size = New System.Drawing.Size(97, 23)
         Me.CBOColegio.TabIndex = 30
-        '
-        'DTPIngreso
-        '
-        Me.DTPIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DTPIngreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPIngreso.Location = New System.Drawing.Point(105, 86)
-        Me.DTPIngreso.Name = "DTPIngreso"
-        Me.DTPIngreso.Size = New System.Drawing.Size(118, 21)
-        Me.DTPIngreso.TabIndex = 28
         '
         'Label8
         '
@@ -525,15 +516,6 @@ Partial Class FRMPersonas
         Me.Label12.TabIndex = 25
         Me.Label12.Text = "Colegio Donde Egresó"
         '
-        'DTPEgreso
-        '
-        Me.DTPEgreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DTPEgreso.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPEgreso.Location = New System.Drawing.Point(105, 112)
-        Me.DTPEgreso.Name = "DTPEgreso"
-        Me.DTPEgreso.Size = New System.Drawing.Size(118, 21)
-        Me.DTPEgreso.TabIndex = 23
-        '
         'CBOOrientacion
         '
         Me.CBOOrientacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -562,6 +544,24 @@ Partial Class FRMPersonas
         Me.CMDEliminar.UseVisualStyleBackColor = True
         Me.CMDEliminar.Visible = False
         '
+        'TXTIngreso
+        '
+        Me.TXTIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTIngreso.Location = New System.Drawing.Point(108, 88)
+        Me.TXTIngreso.MaxLength = 2
+        Me.TXTIngreso.Name = "TXTIngreso"
+        Me.TXTIngreso.Size = New System.Drawing.Size(66, 21)
+        Me.TXTIngreso.TabIndex = 31
+        '
+        'TXTEgreso
+        '
+        Me.TXTEgreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTEgreso.Location = New System.Drawing.Point(106, 115)
+        Me.TXTEgreso.MaxLength = 2
+        Me.TXTEgreso.Name = "TXTEgreso"
+        Me.TXTEgreso.Size = New System.Drawing.Size(68, 21)
+        Me.TXTEgreso.TabIndex = 32
+        '
         'FRMPersonas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -578,8 +578,8 @@ Partial Class FRMPersonas
         Me.Controls.Add(Me.CMDModificar)
         Me.Controls.Add(Me.CMDNuevo)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.DatosPersonales)
         Me.Controls.Add(Me.AntecedentesAc)
+        Me.Controls.Add(Me.DatosPersonales)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMPersonas"
         Me.Text = "Datos del Alumno"
@@ -621,13 +621,11 @@ Partial Class FRMPersonas
     Friend WithEvents TXTNombre As System.Windows.Forms.TextBox
     Friend WithEvents AntecedentesAc As System.Windows.Forms.GroupBox
     Friend WithEvents CBOColegio As System.Windows.Forms.ComboBox
-    Friend WithEvents DTPIngreso As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents DTPEgreso As System.Windows.Forms.DateTimePicker
     Friend WithEvents CBOOrientacion As System.Windows.Forms.ComboBox
     Friend WithEvents TXTPromedio As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
@@ -643,4 +641,6 @@ Partial Class FRMPersonas
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents CMDEliminar As System.Windows.Forms.Button
+    Friend WithEvents TXTEgreso As System.Windows.Forms.TextBox
+    Friend WithEvents TXTIngreso As System.Windows.Forms.TextBox
 End Class

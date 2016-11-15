@@ -139,29 +139,29 @@ Public MustInherit Class Persona
         End If
     End Sub
 
-    Public Function ValidarPersona() As Boolean
+    Public Function ValidarPersona(vNombre As String, vapellido As String, vdocumento As Integer, vfechan As Date, vtelefono As Integer, vlocalidad As Integer, vcalle As String, valtura As Integer, vestadocivil As Integer) As Boolean
         'Funcion para validar la persona
-        If Nombre = "" Then
+        If vNombre = "" Then
             MsgBox("Ingrese el nombre del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Apellido = "" Then
+        ElseIf vapellido = "" Then
             MsgBox("Ingrese el apellido del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Documento = "" Then
+        ElseIf vdocumento = Nothing Then
             MsgBox("Ingrese el documento del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Not IsNumeric(Documento) Then
+        ElseIf Not IsNumeric(vdocumento) Then
             MsgBox("Ingrese el documento de forma numérica", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf FechaN = "" Then
+        ElseIf vfechan = Nothing Then
             MsgBox("Ingrese la fecha de nacimiento", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Not IsDate(FechaN) Then
+        ElseIf Not IsDate(vfechan) Then
             MsgBox("Ingrese la fecha en el formato correcto (DD/MM/AAAA)", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Telefono = "" Then
+        ElseIf vtelefono = Nothing Then
             MsgBox("Ingrese un número de teléfono", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Localidad = "" Then
+        ElseIf vlocalidad = Nothing Then
             MsgBox("Seleccione una localidad", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Calle = "" Then
+        ElseIf vcalle = Nothing Then
             MsgBox("Ingrese un nombre de calle/avenida", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Altura = "" Then
+        ElseIf valtura = Nothing Then
             MsgBox("Ingrese el número de altura de la calle", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf EstadoCivil = "" Then
+        ElseIf vestadocivil = Nothing Then
             MsgBox("Seleccione un estado civil", MsgBoxStyle.Exclamation, "Sistema")
         Else
             Return True
@@ -233,23 +233,19 @@ Public Class Alumno
         Promedio = vPromedio
     End Sub
     Public Function ValidarAntAcademicos() As Boolean
-        If _colegio = "" Then
+        If _colegio = Nothing Then
             MsgBox("Seleccione un colegio", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Orientacion = "" Then
+        ElseIf _Orientacion = Nothing Then
             MsgBox("Seleccione una orientación", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Ingreso = "" Then
-            MsgBox("Seleccione una fecha de ingreso", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Not IsDate(_Ingreso) Then
-            MsgBox("Ingrese una fecha de ingreso correcta", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Egreso = "" Then
-            MsgBox("Seleccione una fecha de egreso", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Not IsDate(_Egreso) Then
-            MsgBox("Ingrese una fecha de egreso correcta", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Promedio = "" Then
+        ElseIf _Ingreso = Nothing Then
+            MsgBox("Seleccione un año de ingreso", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf _Egreso = Nothing Then
+            MsgBox("Seleccione un año de egreso", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf _Promedio = Nothing Then
             MsgBox("Ingrese el promedio del alumno", MsgBoxStyle.Exclamation, "Sistema")
         ElseIf _Promedio < 6 Or _Promedio > 10 Then
             MsgBox("Ingrese un promedio válido, Que no se menor a 6 o mayor a 10", MsgBoxStyle.Exclamation, "Sistema")
-       ElseIf Len(_Promedio) > 2 Then
+        ElseIf Len(_Promedio) > 2 Then
             MsgBox("Ingrese un promedio válido, máximo número 10", MsgBoxStyle.Exclamation, "Sistema")
         Else
             Return True

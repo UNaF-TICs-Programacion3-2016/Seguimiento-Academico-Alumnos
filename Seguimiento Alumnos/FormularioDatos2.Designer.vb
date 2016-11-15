@@ -180,6 +180,8 @@ Partial Class FormularioDatos2
         '
         'DataGridCol
         '
+        Me.DataGridCol.AllowUserToAddRows = False
+        Me.DataGridCol.AllowUserToDeleteRows = False
         Me.DataGridCol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridCol.Location = New System.Drawing.Point(296, 39)
         Me.DataGridCol.Name = "DataGridCol"
@@ -265,9 +267,12 @@ Partial Class FormularioDatos2
         '
         'DataGridOr
         '
+        Me.DataGridOr.AllowUserToAddRows = False
+        Me.DataGridOr.AllowUserToDeleteRows = False
         Me.DataGridOr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridOr.Location = New System.Drawing.Point(278, 34)
         Me.DataGridOr.Name = "DataGridOr"
+        Me.DataGridOr.RowHeadersVisible = False
         Me.DataGridOr.Size = New System.Drawing.Size(300, 162)
         Me.DataGridOr.TabIndex = 9
         '
@@ -345,6 +350,8 @@ Partial Class FormularioDatos2
         '
         'DataGridCar
         '
+        Me.DataGridCar.AllowUserToAddRows = False
+        Me.DataGridCar.AllowUserToDeleteRows = False
         Me.DataGridCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridCar.Location = New System.Drawing.Point(280, 34)
         Me.DataGridCar.Name = "DataGridCar"
@@ -474,9 +481,12 @@ Partial Class FormularioDatos2
         '
         'DataGridClas
         '
+        Me.DataGridClas.AllowUserToAddRows = False
+        Me.DataGridClas.AllowUserToDeleteRows = False
         Me.DataGridClas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridClas.Location = New System.Drawing.Point(287, 32)
         Me.DataGridClas.Name = "DataGridClas"
+        Me.DataGridClas.RowHeadersVisible = False
         Me.DataGridClas.Size = New System.Drawing.Size(291, 196)
         Me.DataGridClas.TabIndex = 12
         '
@@ -575,9 +585,12 @@ Partial Class FormularioDatos2
         '
         'DataGridDis
         '
+        Me.DataGridDis.AllowUserToAddRows = False
+        Me.DataGridDis.AllowUserToDeleteRows = False
         Me.DataGridDis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridDis.Location = New System.Drawing.Point(308, 32)
         Me.DataGridDis.Name = "DataGridDis"
+        Me.DataGridDis.RowHeadersVisible = False
         Me.DataGridDis.Size = New System.Drawing.Size(292, 174)
         Me.DataGridDis.TabIndex = 9
         '
@@ -681,9 +694,12 @@ Partial Class FormularioDatos2
         '
         'DataGridMat
         '
+        Me.DataGridMat.AllowUserToAddRows = False
+        Me.DataGridMat.AllowUserToDeleteRows = False
         Me.DataGridMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridMat.Location = New System.Drawing.Point(278, 34)
         Me.DataGridMat.Name = "DataGridMat"
+        Me.DataGridMat.RowHeadersVisible = False
         Me.DataGridMat.Size = New System.Drawing.Size(324, 185)
         Me.DataGridMat.TabIndex = 9
         '
@@ -743,12 +759,12 @@ Partial Class FormularioDatos2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 304)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.motivosdedisersion)
         Me.Controls.Add(Me.ClasesporMateria)
         Me.Controls.Add(Me.Materias)
         Me.Controls.Add(Me.Orientaciones)
         Me.Controls.Add(Me.Carreras)
         Me.Controls.Add(Me.Colegios)
+        Me.Controls.Add(Me.motivosdedisersion)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormularioDatos2"
         Me.Text = "Datos del Sistema"
