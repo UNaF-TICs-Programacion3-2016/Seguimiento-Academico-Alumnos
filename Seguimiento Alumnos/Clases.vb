@@ -515,7 +515,7 @@ Public Class GestorBD
         ElseIf Not IsNumeric(P8) And P8 <> Nothing Then
             S8 = P8.ToString
         ElseIf P8 > -1 Then
-            N8 = Val(P8
+            N8 = Val(P8)
         End If
         If IsDate(P9) Then
             D9 = P9

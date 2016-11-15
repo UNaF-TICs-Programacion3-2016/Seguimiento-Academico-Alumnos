@@ -76,11 +76,12 @@
     Private Sub CMDGuardar_Click(sender As Object, e As EventArgs) Handles CMDGuardar.Click
         If AlumnoNuevo.ValidarPersona And AlumnoNuevo.ValidarAntAcademicos Then
             Dim TXT As String
+            Dim IDPersona As Integer
             If AlumnoID = 0 Then
                 'Si el alumno es nuevo....
                 'Cargamos el objeto
                 AlumnoNuevo.Cargar_DatosPersona(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
-                Dim IDPersona As Integer
+
                 TXT = "Insert Into PERSONA(RELA_ESTADOCIVIL, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(:RELA_ESTADOCIVIL, :PERSONA_NOMBRE, :PERSONA_APELLIDO, :PERSONA_DOCUMENTO, :PERSONA_FECHA_NAC, :PERSONA_TELEFONO)"
                 AccesoDB.Obtener_Datos(AlumnoNuevo.EstadoCivil, AlumnoNuevo.Nombre, AlumnoNuevo.Apellido, AlumnoNuevo.Documento, AlumnoNuevo.FechaN, AlumnoNuevo.Telefono, Nothing, Nothing, Nothing)
                 AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
@@ -108,18 +109,14 @@
                 'vemos cambios
                 AlumnoNuevo.Cargar_Cambios(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
                 'Cargamos los datos ---- falta corregir y terminar ---------
-                TXT = "Update PERSONA Set RELA_ESTADOCIVIL = :RELA_ESTADOCIVIL, PERSONA_NOMBRE = :PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(:RELA_ESTADOCIVIL, :PERSONA_NOMBRE, :PERSONA_APELLIDO, :PERSONA_DOCUMENTO, :PERSONA_FECHA_NAC, :PERSONA_TELEFONO)"
+                TXT = "Update PERSONA Set RELA_ESTADOCIVIL = :RELA_ESTADOCIVIL, PERSONA_NOMBRE = :PERSONA_NOMBRE, PERSONA_APELLIDO = :PERSONA_APELLIDO, PERSONA_DOCUMENTO = :PERSONA_DOCUMENTO, PERSONA_FECHA_NAC = :PERSONA_FECHA_NAC, PERSONA_TELEFONO = :PERSONA_TELEFONO Where ID_PERSONA = " & IDPersona & ""
                 AccesoDB.Obtener_Datos(AlumnoNuevo.EstadoCivil, AlumnoNuevo.Nombre, AlumnoNuevo.Apellido, AlumnoNuevo.Documento, AlumnoNuevo.FechaN, AlumnoNuevo.Telefono, Nothing, Nothing, Nothing)
                 AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
                 IDPersona = AccesoDB.Obtener_ID("PERSONA", "ID_PERSONA", "PERSONA_DOCUMENTO", AlumnoNuevo.Documento)
 
-                TXT = "Insert Into ALUMNO(RELA_PERSONA) values(:RELA_PERSONA)"
-                AccesoDB.Obtener_Datos(IDPersona, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_PERSONA", "", "", "", "", "", "", "", "")
-
-                TXT = "Insert Into DIRECCION(RELA_LOCALIDAD, RELA_PERSONA, DIRECCION_CALLE, DIRECCION_ALTURA) Values(:RELA_LOCALIDAD, :RELA_PERSONA, :DIRECCION_CALLE, :DIRECCION_ALTURA)"
-                AccesoDB.Obtener_Datos(AlumnoNuevo.Localidad, IDPersona, AlumnoNuevo.Calle, AlumnoNuevo.Altura, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_LOCALIDAD", "RELA_PERSONA", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "")
+                TXT = "Update DIRECCION Set RELA_LOCALIDAD = :RELA_LOCALIDAD, DIRECCION_CALLE = :DIRECCION_CALLE, DIRECCION_ALTURA = :DIRECCION_ALTURA Where RELA_PERSONA = " & IDPersona & ""
+                AccesoDB.Obtener_Datos(AlumnoNuevo.Localidad, AlumnoNuevo.Calle, AlumnoNuevo.Altura, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+                AccesoDB.Cargar_Datos(TXT, "RELA_LOCALIDAD", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "", "")
 
                 MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
             End If
@@ -136,12 +133,12 @@
     End Sub
 
     Sub Cargar_Orientacion()
-        Dim Value As Integer
-        Value = Val(CBOColegio.SelectedValue)
+        Dim Value As String
+        Value = CBOColegio.SelectedValue.ToString
         With CBOOrientacion
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION JOIN ORIENTACIONXCOLEGIO ON ID_ORIENTACION = RELA_ORIENTACION where RELA_COLEGIO = " & Value & ";")
-            .DisplayMember = "COLEGIO_NOMBRE"
-            .ValueMember = "ID_COLEGIO"
+            .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION JOIN ORIENTACIONXCOLEGIO ON ID_ORIENTACION = RELA_ORIENTACION where RELA_COLEGIO = " & Val(Value) & "")
+            .DisplayMember = "ORIENTACION_DESCRIPCION"
+            .ValueMember = "ID_ORIENTACION"
         End With
     End Sub
 
