@@ -196,12 +196,15 @@
     End Sub
 
     Private Sub CBOProvincia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOProvincia.SelectedIndexChanged
-        With CBOProvincia
+        Cargar_Localidad()
+    End Sub
+    Private Sub Cargar_Localidad()
+        With CBOLocalidad
             Dim Index As String
             .DataSource = Nothing
             .Refresh()
             Index = CBOProvincia.SelectedValue.ToString
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_LOCALIDAD As ID, LOCALIDAD_NOMBRE From LOCALIDAD")
+            .DataSource = AccesoDB.Obtener_Tabla("Select ID_LOCALIDAD As ID, LOCALIDAD_NOMBRE, RELA_PROVINCIA From LOCALIDAD Where RELA_PROVINCIA = " & Val(Index) & "")
             .DisplayMember = "LOCALIDAD_NOMBRE"
             .ValueMember = "ID"
         End With

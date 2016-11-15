@@ -60,6 +60,8 @@ Partial Class FRMPersonas
         Me.TXTApellido = New System.Windows.Forms.TextBox()
         Me.TXTNombre = New System.Windows.Forms.TextBox()
         Me.AntecedentesAc = New System.Windows.Forms.GroupBox()
+        Me.TXTEgreso = New System.Windows.Forms.TextBox()
+        Me.TXTIngreso = New System.Windows.Forms.TextBox()
         Me.CBOColegio = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -69,8 +71,6 @@ Partial Class FRMPersonas
         Me.CBOOrientacion = New System.Windows.Forms.ComboBox()
         Me.TXTPromedio = New System.Windows.Forms.TextBox()
         Me.CMDEliminar = New System.Windows.Forms.Button()
-        Me.TXTIngreso = New System.Windows.Forms.TextBox()
-        Me.TXTEgreso = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DatagridAlumnos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DatosPersonales.SuspendLayout()
@@ -457,6 +457,24 @@ Partial Class FRMPersonas
         Me.AntecedentesAc.TabStop = False
         Me.AntecedentesAc.Text = "Antecedentes Académicos"
         '
+        'TXTEgreso
+        '
+        Me.TXTEgreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTEgreso.Location = New System.Drawing.Point(106, 115)
+        Me.TXTEgreso.MaxLength = 2
+        Me.TXTEgreso.Name = "TXTEgreso"
+        Me.TXTEgreso.Size = New System.Drawing.Size(68, 21)
+        Me.TXTEgreso.TabIndex = 32
+        '
+        'TXTIngreso
+        '
+        Me.TXTIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTIngreso.Location = New System.Drawing.Point(108, 88)
+        Me.TXTIngreso.MaxLength = 2
+        Me.TXTIngreso.Name = "TXTIngreso"
+        Me.TXTIngreso.Size = New System.Drawing.Size(66, 21)
+        Me.TXTIngreso.TabIndex = 31
+        '
         'CBOColegio
         '
         Me.CBOColegio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -543,24 +561,6 @@ Partial Class FRMPersonas
         Me.CMDEliminar.Text = "Eliminar"
         Me.CMDEliminar.UseVisualStyleBackColor = True
         Me.CMDEliminar.Visible = False
-        '
-        'TXTIngreso
-        '
-        Me.TXTIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXTIngreso.Location = New System.Drawing.Point(108, 88)
-        Me.TXTIngreso.MaxLength = 2
-        Me.TXTIngreso.Name = "TXTIngreso"
-        Me.TXTIngreso.Size = New System.Drawing.Size(66, 21)
-        Me.TXTIngreso.TabIndex = 31
-        '
-        'TXTEgreso
-        '
-        Me.TXTEgreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXTEgreso.Location = New System.Drawing.Point(106, 115)
-        Me.TXTEgreso.MaxLength = 2
-        Me.TXTEgreso.Name = "TXTEgreso"
-        Me.TXTEgreso.Size = New System.Drawing.Size(68, 21)
-        Me.TXTEgreso.TabIndex = 32
         '
         'FRMPersonas
         '
