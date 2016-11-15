@@ -29,12 +29,23 @@
     Private Sub CMDSeleccionar_Click(sender As Object, e As EventArgs) Handles CMDSeleccionar.Click
         If DatagridAlumnos.RowCount > 1 Then    'Si la cantidad de filas es mayor a 0 entonces
             Dim Indice As Integer
-            Dim Tabla1 As New DataTable
             Dim Tabla2 As New DataTable
-            Indice = AlumnoNuevo.ObtenerIDdeTabla(DatagridAlumnos, DatagridAlumnos.CurrentRow.Index) 'Sacamos id del seleccionado
-            Tabla1 = AccesoDB.Obtener_Tabla("Select ID_Alumno, ID_Persona, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From Alumnos Join Personas On ID_Persona = Rela_Persona Where ID_Alumno = " & Indice & ";")
-            Tabla2 = AccesoDB.Obtener_Tabla("Select * From ANTECEDENTE_ACADEMICO Inner Join ALUMNO ON ID_ALUMNO = RELA_ALUMNO Where ID_ALUMNO = " & Indice & ";")
-            AlumnoNuevo.Cargar_DatosPersona(Tabla1(0).ToString, Tabla1(1).ToString, Val(Tabla1(2)), Convert.ToDateTime(Tabla1(3)), Val(Tabla1(4)), Val(Tabla1(5)), Tabla1(6).ToString, Val(Tabla1(7)), Val(Tabla1(8)))
+            'Recuperacion de datos - esto se deberia mover al seleccionar de la grilla
+            Dim TablaAlumno As New DataTable
+            Dim TablaDireccion As New DataTable
+            Dim TXT As String
+            'Sacamos id del seleccionado
+            AlumnoID = Val(DatagridAlumnos.CurrentRow.Cells(0))
+            TXT = "Select PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO, RELA_PERSONA, RELA_ESTADOCIVIL, ESTADOCIVIL_DESCRIPCION From ALUMNO JOIN PERSONA On ID_PERSONA = RELA_PERSONA Inner Join ESTADOCIVIL ON RELA_ESTADOCIVIL = ID_ESTADOCIVIL Where ID_ALUMNO = " & AlumnoID & ""
+            AccesoDB.Cargar_DataTable(TXT, TablaAlumno)
+            CBOEc.Text = TablaAlumno(7).ToString 'cargar cboestadocivil
+            TXT = "Select DIRECCION_CALLE, DIRECCION_ALTURA, LOCALIDA_NOMBRE, RELA_PERSONA FROM DIRECCION Inner Join LOCALIDAD ON ID_LOCALIDAD = RELA_LOCALIDAD where RELA_PERSONA = " & Val(TablaAlumno(7)) & ""
+            AccesoDB.Cargar_DataTable(TXT, TablaDireccion)
+            CBOLocalidad.Text = TablaDireccion(2).ToString 'cargar combo localidad
+            AlumnoNuevo.Cargar_DatosPersona(TablaAlumno(0).ToString, TablaAlumno(1).ToString, Val(TablaAlumno(2)), Convert.ToDateTime(TablaAlumno(3)), Val(TablaAlumno(4)), Val(TablaDireccion(2)), TablaDireccion(0).ToString, Val(TablaDireccion(1)), Val(TablaAlumno(6)))
+            'Indice = AlumnoNuevo.ObtenerIDdeTabla(DatagridAlumnos, DatagridAlumnos.CurrentRow.Index) 'Sacamos id del seleccionado
+            TXT = "Select RELA_COLEGIO, COLEGIO_NOMBRE, RELA_ORIENTACION, ORIENTACION_DESCRIPCION, ANIO_INGRESO, ANIO_EGRESO, PROMEDIO From ANTECEDENTE_ACADEMICO Inner Join ALUMNO ON ID_ALUMNO = RELA_ALUMNO Inner Join COLEGIO On ID_COLEGIO = RELA_COLEGIO Inner Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ALUMNO = " & AlumnoID & ""
+            AccesoDB.Cargar_DataTable(TXT, Tabla2)
             AlumnoNuevo.Cargar_AntAcademicos(Val(Tabla2(1)), Val(Tabla2(2)), Val(Tabla2(3)), Val(Tabla2(4)), Val(Tabla2(5)))
             Dim Gestionar2 As New Botones(True, False, True, False, True, True, True)
         End If
@@ -43,7 +54,16 @@
         GestionarBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
 
     End Sub
-
+    Private Sub CargarAlumno()
+        With AlumnoNuevo
+            TXTNombre.Text = .Nombre
+            TXTApellido.Text = .Apellido
+            TXTNrodoc.Text = .Documento
+            TXTTelefono.Text = .Telefono
+            TXTAltura.Text = .Altura
+            TXTCalle.Text = .Calle
+            CBOEc.Text = ""
+    End Sub
     Private Sub FRMPersonas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Gestionar formulario
         Me.Width = 555
@@ -98,14 +118,7 @@
                 MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
             Else
                 'Si no es nuevo....
-                'Recuperacion de datos - esto se deberia mover al seleccionar de la grilla
-                Dim TablaAlumno As New DataTable
-                Dim TablaDireccion As New DataTable
-                TXT = "Select PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO, RELA_PERSONA, RELA_ESTADOCIVIL, ESTADOCIVIL_DESCRIPCION From ALUMNO JOIN PERSONA On ID_PERSONA = RELA_PERSONA Inner Join ESTADOCIVIL ON RELA_ESTADOCIVIL = ID_ESTADOCIVIL Where ID_ALUMNO = " & AlumnoID & ""
-                AccesoDB.Cargar_DataTable(TXT, TablaAlumno)
-                TXT = "Select DIRECCION_CALLE, DIRECCION_ALTURA, LOCALIDA_NOMBRE, RELA_PERSONA FROM DIRECCION Inner Join LOCALIDAD ON ID_LOCALIDAD = RELA_LOCALIDAD where RELA_PERSONA = " & Val(TablaAlumno(7)) & ""
-                AccesoDB.Cargar_DataTable(TXT, TablaDireccion)
-                AlumnoNuevo.Cargar_DatosPersona(TablaAlumno(0).ToString, TablaAlumno(1).ToString, Val(TablaAlumno(2)), Convert.ToDateTime(TablaAlumno(3)), Val(TablaAlumno(4)), Val(TablaDireccion(2)), TablaDireccion(0).ToString, Val(TablaDireccion(1)), Val(TablaAlumno(6)))
+                
                 'vemos cambios
                 AlumnoNuevo.Cargar_Cambios(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
                 'Cargamos los datos ---- falta corregir y terminar ---------
