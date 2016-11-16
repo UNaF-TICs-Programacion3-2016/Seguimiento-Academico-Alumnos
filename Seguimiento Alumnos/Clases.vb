@@ -97,7 +97,7 @@ Public MustInherit Class Persona
         End Set
     End Property
 
-    Public Sub Cargar_DatosPersona(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As String, vEstadoCivil As Integer)
+    Public Sub Cargar_DatosPersona(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As String, vAltura As String, vEstadoCivil As Integer)
         Nombre = vNombre
         Apellido = vApellido
         Documento = vDocumento
@@ -232,21 +232,19 @@ Public Class Alumno
         Egreso = vEgreso
         Promedio = vPromedio
     End Sub
-    Public Function ValidarAntAcademicos() As Boolean
-        If _colegio = Nothing Then
+    Public Function ValidarAntAcademicos(vColegio As Integer, vOrientacion As Integer, vIngreso As Integer, vEgreso As Integer, vPromedio As Double) As Boolean
+        If vColegio = Nothing Then
             MsgBox("Seleccione un colegio", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Orientacion = Nothing Then
+        ElseIf vOrientacion = Nothing Then
             MsgBox("Seleccione una orientación", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Ingreso = Nothing Then
+        ElseIf vIngreso = Nothing Then
             MsgBox("Seleccione un año de ingreso", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Egreso = Nothing Then
+        ElseIf vEgreso = Nothing Then
             MsgBox("Seleccione un año de egreso", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Promedio = Nothing Then
+        ElseIf vPromedio = Nothing Then
             MsgBox("Ingrese el promedio del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf _Promedio < 6 Or _Promedio > 10 Then
+        ElseIf vPromedio < 6 Or vPromedio > 10 Then
             MsgBox("Ingrese un promedio válido, Que no se menor a 6 o mayor a 10", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Len(_Promedio) > 2 Then
-            MsgBox("Ingrese un promedio válido, máximo número 10", MsgBoxStyle.Exclamation, "Sistema")
         Else
             Return True
             Exit Function
@@ -566,7 +564,9 @@ Public Class GestorBD
                 End If
             End If
             If P5 <> "" Then
-                If S5 <> "" Then
+                If D5 <> Nothing Then
+                    Comando.Parameters.Add(New OracleParameter(":" & P5, D5))
+                ElseIf S5 <> "" Then
                     Comando.Parameters.Add(New OracleParameter(":" & P5, S5))
                 ElseIf N5 > -1 Then
                     Comando.Parameters.Add(New OracleParameter(":" & P5, N5))
@@ -623,7 +623,7 @@ Public Class GestorBD
         Comando.Connection = Conexion
         Dim Reader As OracleDataReader
         Dim Tableta As New DataTable()
-        Comando.CommandText = "Select " & Objeto & " From " & Tabla & " where " & campo1 & " = '" & Objeto & "'"
+        Comando.CommandText = "Select " & ID & " From " & Tabla & " where " & campo1 & " = '" & Objeto & "'"
         Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection)
         Tableta.Load(Reader, LoadOption.OverwriteChanges)
         Return Tableta.Rows(0).Item(0)    'Devuelvo el ID

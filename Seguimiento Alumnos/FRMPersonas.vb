@@ -100,7 +100,7 @@
 
     Private Sub CMDGuardar_Click(sender As Object, e As EventArgs) Handles CMDGuardar.Click
         If AlumnoNuevo.ValidarPersona(TXTNombre.Text, TXTApellido.Text, Val(TXTNrodoc.Text), DTPFechan.Value, Val(TXTTelefono.Text), Val(CBOLocalidad.SelectedValue), TXTCalle.Text, Val(TXTAltura.Text), Val(CBOEc.SelectedValue)) Then
-            If AlumnoNuevo.ValidarAntAcademicos Then
+            If AlumnoNuevo.ValidarAntAcademicos(Val(CBOColegio.SelectedValue), Val(CBOOrientacion.SelectedValue), Val(TXTIngreso.Text), Val(TXTEgreso.Text), Val(TXTPromedio.Text)) Then
                 Dim TXT As String
                 Dim IDPersona As Integer
                 If AlumnoID = 0 Then
@@ -189,14 +189,16 @@
             .DataSource = Nothing
             .Refresh()
             Index = CBOPais.SelectedValue.ToString
-            .DataSource = AccesoDB.Obtener_Tabla("Select * From PROVINCIA where RELA_PAIS = " & Val(Index) & "")
+            .DataSource = AccesoDB.Obtener_Tabla("Select ID_PROVINCIA, PROVINCIA_NOMBRE, RELA_PAIS From PROVINCIA where RELA_PAIS = " & Val(Index) & "")
             .DisplayMember = "PROVINCIA_NOMBRE"
             .ValueMember = "ID_PROVINCIA"
         End With
     End Sub
 
     Private Sub CBOProvincia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOProvincia.SelectedIndexChanged
-        Cargar_Localidad()
+        If CBOProvincia.SelectedValue <> Nothing Then
+            Cargar_Localidad()
+        End If
     End Sub
     Private Sub Cargar_Localidad()
         With CBOLocalidad

@@ -461,7 +461,7 @@ Partial Class FRMPersonas
         '
         Me.TXTEgreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TXTEgreso.Location = New System.Drawing.Point(106, 115)
-        Me.TXTEgreso.MaxLength = 2
+        Me.TXTEgreso.MaxLength = 4
         Me.TXTEgreso.Name = "TXTEgreso"
         Me.TXTEgreso.Size = New System.Drawing.Size(68, 21)
         Me.TXTEgreso.TabIndex = 32
@@ -470,7 +470,7 @@ Partial Class FRMPersonas
         '
         Me.TXTIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TXTIngreso.Location = New System.Drawing.Point(108, 88)
-        Me.TXTIngreso.MaxLength = 2
+        Me.TXTIngreso.MaxLength = 4
         Me.TXTIngreso.Name = "TXTIngreso"
         Me.TXTIngreso.Size = New System.Drawing.Size(66, 21)
         Me.TXTIngreso.TabIndex = 31
