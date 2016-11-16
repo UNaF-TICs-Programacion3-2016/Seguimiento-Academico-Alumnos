@@ -616,14 +616,23 @@ Public Class GestorBD
         End Try
     End Sub
 
-    Public Function Obtener_ID(Tabla As String, ID As String, campo1 As String, Objeto As String)
+    Public Function Obtener_ID(Tabla As String, ID As String, campo1 As String, Objeto As Object)
         'Esta funcion devuelve una id de una tabla especifica a partir de un nombre
         Conectar()
         Dim Comando As New OracleCommand
         Comando.Connection = Conexion
         Dim Reader As OracleDataReader
         Dim Tableta As New DataTable()
-        Comando.CommandText = "Select " & ID & " From " & Tabla & " where " & campo1 & " = '" & Objeto & "'"
+        Dim Numero As Integer
+        Dim Palabra As String
+        If Not IsNumeric(Objeto) Then
+            Palabra = Objeto
+            Comando.CommandText = "Select " & ID & " From " & Tabla & " where " & campo1 & " = '" & Palabra & "'"
+        Else
+            Numero = Objeto
+            Comando.CommandText = "Select " & ID & " From " & Tabla & " where " & campo1 & " = '" & Numero & "'"
+        End If
+
         Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection)
         Tableta.Load(Reader, LoadOption.OverwriteChanges)
         Return Tableta.Rows(0).Item(0)    'Devuelvo el ID
@@ -641,7 +650,9 @@ Public Class GestorBD
             Reader = Comando.ExecuteReader(CommandBehavior.CloseConnection) 'hace que cuando se usa de usar la conexion se cierra
 
             Table.Load(Reader, LoadOption.OverwriteChanges) 'Cargamos los datos del reader en el load
+            If Table.Rows.Count > 0 Then
 
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             Exit Sub
