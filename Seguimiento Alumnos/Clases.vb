@@ -169,9 +169,63 @@ Public MustInherit Class Persona
         End If
         Return False
     End Function
-    Public Function ObtenerIDdeTabla(Tabla As DataGridView, Indice As Integer) As Integer
-        'Este método pide el datagridview y la fila que seleccionamos (el dato Indice)
-        Return Val(Tabla.Item(0, Indice))   'Devuelve el ID de la tabla, que esta guardado en la primer columna
+End Class
+Public Class Puntaje
+    Private vPositivo As Integer
+    Private vNegativo As Integer
+
+    Public Sub New()
+
+    End Sub
+    Public Sub New(_Positivo As Integer, _Negativo As Integer)
+        Positivo = _Positivo
+        Negativo = _Negativo
+    End Sub
+    Public Property Positivo As Integer
+        Get
+            Return vPositivo
+        End Get
+        Set(value As Integer)
+            vPositivo = value
+        End Set
+    End Property
+    Public Property Negativo As Integer
+        Get
+            Return vNegativo
+        End Get
+        Set(value As Integer)
+            vNegativo = value
+        End Set
+    End Property
+
+    Public Function Mostrar_Estado() As String
+        Dim DETERMINACION As String
+        DETERMINACION = Determinar_Estado()
+        Select Case DETERMINACION
+            Case "MB"
+                Return "El estado del alumno en la carrera es muy bueno, su desempeño indica que muy probablemente siga dedicándose a la carrera"
+            Case "Buena"
+                Return "El estado del alumno en la carrera es bastante bueno, se espera que siga manteniendo el ritmo o incluso mejore"
+            Case "Regular"
+                Return "El estado del alumno en la carrera es un poco inestable, se recomienda brindar apoyo y contención"
+            Case "Mala"
+                Return "El estado del alumno en la carrera es malo, podría tener mucha dificultad en la carrera o estar desviando su interés de la misma"
+        End Select
+    End Function
+    Private Function Determinar_Estado() As String
+        If Positivo > Negativo Then
+            If (Positivo / 2) > Negativo Then
+                If (Positivo / 3) > Negativo Then
+                    Return "MB"
+                Else
+                    Return "Buena"
+                End If
+            Else
+                Return "Regular"
+            End If
+        Else
+            Return "Mala"
+        End If
     End Function
 End Class
 Public Class Alumno
