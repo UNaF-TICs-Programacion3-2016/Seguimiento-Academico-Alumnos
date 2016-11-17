@@ -79,60 +79,79 @@ Partial Class FRMPersonas
         '
         'CMDSalir
         '
+        Me.CMDSalir.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDSalir.ForeColor = System.Drawing.Color.Black
         Me.CMDSalir.Location = New System.Drawing.Point(132, 282)
         Me.CMDSalir.Name = "CMDSalir"
         Me.CMDSalir.Size = New System.Drawing.Size(152, 26)
         Me.CMDSalir.TabIndex = 25
         Me.CMDSalir.Text = "SALIR"
-        Me.CMDSalir.UseVisualStyleBackColor = True
+        Me.CMDSalir.UseVisualStyleBackColor = False
         '
         'CMDGuardar
         '
+        Me.CMDGuardar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardar.ForeColor = System.Drawing.Color.Black
         Me.CMDGuardar.Location = New System.Drawing.Point(459, 77)
         Me.CMDGuardar.Name = "CMDGuardar"
         Me.CMDGuardar.Size = New System.Drawing.Size(75, 23)
         Me.CMDGuardar.TabIndex = 24
         Me.CMDGuardar.Text = "Guardar"
-        Me.CMDGuardar.UseVisualStyleBackColor = True
+        Me.CMDGuardar.UseVisualStyleBackColor = False
         '
         'CMDBuscar
         '
+        Me.CMDBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDBuscar.ForeColor = System.Drawing.Color.Black
         Me.CMDBuscar.Location = New System.Drawing.Point(459, 163)
         Me.CMDBuscar.Name = "CMDBuscar"
         Me.CMDBuscar.Size = New System.Drawing.Size(75, 23)
         Me.CMDBuscar.TabIndex = 23
         Me.CMDBuscar.Text = "Buscar"
-        Me.CMDBuscar.UseVisualStyleBackColor = True
+        Me.CMDBuscar.UseVisualStyleBackColor = False
         '
         'CMDCancelar
         '
+        Me.CMDCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDCancelar.ForeColor = System.Drawing.Color.Black
         Me.CMDCancelar.Location = New System.Drawing.Point(459, 134)
         Me.CMDCancelar.Name = "CMDCancelar"
         Me.CMDCancelar.Size = New System.Drawing.Size(75, 23)
         Me.CMDCancelar.TabIndex = 22
         Me.CMDCancelar.Text = "Cancelar"
-        Me.CMDCancelar.UseVisualStyleBackColor = True
+        Me.CMDCancelar.UseVisualStyleBackColor = False
         '
         'CMDModificar
         '
+        Me.CMDModificar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDModificar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDModificar.ForeColor = System.Drawing.Color.Black
         Me.CMDModificar.Location = New System.Drawing.Point(458, 106)
         Me.CMDModificar.Name = "CMDModificar"
         Me.CMDModificar.Size = New System.Drawing.Size(75, 23)
         Me.CMDModificar.TabIndex = 20
         Me.CMDModificar.Text = "Modificar"
-        Me.CMDModificar.UseVisualStyleBackColor = True
+        Me.CMDModificar.UseVisualStyleBackColor = False
         '
         'CMDNuevo
         '
+        Me.CMDNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDNuevo.ForeColor = System.Drawing.Color.Black
         Me.CMDNuevo.Location = New System.Drawing.Point(459, 48)
         Me.CMDNuevo.Name = "CMDNuevo"
         Me.CMDNuevo.Size = New System.Drawing.Size(75, 23)
         Me.CMDNuevo.TabIndex = 19
         Me.CMDNuevo.Text = "Nuevo"
-        Me.CMDNuevo.UseVisualStyleBackColor = True
+        Me.CMDNuevo.UseVisualStyleBackColor = False
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosPersonalesToolStripMenuItem, Me.AntecedentesAcadémicosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -166,20 +185,25 @@ Partial Class FRMPersonas
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(632, 29)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(83, 13)
+        Me.Label7.Size = New System.Drawing.Size(97, 13)
         Me.Label7.TabIndex = 33
         Me.Label7.Text = "Buscar Alumnos"
         '
         'CMDSeleccionar
         '
+        Me.CMDSeleccionar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDSeleccionar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDSeleccionar.ForeColor = System.Drawing.Color.Black
         Me.CMDSeleccionar.Location = New System.Drawing.Point(635, 272)
         Me.CMDSeleccionar.Name = "CMDSeleccionar"
         Me.CMDSeleccionar.Size = New System.Drawing.Size(75, 23)
         Me.CMDSeleccionar.TabIndex = 34
         Me.CMDSeleccionar.Text = "Seleccionar"
-        Me.CMDSeleccionar.UseVisualStyleBackColor = True
+        Me.CMDSeleccionar.UseVisualStyleBackColor = False
         '
         'DatosPersonales
         '
@@ -208,6 +232,7 @@ Partial Class FRMPersonas
         Me.DatosPersonales.Controls.Add(Me.TXTApellido)
         Me.DatosPersonales.Controls.Add(Me.TXTNombre)
         Me.DatosPersonales.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DatosPersonales.ForeColor = System.Drawing.Color.White
         Me.DatosPersonales.Location = New System.Drawing.Point(12, 27)
         Me.DatosPersonales.Name = "DatosPersonales"
         Me.DatosPersonales.Size = New System.Drawing.Size(440, 249)
@@ -226,10 +251,11 @@ Partial Class FRMPersonas
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.White
         Me.Label18.Location = New System.Drawing.Point(241, 161)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(38, 15)
+        Me.Label18.Size = New System.Drawing.Size(40, 13)
         Me.Label18.TabIndex = 43
         Me.Label18.Text = "Altura"
         '
@@ -244,10 +270,11 @@ Partial Class FRMPersonas
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.White
         Me.Label17.Location = New System.Drawing.Point(241, 126)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(35, 15)
+        Me.Label17.Size = New System.Drawing.Size(35, 13)
         Me.Label17.TabIndex = 41
         Me.Label17.Text = "Calle"
         '
@@ -263,10 +290,11 @@ Partial Class FRMPersonas
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.White
         Me.Label16.Location = New System.Drawing.Point(238, 91)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(61, 15)
+        Me.Label16.Size = New System.Drawing.Size(62, 13)
         Me.Label16.TabIndex = 39
         Me.Label16.Text = "Localidad"
         '
@@ -291,30 +319,33 @@ Partial Class FRMPersonas
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.White
         Me.Label15.Location = New System.Drawing.Point(239, 60)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(57, 15)
+        Me.Label15.Size = New System.Drawing.Size(60, 13)
         Me.Label15.TabIndex = 36
         Me.Label15.Text = "Provincia"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.White
         Me.Label14.Location = New System.Drawing.Point(241, 22)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(31, 15)
+        Me.Label14.Size = New System.Drawing.Size(33, 13)
         Me.Label14.TabIndex = 34
         Me.Label14.Text = "País"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.White
         Me.Label13.Location = New System.Drawing.Point(32, 158)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(55, 15)
+        Me.Label13.Size = New System.Drawing.Size(57, 13)
         Me.Label13.TabIndex = 32
         Me.Label13.Text = "Telefono"
         '
@@ -329,60 +360,66 @@ Partial Class FRMPersonas
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(0, 188)
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(5, 190)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(95, 15)
+        Me.Label6.Size = New System.Drawing.Size(98, 13)
         Me.Label6.TabIndex = 30
         Me.Label6.Text = "Carrera a cursar"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(19, 126)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(69, 15)
+        Me.Label5.Size = New System.Drawing.Size(73, 13)
         Me.Label5.TabIndex = 29
         Me.Label5.Text = "Fecha Nac."
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(19, 101)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(70, 15)
+        Me.Label4.Size = New System.Drawing.Size(74, 13)
         Me.Label4.TabIndex = 28
         Me.Label4.Text = "Estado Civil"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(19, 76)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 15)
+        Me.Label3.Size = New System.Drawing.Size(71, 13)
         Me.Label3.TabIndex = 27
         Me.Label3.Text = "Documento"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(36, 50)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(51, 15)
+        Me.Label2.Size = New System.Drawing.Size(52, 13)
         Me.Label2.TabIndex = 26
         Me.Label2.Text = "Apellido"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(36, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 15)
+        Me.Label1.Size = New System.Drawing.Size(50, 13)
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Nombre"
         '
@@ -390,7 +427,7 @@ Partial Class FRMPersonas
         '
         Me.CBOCarreras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOCarreras.FormattingEnabled = True
-        Me.CBOCarreras.Location = New System.Drawing.Point(97, 185)
+        Me.CBOCarreras.Location = New System.Drawing.Point(106, 185)
         Me.CBOCarreras.Name = "CBOCarreras"
         Me.CBOCarreras.Size = New System.Drawing.Size(121, 23)
         Me.CBOCarreras.TabIndex = 24
@@ -450,6 +487,7 @@ Partial Class FRMPersonas
         Me.AntecedentesAc.Controls.Add(Me.CBOOrientacion)
         Me.AntecedentesAc.Controls.Add(Me.TXTPromedio)
         Me.AntecedentesAc.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AntecedentesAc.ForeColor = System.Drawing.Color.White
         Me.AntecedentesAc.Location = New System.Drawing.Point(13, 27)
         Me.AntecedentesAc.Name = "AntecedentesAc"
         Me.AntecedentesAc.Size = New System.Drawing.Size(439, 249)
@@ -460,7 +498,7 @@ Partial Class FRMPersonas
         'TXTEgreso
         '
         Me.TXTEgreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXTEgreso.Location = New System.Drawing.Point(106, 115)
+        Me.TXTEgreso.Location = New System.Drawing.Point(115, 115)
         Me.TXTEgreso.MaxLength = 4
         Me.TXTEgreso.Name = "TXTEgreso"
         Me.TXTEgreso.Size = New System.Drawing.Size(68, 21)
@@ -469,7 +507,7 @@ Partial Class FRMPersonas
         'TXTIngreso
         '
         Me.TXTIngreso.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXTIngreso.Location = New System.Drawing.Point(108, 88)
+        Me.TXTIngreso.Location = New System.Drawing.Point(117, 88)
         Me.TXTIngreso.MaxLength = 4
         Me.TXTIngreso.Name = "TXTIngreso"
         Me.TXTIngreso.Size = New System.Drawing.Size(66, 21)
@@ -479,7 +517,7 @@ Partial Class FRMPersonas
         '
         Me.CBOColegio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOColegio.FormattingEnabled = True
-        Me.CBOColegio.Location = New System.Drawing.Point(143, 29)
+        Me.CBOColegio.Location = New System.Drawing.Point(166, 28)
         Me.CBOColegio.Name = "CBOColegio"
         Me.CBOColegio.Size = New System.Drawing.Size(97, 23)
         Me.CBOColegio.TabIndex = 30
@@ -487,50 +525,55 @@ Partial Class FRMPersonas
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(41, 143)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(61, 15)
+        Me.Label8.Size = New System.Drawing.Size(69, 15)
         Me.Label8.TabIndex = 29
         Me.Label8.Text = "Promedio"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(30, 116)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(70, 15)
+        Me.Label9.Size = New System.Drawing.Size(80, 15)
         Me.Label9.TabIndex = 28
         Me.Label9.Text = "Año Egreso"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(30, 86)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(72, 15)
+        Me.Label10.Size = New System.Drawing.Size(83, 15)
         Me.Label10.TabIndex = 27
         Me.Label10.Text = "Año Ingreso"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(30, 60)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(66, 15)
+        Me.Label11.Size = New System.Drawing.Size(75, 15)
         Me.Label11.TabIndex = 26
         Me.Label11.Text = "Modalidad"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(6, 32)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(9, 32)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(131, 15)
+        Me.Label12.Size = New System.Drawing.Size(151, 15)
         Me.Label12.TabIndex = 25
         Me.Label12.Text = "Colegio Donde Egresó"
         '
@@ -538,7 +581,7 @@ Partial Class FRMPersonas
         '
         Me.CBOOrientacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBOOrientacion.FormattingEnabled = True
-        Me.CBOOrientacion.Location = New System.Drawing.Point(105, 57)
+        Me.CBOOrientacion.Location = New System.Drawing.Point(114, 57)
         Me.CBOOrientacion.Name = "CBOOrientacion"
         Me.CBOOrientacion.Size = New System.Drawing.Size(112, 23)
         Me.CBOOrientacion.TabIndex = 22
@@ -546,7 +589,7 @@ Partial Class FRMPersonas
         'TXTPromedio
         '
         Me.TXTPromedio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXTPromedio.Location = New System.Drawing.Point(105, 140)
+        Me.TXTPromedio.Location = New System.Drawing.Point(114, 140)
         Me.TXTPromedio.MaxLength = 2
         Me.TXTPromedio.Name = "TXTPromedio"
         Me.TXTPromedio.Size = New System.Drawing.Size(48, 21)
@@ -566,6 +609,7 @@ Partial Class FRMPersonas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(822, 310)
         Me.Controls.Add(Me.CMDEliminar)
         Me.Controls.Add(Me.CMDSeleccionar)
@@ -578,8 +622,10 @@ Partial Class FRMPersonas
         Me.Controls.Add(Me.CMDModificar)
         Me.Controls.Add(Me.CMDNuevo)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.DatosPersonales)
         Me.Controls.Add(Me.AntecedentesAc)
+        Me.Controls.Add(Me.DatosPersonales)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ForeColor = System.Drawing.Color.Black
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMPersonas"
         Me.Text = "Datos del Alumno"
@@ -619,13 +665,7 @@ Partial Class FRMPersonas
     Friend WithEvents TXTNrodoc As System.Windows.Forms.TextBox
     Friend WithEvents TXTApellido As System.Windows.Forms.TextBox
     Friend WithEvents TXTNombre As System.Windows.Forms.TextBox
-    Friend WithEvents AntecedentesAc As System.Windows.Forms.GroupBox
     Friend WithEvents CBOColegio As System.Windows.Forms.ComboBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents CBOOrientacion As System.Windows.Forms.ComboBox
     Friend WithEvents TXTPromedio As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
@@ -643,4 +683,10 @@ Partial Class FRMPersonas
     Friend WithEvents CMDEliminar As System.Windows.Forms.Button
     Friend WithEvents TXTEgreso As System.Windows.Forms.TextBox
     Friend WithEvents TXTIngreso As System.Windows.Forms.TextBox
+    Friend WithEvents AntecedentesAc As System.Windows.Forms.GroupBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class

@@ -42,6 +42,7 @@ Partial Class Form1
         Me.SituaciónPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MotivosDeDisersiónUsualesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ParámetrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ParámetrosPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GrupoSituacion = New System.Windows.Forms.GroupBox()
         Me.CMDSeleccionar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -61,7 +62,6 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ParámetrosPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.GrupoSituacion.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,6 +71,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.Gray
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDelAlumnoToolStripMenuItem, Me.AnalisisDeSituaciónPorAlumnoToolStripMenuItem, Me.ParámetrosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -195,6 +196,12 @@ Partial Class Form1
         Me.ParámetrosToolStripMenuItem.Name = "ParámetrosToolStripMenuItem"
         Me.ParámetrosToolStripMenuItem.Size = New System.Drawing.Size(138, 20)
         Me.ParámetrosToolStripMenuItem.Text = "Parámetros de Puntaje"
+        '
+        'ParámetrosPorAlumnoToolStripMenuItem
+        '
+        Me.ParámetrosPorAlumnoToolStripMenuItem.Name = "ParámetrosPorAlumnoToolStripMenuItem"
+        Me.ParámetrosPorAlumnoToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.ParámetrosPorAlumnoToolStripMenuItem.Text = "Parámetros por Alumno"
         '
         'GrupoSituacion
         '
@@ -373,12 +380,6 @@ Partial Class Form1
         Me.Label3.Size = New System.Drawing.Size(49, 13)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Puntaje: "
-        '
-        'ParámetrosPorAlumnoToolStripMenuItem
-        '
-        Me.ParámetrosPorAlumnoToolStripMenuItem.Name = "ParámetrosPorAlumnoToolStripMenuItem"
-        Me.ParámetrosPorAlumnoToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.ParámetrosPorAlumnoToolStripMenuItem.Text = "Parámetros por Alumno"
         '
         'Form1
         '

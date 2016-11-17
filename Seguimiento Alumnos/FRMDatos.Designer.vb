@@ -90,6 +90,8 @@ Partial Class FRMDatos
         Me.Label19 = New System.Windows.Forms.Label()
         Me.TXTAlumnoExam = New System.Windows.Forms.TextBox()
         Me.Disersion = New System.Windows.Forms.GroupBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.CBOEstadoDis = New System.Windows.Forms.ComboBox()
         Me.Label30 = New System.Windows.Forms.Label()
         Me.CMDBajaDis = New System.Windows.Forms.Button()
         Me.ListaDisersiones = New System.Windows.Forms.ListBox()
@@ -103,6 +105,7 @@ Partial Class FRMDatos
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TXTAlumnoDis = New System.Windows.Forms.TextBox()
         Me.Antecedentes = New System.Windows.Forms.GroupBox()
+        Me.CMDCancelarAnt = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.DataGridAnt = New System.Windows.Forms.DataGridView()
         Me.CMDBajaAnt = New System.Windows.Forms.Button()
@@ -114,9 +117,6 @@ Partial Class FRMDatos
         Me.CMDBuscarAnt = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.TXTAlumnoAnt = New System.Windows.Forms.TextBox()
-        Me.CMDCancelarAnt = New System.Windows.Forms.Button()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.CBOEstadoDis = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.CarreraxAlumno.SuspendLayout()
         Me.Materia.SuspendLayout()
@@ -131,6 +131,7 @@ Partial Class FRMDatos
         '
         'MenuStrip1
         '
+        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarAlumnoAMateriaToolStripMenuItem, Me.AgregarMateriaToolStripMenuItem, Me.GestionDeAsistenciasToolStripMenuItem, Me.ExámenesToolStripMenuItem, Me.DisersiónToolStripMenuItem, Me.OtrosAntecedentesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
@@ -140,38 +141,44 @@ Partial Class FRMDatos
         '
         'AgregarAlumnoAMateriaToolStripMenuItem
         '
+        Me.AgregarAlumnoAMateriaToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AgregarAlumnoAMateriaToolStripMenuItem.Name = "AgregarAlumnoAMateriaToolStripMenuItem"
-        Me.AgregarAlumnoAMateriaToolStripMenuItem.Size = New System.Drawing.Size(157, 20)
+        Me.AgregarAlumnoAMateriaToolStripMenuItem.Size = New System.Drawing.Size(163, 20)
         Me.AgregarAlumnoAMateriaToolStripMenuItem.Text = "Agregar Carrera a Alumno"
         '
         'AgregarMateriaToolStripMenuItem
         '
+        Me.AgregarMateriaToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AgregarMateriaToolStripMenuItem.Name = "AgregarMateriaToolStripMenuItem"
-        Me.AgregarMateriaToolStripMenuItem.Size = New System.Drawing.Size(159, 20)
+        Me.AgregarMateriaToolStripMenuItem.Size = New System.Drawing.Size(165, 20)
         Me.AgregarMateriaToolStripMenuItem.Text = "Agregar Materia a Alumno"
         '
         'GestionDeAsistenciasToolStripMenuItem
         '
+        Me.GestionDeAsistenciasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GestionDeAsistenciasToolStripMenuItem.Name = "GestionDeAsistenciasToolStripMenuItem"
-        Me.GestionDeAsistenciasToolStripMenuItem.Size = New System.Drawing.Size(136, 20)
+        Me.GestionDeAsistenciasToolStripMenuItem.Size = New System.Drawing.Size(142, 20)
         Me.GestionDeAsistenciasToolStripMenuItem.Text = "Gestion de Asistencias"
         '
         'ExámenesToolStripMenuItem
         '
+        Me.ExámenesToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExámenesToolStripMenuItem.Name = "ExámenesToolStripMenuItem"
-        Me.ExámenesToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.ExámenesToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
         Me.ExámenesToolStripMenuItem.Text = "Exámenes"
         '
         'DisersiónToolStripMenuItem
         '
+        Me.DisersiónToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisersiónToolStripMenuItem.Name = "DisersiónToolStripMenuItem"
-        Me.DisersiónToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.DisersiónToolStripMenuItem.Size = New System.Drawing.Size(75, 20)
         Me.DisersiónToolStripMenuItem.Text = "Deserción"
         '
         'OtrosAntecedentesToolStripMenuItem
         '
+        Me.OtrosAntecedentesToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OtrosAntecedentesToolStripMenuItem.Name = "OtrosAntecedentesToolStripMenuItem"
-        Me.OtrosAntecedentesToolStripMenuItem.Size = New System.Drawing.Size(123, 20)
+        Me.OtrosAntecedentesToolStripMenuItem.Size = New System.Drawing.Size(131, 20)
         Me.OtrosAntecedentesToolStripMenuItem.Text = "Otros Antecedentes"
         '
         'CarreraxAlumno
@@ -204,6 +211,7 @@ Partial Class FRMDatos
         '
         Me.Label33.AutoSize = True
         Me.Label33.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label33.ForeColor = System.Drawing.Color.White
         Me.Label33.Location = New System.Drawing.Point(234, 11)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(172, 20)
@@ -212,12 +220,15 @@ Partial Class FRMDatos
         '
         'CMDAgregarCarrera
         '
+        Me.CMDAgregarCarrera.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDAgregarCarrera.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDAgregarCarrera.ForeColor = System.Drawing.Color.Black
         Me.CMDAgregarCarrera.Location = New System.Drawing.Point(90, 181)
         Me.CMDAgregarCarrera.Name = "CMDAgregarCarrera"
         Me.CMDAgregarCarrera.Size = New System.Drawing.Size(93, 36)
         Me.CMDAgregarCarrera.TabIndex = 8
         Me.CMDAgregarCarrera.Text = "Inscribir a Carrera"
-        Me.CMDAgregarCarrera.UseVisualStyleBackColor = True
+        Me.CMDAgregarCarrera.UseVisualStyleBackColor = False
         '
         'CBOCarreraCar
         '
@@ -229,37 +240,46 @@ Partial Class FRMDatos
         '
         'CMDBuscarCar
         '
+        Me.CMDBuscarCar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBuscarCar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDBuscarCar.ForeColor = System.Drawing.Color.Black
         Me.CMDBuscarCar.Location = New System.Drawing.Point(228, 67)
         Me.CMDBuscarCar.Name = "CMDBuscarCar"
         Me.CMDBuscarCar.Size = New System.Drawing.Size(49, 23)
         Me.CMDBuscarCar.TabIndex = 6
         Me.CMDBuscarCar.Text = "Buscar"
-        Me.CMDBuscarCar.UseVisualStyleBackColor = True
+        Me.CMDBuscarCar.UseVisualStyleBackColor = False
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(25, 135)
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.White
+        Me.Label3.Location = New System.Drawing.Point(14, 135)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(91, 13)
+        Me.Label3.Size = New System.Drawing.Size(108, 13)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Fecha Inscripción"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(75, 100)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 13)
+        Me.Label2.Size = New System.Drawing.Size(48, 13)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Carrera"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(74, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(42, 13)
+        Me.Label1.Size = New System.Drawing.Size(48, 13)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Alumno"
         '
@@ -288,6 +308,8 @@ Partial Class FRMDatos
         Me.Materia.Controls.Add(Me.Label6)
         Me.Materia.Controls.Add(Me.TXTFechaMxA)
         Me.Materia.Controls.Add(Me.TXTAlumnoMxA)
+        Me.Materia.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Materia.ForeColor = System.Drawing.Color.White
         Me.Materia.Location = New System.Drawing.Point(14, 22)
         Me.Materia.Name = "Materia"
         Me.Materia.Size = New System.Drawing.Size(726, 336)
@@ -299,6 +321,7 @@ Partial Class FRMDatos
         '
         Me.Label32.AutoSize = True
         Me.Label32.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label32.ForeColor = System.Drawing.Color.White
         Me.Label32.Location = New System.Drawing.Point(249, 17)
         Me.Label32.Name = "Label32"
         Me.Label32.Size = New System.Drawing.Size(174, 20)
@@ -307,19 +330,24 @@ Partial Class FRMDatos
         '
         'CMDActualizarMxA
         '
+        Me.CMDActualizarMxA.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDActualizarMxA.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDActualizarMxA.ForeColor = System.Drawing.Color.Black
         Me.CMDActualizarMxA.Location = New System.Drawing.Point(142, 254)
         Me.CMDActualizarMxA.Name = "CMDActualizarMxA"
         Me.CMDActualizarMxA.Size = New System.Drawing.Size(98, 36)
         Me.CMDActualizarMxA.TabIndex = 15
         Me.CMDActualizarMxA.Text = "Actualizar Estado de Alumno"
-        Me.CMDActualizarMxA.UseVisualStyleBackColor = True
+        Me.CMDActualizarMxA.UseVisualStyleBackColor = False
         '
         'Label9
         '
         Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(56, 96)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(41, 13)
+        Me.Label9.Size = New System.Drawing.Size(48, 13)
         Me.Label9.TabIndex = 14
         Me.Label9.Text = "Carrera"
         '
@@ -342,9 +370,11 @@ Partial Class FRMDatos
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(56, 196)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(40, 13)
+        Me.Label8.Size = New System.Drawing.Size(46, 13)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Estado"
         '
@@ -360,20 +390,25 @@ Partial Class FRMDatos
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(427, 50)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(144, 13)
+        Me.Label7.Size = New System.Drawing.Size(170, 13)
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Materias Cursadas/Cursando"
         '
         'CMDInscribirMxA
         '
+        Me.CMDInscribirMxA.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDInscribirMxA.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDInscribirMxA.ForeColor = System.Drawing.Color.Black
         Me.CMDInscribirMxA.Location = New System.Drawing.Point(33, 254)
         Me.CMDInscribirMxA.Name = "CMDInscribirMxA"
         Me.CMDInscribirMxA.Size = New System.Drawing.Size(93, 36)
         Me.CMDInscribirMxA.TabIndex = 8
         Me.CMDInscribirMxA.Text = "Inscribir a Materia"
-        Me.CMDInscribirMxA.UseVisualStyleBackColor = True
+        Me.CMDInscribirMxA.UseVisualStyleBackColor = False
         '
         'CBOMateriaMxA
         '
@@ -385,43 +420,52 @@ Partial Class FRMDatos
         '
         'CMDBuscarMxA
         '
+        Me.CMDBuscarMxA.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBuscarMxA.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDBuscarMxA.ForeColor = System.Drawing.Color.Black
         Me.CMDBuscarMxA.Location = New System.Drawing.Point(209, 58)
         Me.CMDBuscarMxA.Name = "CMDBuscarMxA"
         Me.CMDBuscarMxA.Size = New System.Drawing.Size(49, 23)
         Me.CMDBuscarMxA.TabIndex = 6
         Me.CMDBuscarMxA.Text = "Buscar"
-        Me.CMDBuscarMxA.UseVisualStyleBackColor = True
+        Me.CMDBuscarMxA.UseVisualStyleBackColor = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(6, 161)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(91, 13)
+        Me.Label4.Size = New System.Drawing.Size(108, 13)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Fecha Inscripción"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(56, 126)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(42, 13)
+        Me.Label5.Size = New System.Drawing.Size(49, 13)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Materia"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(55, 61)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(42, 13)
+        Me.Label6.Size = New System.Drawing.Size(48, 13)
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Alumno"
         '
         'TXTFechaMxA
         '
-        Me.TXTFechaMxA.Location = New System.Drawing.Point(103, 158)
+        Me.TXTFechaMxA.Location = New System.Drawing.Point(125, 159)
         Me.TXTFechaMxA.Name = "TXTFechaMxA"
         Me.TXTFechaMxA.Size = New System.Drawing.Size(100, 20)
         Me.TXTFechaMxA.TabIndex = 2
@@ -459,25 +503,28 @@ Partial Class FRMDatos
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label31.ForeColor = System.Drawing.Color.White
         Me.Label31.Location = New System.Drawing.Point(249, 18)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(156, 20)
+        Me.Label31.Size = New System.Drawing.Size(181, 24)
         Me.Label31.TabIndex = 32
         Me.Label31.Text = "Asistecia Alumnos"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(7, 197)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(105, 13)
+        Me.Label11.Size = New System.Drawing.Size(125, 13)
         Me.Label11.TabIndex = 21
         Me.Label11.Text = "Cantidad Asistencias"
         '
         'TXTAsistencias
         '
-        Me.TXTAsistencias.Location = New System.Drawing.Point(112, 194)
+        Me.TXTAsistencias.Location = New System.Drawing.Point(133, 194)
         Me.TXTAsistencias.Name = "TXTAsistencias"
         Me.TXTAsistencias.Size = New System.Drawing.Size(100, 20)
         Me.TXTAsistencias.TabIndex = 20
@@ -493,18 +540,22 @@ Partial Class FRMDatos
         'Label13
         '
         Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.ForeColor = System.Drawing.Color.White
         Me.Label13.Location = New System.Drawing.Point(56, 161)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(33, 13)
+        Me.Label13.Size = New System.Drawing.Size(38, 13)
         Me.Label13.TabIndex = 18
         Me.Label13.Text = "Clase"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.White
         Me.Label10.Location = New System.Drawing.Point(58, 94)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(41, 13)
+        Me.Label10.Size = New System.Drawing.Size(48, 13)
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Carrera"
         '
@@ -518,21 +569,25 @@ Partial Class FRMDatos
         '
         'CMDModificarAsis
         '
+        Me.CMDModificarAsis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDModificarAsis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDModificarAsis.Location = New System.Drawing.Point(133, 248)
         Me.CMDModificarAsis.Name = "CMDModificarAsis"
         Me.CMDModificarAsis.Size = New System.Drawing.Size(80, 24)
         Me.CMDModificarAsis.TabIndex = 15
         Me.CMDModificarAsis.Text = "Modificar"
-        Me.CMDModificarAsis.UseVisualStyleBackColor = True
+        Me.CMDModificarAsis.UseVisualStyleBackColor = False
         '
         'CMDGuardarAsis
         '
+        Me.CMDGuardarAsis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarAsis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDGuardarAsis.Location = New System.Drawing.Point(57, 248)
         Me.CMDGuardarAsis.Name = "CMDGuardarAsis"
         Me.CMDGuardarAsis.Size = New System.Drawing.Size(65, 24)
         Me.CMDGuardarAsis.TabIndex = 8
         Me.CMDGuardarAsis.Text = "Guardar"
-        Me.CMDGuardarAsis.UseVisualStyleBackColor = True
+        Me.CMDGuardarAsis.UseVisualStyleBackColor = False
         '
         'CBOMateriaAsis
         '
@@ -554,18 +609,22 @@ Partial Class FRMDatos
         'Label14
         '
         Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.ForeColor = System.Drawing.Color.White
         Me.Label14.Location = New System.Drawing.Point(56, 126)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 13)
+        Me.Label14.Size = New System.Drawing.Size(49, 13)
         Me.Label14.TabIndex = 4
         Me.Label14.Text = "Materia"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.White
         Me.Label15.Location = New System.Drawing.Point(56, 62)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(42, 13)
+        Me.Label15.Size = New System.Drawing.Size(48, 13)
         Me.Label15.TabIndex = 3
         Me.Label15.Text = "Alumno"
         '
@@ -604,17 +663,21 @@ Partial Class FRMDatos
         '
         'CMDCancelarExam
         '
-        Me.CMDCancelarExam.Location = New System.Drawing.Point(90, 265)
+        Me.CMDCancelarExam.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDCancelarExam.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDCancelarExam.ForeColor = System.Drawing.Color.Black
+        Me.CMDCancelarExam.Location = New System.Drawing.Point(90, 251)
         Me.CMDCancelarExam.Name = "CMDCancelarExam"
         Me.CMDCancelarExam.Size = New System.Drawing.Size(80, 24)
         Me.CMDCancelarExam.TabIndex = 33
         Me.CMDCancelarExam.Text = "Cancelar"
-        Me.CMDCancelarExam.UseVisualStyleBackColor = True
+        Me.CMDCancelarExam.UseVisualStyleBackColor = False
         '
         'LBLExamenes
         '
         Me.LBLExamenes.AutoSize = True
         Me.LBLExamenes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LBLExamenes.ForeColor = System.Drawing.Color.White
         Me.LBLExamenes.Location = New System.Drawing.Point(306, 15)
         Me.LBLExamenes.Name = "LBLExamenes"
         Me.LBLExamenes.Size = New System.Drawing.Size(92, 20)
@@ -624,9 +687,11 @@ Partial Class FRMDatos
         'Label20
         '
         Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label20.ForeColor = System.Drawing.Color.White
         Me.Label20.Location = New System.Drawing.Point(424, 36)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(104, 13)
+        Me.Label20.Size = New System.Drawing.Size(121, 13)
         Me.Label20.TabIndex = 25
         Me.Label20.Text = "Exámenes Rendidos"
         '
@@ -657,27 +722,33 @@ Partial Class FRMDatos
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(22, 149)
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.White
+        Me.Label16.Location = New System.Drawing.Point(15, 152)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(78, 13)
+        Me.Label16.Size = New System.Drawing.Size(90, 13)
         Me.Label16.TabIndex = 21
         Me.Label16.Text = "Fecha Exámen"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(58, 181)
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.ForeColor = System.Drawing.Color.White
+        Me.Label12.Location = New System.Drawing.Point(62, 185)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(30, 13)
+        Me.Label12.Size = New System.Drawing.Size(34, 13)
         Me.Label12.TabIndex = 19
         Me.Label12.Text = "Nota"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(57, 80)
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.White
+        Me.Label17.Location = New System.Drawing.Point(53, 85)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(41, 13)
+        Me.Label17.Size = New System.Drawing.Size(48, 13)
         Me.Label17.TabIndex = 17
         Me.Label17.Text = "Carrera"
         '
@@ -691,21 +762,27 @@ Partial Class FRMDatos
         '
         'CMDModificarExam
         '
-        Me.CMDModificarExam.Location = New System.Drawing.Point(132, 234)
+        Me.CMDModificarExam.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDModificarExam.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDModificarExam.ForeColor = System.Drawing.Color.Black
+        Me.CMDModificarExam.Location = New System.Drawing.Point(132, 220)
         Me.CMDModificarExam.Name = "CMDModificarExam"
         Me.CMDModificarExam.Size = New System.Drawing.Size(80, 24)
         Me.CMDModificarExam.TabIndex = 15
         Me.CMDModificarExam.Text = "Modificar"
-        Me.CMDModificarExam.UseVisualStyleBackColor = True
+        Me.CMDModificarExam.UseVisualStyleBackColor = False
         '
         'CMDGuardarExam
         '
-        Me.CMDGuardarExam.Location = New System.Drawing.Point(56, 234)
+        Me.CMDGuardarExam.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarExam.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarExam.ForeColor = System.Drawing.Color.Black
+        Me.CMDGuardarExam.Location = New System.Drawing.Point(56, 220)
         Me.CMDGuardarExam.Name = "CMDGuardarExam"
         Me.CMDGuardarExam.Size = New System.Drawing.Size(65, 24)
         Me.CMDGuardarExam.TabIndex = 8
         Me.CMDGuardarExam.Text = "Guardar"
-        Me.CMDGuardarExam.UseVisualStyleBackColor = True
+        Me.CMDGuardarExam.UseVisualStyleBackColor = False
         '
         'CBOMateriaExam
         '
@@ -717,28 +794,34 @@ Partial Class FRMDatos
         '
         'CMDBuscarExam
         '
+        Me.CMDBuscarExam.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBuscarExam.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDBuscarExam.Location = New System.Drawing.Point(209, 45)
         Me.CMDBuscarExam.Name = "CMDBuscarExam"
         Me.CMDBuscarExam.Size = New System.Drawing.Size(49, 23)
         Me.CMDBuscarExam.TabIndex = 6
         Me.CMDBuscarExam.Text = "Buscar"
-        Me.CMDBuscarExam.UseVisualStyleBackColor = True
+        Me.CMDBuscarExam.UseVisualStyleBackColor = False
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(55, 112)
+        Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label18.ForeColor = System.Drawing.Color.White
+        Me.Label18.Location = New System.Drawing.Point(51, 115)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(42, 13)
+        Me.Label18.Size = New System.Drawing.Size(49, 13)
         Me.Label18.TabIndex = 4
         Me.Label18.Text = "Materia"
         '
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(55, 48)
+        Me.Label19.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.White
+        Me.Label19.Location = New System.Drawing.Point(54, 48)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(42, 13)
+        Me.Label19.Size = New System.Drawing.Size(48, 13)
         Me.Label19.TabIndex = 3
         Me.Label19.Text = "Alumno"
         '
@@ -765,6 +848,8 @@ Partial Class FRMDatos
         Me.Disersion.Controls.Add(Me.CMDBuscarDis)
         Me.Disersion.Controls.Add(Me.Label26)
         Me.Disersion.Controls.Add(Me.TXTAlumnoDis)
+        Me.Disersion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Disersion.ForeColor = System.Drawing.Color.White
         Me.Disersion.Location = New System.Drawing.Point(12, 25)
         Me.Disersion.Name = "Disersion"
         Me.Disersion.Size = New System.Drawing.Size(726, 333)
@@ -772,10 +857,30 @@ Partial Class FRMDatos
         Me.Disersion.TabStop = False
         Me.Disersion.Text = "....."
         '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label25.ForeColor = System.Drawing.Color.White
+        Me.Label25.Location = New System.Drawing.Point(4, 187)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(102, 13)
+        Me.Label25.TabIndex = 34
+        Me.Label25.Text = "Estado Disersion"
+        '
+        'CBOEstadoDis
+        '
+        Me.CBOEstadoDis.FormattingEnabled = True
+        Me.CBOEstadoDis.Location = New System.Drawing.Point(106, 180)
+        Me.CBOEstadoDis.Name = "CBOEstadoDis"
+        Me.CBOEstadoDis.Size = New System.Drawing.Size(121, 21)
+        Me.CBOEstadoDis.TabIndex = 33
+        '
         'Label30
         '
         Me.Label30.AutoSize = True
         Me.Label30.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label30.ForeColor = System.Drawing.Color.White
         Me.Label30.Location = New System.Drawing.Point(282, 18)
         Me.Label30.Name = "Label30"
         Me.Label30.Size = New System.Drawing.Size(109, 20)
@@ -784,12 +889,15 @@ Partial Class FRMDatos
         '
         'CMDBajaDis
         '
+        Me.CMDBajaDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBajaDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDBajaDis.ForeColor = System.Drawing.Color.Black
         Me.CMDBajaDis.Location = New System.Drawing.Point(140, 225)
         Me.CMDBajaDis.Name = "CMDBajaDis"
         Me.CMDBajaDis.Size = New System.Drawing.Size(84, 24)
         Me.CMDBajaDis.TabIndex = 26
         Me.CMDBajaDis.Text = "Baja Disersion"
-        Me.CMDBajaDis.UseVisualStyleBackColor = True
+        Me.CMDBajaDis.UseVisualStyleBackColor = False
         '
         'ListaDisersiones
         '
@@ -802,16 +910,18 @@ Partial Class FRMDatos
         'Label21
         '
         Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label21.ForeColor = System.Drawing.Color.White
         Me.Label21.Location = New System.Drawing.Point(343, 53)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(83, 13)
+        Me.Label21.Size = New System.Drawing.Size(99, 13)
         Me.Label21.TabIndex = 24
         Me.Label21.Text = "Disersion Activa"
         '
         'DTPFechaDisersion
         '
         Me.DTPFechaDisersion.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPFechaDisersion.Location = New System.Drawing.Point(102, 150)
+        Me.DTPFechaDisersion.Location = New System.Drawing.Point(105, 150)
         Me.DTPFechaDisersion.Name = "DTPFechaDisersion"
         Me.DTPFechaDisersion.Size = New System.Drawing.Size(81, 20)
         Me.DTPFechaDisersion.TabIndex = 23
@@ -819,18 +929,22 @@ Partial Class FRMDatos
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(20, 150)
+        Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label22.ForeColor = System.Drawing.Color.White
+        Me.Label22.Location = New System.Drawing.Point(4, 150)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(83, 13)
+        Me.Label22.Size = New System.Drawing.Size(98, 13)
         Me.Label22.TabIndex = 21
         Me.Label22.Text = "Fecha Disersión"
         '
         'Label24
         '
         Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label24.ForeColor = System.Drawing.Color.White
         Me.Label24.Location = New System.Drawing.Point(55, 111)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(41, 13)
+        Me.Label24.Size = New System.Drawing.Size(48, 13)
         Me.Label24.TabIndex = 17
         Me.Label24.Text = "Carrera"
         '
@@ -844,28 +958,36 @@ Partial Class FRMDatos
         '
         'CMDGuardarDis
         '
+        Me.CMDGuardarDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarDis.ForeColor = System.Drawing.Color.Black
         Me.CMDGuardarDis.Location = New System.Drawing.Point(56, 225)
         Me.CMDGuardarDis.Name = "CMDGuardarDis"
         Me.CMDGuardarDis.Size = New System.Drawing.Size(65, 24)
         Me.CMDGuardarDis.TabIndex = 8
         Me.CMDGuardarDis.Text = "Guardar"
-        Me.CMDGuardarDis.UseVisualStyleBackColor = True
+        Me.CMDGuardarDis.UseVisualStyleBackColor = False
         '
         'CMDBuscarDis
         '
+        Me.CMDBuscarDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBuscarDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDBuscarDis.ForeColor = System.Drawing.Color.Black
         Me.CMDBuscarDis.Location = New System.Drawing.Point(207, 76)
         Me.CMDBuscarDis.Name = "CMDBuscarDis"
         Me.CMDBuscarDis.Size = New System.Drawing.Size(49, 23)
         Me.CMDBuscarDis.TabIndex = 6
         Me.CMDBuscarDis.Text = "Buscar"
-        Me.CMDBuscarDis.UseVisualStyleBackColor = True
+        Me.CMDBuscarDis.UseVisualStyleBackColor = False
         '
         'Label26
         '
         Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label26.ForeColor = System.Drawing.Color.White
         Me.Label26.Location = New System.Drawing.Point(53, 79)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(42, 13)
+        Me.Label26.Size = New System.Drawing.Size(48, 13)
         Me.Label26.TabIndex = 3
         Me.Label26.Text = "Alumno"
         '
@@ -890,6 +1012,7 @@ Partial Class FRMDatos
         Me.Antecedentes.Controls.Add(Me.CMDBuscarAnt)
         Me.Antecedentes.Controls.Add(Me.Label28)
         Me.Antecedentes.Controls.Add(Me.TXTAlumnoAnt)
+        Me.Antecedentes.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Antecedentes.Location = New System.Drawing.Point(12, 24)
         Me.Antecedentes.Name = "Antecedentes"
         Me.Antecedentes.Size = New System.Drawing.Size(726, 328)
@@ -897,10 +1020,22 @@ Partial Class FRMDatos
         Me.Antecedentes.TabStop = False
         Me.Antecedentes.Text = "....."
         '
+        'CMDCancelarAnt
+        '
+        Me.CMDCancelarAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDCancelarAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDCancelarAnt.Location = New System.Drawing.Point(117, 203)
+        Me.CMDCancelarAnt.Name = "CMDCancelarAnt"
+        Me.CMDCancelarAnt.Size = New System.Drawing.Size(84, 24)
+        Me.CMDCancelarAnt.TabIndex = 32
+        Me.CMDCancelarAnt.Text = "Cancelar"
+        Me.CMDCancelarAnt.UseVisualStyleBackColor = False
+        '
         'Label29
         '
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.White
         Me.Label29.Location = New System.Drawing.Point(266, 19)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(215, 20)
@@ -918,37 +1053,45 @@ Partial Class FRMDatos
         '
         'CMDBajaAnt
         '
+        Me.CMDBajaAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBajaAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDBajaAnt.Location = New System.Drawing.Point(212, 163)
         Me.CMDBajaAnt.Name = "CMDBajaAnt"
         Me.CMDBajaAnt.Size = New System.Drawing.Size(100, 24)
         Me.CMDBajaAnt.TabIndex = 29
         Me.CMDBajaAnt.Text = "Baja Antecedente"
-        Me.CMDBajaAnt.UseVisualStyleBackColor = True
+        Me.CMDBajaAnt.UseVisualStyleBackColor = False
         '
         'CMDModificarAnt
         '
+        Me.CMDModificarAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDModificarAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDModificarAnt.Location = New System.Drawing.Point(118, 163)
         Me.CMDModificarAnt.Name = "CMDModificarAnt"
         Me.CMDModificarAnt.Size = New System.Drawing.Size(84, 24)
         Me.CMDModificarAnt.TabIndex = 26
         Me.CMDModificarAnt.Text = "Modificar"
-        Me.CMDModificarAnt.UseVisualStyleBackColor = True
+        Me.CMDModificarAnt.UseVisualStyleBackColor = False
         '
         'Label23
         '
         Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label23.ForeColor = System.Drawing.Color.White
         Me.Label23.Location = New System.Drawing.Point(476, 55)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(73, 13)
+        Me.Label23.Size = New System.Drawing.Size(85, 13)
         Me.Label23.TabIndex = 24
         Me.Label23.Text = "Antecedentes"
         '
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(44, 105)
+        Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.White
+        Me.Label27.Location = New System.Drawing.Point(40, 107)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(54, 13)
+        Me.Label27.Size = New System.Drawing.Size(63, 13)
         Me.Label27.TabIndex = 17
         Me.Label27.Text = "Categoría"
         '
@@ -962,28 +1105,34 @@ Partial Class FRMDatos
         '
         'CMDGuardarAnt
         '
+        Me.CMDGuardarAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDGuardarAnt.Location = New System.Drawing.Point(47, 163)
         Me.CMDGuardarAnt.Name = "CMDGuardarAnt"
         Me.CMDGuardarAnt.Size = New System.Drawing.Size(65, 24)
         Me.CMDGuardarAnt.TabIndex = 8
         Me.CMDGuardarAnt.Text = "Guardar"
-        Me.CMDGuardarAnt.UseVisualStyleBackColor = True
+        Me.CMDGuardarAnt.UseVisualStyleBackColor = False
         '
         'CMDBuscarAnt
         '
+        Me.CMDBuscarAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDBuscarAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDBuscarAnt.Location = New System.Drawing.Point(209, 70)
         Me.CMDBuscarAnt.Name = "CMDBuscarAnt"
         Me.CMDBuscarAnt.Size = New System.Drawing.Size(49, 23)
         Me.CMDBuscarAnt.TabIndex = 6
         Me.CMDBuscarAnt.Text = "Buscar"
-        Me.CMDBuscarAnt.UseVisualStyleBackColor = True
+        Me.CMDBuscarAnt.UseVisualStyleBackColor = False
         '
         'Label28
         '
         Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.White
         Me.Label28.Location = New System.Drawing.Point(55, 73)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(42, 13)
+        Me.Label28.Size = New System.Drawing.Size(48, 13)
         Me.Label28.TabIndex = 3
         Me.Label28.Text = "Alumno"
         '
@@ -994,44 +1143,19 @@ Partial Class FRMDatos
         Me.TXTAlumnoAnt.Size = New System.Drawing.Size(100, 20)
         Me.TXTAlumnoAnt.TabIndex = 0
         '
-        'CMDCancelarAnt
-        '
-        Me.CMDCancelarAnt.Location = New System.Drawing.Point(117, 203)
-        Me.CMDCancelarAnt.Name = "CMDCancelarAnt"
-        Me.CMDCancelarAnt.Size = New System.Drawing.Size(84, 24)
-        Me.CMDCancelarAnt.TabIndex = 32
-        Me.CMDCancelarAnt.Text = "Cancelar"
-        Me.CMDCancelarAnt.UseVisualStyleBackColor = True
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(12, 187)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(86, 13)
-        Me.Label25.TabIndex = 34
-        Me.Label25.Text = "Estado Disersion"
-        '
-        'CBOEstadoDis
-        '
-        Me.CBOEstadoDis.FormattingEnabled = True
-        Me.CBOEstadoDis.Location = New System.Drawing.Point(101, 180)
-        Me.CBOEstadoDis.Name = "CBOEstadoDis"
-        Me.CBOEstadoDis.Size = New System.Drawing.Size(121, 21)
-        Me.CBOEstadoDis.TabIndex = 33
-        '
         'FRMDatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(750, 370)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.Antecedentes)
+        Me.Controls.Add(Me.Disersion)
         Me.Controls.Add(Me.Examenes)
         Me.Controls.Add(Me.Asistencia)
         Me.Controls.Add(Me.Materia)
         Me.Controls.Add(Me.CarreraxAlumno)
-        Me.Controls.Add(Me.Antecedentes)
-        Me.Controls.Add(Me.Disersion)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMDatos"
         Me.Text = "Datos del alumno en cursada"

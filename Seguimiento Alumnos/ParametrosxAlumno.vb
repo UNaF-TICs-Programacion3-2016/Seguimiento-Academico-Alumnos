@@ -112,4 +112,56 @@
     Private Sub CMDBuscar_Click(sender As Object, e As EventArgs) Handles CMDBuscar.Click
         FRMBuscarPersonas.Show()
     End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+
+    End Sub
+
+    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+
+    End Sub
+
+    Private Sub GPPromedioSec_Enter(sender As Object, e As EventArgs) Handles GPPromedioSec.Enter
+
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+
+    Private Sub GPExamenesAp_Enter(sender As Object, e As EventArgs) Handles GPExamenesAp.Enter
+
+    End Sub
+
+    Private Sub GPExamenesDes_Enter(sender As Object, e As EventArgs) Handles GPExamenesDes.Enter
+
+    End Sub
+
+    Private Sub GPPromActual_Enter(sender As Object, e As EventArgs) Handles GPPromActual.Enter
+
+    End Sub
+
+    Private Sub GPTrabaja_Enter(sender As Object, e As EventArgs) Handles GPTrabaja.Enter
+
+    End Sub
+
+    Private Sub GPHClases_Enter(sender As Object, e As EventArgs) Handles GPHClases.Enter
+
+    End Sub
+
+    Private Sub GPIngreso_Enter(sender As Object, e As EventArgs) Handles GPIngreso.Enter
+
+    End Sub
+
+    Private Sub GPMateriasAp_Enter(sender As Object, e As EventArgs) Handles GPMateriasAp.Enter
+
+    End Sub
+
+    Private Sub GPMateriasReg_Enter(sender As Object, e As EventArgs) Handles GPMateriasReg.Enter
+
+    End Sub
+
+    Private Sub GPMaterias_Enter(sender As Object, e As EventArgs) Handles GPMaterias.Enter
+
+    End Sub
 End Class

@@ -158,4 +158,8 @@
             MsgBox("La desersión fue actualizada correctamente", MsgBoxStyle.Information, "Sistema")
         End If
     End Sub
+
+    Private Sub Asistencia_Enter(sender As Object, e As EventArgs) Handles Asistencia.Enter
+
+    End Sub
 End Class
