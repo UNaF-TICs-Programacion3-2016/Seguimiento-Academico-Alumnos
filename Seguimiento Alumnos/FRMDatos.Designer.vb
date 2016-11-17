@@ -30,95 +30,95 @@ Partial Class FRMDatos
         Me.DisersiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OtrosAntecedentesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CarreraxAlumno = New System.Windows.Forms.GroupBox()
+        Me.DTPInscripcionCar = New System.Windows.Forms.DateTimePicker()
         Me.Label33 = New System.Windows.Forms.Label()
         Me.CMDAgregarCarrera = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.CMDBuscar = New System.Windows.Forms.Button()
+        Me.CBOCarreraCar = New System.Windows.Forms.ComboBox()
+        Me.CMDBuscarCar = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TXTAlumno = New System.Windows.Forms.TextBox()
+        Me.TXTAlumnoCar = New System.Windows.Forms.TextBox()
         Me.Materia = New System.Windows.Forms.GroupBox()
         Me.Label32 = New System.Windows.Forms.Label()
-        Me.CMDActualizar = New System.Windows.Forms.Button()
+        Me.CMDActualizarMxA = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.CBOCarrera2 = New System.Windows.Forms.ComboBox()
-        Me.CBOEstado = New System.Windows.Forms.ComboBox()
+        Me.CBOCarreraMxA = New System.Windows.Forms.ComboBox()
+        Me.CBOEstadoMxA = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.DataGridMaterias = New System.Windows.Forms.DataGridView()
+        Me.DataGridMxA = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.CBOMateria = New System.Windows.Forms.ComboBox()
-        Me.CMDBuscar2 = New System.Windows.Forms.Button()
+        Me.CMDInscribirMxA = New System.Windows.Forms.Button()
+        Me.CBOMateriaMxA = New System.Windows.Forms.ComboBox()
+        Me.CMDBuscarMxA = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TXTFecha2 = New System.Windows.Forms.TextBox()
-        Me.TXTAlumno2 = New System.Windows.Forms.TextBox()
+        Me.TXTFechaMxA = New System.Windows.Forms.TextBox()
+        Me.TXTAlumnoMxA = New System.Windows.Forms.TextBox()
         Me.Asistencia = New System.Windows.Forms.GroupBox()
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.TXTAsistencias = New System.Windows.Forms.TextBox()
-        Me.CBOClase = New System.Windows.Forms.ComboBox()
+        Me.CBOClaseAsis = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.CBOCarrera3 = New System.Windows.Forms.ComboBox()
-        Me.CMDModificar = New System.Windows.Forms.Button()
-        Me.CMDGuardar = New System.Windows.Forms.Button()
-        Me.CBOMateria2 = New System.Windows.Forms.ComboBox()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.CBOCarreraAsis = New System.Windows.Forms.ComboBox()
+        Me.CMDModificarAsis = New System.Windows.Forms.Button()
+        Me.CMDGuardarAsis = New System.Windows.Forms.Button()
+        Me.CBOMateriaAsis = New System.Windows.Forms.ComboBox()
+        Me.CMDBuscarAsis = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.TXTAlumno3 = New System.Windows.Forms.TextBox()
+        Me.TXTAlumnoAsis = New System.Windows.Forms.TextBox()
         Me.Examenes = New System.Windows.Forms.GroupBox()
+        Me.CMDCancelarExam = New System.Windows.Forms.Button()
         Me.LBLExamenes = New System.Windows.Forms.Label()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.DataGridExamenes = New System.Windows.Forms.DataGridView()
-        Me.DTPFecha = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.DTPFechaExam = New System.Windows.Forms.DateTimePicker()
+        Me.TXTNotaExam = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
-        Me.CBOCarrera4 = New System.Windows.Forms.ComboBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.CBOMateria3 = New System.Windows.Forms.ComboBox()
-        Me.CMDBuscar4 = New System.Windows.Forms.Button()
+        Me.CBOCarreraExam = New System.Windows.Forms.ComboBox()
+        Me.CMDModificarExam = New System.Windows.Forms.Button()
+        Me.CMDGuardarExam = New System.Windows.Forms.Button()
+        Me.CBOMateriaExam = New System.Windows.Forms.ComboBox()
+        Me.CMDBuscarExam = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
-        Me.TXTAlumno4 = New System.Windows.Forms.TextBox()
+        Me.TXTAlumnoExam = New System.Windows.Forms.TextBox()
         Me.Disersion = New System.Windows.Forms.GroupBox()
         Me.Label30 = New System.Windows.Forms.Label()
-        Me.CMDBaja = New System.Windows.Forms.Button()
+        Me.CMDBajaDis = New System.Windows.Forms.Button()
         Me.ListaDisersiones = New System.Windows.Forms.ListBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.DTPFechaDisersion = New System.Windows.Forms.DateTimePicker()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
-        Me.CBOCarrera5 = New System.Windows.Forms.ComboBox()
-        Me.CMDGuardar2 = New System.Windows.Forms.Button()
-        Me.CMDBuscar5 = New System.Windows.Forms.Button()
+        Me.CBOCarreraDis = New System.Windows.Forms.ComboBox()
+        Me.CMDGuardarDis = New System.Windows.Forms.Button()
+        Me.CMDBuscarDis = New System.Windows.Forms.Button()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.TXTAlumno5 = New System.Windows.Forms.TextBox()
+        Me.TXTAlumnoDis = New System.Windows.Forms.TextBox()
         Me.Antecedentes = New System.Windows.Forms.GroupBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.DataGridAnt = New System.Windows.Forms.DataGridView()
         Me.CMDBajaAnt = New System.Windows.Forms.Button()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.CMDModificar2 = New System.Windows.Forms.Button()
+        Me.CMDModificarAnt = New System.Windows.Forms.Button()
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.CBOCategoria = New System.Windows.Forms.ComboBox()
-        Me.CMDGuardar4 = New System.Windows.Forms.Button()
-        Me.CMDBuscar6 = New System.Windows.Forms.Button()
+        Me.CBOCategoriaAnt = New System.Windows.Forms.ComboBox()
+        Me.CMDGuardarAnt = New System.Windows.Forms.Button()
+        Me.CMDBuscarAnt = New System.Windows.Forms.Button()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.TXTAlumno6 = New System.Windows.Forms.TextBox()
+        Me.TXTAlumnoAnt = New System.Windows.Forms.TextBox()
+        Me.CMDCancelarAnt = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.CarreraxAlumno.SuspendLayout()
         Me.Materia.SuspendLayout()
-        CType(Me.DataGridMaterias, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridMxA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Asistencia.SuspendLayout()
         Me.Examenes.SuspendLayout()
         CType(Me.DataGridExamenes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,21 +174,29 @@ Partial Class FRMDatos
         '
         'CarreraxAlumno
         '
+        Me.CarreraxAlumno.Controls.Add(Me.DTPInscripcionCar)
         Me.CarreraxAlumno.Controls.Add(Me.Label33)
         Me.CarreraxAlumno.Controls.Add(Me.CMDAgregarCarrera)
-        Me.CarreraxAlumno.Controls.Add(Me.ComboBox1)
-        Me.CarreraxAlumno.Controls.Add(Me.CMDBuscar)
+        Me.CarreraxAlumno.Controls.Add(Me.CBOCarreraCar)
+        Me.CarreraxAlumno.Controls.Add(Me.CMDBuscarCar)
         Me.CarreraxAlumno.Controls.Add(Me.Label3)
         Me.CarreraxAlumno.Controls.Add(Me.Label2)
         Me.CarreraxAlumno.Controls.Add(Me.Label1)
-        Me.CarreraxAlumno.Controls.Add(Me.TextBox3)
-        Me.CarreraxAlumno.Controls.Add(Me.TXTAlumno)
+        Me.CarreraxAlumno.Controls.Add(Me.TXTAlumnoCar)
         Me.CarreraxAlumno.Location = New System.Drawing.Point(12, 27)
         Me.CarreraxAlumno.Name = "CarreraxAlumno"
         Me.CarreraxAlumno.Size = New System.Drawing.Size(726, 331)
         Me.CarreraxAlumno.TabIndex = 1
         Me.CarreraxAlumno.TabStop = False
         Me.CarreraxAlumno.Text = "....."
+        '
+        'DTPInscripcionCar
+        '
+        Me.DTPInscripcionCar.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPInscripcionCar.Location = New System.Drawing.Point(122, 134)
+        Me.DTPInscripcionCar.Name = "DTPInscripcionCar"
+        Me.DTPInscripcionCar.Size = New System.Drawing.Size(122, 20)
+        Me.DTPInscripcionCar.TabIndex = 33
         '
         'Label33
         '
@@ -209,22 +217,22 @@ Partial Class FRMDatos
         Me.CMDAgregarCarrera.Text = "Inscribir a Carrera"
         Me.CMDAgregarCarrera.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'CBOCarreraCar
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(123, 100)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 7
+        Me.CBOCarreraCar.FormattingEnabled = True
+        Me.CBOCarreraCar.Location = New System.Drawing.Point(123, 100)
+        Me.CBOCarreraCar.Name = "CBOCarreraCar"
+        Me.CBOCarreraCar.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarreraCar.TabIndex = 7
         '
-        'CMDBuscar
+        'CMDBuscarCar
         '
-        Me.CMDBuscar.Location = New System.Drawing.Point(228, 67)
-        Me.CMDBuscar.Name = "CMDBuscar"
-        Me.CMDBuscar.Size = New System.Drawing.Size(49, 23)
-        Me.CMDBuscar.TabIndex = 6
-        Me.CMDBuscar.Text = "Buscar"
-        Me.CMDBuscar.UseVisualStyleBackColor = True
+        Me.CMDBuscarCar.Location = New System.Drawing.Point(228, 67)
+        Me.CMDBuscarCar.Name = "CMDBuscarCar"
+        Me.CMDBuscarCar.Size = New System.Drawing.Size(49, 23)
+        Me.CMDBuscarCar.TabIndex = 6
+        Me.CMDBuscarCar.Text = "Buscar"
+        Me.CMDBuscarCar.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -253,38 +261,31 @@ Partial Class FRMDatos
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Alumno"
         '
-        'TextBox3
+        'TXTAlumnoCar
         '
-        Me.TextBox3.Location = New System.Drawing.Point(122, 132)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 2
-        '
-        'TXTAlumno
-        '
-        Me.TXTAlumno.Location = New System.Drawing.Point(122, 67)
-        Me.TXTAlumno.Name = "TXTAlumno"
-        Me.TXTAlumno.Size = New System.Drawing.Size(100, 20)
-        Me.TXTAlumno.TabIndex = 0
+        Me.TXTAlumnoCar.Location = New System.Drawing.Point(122, 67)
+        Me.TXTAlumnoCar.Name = "TXTAlumnoCar"
+        Me.TXTAlumnoCar.Size = New System.Drawing.Size(100, 20)
+        Me.TXTAlumnoCar.TabIndex = 0
         '
         'Materia
         '
         Me.Materia.Controls.Add(Me.Label32)
-        Me.Materia.Controls.Add(Me.CMDActualizar)
+        Me.Materia.Controls.Add(Me.CMDActualizarMxA)
         Me.Materia.Controls.Add(Me.Label9)
-        Me.Materia.Controls.Add(Me.CBOCarrera2)
-        Me.Materia.Controls.Add(Me.CBOEstado)
+        Me.Materia.Controls.Add(Me.CBOCarreraMxA)
+        Me.Materia.Controls.Add(Me.CBOEstadoMxA)
         Me.Materia.Controls.Add(Me.Label8)
-        Me.Materia.Controls.Add(Me.DataGridMaterias)
+        Me.Materia.Controls.Add(Me.DataGridMxA)
         Me.Materia.Controls.Add(Me.Label7)
-        Me.Materia.Controls.Add(Me.Button1)
-        Me.Materia.Controls.Add(Me.CBOMateria)
-        Me.Materia.Controls.Add(Me.CMDBuscar2)
+        Me.Materia.Controls.Add(Me.CMDInscribirMxA)
+        Me.Materia.Controls.Add(Me.CBOMateriaMxA)
+        Me.Materia.Controls.Add(Me.CMDBuscarMxA)
         Me.Materia.Controls.Add(Me.Label4)
         Me.Materia.Controls.Add(Me.Label5)
         Me.Materia.Controls.Add(Me.Label6)
-        Me.Materia.Controls.Add(Me.TXTFecha2)
-        Me.Materia.Controls.Add(Me.TXTAlumno2)
+        Me.Materia.Controls.Add(Me.TXTFechaMxA)
+        Me.Materia.Controls.Add(Me.TXTAlumnoMxA)
         Me.Materia.Location = New System.Drawing.Point(14, 22)
         Me.Materia.Name = "Materia"
         Me.Materia.Size = New System.Drawing.Size(726, 336)
@@ -302,14 +303,14 @@ Partial Class FRMDatos
         Me.Label32.TabIndex = 32
         Me.Label32.Text = "Materias por Alumno"
         '
-        'CMDActualizar
+        'CMDActualizarMxA
         '
-        Me.CMDActualizar.Location = New System.Drawing.Point(142, 254)
-        Me.CMDActualizar.Name = "CMDActualizar"
-        Me.CMDActualizar.Size = New System.Drawing.Size(98, 36)
-        Me.CMDActualizar.TabIndex = 15
-        Me.CMDActualizar.Text = "Actualizar Estado de Alumno"
-        Me.CMDActualizar.UseVisualStyleBackColor = True
+        Me.CMDActualizarMxA.Location = New System.Drawing.Point(142, 254)
+        Me.CMDActualizarMxA.Name = "CMDActualizarMxA"
+        Me.CMDActualizarMxA.Size = New System.Drawing.Size(98, 36)
+        Me.CMDActualizarMxA.TabIndex = 15
+        Me.CMDActualizarMxA.Text = "Actualizar Estado de Alumno"
+        Me.CMDActualizarMxA.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -320,21 +321,21 @@ Partial Class FRMDatos
         Me.Label9.TabIndex = 14
         Me.Label9.Text = "Carrera"
         '
-        'CBOCarrera2
+        'CBOCarreraMxA
         '
-        Me.CBOCarrera2.FormattingEnabled = True
-        Me.CBOCarrera2.Location = New System.Drawing.Point(104, 96)
-        Me.CBOCarrera2.Name = "CBOCarrera2"
-        Me.CBOCarrera2.Size = New System.Drawing.Size(121, 21)
-        Me.CBOCarrera2.TabIndex = 13
+        Me.CBOCarreraMxA.FormattingEnabled = True
+        Me.CBOCarreraMxA.Location = New System.Drawing.Point(104, 96)
+        Me.CBOCarreraMxA.Name = "CBOCarreraMxA"
+        Me.CBOCarreraMxA.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarreraMxA.TabIndex = 13
         '
-        'CBOEstado
+        'CBOEstadoMxA
         '
-        Me.CBOEstado.FormattingEnabled = True
-        Me.CBOEstado.Location = New System.Drawing.Point(101, 193)
-        Me.CBOEstado.Name = "CBOEstado"
-        Me.CBOEstado.Size = New System.Drawing.Size(121, 21)
-        Me.CBOEstado.TabIndex = 12
+        Me.CBOEstadoMxA.FormattingEnabled = True
+        Me.CBOEstadoMxA.Location = New System.Drawing.Point(101, 193)
+        Me.CBOEstadoMxA.Name = "CBOEstadoMxA"
+        Me.CBOEstadoMxA.Size = New System.Drawing.Size(121, 21)
+        Me.CBOEstadoMxA.TabIndex = 12
         '
         'Label8
         '
@@ -345,14 +346,14 @@ Partial Class FRMDatos
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Estado"
         '
-        'DataGridMaterias
+        'DataGridMxA
         '
-        Me.DataGridMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridMaterias.Location = New System.Drawing.Point(308, 66)
-        Me.DataGridMaterias.Name = "DataGridMaterias"
-        Me.DataGridMaterias.RowHeadersVisible = False
-        Me.DataGridMaterias.Size = New System.Drawing.Size(400, 240)
-        Me.DataGridMaterias.TabIndex = 10
+        Me.DataGridMxA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridMxA.Location = New System.Drawing.Point(308, 66)
+        Me.DataGridMxA.Name = "DataGridMxA"
+        Me.DataGridMxA.RowHeadersVisible = False
+        Me.DataGridMxA.Size = New System.Drawing.Size(400, 240)
+        Me.DataGridMxA.TabIndex = 10
         '
         'Label7
         '
@@ -363,31 +364,31 @@ Partial Class FRMDatos
         Me.Label7.TabIndex = 9
         Me.Label7.Text = "Materias Cursadas/Cursando"
         '
-        'Button1
+        'CMDInscribirMxA
         '
-        Me.Button1.Location = New System.Drawing.Point(33, 254)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(93, 36)
-        Me.Button1.TabIndex = 8
-        Me.Button1.Text = "Inscribir a Materia"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.CMDInscribirMxA.Location = New System.Drawing.Point(33, 254)
+        Me.CMDInscribirMxA.Name = "CMDInscribirMxA"
+        Me.CMDInscribirMxA.Size = New System.Drawing.Size(93, 36)
+        Me.CMDInscribirMxA.TabIndex = 8
+        Me.CMDInscribirMxA.Text = "Inscribir a Materia"
+        Me.CMDInscribirMxA.UseVisualStyleBackColor = True
         '
-        'CBOMateria
+        'CBOMateriaMxA
         '
-        Me.CBOMateria.FormattingEnabled = True
-        Me.CBOMateria.Location = New System.Drawing.Point(104, 126)
-        Me.CBOMateria.Name = "CBOMateria"
-        Me.CBOMateria.Size = New System.Drawing.Size(121, 21)
-        Me.CBOMateria.TabIndex = 7
+        Me.CBOMateriaMxA.FormattingEnabled = True
+        Me.CBOMateriaMxA.Location = New System.Drawing.Point(104, 126)
+        Me.CBOMateriaMxA.Name = "CBOMateriaMxA"
+        Me.CBOMateriaMxA.Size = New System.Drawing.Size(121, 21)
+        Me.CBOMateriaMxA.TabIndex = 7
         '
-        'CMDBuscar2
+        'CMDBuscarMxA
         '
-        Me.CMDBuscar2.Location = New System.Drawing.Point(209, 58)
-        Me.CMDBuscar2.Name = "CMDBuscar2"
-        Me.CMDBuscar2.Size = New System.Drawing.Size(49, 23)
-        Me.CMDBuscar2.TabIndex = 6
-        Me.CMDBuscar2.Text = "Buscar"
-        Me.CMDBuscar2.UseVisualStyleBackColor = True
+        Me.CMDBuscarMxA.Location = New System.Drawing.Point(209, 58)
+        Me.CMDBuscarMxA.Name = "CMDBuscarMxA"
+        Me.CMDBuscarMxA.Size = New System.Drawing.Size(49, 23)
+        Me.CMDBuscarMxA.TabIndex = 6
+        Me.CMDBuscarMxA.Text = "Buscar"
+        Me.CMDBuscarMxA.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -416,36 +417,36 @@ Partial Class FRMDatos
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Alumno"
         '
-        'TXTFecha2
+        'TXTFechaMxA
         '
-        Me.TXTFecha2.Location = New System.Drawing.Point(103, 158)
-        Me.TXTFecha2.Name = "TXTFecha2"
-        Me.TXTFecha2.Size = New System.Drawing.Size(100, 20)
-        Me.TXTFecha2.TabIndex = 2
+        Me.TXTFechaMxA.Location = New System.Drawing.Point(103, 158)
+        Me.TXTFechaMxA.Name = "TXTFechaMxA"
+        Me.TXTFechaMxA.Size = New System.Drawing.Size(100, 20)
+        Me.TXTFechaMxA.TabIndex = 2
         '
-        'TXTAlumno2
+        'TXTAlumnoMxA
         '
-        Me.TXTAlumno2.Location = New System.Drawing.Point(103, 58)
-        Me.TXTAlumno2.Name = "TXTAlumno2"
-        Me.TXTAlumno2.Size = New System.Drawing.Size(100, 20)
-        Me.TXTAlumno2.TabIndex = 0
+        Me.TXTAlumnoMxA.Location = New System.Drawing.Point(103, 58)
+        Me.TXTAlumnoMxA.Name = "TXTAlumnoMxA"
+        Me.TXTAlumnoMxA.Size = New System.Drawing.Size(100, 20)
+        Me.TXTAlumnoMxA.TabIndex = 0
         '
         'Asistencia
         '
         Me.Asistencia.Controls.Add(Me.Label31)
         Me.Asistencia.Controls.Add(Me.Label11)
         Me.Asistencia.Controls.Add(Me.TXTAsistencias)
-        Me.Asistencia.Controls.Add(Me.CBOClase)
+        Me.Asistencia.Controls.Add(Me.CBOClaseAsis)
         Me.Asistencia.Controls.Add(Me.Label13)
         Me.Asistencia.Controls.Add(Me.Label10)
-        Me.Asistencia.Controls.Add(Me.CBOCarrera3)
-        Me.Asistencia.Controls.Add(Me.CMDModificar)
-        Me.Asistencia.Controls.Add(Me.CMDGuardar)
-        Me.Asistencia.Controls.Add(Me.CBOMateria2)
-        Me.Asistencia.Controls.Add(Me.Button4)
+        Me.Asistencia.Controls.Add(Me.CBOCarreraAsis)
+        Me.Asistencia.Controls.Add(Me.CMDModificarAsis)
+        Me.Asistencia.Controls.Add(Me.CMDGuardarAsis)
+        Me.Asistencia.Controls.Add(Me.CBOMateriaAsis)
+        Me.Asistencia.Controls.Add(Me.CMDBuscarAsis)
         Me.Asistencia.Controls.Add(Me.Label14)
         Me.Asistencia.Controls.Add(Me.Label15)
-        Me.Asistencia.Controls.Add(Me.TXTAlumno3)
+        Me.Asistencia.Controls.Add(Me.TXTAlumnoAsis)
         Me.Asistencia.Location = New System.Drawing.Point(14, 23)
         Me.Asistencia.Name = "Asistencia"
         Me.Asistencia.Size = New System.Drawing.Size(726, 335)
@@ -479,13 +480,13 @@ Partial Class FRMDatos
         Me.TXTAsistencias.Size = New System.Drawing.Size(100, 20)
         Me.TXTAsistencias.TabIndex = 20
         '
-        'CBOClase
+        'CBOClaseAsis
         '
-        Me.CBOClase.FormattingEnabled = True
-        Me.CBOClase.Location = New System.Drawing.Point(104, 161)
-        Me.CBOClase.Name = "CBOClase"
-        Me.CBOClase.Size = New System.Drawing.Size(121, 21)
-        Me.CBOClase.TabIndex = 19
+        Me.CBOClaseAsis.FormattingEnabled = True
+        Me.CBOClaseAsis.Location = New System.Drawing.Point(104, 161)
+        Me.CBOClaseAsis.Name = "CBOClaseAsis"
+        Me.CBOClaseAsis.Size = New System.Drawing.Size(121, 21)
+        Me.CBOClaseAsis.TabIndex = 19
         '
         'Label13
         '
@@ -505,48 +506,48 @@ Partial Class FRMDatos
         Me.Label10.TabIndex = 17
         Me.Label10.Text = "Carrera"
         '
-        'CBOCarrera3
+        'CBOCarreraAsis
         '
-        Me.CBOCarrera3.FormattingEnabled = True
-        Me.CBOCarrera3.Location = New System.Drawing.Point(106, 94)
-        Me.CBOCarrera3.Name = "CBOCarrera3"
-        Me.CBOCarrera3.Size = New System.Drawing.Size(121, 21)
-        Me.CBOCarrera3.TabIndex = 16
+        Me.CBOCarreraAsis.FormattingEnabled = True
+        Me.CBOCarreraAsis.Location = New System.Drawing.Point(106, 94)
+        Me.CBOCarreraAsis.Name = "CBOCarreraAsis"
+        Me.CBOCarreraAsis.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarreraAsis.TabIndex = 16
         '
-        'CMDModificar
+        'CMDModificarAsis
         '
-        Me.CMDModificar.Location = New System.Drawing.Point(133, 248)
-        Me.CMDModificar.Name = "CMDModificar"
-        Me.CMDModificar.Size = New System.Drawing.Size(80, 24)
-        Me.CMDModificar.TabIndex = 15
-        Me.CMDModificar.Text = "Modificar"
-        Me.CMDModificar.UseVisualStyleBackColor = True
+        Me.CMDModificarAsis.Location = New System.Drawing.Point(133, 248)
+        Me.CMDModificarAsis.Name = "CMDModificarAsis"
+        Me.CMDModificarAsis.Size = New System.Drawing.Size(80, 24)
+        Me.CMDModificarAsis.TabIndex = 15
+        Me.CMDModificarAsis.Text = "Modificar"
+        Me.CMDModificarAsis.UseVisualStyleBackColor = True
         '
-        'CMDGuardar
+        'CMDGuardarAsis
         '
-        Me.CMDGuardar.Location = New System.Drawing.Point(57, 248)
-        Me.CMDGuardar.Name = "CMDGuardar"
-        Me.CMDGuardar.Size = New System.Drawing.Size(65, 24)
-        Me.CMDGuardar.TabIndex = 8
-        Me.CMDGuardar.Text = "Guardar"
-        Me.CMDGuardar.UseVisualStyleBackColor = True
+        Me.CMDGuardarAsis.Location = New System.Drawing.Point(57, 248)
+        Me.CMDGuardarAsis.Name = "CMDGuardarAsis"
+        Me.CMDGuardarAsis.Size = New System.Drawing.Size(65, 24)
+        Me.CMDGuardarAsis.TabIndex = 8
+        Me.CMDGuardarAsis.Text = "Guardar"
+        Me.CMDGuardarAsis.UseVisualStyleBackColor = True
         '
-        'CBOMateria2
+        'CBOMateriaAsis
         '
-        Me.CBOMateria2.FormattingEnabled = True
-        Me.CBOMateria2.Location = New System.Drawing.Point(104, 126)
-        Me.CBOMateria2.Name = "CBOMateria2"
-        Me.CBOMateria2.Size = New System.Drawing.Size(121, 21)
-        Me.CBOMateria2.TabIndex = 7
+        Me.CBOMateriaAsis.FormattingEnabled = True
+        Me.CBOMateriaAsis.Location = New System.Drawing.Point(104, 126)
+        Me.CBOMateriaAsis.Name = "CBOMateriaAsis"
+        Me.CBOMateriaAsis.Size = New System.Drawing.Size(121, 21)
+        Me.CBOMateriaAsis.TabIndex = 7
         '
-        'Button4
+        'CMDBuscarAsis
         '
-        Me.Button4.Location = New System.Drawing.Point(210, 59)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(49, 23)
-        Me.Button4.TabIndex = 6
-        Me.Button4.Text = "Buscar"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.CMDBuscarAsis.Location = New System.Drawing.Point(210, 59)
+        Me.CMDBuscarAsis.Name = "CMDBuscarAsis"
+        Me.CMDBuscarAsis.Size = New System.Drawing.Size(49, 23)
+        Me.CMDBuscarAsis.TabIndex = 6
+        Me.CMDBuscarAsis.Text = "Buscar"
+        Me.CMDBuscarAsis.UseVisualStyleBackColor = True
         '
         'Label14
         '
@@ -566,37 +567,47 @@ Partial Class FRMDatos
         Me.Label15.TabIndex = 3
         Me.Label15.Text = "Alumno"
         '
-        'TXTAlumno3
+        'TXTAlumnoAsis
         '
-        Me.TXTAlumno3.Location = New System.Drawing.Point(104, 59)
-        Me.TXTAlumno3.Name = "TXTAlumno3"
-        Me.TXTAlumno3.Size = New System.Drawing.Size(100, 20)
-        Me.TXTAlumno3.TabIndex = 0
+        Me.TXTAlumnoAsis.Location = New System.Drawing.Point(104, 59)
+        Me.TXTAlumnoAsis.Name = "TXTAlumnoAsis"
+        Me.TXTAlumnoAsis.Size = New System.Drawing.Size(100, 20)
+        Me.TXTAlumnoAsis.TabIndex = 0
         '
         'Examenes
         '
+        Me.Examenes.Controls.Add(Me.CMDCancelarExam)
         Me.Examenes.Controls.Add(Me.LBLExamenes)
         Me.Examenes.Controls.Add(Me.Label20)
         Me.Examenes.Controls.Add(Me.DataGridExamenes)
-        Me.Examenes.Controls.Add(Me.DTPFecha)
-        Me.Examenes.Controls.Add(Me.TextBox1)
+        Me.Examenes.Controls.Add(Me.DTPFechaExam)
+        Me.Examenes.Controls.Add(Me.TXTNotaExam)
         Me.Examenes.Controls.Add(Me.Label16)
         Me.Examenes.Controls.Add(Me.Label12)
         Me.Examenes.Controls.Add(Me.Label17)
-        Me.Examenes.Controls.Add(Me.CBOCarrera4)
-        Me.Examenes.Controls.Add(Me.Button2)
-        Me.Examenes.Controls.Add(Me.Button3)
-        Me.Examenes.Controls.Add(Me.CBOMateria3)
-        Me.Examenes.Controls.Add(Me.CMDBuscar4)
+        Me.Examenes.Controls.Add(Me.CBOCarreraExam)
+        Me.Examenes.Controls.Add(Me.CMDModificarExam)
+        Me.Examenes.Controls.Add(Me.CMDGuardarExam)
+        Me.Examenes.Controls.Add(Me.CBOMateriaExam)
+        Me.Examenes.Controls.Add(Me.CMDBuscarExam)
         Me.Examenes.Controls.Add(Me.Label18)
         Me.Examenes.Controls.Add(Me.Label19)
-        Me.Examenes.Controls.Add(Me.TXTAlumno4)
+        Me.Examenes.Controls.Add(Me.TXTAlumnoExam)
         Me.Examenes.Location = New System.Drawing.Point(12, 23)
         Me.Examenes.Name = "Examenes"
         Me.Examenes.Size = New System.Drawing.Size(726, 335)
         Me.Examenes.TabIndex = 4
         Me.Examenes.TabStop = False
         Me.Examenes.Text = "....."
+        '
+        'CMDCancelarExam
+        '
+        Me.CMDCancelarExam.Location = New System.Drawing.Point(90, 265)
+        Me.CMDCancelarExam.Name = "CMDCancelarExam"
+        Me.CMDCancelarExam.Size = New System.Drawing.Size(80, 24)
+        Me.CMDCancelarExam.TabIndex = 33
+        Me.CMDCancelarExam.Text = "Cancelar"
+        Me.CMDCancelarExam.UseVisualStyleBackColor = True
         '
         'LBLExamenes
         '
@@ -626,20 +637,20 @@ Partial Class FRMDatos
         Me.DataGridExamenes.Size = New System.Drawing.Size(328, 229)
         Me.DataGridExamenes.TabIndex = 24
         '
-        'DTPFecha
+        'DTPFechaExam
         '
-        Me.DTPFecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPFecha.Location = New System.Drawing.Point(104, 149)
-        Me.DTPFecha.Name = "DTPFecha"
-        Me.DTPFecha.Size = New System.Drawing.Size(81, 20)
-        Me.DTPFecha.TabIndex = 23
+        Me.DTPFechaExam.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPFechaExam.Location = New System.Drawing.Point(104, 149)
+        Me.DTPFechaExam.Name = "DTPFechaExam"
+        Me.DTPFechaExam.Size = New System.Drawing.Size(81, 20)
+        Me.DTPFechaExam.TabIndex = 23
         '
-        'TextBox1
+        'TXTNotaExam
         '
-        Me.TextBox1.Location = New System.Drawing.Point(104, 182)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(60, 20)
-        Me.TextBox1.TabIndex = 22
+        Me.TXTNotaExam.Location = New System.Drawing.Point(104, 182)
+        Me.TXTNotaExam.Name = "TXTNotaExam"
+        Me.TXTNotaExam.Size = New System.Drawing.Size(60, 20)
+        Me.TXTNotaExam.TabIndex = 22
         '
         'Label16
         '
@@ -668,48 +679,48 @@ Partial Class FRMDatos
         Me.Label17.TabIndex = 17
         Me.Label17.Text = "Carrera"
         '
-        'CBOCarrera4
+        'CBOCarreraExam
         '
-        Me.CBOCarrera4.FormattingEnabled = True
-        Me.CBOCarrera4.Location = New System.Drawing.Point(104, 80)
-        Me.CBOCarrera4.Name = "CBOCarrera4"
-        Me.CBOCarrera4.Size = New System.Drawing.Size(121, 21)
-        Me.CBOCarrera4.TabIndex = 16
+        Me.CBOCarreraExam.FormattingEnabled = True
+        Me.CBOCarreraExam.Location = New System.Drawing.Point(104, 80)
+        Me.CBOCarreraExam.Name = "CBOCarreraExam"
+        Me.CBOCarreraExam.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarreraExam.TabIndex = 16
         '
-        'Button2
+        'CMDModificarExam
         '
-        Me.Button2.Location = New System.Drawing.Point(132, 234)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(80, 24)
-        Me.Button2.TabIndex = 15
-        Me.Button2.Text = "Modificar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.CMDModificarExam.Location = New System.Drawing.Point(132, 234)
+        Me.CMDModificarExam.Name = "CMDModificarExam"
+        Me.CMDModificarExam.Size = New System.Drawing.Size(80, 24)
+        Me.CMDModificarExam.TabIndex = 15
+        Me.CMDModificarExam.Text = "Modificar"
+        Me.CMDModificarExam.UseVisualStyleBackColor = True
         '
-        'Button3
+        'CMDGuardarExam
         '
-        Me.Button3.Location = New System.Drawing.Point(56, 234)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(65, 24)
-        Me.Button3.TabIndex = 8
-        Me.Button3.Text = "Guardar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.CMDGuardarExam.Location = New System.Drawing.Point(56, 234)
+        Me.CMDGuardarExam.Name = "CMDGuardarExam"
+        Me.CMDGuardarExam.Size = New System.Drawing.Size(65, 24)
+        Me.CMDGuardarExam.TabIndex = 8
+        Me.CMDGuardarExam.Text = "Guardar"
+        Me.CMDGuardarExam.UseVisualStyleBackColor = True
         '
-        'CBOMateria3
+        'CBOMateriaExam
         '
-        Me.CBOMateria3.FormattingEnabled = True
-        Me.CBOMateria3.Location = New System.Drawing.Point(103, 112)
-        Me.CBOMateria3.Name = "CBOMateria3"
-        Me.CBOMateria3.Size = New System.Drawing.Size(121, 21)
-        Me.CBOMateria3.TabIndex = 7
+        Me.CBOMateriaExam.FormattingEnabled = True
+        Me.CBOMateriaExam.Location = New System.Drawing.Point(103, 112)
+        Me.CBOMateriaExam.Name = "CBOMateriaExam"
+        Me.CBOMateriaExam.Size = New System.Drawing.Size(121, 21)
+        Me.CBOMateriaExam.TabIndex = 7
         '
-        'CMDBuscar4
+        'CMDBuscarExam
         '
-        Me.CMDBuscar4.Location = New System.Drawing.Point(209, 45)
-        Me.CMDBuscar4.Name = "CMDBuscar4"
-        Me.CMDBuscar4.Size = New System.Drawing.Size(49, 23)
-        Me.CMDBuscar4.TabIndex = 6
-        Me.CMDBuscar4.Text = "Buscar"
-        Me.CMDBuscar4.UseVisualStyleBackColor = True
+        Me.CMDBuscarExam.Location = New System.Drawing.Point(209, 45)
+        Me.CMDBuscarExam.Name = "CMDBuscarExam"
+        Me.CMDBuscarExam.Size = New System.Drawing.Size(49, 23)
+        Me.CMDBuscarExam.TabIndex = 6
+        Me.CMDBuscarExam.Text = "Buscar"
+        Me.CMDBuscarExam.UseVisualStyleBackColor = True
         '
         'Label18
         '
@@ -729,27 +740,27 @@ Partial Class FRMDatos
         Me.Label19.TabIndex = 3
         Me.Label19.Text = "Alumno"
         '
-        'TXTAlumno4
+        'TXTAlumnoExam
         '
-        Me.TXTAlumno4.Location = New System.Drawing.Point(103, 45)
-        Me.TXTAlumno4.Name = "TXTAlumno4"
-        Me.TXTAlumno4.Size = New System.Drawing.Size(100, 20)
-        Me.TXTAlumno4.TabIndex = 0
+        Me.TXTAlumnoExam.Location = New System.Drawing.Point(103, 45)
+        Me.TXTAlumnoExam.Name = "TXTAlumnoExam"
+        Me.TXTAlumnoExam.Size = New System.Drawing.Size(100, 20)
+        Me.TXTAlumnoExam.TabIndex = 0
         '
         'Disersion
         '
         Me.Disersion.Controls.Add(Me.Label30)
-        Me.Disersion.Controls.Add(Me.CMDBaja)
+        Me.Disersion.Controls.Add(Me.CMDBajaDis)
         Me.Disersion.Controls.Add(Me.ListaDisersiones)
         Me.Disersion.Controls.Add(Me.Label21)
         Me.Disersion.Controls.Add(Me.DTPFechaDisersion)
         Me.Disersion.Controls.Add(Me.Label22)
         Me.Disersion.Controls.Add(Me.Label24)
-        Me.Disersion.Controls.Add(Me.CBOCarrera5)
-        Me.Disersion.Controls.Add(Me.CMDGuardar2)
-        Me.Disersion.Controls.Add(Me.CMDBuscar5)
+        Me.Disersion.Controls.Add(Me.CBOCarreraDis)
+        Me.Disersion.Controls.Add(Me.CMDGuardarDis)
+        Me.Disersion.Controls.Add(Me.CMDBuscarDis)
         Me.Disersion.Controls.Add(Me.Label26)
-        Me.Disersion.Controls.Add(Me.TXTAlumno5)
+        Me.Disersion.Controls.Add(Me.TXTAlumnoDis)
         Me.Disersion.Location = New System.Drawing.Point(12, 25)
         Me.Disersion.Name = "Disersion"
         Me.Disersion.Size = New System.Drawing.Size(726, 333)
@@ -767,14 +778,14 @@ Partial Class FRMDatos
         Me.Label30.TabIndex = 32
         Me.Label30.Text = "Deserciones"
         '
-        'CMDBaja
+        'CMDBajaDis
         '
-        Me.CMDBaja.Location = New System.Drawing.Point(138, 192)
-        Me.CMDBaja.Name = "CMDBaja"
-        Me.CMDBaja.Size = New System.Drawing.Size(84, 24)
-        Me.CMDBaja.TabIndex = 26
-        Me.CMDBaja.Text = "Baja Disersion"
-        Me.CMDBaja.UseVisualStyleBackColor = True
+        Me.CMDBajaDis.Location = New System.Drawing.Point(138, 192)
+        Me.CMDBajaDis.Name = "CMDBajaDis"
+        Me.CMDBajaDis.Size = New System.Drawing.Size(84, 24)
+        Me.CMDBajaDis.TabIndex = 26
+        Me.CMDBajaDis.Text = "Baja Disersion"
+        Me.CMDBajaDis.UseVisualStyleBackColor = True
         '
         'ListaDisersiones
         '
@@ -819,31 +830,31 @@ Partial Class FRMDatos
         Me.Label24.TabIndex = 17
         Me.Label24.Text = "Carrera"
         '
-        'CBOCarrera5
+        'CBOCarreraDis
         '
-        Me.CBOCarrera5.FormattingEnabled = True
-        Me.CBOCarrera5.Location = New System.Drawing.Point(102, 111)
-        Me.CBOCarrera5.Name = "CBOCarrera5"
-        Me.CBOCarrera5.Size = New System.Drawing.Size(121, 21)
-        Me.CBOCarrera5.TabIndex = 16
+        Me.CBOCarreraDis.FormattingEnabled = True
+        Me.CBOCarreraDis.Location = New System.Drawing.Point(102, 111)
+        Me.CBOCarreraDis.Name = "CBOCarreraDis"
+        Me.CBOCarreraDis.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarreraDis.TabIndex = 16
         '
-        'CMDGuardar2
+        'CMDGuardarDis
         '
-        Me.CMDGuardar2.Location = New System.Drawing.Point(54, 192)
-        Me.CMDGuardar2.Name = "CMDGuardar2"
-        Me.CMDGuardar2.Size = New System.Drawing.Size(65, 24)
-        Me.CMDGuardar2.TabIndex = 8
-        Me.CMDGuardar2.Text = "Guardar"
-        Me.CMDGuardar2.UseVisualStyleBackColor = True
+        Me.CMDGuardarDis.Location = New System.Drawing.Point(54, 192)
+        Me.CMDGuardarDis.Name = "CMDGuardarDis"
+        Me.CMDGuardarDis.Size = New System.Drawing.Size(65, 24)
+        Me.CMDGuardarDis.TabIndex = 8
+        Me.CMDGuardarDis.Text = "Guardar"
+        Me.CMDGuardarDis.UseVisualStyleBackColor = True
         '
-        'CMDBuscar5
+        'CMDBuscarDis
         '
-        Me.CMDBuscar5.Location = New System.Drawing.Point(207, 76)
-        Me.CMDBuscar5.Name = "CMDBuscar5"
-        Me.CMDBuscar5.Size = New System.Drawing.Size(49, 23)
-        Me.CMDBuscar5.TabIndex = 6
-        Me.CMDBuscar5.Text = "Buscar"
-        Me.CMDBuscar5.UseVisualStyleBackColor = True
+        Me.CMDBuscarDis.Location = New System.Drawing.Point(207, 76)
+        Me.CMDBuscarDis.Name = "CMDBuscarDis"
+        Me.CMDBuscarDis.Size = New System.Drawing.Size(49, 23)
+        Me.CMDBuscarDis.TabIndex = 6
+        Me.CMDBuscarDis.Text = "Buscar"
+        Me.CMDBuscarDis.UseVisualStyleBackColor = True
         '
         'Label26
         '
@@ -854,28 +865,27 @@ Partial Class FRMDatos
         Me.Label26.TabIndex = 3
         Me.Label26.Text = "Alumno"
         '
-        'TXTAlumno5
+        'TXTAlumnoDis
         '
-        Me.TXTAlumno5.Location = New System.Drawing.Point(101, 76)
-        Me.TXTAlumno5.Name = "TXTAlumno5"
-        Me.TXTAlumno5.Size = New System.Drawing.Size(100, 20)
-        Me.TXTAlumno5.TabIndex = 0
+        Me.TXTAlumnoDis.Location = New System.Drawing.Point(101, 76)
+        Me.TXTAlumnoDis.Name = "TXTAlumnoDis"
+        Me.TXTAlumnoDis.Size = New System.Drawing.Size(100, 20)
+        Me.TXTAlumnoDis.TabIndex = 0
         '
         'Antecedentes
         '
+        Me.Antecedentes.Controls.Add(Me.CMDCancelarAnt)
         Me.Antecedentes.Controls.Add(Me.Label29)
         Me.Antecedentes.Controls.Add(Me.DataGridAnt)
         Me.Antecedentes.Controls.Add(Me.CMDBajaAnt)
-        Me.Antecedentes.Controls.Add(Me.TextBox2)
-        Me.Antecedentes.Controls.Add(Me.Label25)
-        Me.Antecedentes.Controls.Add(Me.CMDModificar2)
+        Me.Antecedentes.Controls.Add(Me.CMDModificarAnt)
         Me.Antecedentes.Controls.Add(Me.Label23)
         Me.Antecedentes.Controls.Add(Me.Label27)
-        Me.Antecedentes.Controls.Add(Me.CBOCategoria)
-        Me.Antecedentes.Controls.Add(Me.CMDGuardar4)
-        Me.Antecedentes.Controls.Add(Me.CMDBuscar6)
+        Me.Antecedentes.Controls.Add(Me.CBOCategoriaAnt)
+        Me.Antecedentes.Controls.Add(Me.CMDGuardarAnt)
+        Me.Antecedentes.Controls.Add(Me.CMDBuscarAnt)
         Me.Antecedentes.Controls.Add(Me.Label28)
-        Me.Antecedentes.Controls.Add(Me.TXTAlumno6)
+        Me.Antecedentes.Controls.Add(Me.TXTAlumnoAnt)
         Me.Antecedentes.Location = New System.Drawing.Point(12, 24)
         Me.Antecedentes.Name = "Antecedentes"
         Me.Antecedentes.Size = New System.Drawing.Size(726, 328)
@@ -904,38 +914,21 @@ Partial Class FRMDatos
         '
         'CMDBajaAnt
         '
-        Me.CMDBajaAnt.Location = New System.Drawing.Point(211, 229)
+        Me.CMDBajaAnt.Location = New System.Drawing.Point(212, 163)
         Me.CMDBajaAnt.Name = "CMDBajaAnt"
         Me.CMDBajaAnt.Size = New System.Drawing.Size(100, 24)
         Me.CMDBajaAnt.TabIndex = 29
         Me.CMDBajaAnt.Text = "Baja Antecedente"
         Me.CMDBajaAnt.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'CMDModificarAnt
         '
-        Me.TextBox2.Location = New System.Drawing.Point(103, 140)
-        Me.TextBox2.Multiline = True
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(176, 57)
-        Me.TextBox2.TabIndex = 28
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(31, 145)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(66, 13)
-        Me.Label25.TabIndex = 27
-        Me.Label25.Text = "Anotaciones"
-        '
-        'CMDModificar2
-        '
-        Me.CMDModificar2.Location = New System.Drawing.Point(117, 229)
-        Me.CMDModificar2.Name = "CMDModificar2"
-        Me.CMDModificar2.Size = New System.Drawing.Size(84, 24)
-        Me.CMDModificar2.TabIndex = 26
-        Me.CMDModificar2.Text = "Modificar"
-        Me.CMDModificar2.UseVisualStyleBackColor = True
+        Me.CMDModificarAnt.Location = New System.Drawing.Point(118, 163)
+        Me.CMDModificarAnt.Name = "CMDModificarAnt"
+        Me.CMDModificarAnt.Size = New System.Drawing.Size(84, 24)
+        Me.CMDModificarAnt.TabIndex = 26
+        Me.CMDModificarAnt.Text = "Modificar"
+        Me.CMDModificarAnt.UseVisualStyleBackColor = True
         '
         'Label23
         '
@@ -955,31 +948,31 @@ Partial Class FRMDatos
         Me.Label27.TabIndex = 17
         Me.Label27.Text = "Categoría"
         '
-        'CBOCategoria
+        'CBOCategoriaAnt
         '
-        Me.CBOCategoria.FormattingEnabled = True
-        Me.CBOCategoria.Location = New System.Drawing.Point(104, 105)
-        Me.CBOCategoria.Name = "CBOCategoria"
-        Me.CBOCategoria.Size = New System.Drawing.Size(121, 21)
-        Me.CBOCategoria.TabIndex = 16
+        Me.CBOCategoriaAnt.FormattingEnabled = True
+        Me.CBOCategoriaAnt.Location = New System.Drawing.Point(104, 105)
+        Me.CBOCategoriaAnt.Name = "CBOCategoriaAnt"
+        Me.CBOCategoriaAnt.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCategoriaAnt.TabIndex = 16
         '
-        'CMDGuardar4
+        'CMDGuardarAnt
         '
-        Me.CMDGuardar4.Location = New System.Drawing.Point(46, 229)
-        Me.CMDGuardar4.Name = "CMDGuardar4"
-        Me.CMDGuardar4.Size = New System.Drawing.Size(65, 24)
-        Me.CMDGuardar4.TabIndex = 8
-        Me.CMDGuardar4.Text = "Guardar"
-        Me.CMDGuardar4.UseVisualStyleBackColor = True
+        Me.CMDGuardarAnt.Location = New System.Drawing.Point(47, 163)
+        Me.CMDGuardarAnt.Name = "CMDGuardarAnt"
+        Me.CMDGuardarAnt.Size = New System.Drawing.Size(65, 24)
+        Me.CMDGuardarAnt.TabIndex = 8
+        Me.CMDGuardarAnt.Text = "Guardar"
+        Me.CMDGuardarAnt.UseVisualStyleBackColor = True
         '
-        'CMDBuscar6
+        'CMDBuscarAnt
         '
-        Me.CMDBuscar6.Location = New System.Drawing.Point(209, 70)
-        Me.CMDBuscar6.Name = "CMDBuscar6"
-        Me.CMDBuscar6.Size = New System.Drawing.Size(49, 23)
-        Me.CMDBuscar6.TabIndex = 6
-        Me.CMDBuscar6.Text = "Buscar"
-        Me.CMDBuscar6.UseVisualStyleBackColor = True
+        Me.CMDBuscarAnt.Location = New System.Drawing.Point(209, 70)
+        Me.CMDBuscarAnt.Name = "CMDBuscarAnt"
+        Me.CMDBuscarAnt.Size = New System.Drawing.Size(49, 23)
+        Me.CMDBuscarAnt.TabIndex = 6
+        Me.CMDBuscarAnt.Text = "Buscar"
+        Me.CMDBuscarAnt.UseVisualStyleBackColor = True
         '
         'Label28
         '
@@ -990,12 +983,21 @@ Partial Class FRMDatos
         Me.Label28.TabIndex = 3
         Me.Label28.Text = "Alumno"
         '
-        'TXTAlumno6
+        'TXTAlumnoAnt
         '
-        Me.TXTAlumno6.Location = New System.Drawing.Point(103, 70)
-        Me.TXTAlumno6.Name = "TXTAlumno6"
-        Me.TXTAlumno6.Size = New System.Drawing.Size(100, 20)
-        Me.TXTAlumno6.TabIndex = 0
+        Me.TXTAlumnoAnt.Location = New System.Drawing.Point(103, 70)
+        Me.TXTAlumnoAnt.Name = "TXTAlumnoAnt"
+        Me.TXTAlumnoAnt.Size = New System.Drawing.Size(100, 20)
+        Me.TXTAlumnoAnt.TabIndex = 0
+        '
+        'CMDCancelarAnt
+        '
+        Me.CMDCancelarAnt.Location = New System.Drawing.Point(117, 203)
+        Me.CMDCancelarAnt.Name = "CMDCancelarAnt"
+        Me.CMDCancelarAnt.Size = New System.Drawing.Size(84, 24)
+        Me.CMDCancelarAnt.TabIndex = 32
+        Me.CMDCancelarAnt.Text = "Cancelar"
+        Me.CMDCancelarAnt.UseVisualStyleBackColor = True
         '
         'FRMDatos
         '
@@ -1018,7 +1020,7 @@ Partial Class FRMDatos
         Me.CarreraxAlumno.PerformLayout()
         Me.Materia.ResumeLayout(False)
         Me.Materia.PerformLayout()
-        CType(Me.DataGridMaterias, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridMxA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Asistencia.ResumeLayout(False)
         Me.Asistencia.PerformLayout()
         Me.Examenes.ResumeLayout(False)
@@ -1042,82 +1044,79 @@ Partial Class FRMDatos
     Friend WithEvents OtrosAntecedentesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CarreraxAlumno As System.Windows.Forms.GroupBox
     Friend WithEvents CMDAgregarCarrera As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents CMDBuscar As System.Windows.Forms.Button
+    Friend WithEvents CBOCarreraCar As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDBuscarCar As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents TXTAlumno As System.Windows.Forms.TextBox
+    Friend WithEvents TXTAlumnoCar As System.Windows.Forms.TextBox
     Friend WithEvents Materia As System.Windows.Forms.GroupBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents CBOMateria As System.Windows.Forms.ComboBox
-    Friend WithEvents CMDBuscar2 As System.Windows.Forms.Button
+    Friend WithEvents CMDInscribirMxA As System.Windows.Forms.Button
+    Friend WithEvents CBOMateriaMxA As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDBuscarMxA As System.Windows.Forms.Button
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TXTFecha2 As System.Windows.Forms.TextBox
-    Friend WithEvents TXTAlumno2 As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridMaterias As System.Windows.Forms.DataGridView
-    Friend WithEvents CMDActualizar As System.Windows.Forms.Button
+    Friend WithEvents TXTFechaMxA As System.Windows.Forms.TextBox
+    Friend WithEvents TXTAlumnoMxA As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridMxA As System.Windows.Forms.DataGridView
+    Friend WithEvents CMDActualizarMxA As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents CBOCarrera2 As System.Windows.Forms.ComboBox
-    Friend WithEvents CBOEstado As System.Windows.Forms.ComboBox
+    Friend WithEvents CBOCarreraMxA As System.Windows.Forms.ComboBox
+    Friend WithEvents CBOEstadoMxA As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Asistencia As System.Windows.Forms.GroupBox
-    Friend WithEvents CMDModificar As System.Windows.Forms.Button
-    Friend WithEvents CMDGuardar As System.Windows.Forms.Button
-    Friend WithEvents CBOMateria2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents CMDModificarAsis As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarAsis As System.Windows.Forms.Button
+    Friend WithEvents CBOMateriaAsis As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDBuscarAsis As System.Windows.Forms.Button
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents TXTAlumno3 As System.Windows.Forms.TextBox
-    Friend WithEvents CBOClase As System.Windows.Forms.ComboBox
+    Friend WithEvents TXTAlumnoAsis As System.Windows.Forms.TextBox
+    Friend WithEvents CBOClaseAsis As System.Windows.Forms.ComboBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents CBOCarrera3 As System.Windows.Forms.ComboBox
+    Friend WithEvents CBOCarreraAsis As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents TXTAsistencias As System.Windows.Forms.TextBox
     Friend WithEvents Examenes As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents TXTNotaExam As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label17 As System.Windows.Forms.Label
-    Friend WithEvents CBOCarrera4 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents CBOMateria3 As System.Windows.Forms.ComboBox
-    Friend WithEvents CMDBuscar4 As System.Windows.Forms.Button
+    Friend WithEvents CBOCarreraExam As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDModificarExam As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarExam As System.Windows.Forms.Button
+    Friend WithEvents CBOMateriaExam As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDBuscarExam As System.Windows.Forms.Button
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents TXTAlumno4 As System.Windows.Forms.TextBox
-    Friend WithEvents DTPFecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TXTAlumnoExam As System.Windows.Forms.TextBox
+    Friend WithEvents DTPFechaExam As System.Windows.Forms.DateTimePicker
     Friend WithEvents DataGridExamenes As System.Windows.Forms.DataGridView
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Disersion As System.Windows.Forms.GroupBox
     Friend WithEvents DTPFechaDisersion As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents CBOCarrera5 As System.Windows.Forms.ComboBox
-    Friend WithEvents CMDGuardar2 As System.Windows.Forms.Button
-    Friend WithEvents CMDBuscar5 As System.Windows.Forms.Button
+    Friend WithEvents CBOCarreraDis As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDGuardarDis As System.Windows.Forms.Button
+    Friend WithEvents CMDBuscarDis As System.Windows.Forms.Button
     Friend WithEvents Label26 As System.Windows.Forms.Label
-    Friend WithEvents TXTAlumno5 As System.Windows.Forms.TextBox
-    Friend WithEvents CMDBaja As System.Windows.Forms.Button
+    Friend WithEvents TXTAlumnoDis As System.Windows.Forms.TextBox
+    Friend WithEvents CMDBajaDis As System.Windows.Forms.Button
     Friend WithEvents ListaDisersiones As System.Windows.Forms.ListBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Antecedentes As System.Windows.Forms.GroupBox
-    Friend WithEvents CMDModificar2 As System.Windows.Forms.Button
+    Friend WithEvents CMDModificarAnt As System.Windows.Forms.Button
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label27 As System.Windows.Forms.Label
-    Friend WithEvents CBOCategoria As System.Windows.Forms.ComboBox
-    Friend WithEvents CMDGuardar4 As System.Windows.Forms.Button
-    Friend WithEvents CMDBuscar6 As System.Windows.Forms.Button
+    Friend WithEvents CBOCategoriaAnt As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDGuardarAnt As System.Windows.Forms.Button
+    Friend WithEvents CMDBuscarAnt As System.Windows.Forms.Button
     Friend WithEvents Label28 As System.Windows.Forms.Label
-    Friend WithEvents TXTAlumno6 As System.Windows.Forms.TextBox
-    Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents TXTAlumnoAnt As System.Windows.Forms.TextBox
     Friend WithEvents DataGridAnt As System.Windows.Forms.DataGridView
     Friend WithEvents CMDBajaAnt As System.Windows.Forms.Button
     Friend WithEvents Label29 As System.Windows.Forms.Label
@@ -1126,4 +1125,7 @@ Partial Class FRMDatos
     Friend WithEvents Label32 As System.Windows.Forms.Label
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents CMDCancelarExam As System.Windows.Forms.Button
+    Friend WithEvents DTPInscripcionCar As System.Windows.Forms.DateTimePicker
+    Friend WithEvents CMDCancelarAnt As System.Windows.Forms.Button
 End Class

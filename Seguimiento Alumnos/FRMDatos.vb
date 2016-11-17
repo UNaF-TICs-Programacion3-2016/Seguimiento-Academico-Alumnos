@@ -47,7 +47,21 @@
 
 
   
-    Private Sub CMDBuscar6_Click(sender As Object, e As EventArgs) Handles CMDBuscar6.Click
+    Private Sub CMDBuscar6_Click(sender As Object, e As EventArgs) Handles CMDBuscarAnt.Click
         FRMBuscarPersonas.Show()
+    End Sub
+
+
+    Private Sub CMDGuardarDis_Click(sender As Object, e As EventArgs) Handles CMDGuardarDis.Click
+        Dim oCarrera As New Carrera(TXTnomb.Text, Val(TXTduracion.Text), TXTcodig.Text)
+        If oCarrera.Validacion Then
+            Dim TXT As String
+            TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANT_ANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANT_ANIOS, :COD_CARRERA)"
+            AccesoDB.Obtener_Datos(oCarrera.Nombre, oCarrera.Años, oCarrera.CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
+            MsgBox(oCarrera.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+            Administrar_Botones(Carreras, True)
+            Actualizar_Grillas("Carrera") 'actualizar grilla carrera
+        End If
     End Sub
 End Class

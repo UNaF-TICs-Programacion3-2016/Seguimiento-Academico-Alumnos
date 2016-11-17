@@ -207,8 +207,9 @@ Public Class Puntaje
         End Set
     End Property
 
-    Public Function Mostrar_Estado() As String
+    Public Function Mostrar_Estado(vAlumno As Integer, vCarrera As Integer) As String
         Dim DETERMINACION As String
+        Calcular_Puntajes(vAlumno, vCarrera)
         DETERMINACION = Determinar_Estado()
         Select Case DETERMINACION
             Case "MB"
@@ -221,6 +222,18 @@ Public Class Puntaje
                 Return "El estado del alumno en la carrera es malo, podría tener mucha dificultad en la carrera o estar desviando su interés de la misma"
         End Select
     End Function
+    Public Sub Calcular_Puntajes(vAlumno As Integer, vCarrera As Integer)
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Positivo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & vCarrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & vAlumno & " And PARAMETROXALUMNO_PUNTOS > 0", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Positivo = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Negativo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & vCarrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & vAlumno & " And PARAMETROXALUMNO_PUNTOS < 0", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Negativo = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+    End Sub
     Private Function Determinar_Estado() As String
         If Positivo > Negativo Then
             If (Positivo / 2) > Negativo Then
@@ -236,22 +249,7 @@ Public Class Puntaje
             Return "Mala"
         End If
     End Function
-    Public Function Calcular_Parametro(Puntaje As Integer, Valor As Integer, clase As String) As Integer
-        'function posible a descartar
-        Select Case clase
-            Case "Promedio"
-                Return Puntaje
-            Case "Ingreso"
-                If Valor < Salario Then
-                    Return 1
-                Else
-                    Return -1
-                End If
-            Case "Orientacion"
-
-        End Select
-    End Function
-
+    
     Public Function ParametroOrientacion(Orientacion As Integer, Carrera As Integer) As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
@@ -264,18 +262,7 @@ Public Class Puntaje
             End If
         End If
     End Function
-    Public Function ParametroPromedio(Alumno As Integer) As Integer
-        Dim AccesoDB As New GestorBD
-        Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & Alumno & "", TablaDatos)
-        If TablaDatos.Rows.Count > 0 Then
-            If TablaDatos.Rows(0).Item(0) > 7 Then
-                Return 1
-            Else
-                Return -1
-            End If
-        End If
-    End Function
+
     Public Function ParametroPromedio(Alumno As Integer) As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
@@ -310,21 +297,61 @@ Public Class Puntaje
             Return +1
         End If
     End Function
-    Public Function ParametroMaterias(Alumno As Integer, Carrera As Integer) As Integer
+    Public Sub ParametroMaterias(Alumno As Integer, Carrera As Integer, vAprobadas As Integer, vregulares As Integer, vlibres As Integer)
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Aprobadas As Integer
         Dim Regularizadas As Integer
         Dim Libres As Integer
+        Dim i As Integer
         AccesoDB.Cargar_DataTable("Select Count(ID_MATERIA) As Materias, MXA_ESTADO_ALUMNO, RELA_ALUMNO From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & Alumno & " AND ID_CARRERA = " & Carrera & " GROUP BY MXA_ESTADO_ALUMNO, RELA_ALUMNO ", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
-            If TablaDatos.Rows(0).Item(1).ToString = "Aprobado" Then
-                Aprobadas = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString) '
-            ElseIf
-                Return -1
-            End If
+            For i = 0 To TablaDatos.Rows.Count - 1
+                If TablaDatos.Rows(i).Item(1).ToString = "Aprobado" Then
+                    Aprobadas = Convert.ToInt32(TablaDatos.Rows(i).Item(0).ToString)
+                ElseIf TablaDatos.Rows(i).Item(1).ToString = "Regular" Then
+                    Regularizadas = Convert.ToInt32(TablaDatos.Rows(i).Item(0).ToString)
+                ElseIf TablaDatos.Rows(i).Item(1).ToString = "Libre" Then
+                    Libres = Convert.ToInt32(TablaDatos.Rows(i).Item(0).ToString)
+                End If
+            Next i
+        End If
+        vAprobadas = Aprobadas * 2
+        vregulares = Regularizadas
+        vlibres = Libres * -1
+    End Sub
+    Public Sub ParametroExamenes(Alumno As Integer, Carrera As Integer, vAprobados As Integer, vDesaprobados As Integer)
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        Dim Aprobados As Integer
+        Dim Desaprobados As Integer
+        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & Alumno & " And EXAMEN_NOTA >= 6", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Aprobados = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        TablaDatos.Clear()
+        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & Alumno & " And EXAMEN_NOTA < 6", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Desaprobados = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        vAprobados = Aprobados
+        vDesaprobados = Desaprobados * -1
+    End Sub
+    Public Function ParametroPromActual(Alumno As Integer, Carrera As Integer) As Integer
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        Dim Promedio As Double
+        AccesoDB.Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & Alumno & "", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Promedio = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        If Promedio > 6 Then
+            Return 1
+        Else
+            Return -1
         End If
     End Function
+
 End Class
 Public Class Alumno
     Inherits Persona
@@ -334,6 +361,7 @@ Public Class Alumno
     Private _Ingreso As Integer
     Private _Egreso As Integer
     Private _Promedio As Double
+    'Datos posteriores
     Public Property Colegio As Integer
         Get
             Return _colegio

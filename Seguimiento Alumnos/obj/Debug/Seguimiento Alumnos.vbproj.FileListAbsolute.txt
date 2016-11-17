@@ -107,3 +107,5 @@ C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimient
 C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMPersonas.resources
 C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.Resources.resources
 C:\Users\Administrador\Documents\GitHub\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento Alumnos.vbproj.GenerateResource.Cache
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FormularioDatos2.resources
+C:\prog3\Seguimiento-Academico-Alumnos\Seguimiento Alumnos\obj\Debug\Seguimiento_Alumnos.FRMBuscarPersonas.resources

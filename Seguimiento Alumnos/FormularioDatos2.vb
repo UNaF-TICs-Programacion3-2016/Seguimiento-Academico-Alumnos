@@ -228,4 +228,8 @@
             Actualizar_Grillas("Carrera") 'actualizar grilla carrera
         End If
     End Sub
+
+    Private Sub CMDModificarClas_Click(sender As Object, e As EventArgs) Handles CMDModificarClas.Click
+
+    End Sub
 End Class
