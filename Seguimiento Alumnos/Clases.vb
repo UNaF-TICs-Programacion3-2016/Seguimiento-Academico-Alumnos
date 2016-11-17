@@ -173,6 +173,7 @@ End Class
 Public Class Puntaje
     Private vPositivo As Integer
     Private vNegativo As Integer
+    Private vSalario As Double
 
     Public Sub New()
 
@@ -195,6 +196,14 @@ Public Class Puntaje
         End Get
         Set(value As Integer)
             vNegativo = value
+        End Set
+    End Property
+    Public Property Salario As Integer
+        Get
+            Return vSalario
+        End Get
+        Set(value As Integer)
+            vSalario = value
         End Set
     End Property
 
@@ -225,6 +234,92 @@ Public Class Puntaje
             End If
         Else
             Return "Mala"
+        End If
+    End Function
+    Public Function Calcular_Parametro(Puntaje As Integer, Valor As Integer, clase As String) As Integer
+        'function posible a descartar
+        Select Case clase
+            Case "Promedio"
+                Return Puntaje
+            Case "Ingreso"
+                If Valor < Salario Then
+                    Return 1
+                Else
+                    Return -1
+                End If
+            Case "Orientacion"
+
+        End Select
+    End Function
+
+    Public Function ParametroOrientacion(Orientacion As Integer, Carrera As Integer) As Integer
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        AccesoDB.Cargar_DataTable("Select Count(*) As Cantidad From ORIENTACIONXCARRERA Join CARRERA On ID_CARRERA = RELA_CARRERA Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & " And ID_CARRERA = " & Carrera & "", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If TablaDatos.Rows(0).Item(0) > 0 Then
+                Return 1
+            Else
+                Return -1
+            End If
+        End If
+    End Function
+    Public Function ParametroPromedio(Alumno As Integer) As Integer
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & Alumno & "", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If TablaDatos.Rows(0).Item(0) > 7 Then
+                Return 1
+            Else
+                Return -1
+            End If
+        End If
+    End Function
+    Public Function ParametroPromedio(Alumno As Integer) As Integer
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & Alumno & "", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If TablaDatos.Rows(0).Item(0) > 7 Then
+                Return 1
+            Else
+                Return -1
+            End If
+        End If
+    End Function
+    Public Function ParametroAsistencia(Alumno As Integer, Año As Integer, Carrera As Integer) As Integer
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        Dim Clases As Integer
+        Dim Asistencias As Integer
+        AccesoDB.Cargar_DataTable("Select SUM(CLASE_CANTDICTADAS) As Clases, CLASE_ANIO, ID_CARRERA From CLASE Inner JOIN MATERIA ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Clases = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        TablaDatos.Clear()
+        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Asistencias = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        Dim Porcentaje As Double
+        Porcentaje = (Asistencias * 100) / Clases
+        If Porcentaje < 75 Then
+            Return -1
+        Else
+            Return +1
+        End If
+    End Function
+    Public Function ParametroMaterias(Alumno As Integer, Carrera As Integer) As Integer
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & Alumno & "", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If TablaDatos.Rows(0).Item(0) > 7 Then
+                Return 1
+            Else
+                Return -1
+            End If
         End If
     End Function
 End Class
