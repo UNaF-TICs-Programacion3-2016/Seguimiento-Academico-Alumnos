@@ -129,6 +129,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="ParametrosxAlumno.Designer.vb">
+      <DependentUpon>ParametrosxAlumno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ParametrosxAlumno.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DisersionesTop.resx">
@@ -157,6 +163,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParametrosxAlumno.resx">
+      <DependentUpon>ParametrosxAlumno.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
