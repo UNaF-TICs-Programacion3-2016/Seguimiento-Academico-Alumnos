@@ -253,7 +253,7 @@ Public Class Puntaje
     Public Function ParametroOrientacion(Orientacion As Integer, Carrera As Integer) As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select Count(*) As Cantidad From ORIENTACIONXCARRERA Join CARRERA On ID_CARRERA = RELA_CARRERA Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & " And ID_CARRERA = " & Carrera & "", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select Count(*) As Cantidad From CARRERAXORIENTACION Join CARRERA On ID_CARRERA = RELA_CARRERA Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & " And ID_CARRERA = " & Carrera & "", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If TablaDatos.Rows(0).Item(0) > 0 Then
                 Return 1
@@ -285,7 +285,7 @@ Public Class Puntaje
             Clases = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
-        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & Alumno & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Asistencias = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
