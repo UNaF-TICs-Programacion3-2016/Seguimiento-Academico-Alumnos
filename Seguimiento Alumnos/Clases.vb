@@ -361,7 +361,7 @@ Public Class Alumno
     Private _Ingreso As Integer
     Private _Egreso As Integer
     Private _Promedio As Double
-    'Datos posteriores
+
     Public Property Colegio As Integer
         Get
             Return _colegio
@@ -425,6 +425,22 @@ Public Class Alumno
             MsgBox("Ingrese el promedio del alumno", MsgBoxStyle.Exclamation, "Sistema")
         ElseIf vPromedio < 6 Or vPromedio > 10 Then
             MsgBox("Ingrese un promedio válido, Que no se menor a 6 o mayor a 10", MsgBoxStyle.Exclamation, "Sistema")
+        Else
+            Return True
+            Exit Function
+        End If
+        Return False
+    End Function
+
+    Public Function ValidarDisersion(vAlumno As String, vCarrera As Integer, vFecha As Date) As Boolean
+        If vAlumno = "" Then
+            MsgBox("Ingrese un alumno", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf IsNumeric(vAlumno) Then
+            MsgBox("Ingrese un alumno de manera numérica", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf vCarrera = Nothing Then
+            MsgBox("Seleccione una carrera", MsgBoxStyle.Exclamation, "Sistema")
+        ElseIf Not IsDate(vFecha) Then
+            MsgBox("Seleccione una fecha de ingreso", MsgBoxStyle.Exclamation, "Sistema")
         Else
             Return True
             Exit Function

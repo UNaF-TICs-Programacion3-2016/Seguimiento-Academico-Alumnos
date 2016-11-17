@@ -115,6 +115,8 @@ Partial Class FRMDatos
         Me.Label28 = New System.Windows.Forms.Label()
         Me.TXTAlumnoAnt = New System.Windows.Forms.TextBox()
         Me.CMDCancelarAnt = New System.Windows.Forms.Button()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.CBOEstadoDis = New System.Windows.Forms.ComboBox()
         Me.MenuStrip1.SuspendLayout()
         Me.CarreraxAlumno.SuspendLayout()
         Me.Materia.SuspendLayout()
@@ -749,6 +751,8 @@ Partial Class FRMDatos
         '
         'Disersion
         '
+        Me.Disersion.Controls.Add(Me.Label25)
+        Me.Disersion.Controls.Add(Me.CBOEstadoDis)
         Me.Disersion.Controls.Add(Me.Label30)
         Me.Disersion.Controls.Add(Me.CMDBajaDis)
         Me.Disersion.Controls.Add(Me.ListaDisersiones)
@@ -780,7 +784,7 @@ Partial Class FRMDatos
         '
         'CMDBajaDis
         '
-        Me.CMDBajaDis.Location = New System.Drawing.Point(138, 192)
+        Me.CMDBajaDis.Location = New System.Drawing.Point(140, 225)
         Me.CMDBajaDis.Name = "CMDBajaDis"
         Me.CMDBajaDis.Size = New System.Drawing.Size(84, 24)
         Me.CMDBajaDis.TabIndex = 26
@@ -840,7 +844,7 @@ Partial Class FRMDatos
         '
         'CMDGuardarDis
         '
-        Me.CMDGuardarDis.Location = New System.Drawing.Point(54, 192)
+        Me.CMDGuardarDis.Location = New System.Drawing.Point(56, 225)
         Me.CMDGuardarDis.Name = "CMDGuardarDis"
         Me.CMDGuardarDis.Size = New System.Drawing.Size(65, 24)
         Me.CMDGuardarDis.TabIndex = 8
@@ -999,18 +1003,35 @@ Partial Class FRMDatos
         Me.CMDCancelarAnt.Text = "Cancelar"
         Me.CMDCancelarAnt.UseVisualStyleBackColor = True
         '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(12, 187)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(86, 13)
+        Me.Label25.TabIndex = 34
+        Me.Label25.Text = "Estado Disersion"
+        '
+        'CBOEstadoDis
+        '
+        Me.CBOEstadoDis.FormattingEnabled = True
+        Me.CBOEstadoDis.Location = New System.Drawing.Point(101, 180)
+        Me.CBOEstadoDis.Name = "CBOEstadoDis"
+        Me.CBOEstadoDis.Size = New System.Drawing.Size(121, 21)
+        Me.CBOEstadoDis.TabIndex = 33
+        '
         'FRMDatos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(750, 370)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.Disersion)
         Me.Controls.Add(Me.Examenes)
         Me.Controls.Add(Me.Asistencia)
         Me.Controls.Add(Me.Materia)
         Me.Controls.Add(Me.CarreraxAlumno)
         Me.Controls.Add(Me.Antecedentes)
+        Me.Controls.Add(Me.Disersion)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMDatos"
         Me.Text = "Datos del alumno en cursada"
@@ -1128,4 +1149,6 @@ Partial Class FRMDatos
     Friend WithEvents CMDCancelarExam As System.Windows.Forms.Button
     Friend WithEvents DTPInscripcionCar As System.Windows.Forms.DateTimePicker
     Friend WithEvents CMDCancelarAnt As System.Windows.Forms.Button
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents CBOEstadoDis As System.Windows.Forms.ComboBox
 End Class
