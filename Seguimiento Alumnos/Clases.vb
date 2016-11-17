@@ -271,7 +271,7 @@ Public Class Puntaje
             If TablaDatos.Rows(0).Item(0) > 7 Then
                 Return 1
             Else
-                Return -1
+                Return 0
             End If
         End If
     End Function
