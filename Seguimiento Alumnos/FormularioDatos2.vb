@@ -165,7 +165,7 @@
     End Sub
 
     Private Sub CMDAgregarDis_Click(sender As Object, e As EventArgs) Handles CMDAgregarDis.Click
-        Dim oMotivoDis As New Disercion(TXTModificarDis.Text)
+        Dim oMotivoDis As New Disercion(TXTMotivoDisersion.Text)
         If oMotivoDis.Validacion Then
             Dim TXT As String
             TXT = "Insert Into MOTIVO_DISERSION(MOTIVO_DIS_DESCRIPCION) Values(:MOTIVO_DIS_DESCRIPCION)"

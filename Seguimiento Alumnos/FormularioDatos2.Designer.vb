@@ -75,7 +75,7 @@ Partial Class FormularioDatos2
         Me.Label5 = New System.Windows.Forms.Label()
         Me.DataGridDis = New System.Windows.Forms.DataGridView()
         Me.CMDCancelarDis = New System.Windows.Forms.Button()
-        Me.TXTModificarDis = New System.Windows.Forms.Button()
+        Me.CBOModificarDis = New System.Windows.Forms.Button()
         Me.CMDAgregarDis = New System.Windows.Forms.Button()
         Me.TXTMotivoDisersion = New System.Windows.Forms.TextBox()
         Me.LBLmotidisersion = New System.Windows.Forms.Label()
@@ -563,7 +563,7 @@ Partial Class FormularioDatos2
         Me.motivosdedisersion.Controls.Add(Me.Label5)
         Me.motivosdedisersion.Controls.Add(Me.DataGridDis)
         Me.motivosdedisersion.Controls.Add(Me.CMDCancelarDis)
-        Me.motivosdedisersion.Controls.Add(Me.TXTModificarDis)
+        Me.motivosdedisersion.Controls.Add(Me.CBOModificarDis)
         Me.motivosdedisersion.Controls.Add(Me.CMDAgregarDis)
         Me.motivosdedisersion.Controls.Add(Me.TXTMotivoDisersion)
         Me.motivosdedisersion.Controls.Add(Me.LBLmotidisersion)
@@ -603,14 +603,14 @@ Partial Class FormularioDatos2
         Me.CMDCancelarDis.Text = "Cancelar"
         Me.CMDCancelarDis.UseVisualStyleBackColor = True
         '
-        'TXTModificarDis
+        'CBOModificarDis
         '
-        Me.TXTModificarDis.Location = New System.Drawing.Point(147, 69)
-        Me.TXTModificarDis.Name = "TXTModificarDis"
-        Me.TXTModificarDis.Size = New System.Drawing.Size(97, 23)
-        Me.TXTModificarDis.TabIndex = 7
-        Me.TXTModificarDis.Text = "Modificar"
-        Me.TXTModificarDis.UseVisualStyleBackColor = True
+        Me.CBOModificarDis.Location = New System.Drawing.Point(147, 69)
+        Me.CBOModificarDis.Name = "CBOModificarDis"
+        Me.CBOModificarDis.Size = New System.Drawing.Size(97, 23)
+        Me.CBOModificarDis.TabIndex = 7
+        Me.CBOModificarDis.Text = "Modificar"
+        Me.CBOModificarDis.UseVisualStyleBackColor = True
         '
         'CMDAgregarDis
         '
@@ -759,12 +759,12 @@ Partial Class FormularioDatos2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 304)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.motivosdedisersion)
         Me.Controls.Add(Me.ClasesporMateria)
         Me.Controls.Add(Me.Materias)
         Me.Controls.Add(Me.Orientaciones)
         Me.Controls.Add(Me.Carreras)
         Me.Controls.Add(Me.Colegios)
-        Me.Controls.Add(Me.motivosdedisersion)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormularioDatos2"
         Me.Text = "Datos del Sistema"
@@ -851,7 +851,7 @@ Partial Class FormularioDatos2
     Friend WithEvents CMDModificarCol As System.Windows.Forms.Button
     Friend WithEvents CMDAgregarCol As System.Windows.Forms.Button
     Friend WithEvents CMDCancelarDis As System.Windows.Forms.Button
-    Friend WithEvents TXTModificarDis As System.Windows.Forms.Button
+    Friend WithEvents CBOModificarDis As System.Windows.Forms.Button
     Friend WithEvents CMDAgregarDis As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DataGridDis As System.Windows.Forms.DataGridView
