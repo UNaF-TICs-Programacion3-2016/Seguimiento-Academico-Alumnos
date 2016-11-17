@@ -11,10 +11,6 @@
         GrupoSituacion.Visible = True
     End Sub
 
-    Private Sub ParámetrosDePuntajeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ParámetrosDePuntajeToolStripMenuItem.Click
-        FRMParametros.Show()
-    End Sub
-
     Private Sub MotivosDeDisersiónUsualesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MotivosDeDisersiónUsualesToolStripMenuItem.Click
         DisersionesTop.Show()
     End Sub
@@ -126,5 +122,9 @@
             .Ocultar()
             .motivosdedisersion.Visible = True
         End With
+    End Sub
+
+    Private Sub ParámetrosPorAlumnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ParámetrosPorAlumnoToolStripMenuItem.Click
+        ParametrosxAlumno.Show()
     End Sub
 End Class

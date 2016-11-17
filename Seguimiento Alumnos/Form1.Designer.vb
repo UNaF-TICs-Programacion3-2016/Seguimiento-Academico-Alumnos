@@ -41,7 +41,7 @@ Partial Class Form1
         Me.AnalisisDeSituaciónPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SituaciónPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MotivosDeDisersiónUsualesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ParámetrosDePuntajeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ParámetrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GrupoSituacion = New System.Windows.Forms.GroupBox()
         Me.CMDSeleccionar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -61,6 +61,7 @@ Partial Class Form1
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.ParámetrosPorAlumnoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.GrupoSituacion.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,7 +71,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDelAlumnoToolStripMenuItem, Me.AnalisisDeSituaciónPorAlumnoToolStripMenuItem, Me.ParámetrosDePuntajeToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosDelAlumnoToolStripMenuItem, Me.AnalisisDeSituaciónPorAlumnoToolStripMenuItem, Me.ParámetrosToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(634, 24)
@@ -188,11 +189,12 @@ Partial Class Form1
         Me.MotivosDeDisersiónUsualesToolStripMenuItem.Size = New System.Drawing.Size(227, 22)
         Me.MotivosDeDisersiónUsualesToolStripMenuItem.Text = "Motivos de Disersión Usuales"
         '
-        'ParámetrosDePuntajeToolStripMenuItem
+        'ParámetrosToolStripMenuItem
         '
-        Me.ParámetrosDePuntajeToolStripMenuItem.Name = "ParámetrosDePuntajeToolStripMenuItem"
-        Me.ParámetrosDePuntajeToolStripMenuItem.Size = New System.Drawing.Size(138, 20)
-        Me.ParámetrosDePuntajeToolStripMenuItem.Text = "Parámetros de Puntaje"
+        Me.ParámetrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ParámetrosPorAlumnoToolStripMenuItem})
+        Me.ParámetrosToolStripMenuItem.Name = "ParámetrosToolStripMenuItem"
+        Me.ParámetrosToolStripMenuItem.Size = New System.Drawing.Size(138, 20)
+        Me.ParámetrosToolStripMenuItem.Text = "Parámetros de Puntaje"
         '
         'GrupoSituacion
         '
@@ -372,6 +374,12 @@ Partial Class Form1
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Puntaje: "
         '
+        'ParámetrosPorAlumnoToolStripMenuItem
+        '
+        Me.ParámetrosPorAlumnoToolStripMenuItem.Name = "ParámetrosPorAlumnoToolStripMenuItem"
+        Me.ParámetrosPorAlumnoToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.ParámetrosPorAlumnoToolStripMenuItem.Text = "Parámetros por Alumno"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -417,7 +425,7 @@ Partial Class Form1
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents CBOCarrera As System.Windows.Forms.ComboBox
     Friend WithEvents GrupoResultados As System.Windows.Forms.GroupBox
-    Friend WithEvents ParámetrosDePuntajeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ParámetrosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CMDAceptar As System.Windows.Forms.Button
     Friend WithEvents LBLSituacion As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -434,5 +442,6 @@ Partial Class Form1
     Friend WithEvents MotivosDeDisersiónUsualesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DisersionesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OtrosAntecedentesToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ParámetrosPorAlumnoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

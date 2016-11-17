@@ -1,5 +1,6 @@
 ﻿Public Class FRMBuscarPersonas
     Dim AccesoBD As New GestorBD
+    Dim AlumnoNro As Integer
 
     Private Sub FRMBuscarPersonas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cargar_Grilla()
@@ -62,5 +63,20 @@
         Else
             CHKFiltrarDocumento.CheckState = CheckState.Unchecked
         End If
+    End Sub
+
+    Private Sub CMDSeleccionar_Click(sender As Object, e As EventArgs) Handles CMDSeleccionar.Click
+        If DataGridAlumnos.CurrentRow.Index > -1 Then    'Si la cantidad de filas es mayor a 0 entonces
+            AlumnoNro = Convert.ToInt32(DataGridAlumnos.CurrentRow.Cells(0).ToString)
+            ParametrosxAlumno.IDAlumno = AlumnoNro
+            ParametrosxAlumno.TXTAlumno.Text = DataGridAlumnos.CurrentRow.Cells(1).ToString & DataGridAlumnos.CurrentRow.Cells(2).ToString
+            Me.Close()
+        Else
+            MsgBox("Seleccione un alumno", MsgBoxStyle.Exclamation, "Sistema")
+        End If
+    End Sub
+   
+    Private Sub CMDCancelar_Click(sender As Object, e As EventArgs) Handles CMDCancelar.Click
+        Me.Close()
     End Sub
 End Class

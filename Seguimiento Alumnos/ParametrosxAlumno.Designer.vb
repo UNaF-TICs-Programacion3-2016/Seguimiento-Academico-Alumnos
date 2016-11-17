@@ -58,7 +58,7 @@ Partial Class ParametrosxAlumno
         Me.CMDBuscar = New System.Windows.Forms.Button()
         Me.TXTAlumno = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CBOCarrera = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.CMDAceptar = New System.Windows.Forms.Button()
@@ -397,13 +397,13 @@ Partial Class ParametrosxAlumno
         Me.Label5.TabIndex = 13
         Me.Label5.Text = "Alumno"
         '
-        'ComboBox1
+        'CBOCarrera
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(399, 41)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 14
+        Me.CBOCarrera.FormattingEnabled = True
+        Me.CBOCarrera.Location = New System.Drawing.Point(399, 41)
+        Me.CBOCarrera.Name = "CBOCarrera"
+        Me.CBOCarrera.Size = New System.Drawing.Size(121, 21)
+        Me.CBOCarrera.TabIndex = 14
         '
         'Label12
         '
@@ -441,7 +441,7 @@ Partial Class ParametrosxAlumno
         Me.Controls.Add(Me.CMDAceptar)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.CBOCarrera)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.TXTAlumno)
         Me.Controls.Add(Me.CMDBuscar)
@@ -520,7 +520,7 @@ Partial Class ParametrosxAlumno
     Friend WithEvents CMDBuscar As System.Windows.Forms.Button
     Friend WithEvents TXTAlumno As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents CBOCarrera As System.Windows.Forms.ComboBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents CMDAceptar As System.Windows.Forms.Button
