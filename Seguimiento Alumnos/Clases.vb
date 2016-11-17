@@ -313,11 +313,14 @@ Public Class Puntaje
     Public Function ParametroMaterias(Alumno As Integer, Carrera As Integer) As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & Alumno & "", TablaDatos)
+        Dim Aprobadas As Integer
+        Dim Regularizadas As Integer
+        Dim Libres As Integer
+        AccesoDB.Cargar_DataTable("Select Count(ID_MATERIA) As Materias, MXA_ESTADO_ALUMNO, RELA_ALUMNO From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & Alumno & " AND ID_CARRERA = " & Carrera & " GROUP BY MXA_ESTADO_ALUMNO, RELA_ALUMNO ", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
-            If TablaDatos.Rows(0).Item(0) > 7 Then
-                Return 1
-            Else
+            If TablaDatos.Rows(0).Item(1).ToString = "Aprobado" Then
+                Aprobadas = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString) '
+            ElseIf
                 Return -1
             End If
         End If
