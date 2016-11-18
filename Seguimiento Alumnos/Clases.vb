@@ -109,7 +109,7 @@ Public MustInherit Class Persona
         EstadoCivil = vEstadoCivil
     End Sub
 
-    Public Sub Cargar_Cambios(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As Integer, vAltura As String, vEstadoCivil As Integer)
+    Public Sub Cargar_Cambios(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As String, vAltura As String, vEstadoCivil As Integer)
         If Nombre <> vNombre Then
             Nombre = vNombre
         End If
@@ -706,6 +706,22 @@ Public Class Alumno
             Return Val(TablaDatos.Rows(0).Item(0).ToString)
         End If
     End Function
+
+    Public Sub Borrar_Alumno(IDAlumno As Integer)
+        Dim IDPersona As Integer
+        Dim AccesoDB As New GestorBD
+        IDPersona = AccesoDB.Obtener_ID("ALUMNO", "RELA_PERSONA", "ID_ALUMNO", IDAlumno)
+        'borramos la direccion
+        AccesoDB.Cargar_Datos("Delete From DIRECCION Where RELA_PERSONA = " & IDPersona & "", "", "", "", "", "", "", "", "", "")
+        'borramos la persona
+        AccesoDB.Cargar_Datos("Delete From PERSONA Where ID_PERSONA = " & IDPersona & "", "", "", "", "", "", "", "", "", "")
+        'borramos la carreraxalumno
+        AccesoDB.Cargar_Datos("Delete From CARRERAXALUMNO Where RELA_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
+        'borramos el antecedente
+        AccesoDB.Cargar_Datos("Delete From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
+        'borramos el alumno
+        AccesoDB.Cargar_Datos("Delete From ALUMNO Where ID_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
+    End Sub
 End Class
 
 Public Class Botones

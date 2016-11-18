@@ -50,11 +50,17 @@
                 AlumnoNuevo.Cargar_AntAcademicos(Val(.Item(0)), Val(.Item(2)), Val(.Item(4)), Val(.Item(5)), Val(.Item(6)))
             End With
             Dim Gestionar2 As New Botones(True, False, True, False, True, True, True)
+            Gestionar2.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+
+            CargarAlumno()
+        Else
+            Dim GestionarBoton As New Botones(True, False, False, False, False, True, True)
+            GestionarBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+
         End If
         Me.Width = 555
-        Dim GestionarBoton As New Botones(True, False, False, False, False, True, True)
-        GestionarBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
 
+        
     End Sub
     Private Sub CargarAlumno()
         With AlumnoNuevo
@@ -64,6 +70,9 @@
             TXTTelefono.Text = .Telefono
             TXTAltura.Text = .Altura
             TXTCalle.Text = .Calle
+            TXTIngreso.Text = .Ingreso
+            TXTEgreso.Text = .Egreso
+            TXTPromedio.Text = .Promedio
         End With
     End Sub
     Private Sub FRMPersonas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -128,6 +137,12 @@
                         AccesoDB.Obtener_Datos(.Colegio, AlumnoID, .Orientacion, .Ingreso, .Egreso, .Promedio, Nothing, Nothing, Nothing)
                     End With
                     AccesoDB.Cargar_Datos(TXT, "RELA_COLEGIO", "RELA_ALUMNO", "RELA_ORIENTACION", "ANIO_INGRESO", "ANIO_EGRESO", "PROMEDIO", "", "", "")
+
+                    TXT = "Insert Into CARRERAXALUMNO(RELA_CARRERA, RELA_ALUMNO, CXA_FECHA_INSCRIPCION) Values(:RELA_CARRERA, :RELA_ALUMNO, :CXA_FECHA_INSCRIPCION)"
+                    AccesoDB.Obtener_Datos(Val(CBOCarreras.SelectedValue), AlumnoID, Date.Now, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+                    AccesoDB.Cargar_Datos(TXT, "RELA_CARRERA", "RELA_ALUMNO", "CXA_FECHA_INSCRIPCION", "", "", "", "", "", "")
+
+
                     MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
                 Else
                     'Si no es nuevo....
@@ -135,12 +150,13 @@
                     'vemos cambios
                     AlumnoNuevo.Cargar_Cambios(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
                     'Cargamos los datos ---- falta corregir y terminar ---------
+                    IDPersona = AccesoDB.Obtener_ID("ALUMNO", "RELA_PERSONA", "ID_ALUMNO", AlumnoID)
                     TXT = "Update PERSONA Set RELA_ESTADOCIVIL = :RELA_ESTADOCIVIL, PERSONA_NOMBRE = :PERSONA_NOMBRE, PERSONA_APELLIDO = :PERSONA_APELLIDO, PERSONA_DOCUMENTO = :PERSONA_DOCUMENTO, PERSONA_FECHA_NAC = :PERSONA_FECHA_NAC, PERSONA_TELEFONO = :PERSONA_TELEFONO Where ID_PERSONA = " & IDPersona & ""
                     AccesoDB.Obtener_Datos(AlumnoNuevo.EstadoCivil, AlumnoNuevo.Nombre, AlumnoNuevo.Apellido, AlumnoNuevo.Documento, AlumnoNuevo.FechaN, AlumnoNuevo.Telefono, Nothing, Nothing, Nothing)
                     AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
                     IDPersona = AccesoDB.Obtener_ID("PERSONA", "ID_PERSONA", "PERSONA_DOCUMENTO", AlumnoNuevo.Documento)
 
-                    TXT = "Update DIRECCION Set RELA_LOCALIDAD = :RELA_LOCALIDAD, DIRECCION_CALLE = :DIRECCION_CALLE, DIRECCION_ALTURA = :DIRECCION_ALTURA Where RELA_PERSONA = " & IDPersona & ""
+                    TXT = "Update DIRECCION Set RELA_LOCALIDAD = :RELA_LOCALIDAD, DIRECCION_CALLE = :DIRECCION_CALLE, DIRECCION_ALTURA = :DIRECCION_ALTURA Where RELA_PERSONA = " & AlumnoID & ""
                     AccesoDB.Obtener_Datos(AlumnoNuevo.Localidad, AlumnoNuevo.Calle, AlumnoNuevo.Altura, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
                     AccesoDB.Cargar_Datos(TXT, "RELA_LOCALIDAD", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "", "")
 
@@ -157,6 +173,8 @@
     Private Sub CMDModificar_Click(sender As Object, e As EventArgs) Handles CMDModificar.Click
         Dim gestionbotones As New Botones(False, True, False, True, False, False, False)
         gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+        Botones.Gestionar_Formulario(Me.DatosPersonales, True, False)
+        Botones.Gestionar_Formulario(Me.AntecedentesAc, True, False)
     End Sub
 
     Sub Cargar_Orientacion()
@@ -185,6 +203,13 @@
     Private Sub CMDCancelar_Click(sender As Object, e As EventArgs) Handles CMDCancelar.Click
         Dim gestionbotones As New Botones(True, False, False, False, False, True, True)
         gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+        If AlumnoID = 0 Then
+            Botones.Gestionar_Formulario(Me.DatosPersonales, False, True)
+            Botones.Gestionar_Formulario(Me.AntecedentesAc, False, True)
+        Else
+            Botones.Gestionar_Formulario(Me.DatosPersonales, False, False)
+            Botones.Gestionar_Formulario(Me.AntecedentesAc, False, False)
+        End If
     End Sub
 
     Private Sub DatagridAlumnos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DatagridAlumnos.CellContentClick
@@ -218,5 +243,12 @@
             .DisplayMember = "LOCALIDAD_NOMBRE"
             .ValueMember = "ID"
         End With
+    End Sub
+
+    Private Sub CMDEliminar_Click(sender As Object, e As EventArgs) Handles CMDEliminar.Click
+        AlumnoNuevo.Borrar_Alumno(AlumnoID)
+        MsgBox("El alumno ha sido borrado correctamente", MsgBoxStyle.Information, "Sistema")
+        Botones.Gestionar_Formulario(Me.AntecedentesAc, False, True)
+        Botones.Gestionar_Formulario(Me.DatosPersonales, False, True)
     End Sub
 End Class

@@ -106,7 +106,7 @@ Partial Class FRMPersonas
         Me.CMDBuscar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDBuscar.ForeColor = System.Drawing.Color.Black
-        Me.CMDBuscar.Location = New System.Drawing.Point(459, 163)
+        Me.CMDBuscar.Location = New System.Drawing.Point(459, 194)
         Me.CMDBuscar.Name = "CMDBuscar"
         Me.CMDBuscar.Size = New System.Drawing.Size(75, 23)
         Me.CMDBuscar.TabIndex = 23
@@ -118,7 +118,7 @@ Partial Class FRMPersonas
         Me.CMDCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDCancelar.ForeColor = System.Drawing.Color.Black
-        Me.CMDCancelar.Location = New System.Drawing.Point(459, 134)
+        Me.CMDCancelar.Location = New System.Drawing.Point(459, 165)
         Me.CMDCancelar.Name = "CMDCancelar"
         Me.CMDCancelar.Size = New System.Drawing.Size(75, 23)
         Me.CMDCancelar.TabIndex = 22
@@ -597,13 +597,13 @@ Partial Class FRMPersonas
         '
         'CMDEliminar
         '
-        Me.CMDEliminar.Location = New System.Drawing.Point(510, 343)
+        Me.CMDEliminar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDEliminar.Location = New System.Drawing.Point(459, 135)
         Me.CMDEliminar.Name = "CMDEliminar"
         Me.CMDEliminar.Size = New System.Drawing.Size(75, 23)
         Me.CMDEliminar.TabIndex = 37
         Me.CMDEliminar.Text = "Eliminar"
-        Me.CMDEliminar.UseVisualStyleBackColor = True
-        Me.CMDEliminar.Visible = False
+        Me.CMDEliminar.UseVisualStyleBackColor = False
         '
         'FRMPersonas
         '
@@ -622,8 +622,8 @@ Partial Class FRMPersonas
         Me.Controls.Add(Me.CMDModificar)
         Me.Controls.Add(Me.CMDNuevo)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.AntecedentesAc)
         Me.Controls.Add(Me.DatosPersonales)
+        Me.Controls.Add(Me.AntecedentesAc)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.Black
         Me.MainMenuStrip = Me.MenuStrip1
