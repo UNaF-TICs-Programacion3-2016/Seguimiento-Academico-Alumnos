@@ -174,7 +174,17 @@ Public Class Puntaje
     Private vPositivo As Integer
     Private vNegativo As Integer
     Private vSalario As Double
+    Public Carrera As Integer
+    Public AlumnoID As Integer
+    Public Año As Integer
+    Public Orientacion As Integer
 
+    Public Sub New(vCarrera As Integer, vAlumnoID As Integer, vAño As Integer, vOrientacion As Integer)
+        Carrera = vCarrera
+        Año = vAño
+        AlumnoID = vAlumnoID
+        Orientacion = vOrientacion
+    End Sub
     Public Sub New()
 
     End Sub
@@ -207,9 +217,9 @@ Public Class Puntaje
         End Set
     End Property
 
-    Public Function Mostrar_Estado(vAlumno As Integer, vCarrera As Integer) As String
+    Public Function Mostrar_Estado() As String
         Dim DETERMINACION As String
-        Calcular_Puntajes(vAlumno, vCarrera)
+        Calcular_Puntajes()
         DETERMINACION = Determinar_Estado()
         Select Case DETERMINACION
             Case "MB"
@@ -222,14 +232,14 @@ Public Class Puntaje
                 Return "El estado del alumno en la carrera es malo, podría tener mucha dificultad en la carrera o estar desviando su interés de la misma"
         End Select
     End Function
-    Public Sub Calcular_Puntajes(vAlumno As Integer, vCarrera As Integer)
+    Private Sub Calcular_Puntajes()
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Positivo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & vCarrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & vAlumno & " And PARAMETROXALUMNO_PUNTOS > 0", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Positivo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & Carrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & AlumnoID & " And PARAMETROXALUMNO_PUNTOS > 0", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Positivo = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
-        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Negativo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & vCarrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & vAlumno & " And PARAMETROXALUMNO_PUNTOS < 0", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Negativo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & Carrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & AlumnoID & " And PARAMETROXALUMNO_PUNTOS < 0", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Negativo = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -250,7 +260,7 @@ Public Class Puntaje
         End If
     End Function
     
-    Public Function ParametroOrientacion(Orientacion As Integer, Carrera As Integer) As Integer
+    Private Function ParametroOrientacion() As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         AccesoDB.Cargar_DataTable("Select Count(*) As Cantidad From CARRERAXORIENTACION Join CARRERA On ID_CARRERA = RELA_CARRERA Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & " And ID_CARRERA = " & Carrera & "", TablaDatos)
@@ -263,10 +273,10 @@ Public Class Puntaje
         End If
     End Function
 
-    Public Function ParametroPromedio(Alumno As Integer) As Integer
+    Private Function ParametroPromedio() As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & Alumno & "", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If TablaDatos.Rows(0).Item(0) > 7 Then
                 Return 1
@@ -275,7 +285,7 @@ Public Class Puntaje
             End If
         End If
     End Function
-    Public Function ParametroAsistencia(Alumno As Integer, Año As Integer, Carrera As Integer) As Integer
+    Private Function ParametroAsistencia() As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Clases As Integer
@@ -285,7 +295,7 @@ Public Class Puntaje
             Clases = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
-        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & Alumno & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & AlumnoID & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Asistencias = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -297,14 +307,14 @@ Public Class Puntaje
             Return +1
         End If
     End Function
-    Public Sub ParametroMaterias(Alumno As Integer, Carrera As Integer, vAprobadas As Integer, vregulares As Integer, vlibres As Integer)
+    Private Sub ParametroMaterias(vAprobadas As Integer, vregulares As Integer, vlibres As Integer)
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Aprobadas As Integer
         Dim Regularizadas As Integer
         Dim Libres As Integer
         Dim i As Integer
-        AccesoDB.Cargar_DataTable("Select Count(ID_MATERIA) As Materias, MXA_ESTADO_ALUMNO, RELA_ALUMNO From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & Alumno & " AND ID_CARRERA = " & Carrera & " GROUP BY MXA_ESTADO_ALUMNO, RELA_ALUMNO ", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select Count(ID_MATERIA) As Materias, MXA_ESTADO_ALUMNO, RELA_ALUMNO From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & AlumnoID & " AND ID_CARRERA = " & Carrera & " GROUP BY MXA_ESTADO_ALUMNO, RELA_ALUMNO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             For i = 0 To TablaDatos.Rows.Count - 1
                 If TablaDatos.Rows(i).Item(1).ToString = "Aprobado" Then
@@ -320,28 +330,28 @@ Public Class Puntaje
         vregulares = Regularizadas
         vlibres = Libres * -1
     End Sub
-    Public Sub ParametroExamenes(Alumno As Integer, Carrera As Integer, vAprobados As Integer, vDesaprobados As Integer)
+    Private Sub ParametroExamenes(vAprobados As Integer, vDesaprobados As Integer)
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Aprobados As Integer
         Dim Desaprobados As Integer
-        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & Alumno & " And EXAMEN_NOTA >= 6", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA >= 6", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Aprobados = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
-        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & Alumno & " And EXAMEN_NOTA < 6", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA < 6", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Desaprobados = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
         vAprobados = Aprobados
         vDesaprobados = Desaprobados * -1
     End Sub
-    Public Function ParametroPromActual(Alumno As Integer, Carrera As Integer) As Integer
+    Private Function ParametroPromActual() As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Promedio As Double
-        AccesoDB.Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & Alumno & "", TablaDatos)
+        AccesoDB.Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Promedio = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -352,6 +362,214 @@ Public Class Puntaje
         End If
     End Function
 
+    Public Sub Obtener_Variables(vEmpleo As ComboBox, vCoincide As ComboBox, vIngresos As ComboBox, vMateriasAp As Label, vMateriasReg As Label, vMateriasLib As Label, vProm As Label, vOrientacion As Label, vExAprobados As Label, vExDesaprobados As Label, vPromActual As Label, vAsistencia As Label)
+        Dim TXT As String
+        Dim TablaDatos As New DataTable
+        Dim AccesoDB As New GestorBD
+        TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 10 And RELA_ALUMNO = " & AlumnoID & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) < 0 Then
+                vEmpleo.SelectedText = "Si"
+                vEmpleo.SelectedIndex = 0
+            End If
+        Else
+            vEmpleo.SelectedText = ""
+        End If
+        TablaDatos.Clear()
+
+        TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 11 And RELA_ALUMNO = " & AlumnoID & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) < 0 Then
+                vCoincide.SelectedText = "Si"
+                vCoincide.SelectedIndex = 0
+            End If
+        End If
+        TablaDatos.Clear()
+
+        TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 1 And RELA_ALUMNO = " & AlumnoID & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) < 0 Then
+                vIngresos.SelectedText = "Menor a 6000"
+                vIngresos.SelectedIndex = 0
+            End If
+        End If
+        TablaDatos.Clear()
+
+        TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 2 And RELA_ALUMNO = " & AlumnoID & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) > 0 Then
+                vIngresos.SelectedText = "Mayor a 6000"
+                vIngresos.SelectedIndex = 1
+            End If
+        End If
+
+        TXT = "Select Count(ID_MATERIA) As Materias From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA On ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & AlumnoID & " AND ID_CARRERA = " & Carrera & " And MxA_ESTADO_ALUMNO = 'Aprobado'"
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            For i = 0 To TablaDatos.Rows.Count - 1
+                If TablaDatos.Rows(i).Item(1).ToString = "Aprobado" Then
+                    vMateriasAp.Text = Convert.ToInt32(TablaDatos.Rows(i).Item(0).ToString)
+                ElseIf TablaDatos.Rows(i).Item(1).ToString = "Regular" Then
+                    vMateriasReg.Text = Convert.ToInt32(TablaDatos.Rows(i).Item(0).ToString)
+                ElseIf TablaDatos.Rows(i).Item(1).ToString = "Libre" Then
+                    vMateriasLib.Text = Convert.ToInt32(TablaDatos.Rows(i).Item(0).ToString)
+                End If
+            Next i
+        Else
+            vMateriasAp.Text = ""
+            vMateriasReg.Text = ""
+            vMateriasLib.Text = ""
+        End If
+        TablaDatos.Clear()
+
+        TXT = "Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & AlumnoID & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            vProm.Text = TablaDatos.Rows(0).Item(0).ToString
+        Else
+            vProm.Text = ""
+        End If
+        TablaDatos.Clear()
+
+        TXT = "Select ORIENTACION_DESCRIPCION From ORIENTACION Join ANTECEDENTE_ACADEMICO On ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            vOrientacion.Text = TablaDatos.Rows(0).Item(0).ToString()
+        Else
+            vOrientacion.Text = ""
+        End If
+        TablaDatos.Clear()
+
+        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA >= 6", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            vExAprobados.Text = Val(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        TablaDatos.Clear()
+        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA < 6", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            vExDesaprobados.Text = Val(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        TablaDatos.Clear()
+
+        AccesoDB.Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            vPromActual.Text = Val(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+
+        Dim Clases As Integer
+        Dim Asistencias As Integer
+        AccesoDB.Cargar_DataTable("Select SUM(CLASE_CANTDICTADAS) As Clases, CLASE_ANIO, ID_CARRERA From CLASE Inner JOIN MATERIA ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Clases = Val(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        TablaDatos.Clear()
+        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & AlumnoID & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Asistencias = Val(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+        vAsistencia.Text = (Asistencias * 100) / Clases
+    End Sub
+    Public Sub Cargar_Parametros(Trabaja As Integer, Coincide As Integer, Ingreso As Integer)
+        Dim TXT As String
+        Dim AccesoDB As New GestorBD
+        TXT = "Insert Into PARAMETROXALUMNO(RELA_ALUMNO, RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS) Values(:RELA_ALUMNO, :RELA_PARAMETRO, :PARAMETROXALUMNO_PUNTOS)"
+        'aca cargamos los parametros para el alumno
+        'Cargar si tiene empleo o no
+        If Trabaja = 1 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 10, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+        'Cargar si coincide con horas catedra o no
+        If Coincide = 1 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 11, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            TXT = "Insert Into PARAMETROXALUMNO(RELA_ALUMNO, RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS) Values(:RELA_ALUMNO, :RELA_PARAMETRO, :PARAMETROXALUMNO_PUNTOS)"
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+        'cargar nivel de ingreso
+        If Ingreso = 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 1, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        ElseIf Ingreso = 1 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 2, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        End If
+        AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+
+        'cargar materias
+        Dim MatAprobadas As Integer
+        Dim MatRegulares As Integer
+        Dim MatLibres As Integer
+        ParametroMaterias(MatAprobadas, MatRegulares, MatLibres)
+        'Materias Aprobadas
+        If MatAprobadas <> 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 5, MatAprobadas, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+        'Materias Regulares
+        If MatRegulares <> 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 6, MatRegulares, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+        'Materias Libres
+        If MatLibres <> 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 7, MatLibres, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+
+        'Cargar promedio secundario
+        If ParametroPromedio() = 1 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 8, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+
+        'Cargar si la orientacion del colegio coincide con la carrera
+        Dim Tabla1 As DataTable
+        Dim OrientacionID As Integer
+        AccesoDB.Cargar_DataTable("Select RELA_ORIENTACION, RELA_ALUMNO From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & AlumnoID & "", Tabla1)
+        If Tabla1.Rows.Count > 0 Then
+            OrientacionID = Tabla1.Rows(0).Item(0)
+        End If
+        If ParametroOrientacion() = 1 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 9, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+
+        'Cargar los exámenes
+        Dim ExAprobados As Integer
+        Dim ExDesaprobados As Integer
+        ParametroExamenes(ExAprobados, ExDesaprobados)
+        If ExAprobados <> 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 12, ExAprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+        If ExDesaprobados <> 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 13, ExDesaprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+
+        'Cargar Promedio Actual
+        Dim PromedioActual As Integer
+        PromedioActual = ParametroPromActual()
+        If PromedioActual > 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 15, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        ElseIf PromedioActual < 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 14, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+
+        Dim PorcAsistencia As Integer
+        PorcAsistencia = ParametroAsistencia()
+        If PorcAsistencia > 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 4, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        ElseIf PorcAsistencia < 0 Then
+            AccesoDB.Obtener_Datos(AlumnoID, 3, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        End If
+    End Sub
 End Class
 Public Class Alumno
     Inherits Persona
@@ -465,6 +683,29 @@ Public Class Alumno
         Egreso = Nothing
         Promedio = Nothing
     End Sub
+    Public Function Obtener_Orientacion(ID_Alumno) As Integer
+        Dim TXT As String
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        TXT = "Select ID_ORIENTACION From ANTECEDENTE_ACADEMICO Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where RELA_ALUMNO = " & ID_Alumno & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Dim IDOr As Integer
+            IDOr = Val(TablaDatos.Rows(0).Item(0).ToString)
+            Return IDOr
+        End If
+    End Function
+
+    Public Function Obtener_Carrera(ID_Alumno) As Integer
+        Dim TXT As String
+        Dim AccesoDB As New GestorBD
+        Dim TablaDatos As New DataTable
+        TXT = "Select ID_CARRERA From CARRERAXALUMNO Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & ID_Alumno & ""
+        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        If TablaDatos.Rows.Count > 0 Then
+            Return Val(TablaDatos.Rows(0).Item(0).ToString)
+        End If
+    End Function
 End Class
 
 Public Class Botones
@@ -613,8 +854,11 @@ Public Class GestorBD
     Private S9 As String
     Private N9 As Integer
     Private D9 As Date
-    Private Sub Conectar()
+
+    Public Sub New()
         Conexion.ConnectionString = "Data Source= localhost;User Id = grupo1; Password = 123;"
+    End Sub
+    Private Sub Conectar()
         Conexion.Open()
     End Sub
     Private Sub Cerrar()
@@ -851,6 +1095,7 @@ Public Class GestorBD
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+            Cerrar()
             Exit Sub
         End Try
 

@@ -62,6 +62,9 @@ Partial Class ParametrosxAlumno
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.CMDAceptar = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.LBLPorcentajeAsistencia = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.GPTrabaja.SuspendLayout()
         Me.GPHClases.SuspendLayout()
         Me.GPIngreso.SuspendLayout()
@@ -73,6 +76,7 @@ Partial Class ParametrosxAlumno
         Me.GPExamenesAp.SuspendLayout()
         Me.GPExamenesDes.SuspendLayout()
         Me.GPPromActual.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GPTrabaja
@@ -100,9 +104,9 @@ Partial Class ParametrosxAlumno
         'CBOTrabaja
         '
         Me.CBOTrabaja.FormattingEnabled = True
-        Me.CBOTrabaja.Location = New System.Drawing.Point(184, 11)
+        Me.CBOTrabaja.Location = New System.Drawing.Point(195, 11)
         Me.CBOTrabaja.Name = "CBOTrabaja"
-        Me.CBOTrabaja.Size = New System.Drawing.Size(140, 21)
+        Me.CBOTrabaja.Size = New System.Drawing.Size(56, 21)
         Me.CBOTrabaja.TabIndex = 0
         '
         'GPHClases
@@ -130,9 +134,9 @@ Partial Class ParametrosxAlumno
         'CBOClases
         '
         Me.CBOClases.FormattingEnabled = True
-        Me.CBOClases.Location = New System.Drawing.Point(184, 11)
+        Me.CBOClases.Location = New System.Drawing.Point(195, 11)
         Me.CBOClases.Name = "CBOClases"
-        Me.CBOClases.Size = New System.Drawing.Size(140, 21)
+        Me.CBOClases.Size = New System.Drawing.Size(60, 21)
         Me.CBOClases.TabIndex = 0
         '
         'GPIngreso
@@ -316,9 +320,9 @@ Partial Class ParametrosxAlumno
         Me.Label9.AutoSize = True
         Me.Label9.Location = New System.Drawing.Point(7, 14)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(195, 13)
+        Me.Label9.Size = New System.Drawing.Size(158, 13)
         Me.Label9.TabIndex = 1
-        Me.Label9.Text = "Coincide Orientación con Carrera"
+        Me.Label9.Text = "Orientacion de Secundario"
         '
         'GPExamenesAp
         '
@@ -466,11 +470,11 @@ Partial Class ParametrosxAlumno
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.White
-        Me.Label13.Location = New System.Drawing.Point(299, 9)
+        Me.Label13.Location = New System.Drawing.Point(261, 9)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(195, 20)
+        Me.Label13.Size = New System.Drawing.Size(271, 20)
         Me.Label13.TabIndex = 16
-        Me.Label13.Text = "Parámetros del Alumno"
+        Me.Label13.Text = "Parámetros del alumno a evaluar"
         '
         'CMDAceptar
         '
@@ -482,12 +486,44 @@ Partial Class ParametrosxAlumno
         Me.CMDAceptar.Text = "Aceptar"
         Me.CMDAceptar.UseVisualStyleBackColor = False
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GroupBox2.Controls.Add(Me.LBLPorcentajeAsistencia)
+        Me.GroupBox2.Controls.Add(Me.Label15)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.ForeColor = System.Drawing.Color.Black
+        Me.GroupBox2.Location = New System.Drawing.Point(426, 359)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(341, 38)
+        Me.GroupBox2.TabIndex = 18
+        Me.GroupBox2.TabStop = False
+        '
+        'LBLPorcentajeAsistencia
+        '
+        Me.LBLPorcentajeAsistencia.AutoSize = True
+        Me.LBLPorcentajeAsistencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.LBLPorcentajeAsistencia.Location = New System.Drawing.Point(181, 14)
+        Me.LBLPorcentajeAsistencia.Name = "LBLPorcentajeAsistencia"
+        Me.LBLPorcentajeAsistencia.Size = New System.Drawing.Size(0, 13)
+        Me.LBLPorcentajeAsistencia.TabIndex = 2
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(7, 14)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(130, 13)
+        Me.Label15.TabIndex = 1
+        Me.Label15.Text = "Porcentaje Asistencia"
+        '
         'ParametrosxAlumno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DimGray
-        Me.ClientSize = New System.Drawing.Size(820, 450)
+        Me.ClientSize = New System.Drawing.Size(790, 450)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.CMDAceptar)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
@@ -532,6 +568,8 @@ Partial Class ParametrosxAlumno
         Me.GPExamenesDes.PerformLayout()
         Me.GPPromActual.ResumeLayout(False)
         Me.GPPromActual.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -576,4 +614,7 @@ Partial Class ParametrosxAlumno
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents CMDAceptar As System.Windows.Forms.Button
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents LBLPorcentajeAsistencia As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
 End Class

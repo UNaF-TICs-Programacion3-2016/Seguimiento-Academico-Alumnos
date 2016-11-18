@@ -1,94 +1,13 @@
 ﻿Public Class ParametrosxAlumno
-    Dim PuntajeAlumno As New Puntaje
     Dim AccesoDB As New GestorBD
+    Dim PuntajeAlumno As New Puntaje
     Public IDAlumno As Integer
     Dim TXT As String
    
     Private Sub CMDAceptar_Click(sender As Object, e As EventArgs) Handles CMDAceptar.Click
-        TXT = "Insert Into PARAMETROXALUMNO(RELA_ALUMNO, RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS) Values(:RELA_ALUMNO, :RELA_PARAMETRO, :PARAMETROXALUMNO_PUNTOS)"
-        'aca cargamos los parametros para el alumno
         If TXTAlumno.Text <> "" And IDAlumno <> 0 Then
-            'Cargar si tiene empleo o no
-            If CBOTrabaja.SelectedIndex = 1 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 10, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-            'Cargar si coincide con horas catedra o no
-            If CBOClases.SelectedIndex = 1 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 11, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                TXT = "Insert Into PARAMETROXALUMNO(RELA_ALUMNO, RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS) Values(:RELA_ALUMNO, :RELA_PARAMETRO, :PARAMETROXALUMNO_PUNTOS)"
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-            'cargar nivel de ingreso
-            If CBOIngreso.SelectedIndex = 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 1, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            ElseIf CBOIngreso.SelectedIndex = 1 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 2, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            End If
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-
-            'cargar materias
-            Dim MatAprobadas As Integer
-            Dim MatRegulares As Integer
-            Dim MatLibres As Integer
-            PuntajeAlumno.ParametroMaterias(IDAlumno, Val(CBOCarrera.SelectedValue), MatAprobadas, MatRegulares, MatLibres)
-            'Materias Aprobadas
-            If MatAprobadas <> 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 5, MatAprobadas, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-            'Materias Regulares
-            If MatRegulares <> 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 6, MatRegulares, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-            'Materias Libres
-            If MatLibres <> 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 7, MatLibres, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-
-            'Cargar promedio secundario
-            If PuntajeAlumno.ParametroPromedio(IDAlumno) = 1 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 8, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-
-            'Cargar si la orientacion del colegio coincide con la carrera
-            Dim Tabla1 As DataTable
-            Dim OrientacionID As Integer
-            AccesoDB.Cargar_DataTable("Select RELA_ORIENTACION, RELA_ALUMNO From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & IDAlumno & "", Tabla1)
-            If Tabla1.Rows.Count > 0 Then
-                OrientacionID = Tabla1.Rows(0).Item(0)
-            End If
-            If PuntajeAlumno.ParametroOrientacion(OrientacionID, Val(CBOCarrera.SelectedValue)) = 1 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 9, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-
-            'Cargar los exámenes
-            Dim ExAprobados As Integer
-            Dim ExDesaprobados As Integer
-            PuntajeAlumno.ParametroExamenes(IDAlumno, Val(CBOCarrera.SelectedValue), ExAprobados, ExDesaprobados)
-            If ExAprobados <> 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 12, ExAprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-            If ExDesaprobados <> 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 13, ExDesaprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
-
-            'Cargar Promedio Actual
-            Dim PromedioActual As Integer
-            PromedioActual = PuntajeAlumno.ParametroPromActual(IDAlumno, Val(CBOCarrera.SelectedValue))
-            If PromedioActual > 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 15, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            ElseIf PromedioActual < 0 Then
-                AccesoDB.Obtener_Datos(IDAlumno, 14, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
-            End If
+            PuntajeAlumno.Cargar_Parametros(CBOTrabaja.SelectedIndex, CBOClases.SelectedIndex, CBOIngreso.SelectedIndex)
+            MsgBox("Cambios Guardados", MsgBoxStyle.Information, "Sistema")
         Else
             MsgBox("Seleccione un alumno", MsgBoxStyle.Exclamation, "Sistema")
         End If
@@ -100,6 +19,8 @@
         CBOTrabaja.Items.Add("Si")
         CBOClases.Items.Add("No")
         CBOClases.Items.Add("Si")
+        CBOIngreso.Items.Add("Menor a 6000")
+        CBOIngreso.Items.Add("Mayor a 6000")
     End Sub
 
     Private Sub TXTAlumno_TextChanged(sender As Object, e As EventArgs) Handles TXTAlumno.TextChanged
@@ -113,55 +34,18 @@
         FRMBuscarPersonas.Show()
     End Sub
 
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-
-    End Sub
-
-    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
-
-    End Sub
-
-    Private Sub GPPromedioSec_Enter(sender As Object, e As EventArgs) Handles GPPromedioSec.Enter
-
-    End Sub
-
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
-
-    End Sub
-
-    Private Sub GPExamenesAp_Enter(sender As Object, e As EventArgs) Handles GPExamenesAp.Enter
-
-    End Sub
-
-    Private Sub GPExamenesDes_Enter(sender As Object, e As EventArgs) Handles GPExamenesDes.Enter
-
-    End Sub
-
-    Private Sub GPPromActual_Enter(sender As Object, e As EventArgs) Handles GPPromActual.Enter
-
-    End Sub
-
-    Private Sub GPTrabaja_Enter(sender As Object, e As EventArgs) Handles GPTrabaja.Enter
-
-    End Sub
-
-    Private Sub GPHClases_Enter(sender As Object, e As EventArgs) Handles GPHClases.Enter
-
-    End Sub
-
-    Private Sub GPIngreso_Enter(sender As Object, e As EventArgs) Handles GPIngreso.Enter
-
-    End Sub
-
-    Private Sub GPMateriasAp_Enter(sender As Object, e As EventArgs) Handles GPMateriasAp.Enter
-
-    End Sub
-
-    Private Sub GPMateriasReg_Enter(sender As Object, e As EventArgs) Handles GPMateriasReg.Enter
-
-    End Sub
-
-    Private Sub GPMaterias_Enter(sender As Object, e As EventArgs) Handles GPMaterias.Enter
-
+    Public Sub Cargar_Datos()
+        Dim oAlumno As New Alumno
+        With PuntajeAlumno
+            .AlumnoID = IDAlumno
+            If CBOCarrera.Text <> "" Then
+                .Carrera = Val(CBOCarrera.SelectedValue)
+            Else
+                .Carrera = oAlumno.Obtener_Carrera(IDAlumno)
+            End If
+            .Año = Year(Now)
+            .Orientacion = oAlumno.Obtener_Orientacion(IDAlumno)
+        End With
+        PuntajeAlumno.Obtener_Variables(CBOTrabaja, CBOClases, CBOIngreso, LBLMateriasAp, LBLMateriasReg, LBLMateriasLib, LBLPromedioSec, LBLOrientacion, LBLExamenesAp, LBLExamenDes, LBLPromActual, LBLPorcentajeAsistencia)
     End Sub
 End Class

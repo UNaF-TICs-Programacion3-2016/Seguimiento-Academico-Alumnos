@@ -17,7 +17,9 @@
 
 
     Private Sub TXTBuscar_TextChanged(sender As Object, e As EventArgs) Handles TXTBuscar.TextChanged
-        Cargar_Grilla()
+        If TXTBuscar.Text <> "" Then
+            Cargar_Grilla()
+        End If
     End Sub
 
     Private Sub Cargar_Grilla()
@@ -25,12 +27,12 @@
         Dim Consulta As String
         DataGridAlumnos.DataSource = Nothing
         DataGridAlumnos.Refresh()
-        If CHKFiltrarNombre.Enabled Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & TXTBuscar.Text & "'"
-        ElseIf CHKFiltrarApellido.Enabled Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & TXTBuscar.Text & "'"
-        ElseIf CHKFiltrarDocumento.Enabled Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO Like '" & TXTBuscar.Text & "'"
+        If CHKFiltrarNombre.CheckState = CheckState.Checked Then
+            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & TXTBuscar.Text & "%'"
+        ElseIf CHKFiltrarApellido.CheckState = CheckState.Checked Then
+            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & TXTBuscar.Text & "%'"
+        ElseIf CHKFiltrarDocumento.CheckState = CheckState.Checked Then
+            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO = " & TXTBuscar.Text & ""
         Else
             Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA"
         End If
@@ -67,9 +69,10 @@
 
     Private Sub CMDSeleccionar_Click(sender As Object, e As EventArgs) Handles CMDSeleccionar.Click
         If DataGridAlumnos.CurrentRow.Index > -1 Then    'Si la cantidad de filas es mayor a 0 entonces
-            AlumnoNro = Convert.ToInt32(DataGridAlumnos.CurrentRow.Cells(0).ToString)
+            AlumnoNro = Convert.ToInt32(DataGridAlumnos.CurrentRow.Cells(0).Value)
             ParametrosxAlumno.IDAlumno = AlumnoNro
-            ParametrosxAlumno.TXTAlumno.Text = DataGridAlumnos.CurrentRow.Cells(1).ToString & DataGridAlumnos.CurrentRow.Cells(2).ToString
+            ParametrosxAlumno.TXTAlumno.Text = DataGridAlumnos.CurrentRow.Cells(1).Value.ToString & " " & DataGridAlumnos.CurrentRow.Cells(2).Value.ToString
+            ParametrosxAlumno.Cargar_Datos()
             Me.Close()
         Else
             MsgBox("Seleccione un alumno", MsgBoxStyle.Exclamation, "Sistema")

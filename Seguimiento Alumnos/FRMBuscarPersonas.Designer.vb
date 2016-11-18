@@ -36,9 +36,12 @@ Partial Class FRMBuscarPersonas
         '
         'DataGridAlumnos
         '
+        Me.DataGridAlumnos.AllowUserToAddRows = False
+        Me.DataGridAlumnos.AllowUserToDeleteRows = False
         Me.DataGridAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridAlumnos.Location = New System.Drawing.Point(12, 92)
         Me.DataGridAlumnos.Name = "DataGridAlumnos"
+        Me.DataGridAlumnos.RowHeadersVisible = False
         Me.DataGridAlumnos.Size = New System.Drawing.Size(507, 277)
         Me.DataGridAlumnos.TabIndex = 0
         '
