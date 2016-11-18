@@ -47,8 +47,9 @@ Partial Class FRMBuscarPersonas
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic),System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
         Me.Label1.Location = New System.Drawing.Point(180, 13)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(139, 20)
@@ -57,72 +58,85 @@ Partial Class FRMBuscarPersonas
         '
         'CHKFiltrarNombre
         '
-        Me.CHKFiltrarNombre.AutoSize = true
+        Me.CHKFiltrarNombre.AutoSize = True
+        Me.CHKFiltrarNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CHKFiltrarNombre.ForeColor = System.Drawing.Color.White
         Me.CHKFiltrarNombre.Location = New System.Drawing.Point(12, 43)
         Me.CHKFiltrarNombre.Name = "CHKFiltrarNombre"
-        Me.CHKFiltrarNombre.Size = New System.Drawing.Size(109, 17)
+        Me.CHKFiltrarNombre.Size = New System.Drawing.Size(127, 17)
         Me.CHKFiltrarNombre.TabIndex = 2
         Me.CHKFiltrarNombre.Text = "Filtrar por Nombre"
-        Me.CHKFiltrarNombre.UseVisualStyleBackColor = true
+        Me.CHKFiltrarNombre.UseVisualStyleBackColor = True
         '
         'CHKFiltrarApellido
         '
-        Me.CHKFiltrarApellido.AutoSize = true
+        Me.CHKFiltrarApellido.AutoSize = True
+        Me.CHKFiltrarApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CHKFiltrarApellido.ForeColor = System.Drawing.Color.White
         Me.CHKFiltrarApellido.Location = New System.Drawing.Point(144, 43)
         Me.CHKFiltrarApellido.Name = "CHKFiltrarApellido"
-        Me.CHKFiltrarApellido.Size = New System.Drawing.Size(109, 17)
+        Me.CHKFiltrarApellido.Size = New System.Drawing.Size(129, 17)
         Me.CHKFiltrarApellido.TabIndex = 3
         Me.CHKFiltrarApellido.Text = "Filtrar por Apellido"
-        Me.CHKFiltrarApellido.UseVisualStyleBackColor = true
+        Me.CHKFiltrarApellido.UseVisualStyleBackColor = True
         '
         'CHKFiltrarDocumento
         '
-        Me.CHKFiltrarDocumento.AutoSize = true
+        Me.CHKFiltrarDocumento.AutoSize = True
+        Me.CHKFiltrarDocumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CHKFiltrarDocumento.ForeColor = System.Drawing.Color.White
         Me.CHKFiltrarDocumento.Location = New System.Drawing.Point(281, 43)
         Me.CHKFiltrarDocumento.Name = "CHKFiltrarDocumento"
-        Me.CHKFiltrarDocumento.Size = New System.Drawing.Size(182, 17)
+        Me.CHKFiltrarDocumento.Size = New System.Drawing.Size(213, 17)
         Me.CHKFiltrarDocumento.TabIndex = 4
         Me.CHKFiltrarDocumento.Text = "Filtrar por Número de Documento"
-        Me.CHKFiltrarDocumento.UseVisualStyleBackColor = true
+        Me.CHKFiltrarDocumento.UseVisualStyleBackColor = True
         '
         'TXTBuscar
         '
-        Me.TXTBuscar.Location = New System.Drawing.Point(58, 66)
+        Me.TXTBuscar.Location = New System.Drawing.Point(67, 66)
         Me.TXTBuscar.Name = "TXTBuscar"
         Me.TXTBuscar.Size = New System.Drawing.Size(137, 20)
         Me.TXTBuscar.TabIndex = 5
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(15, 69)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Buscar"
         '
         'CMDSeleccionar
         '
+        Me.CMDSeleccionar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDSeleccionar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDSeleccionar.Location = New System.Drawing.Point(290, 373)
         Me.CMDSeleccionar.Name = "CMDSeleccionar"
         Me.CMDSeleccionar.Size = New System.Drawing.Size(75, 23)
         Me.CMDSeleccionar.TabIndex = 7
         Me.CMDSeleccionar.Text = "Seleccionar"
-        Me.CMDSeleccionar.UseVisualStyleBackColor = true
+        Me.CMDSeleccionar.UseVisualStyleBackColor = False
         '
         'CMDCancelar
         '
+        Me.CMDCancelar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDCancelar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDCancelar.Location = New System.Drawing.Point(178, 373)
         Me.CMDCancelar.Name = "CMDCancelar"
         Me.CMDCancelar.Size = New System.Drawing.Size(75, 23)
         Me.CMDCancelar.TabIndex = 8
         Me.CMDCancelar.Text = "Cancelar"
-        Me.CMDCancelar.UseVisualStyleBackColor = true
+        Me.CMDCancelar.UseVisualStyleBackColor = False
         '
         'FRMBuscarPersonas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(531, 408)
         Me.Controls.Add(Me.CMDCancelar)
         Me.Controls.Add(Me.CMDSeleccionar)

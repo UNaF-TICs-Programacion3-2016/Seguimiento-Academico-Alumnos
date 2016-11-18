@@ -177,7 +177,7 @@
         End If
     End Sub
 
-    Private Sub CMDAgregarClas_Click(sender As Object, e As EventArgs) Handles CMDAgregarClas.Click
+    Private Sub CMDAgregarClas_Click(sender As Object, e As EventArgs)
         Dim oClase As New ClasexMateria(Val(CBOMateriasClas.SelectedValue), Val(TXBanio.Text), Val(TXBdictadas.Text))
         If oClase.Validacion Then
             Dim TXT As String
@@ -229,7 +229,5 @@
         End If
     End Sub
 
-    Private Sub CMDModificarClas_Click(sender As Object, e As EventArgs) Handles CMDModificarClas.Click
-
-    End Sub
+   
 End Class
