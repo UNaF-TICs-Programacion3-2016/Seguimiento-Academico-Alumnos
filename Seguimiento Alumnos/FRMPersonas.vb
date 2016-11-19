@@ -28,27 +28,15 @@
 
     Private Sub CMDSeleccionar_Click(sender As Object, e As EventArgs) Handles CMDSeleccionar.Click
         If DatagridAlumnos.CurrentRow.Index > -1 Then    'Si la cantidad de filas es mayor a 0 entonces
-            Dim Tabla2 As New DataTable
-            'Recuperacion de datos - esto se deberia mover al seleccionar de la grilla
-            Dim TablaAlumno As New DataTable
+            Dim TablaAlumnos As New DataTable
             Dim TablaDireccion As New DataTable
-            Dim TXT As String
-            'Sacamos id del seleccionado
-            AlumnoID = Convert.ToInt32(DatagridAlumnos.CurrentRow.Cells(0).Value)
-            TXT = "Select PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO, RELA_PERSONA, RELA_ESTADOCIVIL, ESTADOCIVIL_DESCRIPCION From ALUMNO Inner JOIN PERSONA On ID_PERSONA = RELA_PERSONA Inner Join ESTADOCIVIL ON RELA_ESTADOCIVIL = ID_ESTADOCIVIL Where ID_ALUMNO = " & AlumnoID & ""
-            AccesoDB.Cargar_DataTable(TXT, TablaAlumno)
-            CBOEc.Text = TablaAlumno.Rows(0).Item(7).ToString 'cargar cboestadocivil
-            TXT = "Select DIRECCION_CALLE, DIRECCION_ALTURA, LOCALIDAD_NOMBRE, RELA_LOCALIDAD, RELA_PERSONA FROM DIRECCION Inner Join LOCALIDAD ON ID_LOCALIDAD = RELA_LOCALIDAD where RELA_PERSONA = " & Val(TablaAlumno.Rows(0).Item(5)) & ""
-            AccesoDB.Cargar_DataTable(TXT, TablaDireccion)
+            Dim TablaAcademico As New DataTable
+
+            AlumnoNuevo.Traer_Alumno(TablaAlumnos, TablaDireccion, TablaAcademico)
+
+            CBOEc.Text = TablaAlumnos.Rows(0).Item(7).ToString 'cargar cboestadocivil
             CBOLocalidad.Text = TablaDireccion.Rows(0).Item(2).ToString 'cargar combo localidad
-            With TablaAlumno.Rows(0)
-                AlumnoNuevo.Cargar_DatosPersona(.Item(0).ToString, .Item(1).ToString, Val(.Item(2)), Convert.ToDateTime(.Item(3)), Val(.Item(4)), Val(TablaDireccion.Rows(0).Item(3)), TablaDireccion.Rows(0).Item(0).ToString, Val(TablaDireccion.Rows(0).Item(1)), Val(.Item(6)))
-            End With
-            TXT = "Select RELA_COLEGIO, COLEGIO_NOMBRE, RELA_ORIENTACION, ORIENTACION_DESCRIPCION, ANIO_INGRESO, ANIO_EGRESO, PROMEDIO, ID_ALUMNO From ANTECEDENTE_ACADEMICO JOIN ALUMNO ON ID_ALUMNO = RELA_ALUMNO Inner Join COLEGIO On ID_COLEGIO = RELA_COLEGIO Inner Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ALUMNO = " & AlumnoID & ""
-            AccesoDB.Cargar_DataTable(TXT, Tabla2)
-            With Tabla2.Rows(0)
-                AlumnoNuevo.Cargar_AntAcademicos(Val(.Item(0)), Val(.Item(2)), Val(.Item(4)), Val(.Item(5)), Val(.Item(6)))
-            End With
+            CBOOrientacion.Text = TablaAcademico.Rows(0).Item(3).ToString
             Dim Gestionar2 As New Botones(True, False, True, False, True, True, True)
             Gestionar2.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
 
@@ -102,46 +90,20 @@
             .DisplayMember = "PAIS_NOMBRE"
             .ValueMember = "ID_PAIS"
         End With
-        With CBOCarreras
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_CARRERA, CARRERA_NOMBRE from CARRERA")
-            .DisplayMember = "CARRERA_NOMBRE"
-            .ValueMember = "ID_CARRERA"
-        End With
+        Dim oCarrera As New Carrera
+
+        oCarrera.Traer_Carreras(CBOCarreras)
     End Sub
 
     Private Sub CMDGuardar_Click(sender As Object, e As EventArgs) Handles CMDGuardar.Click
         If AlumnoNuevo.ValidarPersona(TXTNombre.Text, TXTApellido.Text, Val(TXTNrodoc.Text), DTPFechan.Value, Val(TXTTelefono.Text), Val(CBOLocalidad.SelectedValue), TXTCalle.Text, Val(TXTAltura.Text), Val(CBOEc.SelectedValue)) Then
             If AlumnoNuevo.ValidarAntAcademicos(Val(CBOColegio.SelectedValue), Val(CBOOrientacion.SelectedValue), Val(TXTIngreso.Text), Val(TXTEgreso.Text), Val(TXTPromedio.Text)) Then
-                Dim TXT As String
-                Dim IDPersona As Integer
+                
                 If AlumnoID = 0 Then
                     AlumnoNuevo.Cargar_DatosPersona(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
                     AlumnoNuevo.Cargar_AntAcademicos(Val(CBOColegio.SelectedValue), Val(CBOOrientacion.SelectedValue), Val(TXTIngreso.Text), Val(TXTEgreso.Text), Val(TXTPromedio.Text))
                     'Si el alumno es nuevo....
-                    TXT = "Insert Into PERSONA(RELA_ESTADOCIVIL, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(:RELA_ESTADOCIVIL, :PERSONA_NOMBRE, :PERSONA_APELLIDO, :PERSONA_DOCUMENTO, :PERSONA_FECHA_NAC, :PERSONA_TELEFONO)"
-                    AccesoDB.Obtener_Datos(AlumnoNuevo.EstadoCivil, AlumnoNuevo.Nombre, AlumnoNuevo.Apellido, AlumnoNuevo.Documento, AlumnoNuevo.FechaN, AlumnoNuevo.Telefono, Nothing, Nothing, Nothing)
-                    AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
-                    IDPersona = AccesoDB.Obtener_ID("PERSONA", "ID_PERSONA", "PERSONA_DOCUMENTO", AlumnoNuevo.Documento)
-
-                    TXT = "Insert Into ALUMNO(RELA_PERSONA) values(:RELA_PERSONA)"
-                    AccesoDB.Obtener_Datos(IDPersona, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                    AccesoDB.Cargar_Datos(TXT, "RELA_PERSONA", "", "", "", "", "", "", "", "")
-
-                    TXT = "Insert Into DIRECCION(RELA_LOCALIDAD, RELA_PERSONA, DIRECCION_CALLE, DIRECCION_ALTURA) Values(:RELA_LOCALIDAD, :RELA_PERSONA, :DIRECCION_CALLE, :DIRECCION_ALTURA)"
-                    AccesoDB.Obtener_Datos(AlumnoNuevo.Localidad, IDPersona, AlumnoNuevo.Calle, AlumnoNuevo.Altura, Nothing, Nothing, Nothing, Nothing, Nothing)
-                    AccesoDB.Cargar_Datos(TXT, "RELA_LOCALIDAD", "RELA_PERSONA", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "")
-
-                    AlumnoID = AccesoDB.Obtener_ID("ALUMNO", "ID_ALUMNO", "RELA_PERSONA", IDPersona)
-                    TXT = "Insert Into ANTECEDENTE_ACADEMICO(RELA_COLEGIO, RELA_ALUMNO, RELA_ORIENTACION, ANIO_INGRESO, ANIO_EGRESO, PROMEDIO) Values(:RELA_COLEGIO, :RELA_ALUMNO, :RELA_ORIENTACION, :ANIO_INGRESO, :ANIO_EGRESO, :PROMEDIO)"
-                    With AlumnoNuevo
-                        AccesoDB.Obtener_Datos(.Colegio, AlumnoID, .Orientacion, .Ingreso, .Egreso, .Promedio, Nothing, Nothing, Nothing)
-                    End With
-                    AccesoDB.Cargar_Datos(TXT, "RELA_COLEGIO", "RELA_ALUMNO", "RELA_ORIENTACION", "ANIO_INGRESO", "ANIO_EGRESO", "PROMEDIO", "", "", "")
-
-                    TXT = "Insert Into CARRERAXALUMNO(RELA_CARRERA, RELA_ALUMNO, CXA_FECHA_INSCRIPCION) Values(:RELA_CARRERA, :RELA_ALUMNO, :CXA_FECHA_INSCRIPCION)"
-                    AccesoDB.Obtener_Datos(Val(CBOCarreras.SelectedValue), AlumnoID, Date.Now, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                    AccesoDB.Cargar_Datos(TXT, "RELA_CARRERA", "RELA_ALUMNO", "CXA_FECHA_INSCRIPCION", "", "", "", "", "", "")
-
+                    AlumnoNuevo.Cargar_Alumno(Val(CBOCarreras.SelectedValue))
 
                     MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
                 Else

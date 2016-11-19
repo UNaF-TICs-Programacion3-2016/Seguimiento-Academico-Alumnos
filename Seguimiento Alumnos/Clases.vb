@@ -1,5 +1,6 @@
 ﻿Imports System.Data.OracleClient
 Public MustInherit Class Persona
+    Inherits GestorBD
     Protected _Nombre As String
     Protected _Apellido As String
     Protected _Documento As Integer
@@ -259,7 +260,7 @@ Public Class Puntaje
             Return "Mala"
         End If
     End Function
-    
+
     Private Function ParametroOrientacion() As Integer
         Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
@@ -579,6 +580,7 @@ Public Class Alumno
     Private _Ingreso As Integer
     Private _Egreso As Integer
     Private _Promedio As Double
+    Private AlumnoID As Integer
 
     Public Property Colegio As Integer
         Get
@@ -707,20 +709,65 @@ Public Class Alumno
         End If
     End Function
 
+    Public Sub Traer_Alumno(TablaAlumno As DataTable, TablaDireccion As DataTable, TablaAcademico As DataTable)
+        Dim TXT As String
+        'Sacamos id del seleccionado
+        TXT = "Select PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO, RELA_PERSONA, RELA_ESTADOCIVIL, ESTADOCIVIL_DESCRIPCION From ALUMNO Inner JOIN PERSONA On ID_PERSONA = RELA_PERSONA Inner Join ESTADOCIVIL ON RELA_ESTADOCIVIL = ID_ESTADOCIVIL Where ID_ALUMNO = " & AlumnoID & ""
+        Cargar_DataTable(TXT, TablaAlumno)
+
+        TXT = "Select DIRECCION_CALLE, DIRECCION_ALTURA, LOCALIDAD_NOMBRE, RELA_LOCALIDAD, RELA_PERSONA FROM DIRECCION Inner Join LOCALIDAD ON ID_LOCALIDAD = RELA_LOCALIDAD where RELA_PERSONA = " & Val(TablaAlumno.Rows(0).Item(5)) & ""
+        Cargar_DataTable(TXT, TablaDireccion)
+
+        With TablaAlumno.Rows(0)
+            Cargar_DatosPersona(.Item(0).ToString, .Item(1).ToString, Val(.Item(2)), Convert.ToDateTime(.Item(3)), Val(.Item(4)), Val(TablaDireccion.Rows(0).Item(3)), TablaDireccion.Rows(0).Item(0).ToString, Val(TablaDireccion.Rows(0).Item(1)), Val(.Item(6)))
+        End With
+
+        TXT = "Select RELA_COLEGIO, COLEGIO_NOMBRE, RELA_ORIENTACION, ORIENTACION_DESCRIPCION, ANIO_INGRESO, ANIO_EGRESO, PROMEDIO, ID_ALUMNO From ANTECEDENTE_ACADEMICO JOIN ALUMNO ON ID_ALUMNO = RELA_ALUMNO Inner Join COLEGIO On ID_COLEGIO = RELA_COLEGIO Inner Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ALUMNO = " & AlumnoID & ""
+        Cargar_DataTable(TXT, TablaAcademico)
+        With TablaAcademico.Rows(0)
+            Cargar_AntAcademicos(Val(.Item(0)), Val(.Item(2)), Val(.Item(4)), Val(.Item(5)), Val(.Item(6)))
+        End With
+    End Sub
+    Public Sub Cargar_Alumno(Carrera As Integer)
+        Dim TXT As String
+        Dim IDPersona As Integer
+        TXT = "Insert Into PERSONA(RELA_ESTADOCIVIL, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO) Values(:RELA_ESTADOCIVIL, :PERSONA_NOMBRE, :PERSONA_APELLIDO, :PERSONA_DOCUMENTO, :PERSONA_FECHA_NAC, :PERSONA_TELEFONO)"
+        Obtener_Datos(EstadoCivil, Nombre, Apellido, Documento, FechaN, Telefono, Nothing, Nothing, Nothing)
+        Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
+        IDPersona = Obtener_ID("PERSONA", "ID_PERSONA", "PERSONA_DOCUMENTO", Documento)
+
+        TXT = "Insert Into ALUMNO(RELA_PERSONA) values(:RELA_PERSONA)"
+        Obtener_Datos(IDPersona, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Cargar_Datos(TXT, "RELA_PERSONA", "", "", "", "", "", "", "", "")
+
+        TXT = "Insert Into DIRECCION(RELA_LOCALIDAD, RELA_PERSONA, DIRECCION_CALLE, DIRECCION_ALTURA) Values(:RELA_LOCALIDAD, :RELA_PERSONA, :DIRECCION_CALLE, :DIRECCION_ALTURA)"
+        Obtener_Datos(Localidad, IDPersona, Calle, Altura, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Cargar_Datos(TXT, "RELA_LOCALIDAD", "RELA_PERSONA", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "")
+
+        AlumnoID = Obtener_ID("ALUMNO", "ID_ALUMNO", "RELA_PERSONA", IDPersona)
+        TXT = "Insert Into ANTECEDENTE_ACADEMICO(RELA_COLEGIO, RELA_ALUMNO, RELA_ORIENTACION, ANIO_INGRESO, ANIO_EGRESO, PROMEDIO) Values(:RELA_COLEGIO, :RELA_ALUMNO, :RELA_ORIENTACION, :ANIO_INGRESO, :ANIO_EGRESO, :PROMEDIO)"
+        Obtener_Datos(Colegio, AlumnoID, Orientacion, Ingreso, Egreso, Promedio, Nothing, Nothing, Nothing)
+
+        Cargar_Datos(TXT, "RELA_COLEGIO", "RELA_ALUMNO", "RELA_ORIENTACION", "ANIO_INGRESO", "ANIO_EGRESO", "PROMEDIO", "", "", "")
+
+        TXT = "Insert Into CARRERAXALUMNO(RELA_CARRERA, RELA_ALUMNO, CXA_FECHA_INSCRIPCION) Values(:RELA_CARRERA, :RELA_ALUMNO, :CXA_FECHA_INSCRIPCION)"
+        Obtener_Datos(Carrera, AlumnoID, Date.Now, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Cargar_Datos(TXT, "RELA_CARRERA", "RELA_ALUMNO", "CXA_FECHA_INSCRIPCION", "", "", "", "", "", "")
+
+    End Sub
     Public Sub Borrar_Alumno(IDAlumno As Integer)
         Dim IDPersona As Integer
-        Dim AccesoDB As New GestorBD
-        IDPersona = AccesoDB.Obtener_ID("ALUMNO", "RELA_PERSONA", "ID_ALUMNO", IDAlumno)
+        IDPersona = Obtener_ID("ALUMNO", "RELA_PERSONA", "ID_ALUMNO", IDAlumno)
         'borramos la direccion
-        AccesoDB.Cargar_Datos("Delete From DIRECCION Where RELA_PERSONA = " & IDPersona & "", "", "", "", "", "", "", "", "", "")
+        Cargar_Datos("Delete From DIRECCION Where RELA_PERSONA = " & IDPersona & "", "", "", "", "", "", "", "", "", "")
         'borramos la persona
-        AccesoDB.Cargar_Datos("Delete From PERSONA Where ID_PERSONA = " & IDPersona & "", "", "", "", "", "", "", "", "", "")
+        Cargar_Datos("Delete From PERSONA Where ID_PERSONA = " & IDPersona & "", "", "", "", "", "", "", "", "", "")
         'borramos la carreraxalumno
-        AccesoDB.Cargar_Datos("Delete From CARRERAXALUMNO Where RELA_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
+        Cargar_Datos("Delete From CARRERAXALUMNO Where RELA_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
         'borramos el antecedente
-        AccesoDB.Cargar_Datos("Delete From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
+        Cargar_Datos("Delete From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
         'borramos el alumno
-        AccesoDB.Cargar_Datos("Delete From ALUMNO Where ID_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
+        Cargar_Datos("Delete From ALUMNO Where ID_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
     End Sub
 End Class
 
@@ -1163,6 +1210,7 @@ Public Class GestorBD
 End Class
 
 Public MustInherit Class ObjetoBD
+    Inherits GestorBD
     'Clase de objetos que van a ser cargados a la bd
     Private _Nombre As String
     Public Property Nombre As String
@@ -1173,7 +1221,9 @@ Public MustInherit Class ObjetoBD
             _Nombre = value
         End Set
     End Property
-    Public MustOverride Function Mensaje(Tipo As String) As String
+    Public Overridable Function Mensaje(Tipo As String) As String
+        Return "El dato ha sido cargado correctamente"
+    End Function
     Public Overridable Function Validacion() As Boolean
         If Nombre = "" Then
             MsgBox("Ingrese un nombre", MsgBoxStyle.Exclamation, "Sistema")
@@ -1431,4 +1481,26 @@ Public Class Carrera
         End If
         Return False
     End Function
+    Public Sub Traer_Carreras(Objeto As Object)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                .DataSource = Obtener_Tabla("Select ID_CARRERA, CARRERA_NOMBRE from CARRERA")
+                .DisplayMember = "CARRERA_NOMBRE"
+                .ValueMember = "ID_CARRERA"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_CARRERA, CARRERA_NOMBRE from CARRERA")
+        End If
+    End Sub
+End Class
+Public Class Pais
+    Inherits ObjetoBD
+
+
 End Class
