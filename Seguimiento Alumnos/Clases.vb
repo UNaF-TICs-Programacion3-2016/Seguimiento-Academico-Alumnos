@@ -98,16 +98,16 @@ Public MustInherit Class Persona
         End Set
     End Property
 
-    Public Sub Cargar_DatosPersona(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As String, vAltura As String, vEstadoCivil As Integer)
+    Public Sub Cargar_DatosPersona(vNombre As String, vApellido As String, vDocumento As String, vFechaN As Date, vTelefono As String, vLocalidad As String, vCalle As String, vAltura As String, vEstadoCivil As String)
         Nombre = vNombre
         Apellido = vApellido
-        Documento = vDocumento
+        Documento = Val(vDocumento)
         FechaN = vFechaN
-        Telefono = vTelefono
-        Localidad = vLocalidad
+        Telefono = Val(vTelefono)
+        Localidad = Val(vLocalidad)
         Calle = vCalle
-        Altura = vAltura
-        EstadoCivil = vEstadoCivil
+        Altura = Val(vAltura)
+        EstadoCivil = Val(vEstadoCivil)
     End Sub
 
     Public Sub Cargar_Cambios(vNombre As String, vApellido As String, vDocumento As Integer, vFechaN As Date, vTelefono As Integer, vLocalidad As Integer, vCalle As String, vAltura As String, vEstadoCivil As Integer)
@@ -140,29 +140,29 @@ Public MustInherit Class Persona
         End If
     End Sub
 
-    Public Function ValidarPersona(vNombre As String, vapellido As String, vdocumento As Integer, vfechan As Date, vtelefono As Integer, vlocalidad As Integer, vcalle As String, valtura As Integer, vestadocivil As Integer) As Boolean
+    Public Function ValidarPersona() As Boolean
         'Funcion para validar la persona
-        If vNombre = "" Then
+        If Nombre = "" Then
             MsgBox("Ingrese el nombre del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vapellido = "" Then
+        ElseIf Apellido = "" Then
             MsgBox("Ingrese el apellido del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vdocumento = Nothing Then
+        ElseIf Documento = 0 Then
             MsgBox("Ingrese el documento del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Not IsNumeric(vdocumento) Then
+        ElseIf Not IsNumeric(Documento) Then
             MsgBox("Ingrese el documento de forma numérica", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vfechan = Nothing Then
+        ElseIf FechaN = Nothing Then
             MsgBox("Ingrese la fecha de nacimiento", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf Not IsDate(vfechan) Then
+        ElseIf Not IsDate(FechaN) Then
             MsgBox("Ingrese la fecha en el formato correcto (DD/MM/AAAA)", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vtelefono = Nothing Then
+        ElseIf Telefono = 0 Then
             MsgBox("Ingrese un número de teléfono", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vlocalidad = Nothing Then
+        ElseIf Localidad = 0 Then
             MsgBox("Seleccione una localidad", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vcalle = Nothing Then
+        ElseIf Calle = Nothing Then
             MsgBox("Ingrese un nombre de calle/avenida", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf valtura = Nothing Then
+        ElseIf Altura = 0 Then
             MsgBox("Ingrese el número de altura de la calle", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vestadocivil = Nothing Then
+        ElseIf EstadoCivil = 0 Then
             MsgBox("Seleccione un estado civil", MsgBoxStyle.Exclamation, "Sistema")
         Else
             Return True
@@ -580,7 +580,7 @@ Public Class Alumno
     Private _Ingreso As Integer
     Private _Egreso As Integer
     Private _Promedio As Double
-    Private AlumnoID As Integer
+    Public AlumnoID As Integer
 
     Public Property Colegio As Integer
         Get
@@ -625,31 +625,35 @@ Public Class Alumno
         End Set
     End Property
 
-    Public Sub Cargar_AntAcademicos(vColegio As Integer, vOrientacion As Integer, vIngreso As Integer, vEgreso As Integer, vPromedio As Double)
-        Colegio = vColegio
-        Orientacion = vOrientacion
-        Ingreso = vIngreso
-        Egreso = vEgreso
-        Promedio = vPromedio
+    Public Sub Cargar_AntAcademicos(vColegio As String, vOrientacion As String, vIngreso As String, vEgreso As String, vPromedio As String)
+        Colegio = Val(vColegio)
+        Orientacion = Val(vOrientacion)
+        Ingreso = Val(vIngreso)
+        Egreso = Val(vEgreso)
+        Promedio = Val(vPromedio)
     End Sub
-    Public Function ValidarAntAcademicos(vColegio As Integer, vOrientacion As Integer, vIngreso As Integer, vEgreso As Integer, vPromedio As Double) As Boolean
-        If vColegio = Nothing Then
-            MsgBox("Seleccione un colegio", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vOrientacion = Nothing Then
-            MsgBox("Seleccione una orientación", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vIngreso = Nothing Then
-            MsgBox("Seleccione un año de ingreso", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vEgreso = Nothing Then
-            MsgBox("Seleccione un año de egreso", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vPromedio = Nothing Then
-            MsgBox("Ingrese el promedio del alumno", MsgBoxStyle.Exclamation, "Sistema")
-        ElseIf vPromedio < 6 Or vPromedio > 10 Then
-            MsgBox("Ingrese un promedio válido, Que no se menor a 6 o mayor a 10", MsgBoxStyle.Exclamation, "Sistema")
+    Public Function ValidarAntAcademicos() As Boolean
+        If ValidarPersona() Then
+            If Colegio = Nothing Then
+                MsgBox("Seleccione un colegio", MsgBoxStyle.Exclamation, "Sistema")
+            ElseIf Orientacion = Nothing Then
+                MsgBox("Seleccione una orientación", MsgBoxStyle.Exclamation, "Sistema")
+            ElseIf Ingreso = Nothing Then
+                MsgBox("Seleccione un año de ingreso", MsgBoxStyle.Exclamation, "Sistema")
+            ElseIf Egreso = Nothing Then
+                MsgBox("Seleccione un año de egreso", MsgBoxStyle.Exclamation, "Sistema")
+            ElseIf Promedio = Nothing Then
+                MsgBox("Ingrese el promedio del alumno", MsgBoxStyle.Exclamation, "Sistema")
+            ElseIf Promedio < 6 Or Promedio > 10 Then
+                MsgBox("Ingrese un promedio válido, Que no se menor a 6 o mayor a 10", MsgBoxStyle.Exclamation, "Sistema")
+            Else
+                Return True
+                Exit Function
+            End If
         Else
-            Return True
-            Exit Function
+            Reiniciar_Persona()
+            Return False
         End If
-        Return False
     End Function
 
     Public Function ValidarDisersion(vAlumno As String, vCarrera As Integer, vFecha As Date) As Boolean
@@ -670,6 +674,7 @@ Public Class Alumno
 
     Public Sub Reiniciar_Persona()
         'Vacio las propiedades del alumno
+        AlumnoID = Nothing
         Nombre = Nothing
         Apellido = Nothing
         Documento = Nothing
@@ -755,6 +760,20 @@ Public Class Alumno
         Cargar_Datos(TXT, "RELA_CARRERA", "RELA_ALUMNO", "CXA_FECHA_INSCRIPCION", "", "", "", "", "", "")
 
     End Sub
+    Public Sub Modificar_Alumno()
+        Dim IDPersona As Integer
+        Dim TXT As String
+        IDPersona = Obtener_ID("ALUMNO", "RELA_PERSONA", "ID_ALUMNO", AlumnoID)
+        TXT = "Update PERSONA Set RELA_ESTADOCIVIL = :RELA_ESTADOCIVIL, PERSONA_NOMBRE = :PERSONA_NOMBRE, PERSONA_APELLIDO = :PERSONA_APELLIDO, PERSONA_DOCUMENTO = :PERSONA_DOCUMENTO, PERSONA_FECHA_NAC = :PERSONA_FECHA_NAC, PERSONA_TELEFONO = :PERSONA_TELEFONO Where ID_PERSONA = " & IDPersona & ""
+        Obtener_Datos(EstadoCivil, Nombre, Apellido, Documento, FechaN, Telefono, Nothing, Nothing, Nothing)
+        Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
+        IDPersona = Obtener_ID("PERSONA", "ID_PERSONA", "PERSONA_DOCUMENTO", Documento)
+
+        TXT = "Update DIRECCION Set RELA_LOCALIDAD = :RELA_LOCALIDAD, DIRECCION_CALLE = :DIRECCION_CALLE, DIRECCION_ALTURA = :DIRECCION_ALTURA Where RELA_PERSONA = " & AlumnoID & ""
+        Obtener_Datos(Localidad, Calle, Altura, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Cargar_Datos(TXT, "RELA_LOCALIDAD", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "", "")
+
+    End Sub
     Public Sub Borrar_Alumno(IDAlumno As Integer)
         Dim IDPersona As Integer
         IDPersona = Obtener_ID("ALUMNO", "RELA_PERSONA", "ID_ALUMNO", IDAlumno)
@@ -768,6 +787,10 @@ Public Class Alumno
         Cargar_Datos("Delete From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
         'borramos el alumno
         Cargar_Datos("Delete From ALUMNO Where ID_ALUMNO = " & IDAlumno & "", "", "", "", "", "", "", "", "", "")
+    End Sub
+    Public Sub Tabla_Alumnos(Grilla As DataGridView)
+        'metodo para cargar una grilla
+        Grilla.DataSource = Obtener_Tabla("Select ID_ALUMNO As ID, PERSONA_NOMBRE as Nombre, PERSONA_APELLIDO As Apellido, PERSONA_DOCUMENTO As Documento From ALUMNO INNER JOIN PERSONA ON ID_PERSONA = RELA_PERSONA")
     End Sub
 End Class
 
@@ -1347,6 +1370,24 @@ Public Class Colegio
         End If
         Return False
     End Function
+
+    Public Sub Traer_Colegios(Objeto As Object)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                .DataSource = Obtener_Tabla("Select * From COLEGIO")
+                .DisplayMember = "COLEGIO_NOMBRE"
+                .ValueMember = "ID_COLEGIO"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select * From COLEGIO")
+        End If
+    End Sub
 End Class
 Public Class Disercion
     Inherits ObjetoBD
@@ -1499,8 +1540,41 @@ Public Class Carrera
         End If
     End Sub
 End Class
-Public Class Pais
+Public Class ObjetosVarios
     Inherits ObjetoBD
 
+    Public Sub Traer_Paises(Objeto As Object)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
 
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                .DataSource = Obtener_Tabla("Select * From PAIS")
+                .DisplayMember = "PAIS_NOMBRE"
+                .ValueMember = "ID_PAIS"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select * From PAIS")
+        End If
+    End Sub
+    Public Sub Traer_EstadoCivil(Objeto As Object)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                .DataSource = Obtener_Tabla("Select * FROM ESTADOCIVIL")
+                .DisplayMember = "ESTADOCIVIL_DESCRIPCION"
+                .ValueMember = "ID_ESTADOCIVIL"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select * FROM ESTADOCIVIL")
+        End If
+    End Sub
 End Class

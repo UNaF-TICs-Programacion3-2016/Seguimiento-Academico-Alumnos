@@ -20,7 +20,7 @@
     End Sub
 
     Private Sub CMDBuscar_Click(sender As Object, e As EventArgs) Handles CMDBuscar.Click
-        DatagridAlumnos.DataSource = AccesoDB.Obtener_Tabla("Select ID_ALUMNO As ID, PERSONA_NOMBRE as Nombre, PERSONA_APELLIDO As Apellido, PERSONA_DOCUMENTO As Documento From ALUMNO INNER JOIN PERSONA ON ID_PERSONA = RELA_PERSONA")
+        AlumnoNuevo.Tabla_Alumnos(DatagridAlumnos)
         Me.Width = 840
         Dim gestionarbotones As New Botones(False, False, False, False, False, False, True)
         gestionarbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
@@ -31,7 +31,8 @@
             Dim TablaAlumnos As New DataTable
             Dim TablaDireccion As New DataTable
             Dim TablaAcademico As New DataTable
-
+            AlumnoID = Val(DatagridAlumnos.CurrentRow.Cells(0).Value)
+            AlumnoNuevo.AlumnoID = AlumnoID
             AlumnoNuevo.Traer_Alumno(TablaAlumnos, TablaDireccion, TablaAcademico)
 
             CBOEc.Text = TablaAlumnos.Rows(0).Item(7).ToString 'cargar cboestadocivil
@@ -75,61 +76,47 @@
         GestionBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
 
         'Cargar combobox
-        With CBOEc
-            .DataSource = AccesoDB.Obtener_Tabla("Select * FROM ESTADOCIVIL")
-            .DisplayMember = "ESTADOCIVIL_DESCRIPCION"
-            .ValueMember = "ID_ESTADOCIVIL"
-        End With
-        With CBOColegio
-            .DataSource = AccesoDB.Obtener_Tabla("Select * From COLEGIO")
-            .DisplayMember = "COLEGIO_NOMBRE"
-            .ValueMember = "ID_COLEGIO"
-        End With
-        With CBOPais
-            .DataSource = AccesoDB.Obtener_Tabla("Select * From PAIS")
-            .DisplayMember = "PAIS_NOMBRE"
-            .ValueMember = "ID_PAIS"
-        End With
-        Dim oCarrera As New Carrera
+        Dim oColegio As New Colegio
+        oColegio.Traer_Colegios(CBOColegio)
 
+        Dim oVarios As New ObjetosVarios
+        oVarios.Traer_Paises(CBOPais)
+        oVarios.Traer_EstadoCivil(CBOEc)
+
+        Dim oCarrera As New Carrera
         oCarrera.Traer_Carreras(CBOCarreras)
     End Sub
 
     Private Sub CMDGuardar_Click(sender As Object, e As EventArgs) Handles CMDGuardar.Click
-        If AlumnoNuevo.ValidarPersona(TXTNombre.Text, TXTApellido.Text, Val(TXTNrodoc.Text), DTPFechan.Value, Val(TXTTelefono.Text), Val(CBOLocalidad.SelectedValue), TXTCalle.Text, Val(TXTAltura.Text), Val(CBOEc.SelectedValue)) Then
-            If AlumnoNuevo.ValidarAntAcademicos(Val(CBOColegio.SelectedValue), Val(CBOOrientacion.SelectedValue), Val(TXTIngreso.Text), Val(TXTEgreso.Text), Val(TXTPromedio.Text)) Then
-                
-                If AlumnoID = 0 Then
-                    AlumnoNuevo.Cargar_DatosPersona(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
-                    AlumnoNuevo.Cargar_AntAcademicos(Val(CBOColegio.SelectedValue), Val(CBOOrientacion.SelectedValue), Val(TXTIngreso.Text), Val(TXTEgreso.Text), Val(TXTPromedio.Text))
-                    'Si el alumno es nuevo....
-                    AlumnoNuevo.Cargar_Alumno(Val(CBOCarreras.SelectedValue))
+        If AlumnoID = 0 Then
+            Dim i As Integer = CType(CBOLocalidad.SelectedValue, Integer)
+            AlumnoNuevo.Cargar_DatosPersona(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, Val(CBOEc.SelectedValue))
+            AlumnoNuevo.Cargar_AntAcademicos(CBOColegio.SelectedValue, CBOOrientacion.SelectedValue, TXTIngreso.Text, TXTEgreso.Text, TXTPromedio.Text)
+            If AlumnoNuevo.ValidarAntAcademicos() Then
 
-                    MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
-                Else
-                    'Si no es nuevo....
+                'Si el alumno es nuevo....
+                AlumnoNuevo.Cargar_Alumno(Val(CBOCarreras.SelectedValue))
 
-                    'vemos cambios
-                    AlumnoNuevo.Cargar_Cambios(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
-                    'Cargamos los datos ---- falta corregir y terminar ---------
-                    IDPersona = AccesoDB.Obtener_ID("ALUMNO", "RELA_PERSONA", "ID_ALUMNO", AlumnoID)
-                    TXT = "Update PERSONA Set RELA_ESTADOCIVIL = :RELA_ESTADOCIVIL, PERSONA_NOMBRE = :PERSONA_NOMBRE, PERSONA_APELLIDO = :PERSONA_APELLIDO, PERSONA_DOCUMENTO = :PERSONA_DOCUMENTO, PERSONA_FECHA_NAC = :PERSONA_FECHA_NAC, PERSONA_TELEFONO = :PERSONA_TELEFONO Where ID_PERSONA = " & IDPersona & ""
-                    AccesoDB.Obtener_Datos(AlumnoNuevo.EstadoCivil, AlumnoNuevo.Nombre, AlumnoNuevo.Apellido, AlumnoNuevo.Documento, AlumnoNuevo.FechaN, AlumnoNuevo.Telefono, Nothing, Nothing, Nothing)
-                    AccesoDB.Cargar_Datos(TXT, "RELA_ESTADOCIVIL", "PERSONA_NOMBRE", "PERSONA_APELLIDO", "PERSONA_DOCUMENTO", "PERSONA_FECHA_NAC", "PERSONA_TELEFONO", "", "", "")
-                    IDPersona = AccesoDB.Obtener_ID("PERSONA", "ID_PERSONA", "PERSONA_DOCUMENTO", AlumnoNuevo.Documento)
-
-                    TXT = "Update DIRECCION Set RELA_LOCALIDAD = :RELA_LOCALIDAD, DIRECCION_CALLE = :DIRECCION_CALLE, DIRECCION_ALTURA = :DIRECCION_ALTURA Where RELA_PERSONA = " & AlumnoID & ""
-                    AccesoDB.Obtener_Datos(AlumnoNuevo.Localidad, AlumnoNuevo.Calle, AlumnoNuevo.Altura, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-                    AccesoDB.Cargar_Datos(TXT, "RELA_LOCALIDAD", "DIRECCION_CALLE", "DIRECCION_ALTURA", "", "", "", "", "", "")
-
-                    MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
-                End If
                 Dim gestionbotones As New Botones(True, False, True, False, True, True, True)
                 gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
                 Botones.Gestionar_Formulario(Me.DatosPersonales, False, False)
                 Botones.Gestionar_Formulario(Me.AntecedentesAc, False, False)
             End If
+        Else
+            If AlumnoNuevo.ValidarAntAcademicos() Then
+                'Si no es nuevo....
+
+                'vemos cambios
+                AlumnoNuevo.Cargar_Cambios(TXTNombre.Text, TXTApellido.Text, TXTNrodoc.Text, DTPFechan.Value, TXTTelefono.Text, CBOLocalidad.SelectedValue, TXTCalle.Text, TXTAltura.Text, CBOEc.SelectedValue)
+                AlumnoNuevo.Modificar_Alumno()
+            End If
+            MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
+            Dim gestionbotones As New Botones(True, False, True, False, True, True, True)
+            gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+            Botones.Gestionar_Formulario(Me.DatosPersonales, False, False)
+            Botones.Gestionar_Formulario(Me.AntecedentesAc, False, False)
         End If
+            
     End Sub
 
     Private Sub CMDModificar_Click(sender As Object, e As EventArgs) Handles CMDModificar.Click
