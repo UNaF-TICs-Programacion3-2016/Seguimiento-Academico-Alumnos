@@ -172,6 +172,7 @@ Public MustInherit Class Persona
     End Function
 End Class
 Public Class Puntaje
+    Inherits GestorBD
     Private vPositivo As Integer
     Private vNegativo As Integer
     Private vSalario As Double
@@ -234,13 +235,12 @@ Public Class Puntaje
         End Select
     End Function
     Private Sub Calcular_Puntajes()
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Positivo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & Carrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & AlumnoID & " And PARAMETROXALUMNO_PUNTOS > 0", TablaDatos)
+        Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Positivo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & Carrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & AlumnoID & " And PARAMETROXALUMNO_PUNTOS > 0", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Positivo = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
-        AccesoDB.Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Negativo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & Carrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & AlumnoID & " And PARAMETROXALUMNO_PUNTOS < 0", TablaDatos)
+        Cargar_DataTable("Select SUM(PARAMETROXALUMNO_PUNTOS) As Negativo From PARAMETROXALUMNO Inner Join CARRERAXALUMNO ON CARRERAXALUMNO.RELA_ALUMNO = PARAMETROXALUMNO.RELA_ALUMNO Where RELA_CARRERA = " & Carrera & " And CARRERAXALUMNO.RELA_ALUMNO = " & AlumnoID & " And PARAMETROXALUMNO_PUNTOS < 0", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Negativo = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -262,9 +262,8 @@ Public Class Puntaje
     End Function
 
     Private Function ParametroOrientacion() As Integer
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select Count(*) As Cantidad From CARRERAXORIENTACION Join CARRERA On ID_CARRERA = RELA_CARRERA Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & " And ID_CARRERA = " & Carrera & "", TablaDatos)
+        Cargar_DataTable("Select Count(*) As Cantidad From CARRERAXORIENTACION Join CARRERA On ID_CARRERA = RELA_CARRERA Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & " And ID_CARRERA = " & Carrera & "", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If TablaDatos.Rows(0).Item(0) > 0 Then
                 Return 1
@@ -275,9 +274,8 @@ Public Class Puntaje
     End Function
 
     Private Function ParametroPromedio() As Integer
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
-        AccesoDB.Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
+        Cargar_DataTable("Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If TablaDatos.Rows(0).Item(0) > 7 Then
                 Return 1
@@ -287,16 +285,15 @@ Public Class Puntaje
         End If
     End Function
     Private Function ParametroAsistencia() As Integer
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Clases As Integer
         Dim Asistencias As Integer
-        AccesoDB.Cargar_DataTable("Select SUM(CLASE_CANTDICTADAS) As Clases, CLASE_ANIO, ID_CARRERA From CLASE Inner JOIN MATERIA ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        Cargar_DataTable("Select SUM(CLASE_CANTDICTADAS) As Clases, CLASE_ANIO, ID_CARRERA From CLASE Inner JOIN MATERIA ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Clases = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
-        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & AlumnoID & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & AlumnoID & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Asistencias = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -309,13 +306,12 @@ Public Class Puntaje
         End If
     End Function
     Private Sub ParametroMaterias(vAprobadas As Integer, vregulares As Integer, vlibres As Integer)
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Aprobadas As Integer
         Dim Regularizadas As Integer
         Dim Libres As Integer
         Dim i As Integer
-        AccesoDB.Cargar_DataTable("Select Count(ID_MATERIA) As Materias, MXA_ESTADO_ALUMNO, RELA_ALUMNO From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & AlumnoID & " AND ID_CARRERA = " & Carrera & " GROUP BY MXA_ESTADO_ALUMNO, RELA_ALUMNO", TablaDatos)
+        Cargar_DataTable("Select Count(ID_MATERIA) As Materias, MXA_ESTADO_ALUMNO, RELA_ALUMNO From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & AlumnoID & " AND ID_CARRERA = " & Carrera & " GROUP BY MXA_ESTADO_ALUMNO, RELA_ALUMNO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             For i = 0 To TablaDatos.Rows.Count - 1
                 If TablaDatos.Rows(i).Item(1).ToString = "Aprobado" Then
@@ -332,16 +328,15 @@ Public Class Puntaje
         vlibres = Libres * -1
     End Sub
     Private Sub ParametroExamenes(vAprobados As Integer, vDesaprobados As Integer)
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Aprobados As Integer
         Dim Desaprobados As Integer
-        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA >= 6", TablaDatos)
+        Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA >= 6", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Aprobados = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
-        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA < 6", TablaDatos)
+        Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA < 6", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Desaprobados = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -349,10 +344,9 @@ Public Class Puntaje
         vDesaprobados = Desaprobados * -1
     End Sub
     Private Function ParametroPromActual() As Integer
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         Dim Promedio As Double
-        AccesoDB.Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
+        Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Promedio = Convert.ToInt32(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -366,9 +360,8 @@ Public Class Puntaje
     Public Sub Obtener_Variables(vEmpleo As ComboBox, vCoincide As ComboBox, vIngresos As ComboBox, vMateriasAp As Label, vMateriasReg As Label, vMateriasLib As Label, vProm As Label, vOrientacion As Label, vExAprobados As Label, vExDesaprobados As Label, vPromActual As Label, vAsistencia As Label)
         Dim TXT As String
         Dim TablaDatos As New DataTable
-        Dim AccesoDB As New GestorBD
         TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 10 And RELA_ALUMNO = " & AlumnoID & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) < 0 Then
                 vEmpleo.SelectedText = "Si"
@@ -380,7 +373,7 @@ Public Class Puntaje
         TablaDatos.Clear()
 
         TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 11 And RELA_ALUMNO = " & AlumnoID & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) < 0 Then
                 vCoincide.SelectedText = "Si"
@@ -390,7 +383,7 @@ Public Class Puntaje
         TablaDatos.Clear()
 
         TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 1 And RELA_ALUMNO = " & AlumnoID & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) < 0 Then
                 vIngresos.SelectedText = "Menor a 6000"
@@ -400,7 +393,7 @@ Public Class Puntaje
         TablaDatos.Clear()
 
         TXT = "Select RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS From PARAMETROXALUMNO where RELA_PARAMETRO = 2 And RELA_ALUMNO = " & AlumnoID & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             If Convert.ToInt32(TablaDatos.Rows(0).Item(1).ToString) > 0 Then
                 vIngresos.SelectedText = "Mayor a 6000"
@@ -409,7 +402,7 @@ Public Class Puntaje
         End If
 
         TXT = "Select Count(ID_MATERIA) As Materias From MATERIA JOIN MATERIAXALUMNO ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA On ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & AlumnoID & " AND ID_CARRERA = " & Carrera & " And MxA_ESTADO_ALUMNO = 'Aprobado'"
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             For i = 0 To TablaDatos.Rows.Count - 1
                 If TablaDatos.Rows(i).Item(1).ToString = "Aprobado" Then
@@ -428,7 +421,7 @@ Public Class Puntaje
         TablaDatos.Clear()
 
         TXT = "Select PROMEDIO From ANTECEDENTE_ACADEMICO where RELA_ALUMNO = " & AlumnoID & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             vProm.Text = TablaDatos.Rows(0).Item(0).ToString
         Else
@@ -437,7 +430,7 @@ Public Class Puntaje
         TablaDatos.Clear()
 
         TXT = "Select ORIENTACION_DESCRIPCION From ORIENTACION Join ANTECEDENTE_ACADEMICO On ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where ID_ORIENTACION = " & Orientacion & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             vOrientacion.Text = TablaDatos.Rows(0).Item(0).ToString()
         Else
@@ -445,30 +438,30 @@ Public Class Puntaje
         End If
         TablaDatos.Clear()
 
-        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA >= 6", TablaDatos)
+        Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA >= 6", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             vExAprobados.Text = Val(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
-        AccesoDB.Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA < 6", TablaDatos)
+        Cargar_DataTable("Select Count(ID_EXAMEN) As Cantidad From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & " And EXAMEN_NOTA < 6", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             vExDesaprobados.Text = Val(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
 
-        AccesoDB.Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
+        Cargar_DataTable("Select AVG(EXAMEN_NOTA) As Total From EXAMENES Inner Join MATERIA On ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where ID_CARRERA = " & Carrera & " AND RELA_ALUMNO = " & AlumnoID & "", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             vPromActual.Text = Val(TablaDatos.Rows(0).Item(0).ToString)
         End If
 
         Dim Clases As Integer
         Dim Asistencias As Integer
-        AccesoDB.Cargar_DataTable("Select SUM(CLASE_CANTDICTADAS) As Clases, CLASE_ANIO, ID_CARRERA From CLASE Inner JOIN MATERIA ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        Cargar_DataTable("Select SUM(CLASE_CANTDICTADAS) As Clases, CLASE_ANIO, ID_CARRERA From CLASE Inner JOIN MATERIA ON ID_MATERIA = RELA_MATERIA Inner Join CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Clases = Val(TablaDatos.Rows(0).Item(0).ToString)
         End If
         TablaDatos.Clear()
-        AccesoDB.Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & AlumnoID & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
+        Cargar_DataTable("Select SUM(ASISTENCIA_CANTASISTIDAS) As Asistencias, CLASE_ANIO, ID_CARRERA From ASISTENCIA Inner JOIN CLASE ON ID_CLASE = RELA_CLASE Inner Join MATERIA ON ID_MATERIA = RELA_MATERIA Inner JOIN CARRERA ON ID_CARRERA = RELA_CARRERA where CLASE_ANIO = " & Año & " And ID_CARRERA = " & Carrera & " And ASISTENCIA.RELA_ALUMNO = " & AlumnoID & " GROUP BY ID_CARRERA, CLASE_ANIO", TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Asistencias = Val(TablaDatos.Rows(0).Item(0).ToString)
         End If
@@ -476,27 +469,26 @@ Public Class Puntaje
     End Sub
     Public Sub Cargar_Parametros(Trabaja As Integer, Coincide As Integer, Ingreso As Integer)
         Dim TXT As String
-        Dim AccesoDB As New GestorBD
         TXT = "Insert Into PARAMETROXALUMNO(RELA_ALUMNO, RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS) Values(:RELA_ALUMNO, :RELA_PARAMETRO, :PARAMETROXALUMNO_PUNTOS)"
         'aca cargamos los parametros para el alumno
         'Cargar si tiene empleo o no
         If Trabaja = 1 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 10, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 10, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
         'Cargar si coincide con horas catedra o no
         If Coincide = 1 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 11, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Obtener_Datos(AlumnoID, 11, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
             TXT = "Insert Into PARAMETROXALUMNO(RELA_ALUMNO, RELA_PARAMETRO, PARAMETROXALUMNO_PUNTOS) Values(:RELA_ALUMNO, :RELA_PARAMETRO, :PARAMETROXALUMNO_PUNTOS)"
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
         'cargar nivel de ingreso
         If Ingreso = 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 1, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Obtener_Datos(AlumnoID, 1, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         ElseIf Ingreso = 1 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 2, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Obtener_Datos(AlumnoID, 2, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
         End If
-        AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+        Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
 
         'cargar materias
         Dim MatAprobadas As Integer
@@ -505,36 +497,36 @@ Public Class Puntaje
         ParametroMaterias(MatAprobadas, MatRegulares, MatLibres)
         'Materias Aprobadas
         If MatAprobadas <> 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 5, MatAprobadas, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 5, MatAprobadas, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
         'Materias Regulares
         If MatRegulares <> 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 6, MatRegulares, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 6, MatRegulares, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
         'Materias Libres
         If MatLibres <> 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 7, MatLibres, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 7, MatLibres, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
 
         'Cargar promedio secundario
         If ParametroPromedio() = 1 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 8, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 8, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
 
         'Cargar si la orientacion del colegio coincide con la carrera
         Dim Tabla1 As DataTable
         Dim OrientacionID As Integer
-        AccesoDB.Cargar_DataTable("Select RELA_ORIENTACION, RELA_ALUMNO From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & AlumnoID & "", Tabla1)
+        Cargar_DataTable("Select RELA_ORIENTACION, RELA_ALUMNO From ANTECEDENTE_ACADEMICO Where RELA_ALUMNO = " & AlumnoID & "", Tabla1)
         If Tabla1.Rows.Count > 0 Then
             OrientacionID = Tabla1.Rows(0).Item(0)
         End If
         If ParametroOrientacion() = 1 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 9, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 9, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
 
         'Cargar los exámenes
@@ -542,33 +534,33 @@ Public Class Puntaje
         Dim ExDesaprobados As Integer
         ParametroExamenes(ExAprobados, ExDesaprobados)
         If ExAprobados <> 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 12, ExAprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 12, ExAprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
         If ExDesaprobados <> 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 13, ExDesaprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 13, ExDesaprobados, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
 
         'Cargar Promedio Actual
         Dim PromedioActual As Integer
         PromedioActual = ParametroPromActual()
         If PromedioActual > 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 15, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 15, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         ElseIf PromedioActual < 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 14, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 14, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
 
         Dim PorcAsistencia As Integer
         PorcAsistencia = ParametroAsistencia()
         If PorcAsistencia > 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 4, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 4, 1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         ElseIf PorcAsistencia < 0 Then
-            AccesoDB.Obtener_Datos(AlumnoID, 3, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
+            Obtener_Datos(AlumnoID, 3, -1, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+            Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_PARAMETRO", "PARAMETROXALUMNO_PUNTOS", "", "", "", "", "", "")
         End If
     End Sub
 End Class
@@ -692,10 +684,9 @@ Public Class Alumno
     End Sub
     Public Function Obtener_Orientacion(ID_Alumno) As Integer
         Dim TXT As String
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         TXT = "Select ID_ORIENTACION From ANTECEDENTE_ACADEMICO Join ORIENTACION ON ID_ORIENTACION = RELA_ORIENTACION Where RELA_ALUMNO = " & ID_Alumno & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Dim IDOr As Integer
             IDOr = Val(TablaDatos.Rows(0).Item(0).ToString)
@@ -705,22 +696,33 @@ Public Class Alumno
 
     Public Function Obtener_Carrera(ID_Alumno) As Integer
         Dim TXT As String
-        Dim AccesoDB As New GestorBD
         Dim TablaDatos As New DataTable
         TXT = "Select ID_CARRERA From CARRERAXALUMNO Join CARRERA ON ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & ID_Alumno & ""
-        AccesoDB.Cargar_DataTable(TXT, TablaDatos)
+        Cargar_DataTable(TXT, TablaDatos)
         If TablaDatos.Rows.Count > 0 Then
             Return Val(TablaDatos.Rows(0).Item(0).ToString)
         End If
     End Function
-
+    Public Sub Grilla_Alumno(Tipo As String, Caracter As String, Grilla As DataGridView)
+        Dim Consulta As String
+        If Tipo = "Nombre" Then
+            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & Caracter & "%'"
+        ElseIf Tipo = "Apellido" Then
+            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & Caracter & "%'"
+        ElseIf Tipo = "Documento" Then
+            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO = " & Caracter & ""
+        Else
+            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA"
+        End If
+        Obtener_Tabla(Consulta)
+    End Sub
     Public Sub Traer_Alumno(TablaAlumno As DataTable, TablaDireccion As DataTable, TablaAcademico As DataTable)
         Dim TXT As String
         'Sacamos id del seleccionado
         TXT = "Select PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_FECHA_NAC, PERSONA_TELEFONO, RELA_PERSONA, RELA_ESTADOCIVIL, ESTADOCIVIL_DESCRIPCION From ALUMNO Inner JOIN PERSONA On ID_PERSONA = RELA_PERSONA Inner Join ESTADOCIVIL ON RELA_ESTADOCIVIL = ID_ESTADOCIVIL Where ID_ALUMNO = " & AlumnoID & ""
         Cargar_DataTable(TXT, TablaAlumno)
 
-        TXT = "Select DIRECCION_CALLE, DIRECCION_ALTURA, LOCALIDAD_NOMBRE, RELA_LOCALIDAD, RELA_PERSONA FROM DIRECCION Inner Join LOCALIDAD ON ID_LOCALIDAD = RELA_LOCALIDAD where RELA_PERSONA = " & Val(TablaAlumno.Rows(0).Item(5)) & ""
+        TXT = "Select DIRECCION_CALLE, DIRECCION_ALTURA, LOCALIDAD_NOMBRE, RELA_LOCALIDAD, RELA_PERSONA FROM DIRECCION Inner Join LOCALIDAD ON ID_LOCALIDAD = RELA_LOCALIDAD where RELA_PERSONA = " & Val(TablaAlumno.Rows(0).Item(5).ToString) & ""
         Cargar_DataTable(TXT, TablaDireccion)
 
         With TablaAlumno.Rows(0)
@@ -862,7 +864,7 @@ Public Class GestorBD
         D8 = Nothing
         D9 = Nothing
     End Sub
-    Public Sub Obtener_Datos(P1 As Object, P2 As Object, P3 As Object, P4 As Object, P5 As Object, P6 As Object, P7 As Object, P8 As Object, P9 As Object)
+    Protected Sub Obtener_Datos(P1 As Object, P2 As Object, P3 As Object, P4 As Object, P5 As Object, P6 As Object, P7 As Object, P8 As Object, P9 As Object)
         Limpiar_Variables()
         If IsDate(P1) Then
             D1 = P1
@@ -928,7 +930,7 @@ Public Class GestorBD
             N9 = Val(P9)
         End If
     End Sub
-    Public Sub Cargar_Datos(Consulta As String, P1 As String, P2 As String, P3 As String, P4 As String, P5 As String, P6 As String, P7 As String, P8 As String, P9 As String)
+    Protected Sub Cargar_Datos(Consulta As String, P1 As String, P2 As String, P3 As String, P4 As String, P5 As String, P6 As String, P7 As String, P8 As String, P9 As String)
         'Le damos muchos parametros, los que no esten en blanco son los que se asignaran (se manda el nombre del campo)
         Try
             Conectar() 'Llamamos al sub para conectar
@@ -1025,7 +1027,7 @@ Public Class GestorBD
         End Try
     End Sub
 
-    Public Function Obtener_ID(Tabla As String, ID As String, campo1 As String, Objeto As Object)
+    Protected Function Obtener_ID(Tabla As String, ID As String, campo1 As String, Objeto As Object)
         'Esta funcion devuelve una id de una tabla especifica a partir de un nombre
         Conectar()
         Dim Comando As New OracleCommand
@@ -1047,7 +1049,7 @@ Public Class GestorBD
         Return Tableta.Rows(0).Item(0)    'Devuelvo el ID
     End Function
 
-    Public Sub Cargar_DataTable(Consulta As String, Table As DataTable)
+    Protected Sub Cargar_DataTable(Consulta As String, Table As DataTable)
         'objetos reader de oracle y datatable
         Dim Reader As OracleDataReader
         Dim Comando As New OracleCommand
@@ -1070,7 +1072,7 @@ Public Class GestorBD
 
     End Sub
 
-    Public Function Obtener_Tabla(Consulta As String) As DataTable
+    Protected Function Obtener_Tabla(Consulta As String) As DataTable
         'objetos reader de oracle y datatable
         Dim Reader As OracleDataReader
         Dim Comando As New OracleCommand
@@ -1092,7 +1094,7 @@ Public Class GestorBD
 
     End Function
 
-    Public Function Detectar_Existente(tabla As String, id As Integer, campo As String) As Boolean
+    Protected Function Detectar_Existente(tabla As String, id As Integer, campo As String) As Boolean
         Try
             Conectar()
             Dim Comando As New OracleCommand
@@ -1142,6 +1144,7 @@ Public MustInherit Class ObjetoBD
 End Class
 Public Class Orientacion
     Inherits ObjetoBD
+    Public IDOrientacion As Integer
 
     Public Sub New()
 
@@ -1157,6 +1160,36 @@ Public Class Orientacion
             Return "La modificación de la orientacion " & Nombre & " se ha realizado correctamente."
         End If
     End Function
+    Public Sub Guardar_Orientacion()
+        Dim TXT As String
+        Obtener_Datos(Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Insert Into ORIENTACION(ORIENTACION_DESCRIPCION) Values(:ORIENTACION_DESCRIPCION)"
+        Cargar_Datos(TXT, "ORIENTACION_DESCRIPCION", "", "", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Modificar_Orientacion()
+        Dim TXT As String
+        Obtener_Datos(Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Update ORIENTACION Set ORIENTACION_DESCRIPCION = :ORIENTACION_DESCRIPCION where ID_ORIENTACION = " & IDOrientacion & ""
+        Cargar_Datos(TXT, "ORIENTACION_DESCRIPCION", "", "", "", "", "", "", "", "")
+    End Sub
+    
+    Public Sub Reiniciar_Orientacion()
+        IDOrientacion = Nothing
+        Nombre = ""
+    End Sub
+
+    Public Sub Eliminar_Materia()
+        Dim TXT As String
+        TXT = "Delete From ORIENTACIONXCOLEGIO Where RELA_ORIENTACION = " & IDOrientacion & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        TXT = "Delete From CARRERAXORIENTACION Where RELA_ORIENTACION = " & IDOrientacion & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        TXT = "Delete From ORIENTACION Where ID_ORIENTACION = " & IDOrientacion & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+
+        Reiniciar_Orientacion()
+    End Sub
     Public Sub Traer_Orientacion(Objeto As Object, valor As Integer)
         'método para cargar combobox y datagridviews
         Dim Combo1 As New ComboBox
@@ -1187,6 +1220,7 @@ Public Class Materia
     Inherits ObjetoBD
     Private _Codigo As String
     Private _Carrera As Integer
+    Public IDMateria As Integer
 
     Public Sub New()
 
@@ -1236,10 +1270,73 @@ Public Class Materia
         End If
         Return False
     End Function
+    Public Sub Guardar_Materia()
+        Dim TXT As String
+        Obtener_Datos(Carrera, Nombre, Codigo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Insert Into MATERIA(RELA_CARRERA, MATERIA_NOMBRE, COD_MATERIA) Values(:RELA_CARRERA, :MATERIA_NOMBRE, :COD_MATERIA)"
+        Cargar_Datos(TXT, "RELA_CARRERA", "MATERIA_NOMBRE", "COD_MATERIA", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Modificar_Materia()
+        Dim TXT As String
+        Obtener_Datos(Carrera, Nombre, Codigo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Update MATERIA Set RELA_CARRERA = :RELA_CARRERA, MATERIA_NOMBRE = :MATERIA_NOMBRE, COD_MATERIA = :COD_MATERIA where ID_MATERIA = " & IDMateria & ""
+        Cargar_Datos(TXT, "RELA_CARRERA", "MATERIA_NOMBRE", "COD_MATERIA", "", "", "", "", "", "")
+    End Sub
+    Public Sub Insertar(vMateria As String, vCod As String, vCarrera As Integer)
+        Nombre = vMateria
+        Carrera = vCarrera
+        Codigo = vCod
+    End Sub
+
+    Public Sub Reiniciar_Materia()
+        Codigo = Nothing
+        Carrera = Nothing
+        Nombre = Nothing
+        IDMateria = Nothing
+    End Sub
+
+    Public Sub Eliminar_Materia()
+        Dim TXT As String
+        TXT = "Delete From CLASE Where RELA_MATERIA = " & IDMateria & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        TXT = "Delete From MATERIAXALUMNO Where RELA_MATERIA = " & IDMateria & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        TXT = "Delete From MATERIA Where ID_MATERIA = " & IDMateria & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        Reiniciar_Materia()
+    End Sub
+
+    Public Sub Traer_Materias(Objeto As Object, valor As Integer)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+        Dim TXT As String
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                If valor <> 0 Then
+                    TXT = "Select ID_MATERIA as ID, MATERIA_NOMBRE As Materia from MATERIA where RELA_CARRERA = " & valor & ""
+                Else
+                    TXT = "Select ID_MATERIA as ID, MATERIA_NOMBRE As Materia from MATERIA"
+                End If
+                .DataSource = Obtener_Tabla(TXT)
+                .DisplayMember = "Materia"
+                .ValueMember = "ID"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_MATERIA as ID, MATERIA_NOMBRE As Materia from MATERIA")
+            End
+        End If
+    End Sub
 End Class
 Public Class Colegio
     Inherits ObjetoBD
     Private _Tipo As Integer
+    Public IDColegio As Integer
+
     Public Sub New(vNombre As String, vTipo As Integer)
         Nombre = vNombre
         TipoColegio = vTipo
@@ -1277,6 +1374,35 @@ Public Class Colegio
         End If
         Return False
     End Function
+    Public Sub Guardar_Colegio()
+        Dim TXT As String
+        Obtener_Datos(Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Insert Into COLEGIO(COLEGIO_NOMBRE, COLEGIO_TIPO) Values(:COLEGIO_NOMBRE, :COLEGIO_TIPO)"
+        Cargar_Datos(TXT, "COLEGIO_NOMBRE", "COLEGIO_TIPO", "", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Modificar_Colegio()
+        Dim TXT As String
+        Obtener_Datos(Nombre, TipoColegio, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Update COLEGIO Set COLEGIO_NOMBRE = :COLEGIO_NOMBRE, COLEGIO_TIPO = :COLEGIO_TIPO where ID_COLEGIO = " & IDColegio & ""
+        Cargar_Datos(TXT, "COLEGIO_NOMBRE", "COLEGIO_TIPO", "", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Reiniciar_Colegio()
+        Nombre = ""
+        TipoColegio = Nothing
+        IDColegio = Nothing
+    End Sub
+
+    Public Sub Eliminar_Colegio()
+        Dim TXT As String
+        TXT = "Delete From ORIENTACIONXCOLEGIO Where RELA_COLEGIO = " & IDColegio & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        TXT = "Delete From COLEGIO Where RELA_COLEGIO = " & IDColegio & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+
+        Reiniciar_Colegio()
+    End Sub
 
     Public Sub Traer_Colegios(Objeto As Object)
         'método para cargar combobox y datagridviews
@@ -1296,8 +1422,10 @@ Public Class Colegio
         End If
     End Sub
 End Class
-Public Class Disercion
+Public Class MotivoDisersion
     Inherits ObjetoBD
+    Public IDMotivoDis As Integer
+
     Public Sub New()
 
     End Sub
@@ -1311,6 +1439,51 @@ Public Class Disercion
             Return "La modificación del motivo de deserción " & Nombre & " se ha realizado correctamente."
         End If
     End Function
+
+    Public Sub Guardar_MotivoDisersion()
+        Dim TXT As String
+        Obtener_Datos(Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Insert Into MOTIVO_DISERSION(MOTIVO_DIS_DESCRIPCION) Values(:MOTIVO_DIS_DESCRIPCION)"
+        Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Modificar_MotivoDisersion()
+        Dim TXT As String
+        Obtener_Datos(Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Update MOTIVO_DISERSION Set MOTIVO_DIS_DESCRIPCION = :MOTIVO_DIS_DESCRIPCION where ID_MOTIVO_DIS = " & IDMotivoDis & ""
+        Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
+    End Sub
+    Public Sub Insertar(vnombre As String)
+        Nombre = vnombre
+    End Sub
+
+
+    Public Sub Eliminar_Materia()
+        Dim TXT As String
+        TXT = "Delete From MOTIVO_DISERSION Where ID_MOTIVO_DIS = " & IDMotivoDis & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Traer_MotivoDisersion(Objeto As Object)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+        Dim TXT As String
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                TXT = "Select ID_MOTIVO_DIS as ID, MOTIVO_DIS_DESCRIPCION As Descripcion from MOTIVO_DISERSION"
+                .DataSource = Obtener_Tabla(TXT)
+                .DisplayMember = "Materia"
+                .ValueMember = "ID"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_MOTIVO_DIS as ID, MOTIVO_DIS_DESCRIPCION As Descripcion from MOTIVO_DISERSION")
+            End
+        End If
+    End Sub
 End Class
 
 Public Class ClasexMateria
@@ -1376,12 +1549,15 @@ Public Class ClasexMateria
         End If
         Return False
     End Function
+      
 End Class
 
 Public Class Carrera
     Inherits ObjetoBD
     Private _CantAnios As Integer
     Private _CodCarrera As String
+    Public IDCarrera As Integer
+
     Public Sub New()
 
     End Sub
@@ -1429,6 +1605,35 @@ Public Class Carrera
         End If
         Return False
     End Function
+    Public Sub Guardar_Carrera()
+        Dim TXT As String
+        TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANT_ANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANT_ANIOS, :COD_CARRERA)"
+        Obtener_Datos(Nombre, Años, CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Modificar_Carrera()
+        Dim TXT As String
+        Obtener_Datos(Nombre, Años, CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Update CARRERA Set CARRERA_NOMBRE = :CARRERA_NOMBRE, CARRERA_CANT_ANIOS = :CARRERA_CANT_ANIOS, COD_CARRERA = :COD_CARRERA where ID_CARRERA = " & IDCarrera & ""
+        Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
+    End Sub
+    Public Sub Insertar(vNombre As String, vCodigo As String)
+        Nombre = vNombre
+        CodCarrera = vCodigo
+    End Sub
+
+    Public Sub Eliminar_Carrera()
+        Dim TXT As String
+        TXT = "Delete From CARRERA Where ID_CARRERA = " & IDCarrera & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Reiniciar_Carrera()
+        IDCarrera = Nothing
+        Nombre = ""
+        CodCarrera = ""
+    End Sub
     Public Sub Traer_Carreras(Objeto As Object)
         'método para cargar combobox y datagridviews
         Dim Combo1 As New ComboBox
@@ -1484,6 +1689,23 @@ Public Class ObjetosVarios
             Datagrid1.DataSource = Obtener_Tabla("Select * FROM ESTADOCIVIL")
         End If
     End Sub
+    Public Sub Traer_CategoriaAntecedente(Objeto As Object)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                .DataSource = Obtener_Tabla("Select * FROM CATEGORIA_ANTECEDENTE")
+                .DisplayMember = "DESCRIPCION"
+                .ValueMember = "ID_CATEGORIA_ANT"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select * FROM CATEGORIA_ANTECEDENTE")
+        End If
+    End Sub
     Public Sub Traer_Provincia(Objeto As Object, valor As Integer)
         'método para cargar combobox y datagridviews
         Dim Combo1 As New ComboBox
@@ -1529,6 +1751,134 @@ Public Class ObjetosVarios
         Else
             Datagrid1 = Objeto
             Datagrid1.DataSource = Obtener_Tabla("Select iD_LOCALIDAD, LOCALIDAD_NOMBRE From LOCALIDAD")
+        End If
+    End Sub
+End Class
+
+Public Class Antecedentes
+    Inherits ObjetoBD
+    Private IDAlumno As Integer
+    Private Categoria As Integer
+
+    Public Sub New()
+
+    End Sub
+    Public Sub Guardar_Antecedente()
+        Dim TXT As String
+        Obtener_Datos(IDAlumno, Categoria, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Insert Into ANTECEDENTE(RELA_ALUMNO, RELA_CATEGORIA_ANT) Values(:RELA_ALUMNO, :RELA_CATEGORIA_ANT)"
+        Cargar_Datos(TXT, "RELA_ALUMNO", "RELA_CATEGORIA", "", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Modificar_Antecedente(CategoriaNew As Integer)
+        Dim TXT As String
+        Obtener_Datos(Categoria, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Update ANTECEDENTE Set RELA_CATEGORIA_ANT = :RELA_CATEGORIA_ANT where RELA_ALUMNO = " & IDAlumno & " And RELA_CATEGORIA_ANT = " & CategoriaNew & ""
+        Cargar_Datos(TXT, "RELA_CATEGORIA", "", "", "", "", "", "", "", "")
+        Categoria = CategoriaNew
+    End Sub
+    Public Sub Insertar(vID As Integer, vCategoria As Integer)
+        IDAlumno = vID
+        Categoria = vCategoria
+    End Sub
+
+    Public Sub Eliminar_Antecedente()
+        Dim TXT As String
+        TXT = "Delete From ANTECEDENTES Where RELA_ALUMNO = " & IDAlumno & " And RELA_CATEGORIA_ANT = " & Categoria & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        Reiniciar_Antecedente()
+    End Sub
+
+    Public Sub Reiniciar_Antecedente()
+        IDAlumno = Nothing
+        Categoria = Nothing
+    End Sub
+    Public Function Validacion(CategoriaNew As Integer) As Boolean
+        If CategoriaNew < 1 Then
+            MsgBox("Por favor, seleccione un alumno", MsgBoxStyle.Exclamation, "Sistema")
+        Else
+            Return True
+            Exit Function
+        End If
+        Return False
+    End Function
+    Public Sub Traer_Antecedentes(Objeto As Object, valor As Integer)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+        Dim TXT As String
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                    TXT = "Select ID_ANTECEDENTE, DESCRIPCION from ANTECEDENTES Inner Join CATEGORIA_ANT on ID_CATEGORIA_ANT = RELA_CATEGORIA_ANT Where RELA_ALUMNO = " & valor & ""
+                    .DataSource = Obtener_Tabla(TXT)
+                .DisplayMember = "DESCRIPCION"
+                .ValueMember = "ID_ANTECEDENTE"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_ANTECEDENTE, DESCRIPCION from ANTECEDENTES Inner Join CATEGORIA_ANT on ID_CATEGORIA_ANT = RELA_CATEGORIA_ANT Where RELA_ALUMNO = " & valor & "")
+        End If
+    End Sub
+End Class
+Public Class Clases
+    Inherits ObjetoBD
+    Private Materia As Integer
+    Private Año As Integer
+    Private CantDictadas As Integer
+    Public IDClase As Integer
+
+    Public Sub Guardar_Clase()
+        Dim TXT As String
+        Obtener_Datos(Materia, Año, CantDictadas, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Insert Into CLASE(RELA_MATERIA, CLASE_ANIO, CLASE_CANTDICTADAS) Values(:RELA_MATERIA, :CLASE_ANIO, :CLASE_CANTDICTADAS)"
+        Cargar_Datos(TXT, "RELA_MATERIA", "CLASE_ANIO", "CLASE_CANTDICTADAS", "", "", "", "", "", "")
+    End Sub
+
+    Public Sub Modificar_Clase()
+        Dim TXT As String
+        Obtener_Datos(Materia, Año, CantDictadas, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
+        TXT = "Update CLASE Set RELA_MATERIA = :RELA_MATERIA, CLASE_ANIO = :CLASE_ANIO, CLASE_CANTDICTADAS = :CLASE_CANTDICTADAS where ID_CLASE = " & IDClase & ""
+        Cargar_Datos(TXT, "RELA_MATERIA", "CLASE_ANIO", "CLASE_CANTDICTADAS", "", "", "", "", "", "")
+    End Sub
+    Public Sub Insertar(vMateria As Integer, vAño As Integer, vCantDictadas As Integer)
+        Materia = vMateria
+        Año = vAño
+        CantDictadas = vCantDictadas
+    End Sub
+
+
+    Public Sub Reiniciar_Clase()
+        Materia = Nothing
+        Año = Nothing
+        CantDictadas = Nothing
+    End Sub
+
+    Public Sub Eliminar_Clase()
+        Dim TXT As String
+        TXT = "Delete From CLASE Where ID_CLASE = " & IDClase & ""
+        Cargar_Datos(TXT, "", "", "", "", "", "", "", "", "")
+        Reiniciar_Clase()
+    End Sub
+
+    Public Sub Traer_Clases(Objeto As Object, valor As Integer)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+        Dim TXT As String
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                TXT = "Select ID_CLASE as ID, MATERIA_NOMBRE As Materia, CLASE_ANIO As Año, CLASE_CANTDICTADAS As Clases from CLASE Inner Join MATERIA on ID_MATERIA = RELA_MATERIA Where ID_MATERIA = " & valor & ""
+                .DataSource = Obtener_Tabla(TXT)
+                .DisplayMember = "Materia"
+                .ValueMember = "ID"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_CLASE as ID, MATERIA_NOMBRE As Materia, CLASE_ANIO As Año, CLASE_CANTDICTADAS As Clases from CLASE Inner Join MATERIA on ID_MATERIA = RELA_MATERIA Where ID_MATERIA = " & valor & "")
         End If
     End Sub
 End Class

@@ -1,5 +1,11 @@
 ﻿Public Class FormularioDatos2
-    Dim AccesoDB As New GestorBD
+    Dim oCarrera As New Carrera
+    Dim oMateria As New Materia
+    Dim oColegio As New Colegio
+    Dim oOrientacion As New Orientacion
+    Dim oClase As New Clases
+    Dim oDisersion As New MotivoDisersion
+
     Private Sub ColegiosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ColegiosToolStripMenuItem.Click
         Ocultar()
         Colegios.Visible = True
@@ -40,16 +46,9 @@
 
     Private Sub FormularioDatos2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Cargar los combobox
-        With CBOCarrera
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_CARRERA, CARRERA_NOMBRE from CARRERA")
-            .DisplayMember = "CARRERA_NOMBRE"
-            .ValueMember = "ID_CARRERA"
-        End With
-        With CBOMateriasClas
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_MATERIA, MATERIA_NOMBRE from MATERIA")
-            .DisplayMember = "MATERIA_NOMBRE"
-            .ValueMember = "ID_MATERIA"
-        End With
+        oCarrera.Traer_Carreras(CBOCarrera)
+        oMateria.Traer_Materias(CBOMateriasClas, 0)
+        oMateria.Traer_Materias(CBOMateriasClas, 0)
         With CBXtipo
             .Items.Add("Privado")
             .Items.Add("Público")
@@ -60,72 +59,41 @@
 
     Private Sub Actualizar_Grillas(Cual As String)
         If Cual = "Carrera" Then
-            With DataGridCar
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CARRERA As ID, CARRERA_NOMBRE As Carrera from CARRERA")
-            End With
+            DataGridCar.DataSource = Nothing
+            DataGridCar.Refresh()
+            oCarrera.Traer_Carreras(DataGridCar)
         ElseIf Cual = "Colegio" Then
-            With DataGridCol
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_COLEGIO As ID, COLEGIO_NOMBRE As Colegio from COLEGIO")
-            End With
+            DataGridCol.DataSource = Nothing
+            DataGridCol.Refresh()
+            oColegio.Traer_Colegios(DataGridCol)
         ElseIf Cual = "Orientacion" Then
-            With DataGridOr
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION As ID, ORIENTACION_DESCRIPCION As Orientacion from ORIENTACION")
-            End With
-        ElseIf Cual = "Clase" Then
-            With DataGridClas
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CLASE As ID, MATERIA_NOMBRE As Materia, CLASE_ANIO As Ciclo, CLASE_CANTDICTADAS As Clases from CLASE Inner Join MATERIA On ID_MATERIA = RELA_MATERIA")
-            End With
+            DataGridOr.DataSource = Nothing
+            DataGridOr.Refresh()
+            oOrientacion.Traer_Orientacion(DataGridOr, 0)
         ElseIf Cual = "Materia" Then
-            With DataGridMat
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MATERIA As ID, MATERIA_NOMBRE As Materia, COD_MATERIA AS CODIGO, CARRERA_NOMBRE As Carrera from MATERIA Inner Join CARRERA On ID_CARRERA = RELA_CARRERA")
-            End With
+            DataGridMat.DataSource = Nothing
+            DataGridMat.Refresh()
+            oMateria.Traer_Materias(DataGridMat, 0)
         ElseIf Cual = "Disersion" Then
-            With DataGridDis
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MOTIVO_DIS As ID, MOTIVO_DIS_DESCRIPCION As Motivo from MOTIVO_DISERSION")
-            End With
+            DataGridDis.DataSource = Nothing
+            DataGridDis.Refresh()
+            oDisersion.Traer_MotivoDisersion(DataGridDis)
         ElseIf Cual = "Todas" Then
-            With DataGridCar
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CARRERA As ID, CARRERA_NOMBRE As Carrera from CARRERA")
-            End With
-            With DataGridCol
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_COLEGIO As ID, COLEGIO_NOMBRE As Colegio from COLEGIO")
-            End With
-            With DataGridOr
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION As ID, ORIENTACION_DESCRIPCION As Orientacion from ORIENTACION")
-            End With
-            With DataGridClas
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_CLASE As ID, MATERIA_NOMBRE As Materia, CLASE_ANIO As Ciclo, CLASE_CANTDICTADAS As Clases from CLASE Inner Join MATERIA On ID_MATERIA = RELA_MATERIA")
-            End With
-            With DataGridMat
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MATERIA As ID, MATERIA_NOMBRE As Materia, COD_MATERIA AS CODIGO, CARRERA_NOMBRE As Carrera from MATERIA Inner Join CARRERA On ID_CARRERA = RELA_CARRERA")
-            End With
-            With DataGridDis
-                .DataSource = Nothing
-                .Refresh()
-                .DataSource = AccesoDB.Obtener_Tabla("Select ID_MOTIVO_DIS As ID, MOTIVO_DIS_DESCRIPCION As Motivo from MOTIVO_DISERSION")
-            End With
+            DataGridCar.DataSource = Nothing
+            DataGridCol.DataSource = Nothing
+            DataGridOr.DataSource = Nothing
+            DataGridMat.DataSource = Nothing
+            DataGridDis.DataSource = Nothing
+            DataGridCar.Refresh()
+            DataGridCol.Refresh()
+            DataGridOr.Refresh()
+            DataGridMat.Refresh()
+            DataGridDis.Refresh()
+            oCarrera.Traer_Carreras(DataGridCar)
+            oColegio.Traer_Colegios(DataGridCol)
+            oOrientacion.Traer_Orientacion(DataGridOr, 0)
+            oMateria.Traer_Materias(DataGridMat, 0)
+            oDisersion.Traer_MotivoDisersion(DataGridDis)
         End If
     End Sub
     Private Sub CBOCarrera_KeyPress(sender As Object, e As KeyPressEventArgs) Handles CBOCarrera.KeyPress
@@ -143,10 +111,7 @@
     Private Sub CMDAgregarCol_Click(sender As Object, e As EventArgs) Handles CMDAgregarCol.Click
         Dim oColegio As New Colegio(TXTNombreCol.Text, CBXtipo.SelectedIndex)
         If oColegio.Validacion Then
-            Dim TXT As String
-            TXT = "Insert Into COLEGIO(COLEGIO_NOMBRE, COLEGIO_TIPO) Values(:COLEGIO_NOMBRE, :COLEGIO_TIPO)"
-            AccesoDB.Obtener_Datos(TXTNombreCol.Text, CBXtipo.SelectedIndex, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "COLEGIO_NOMBRE", "COLEGIO_TIPO", "", "", "", "", "", "", "")
+            oColegio.Guardar_Colegio()
             MsgBox(oColegio.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
             Administrar_Botones(Colegios, True)
             Actualizar_Grillas("Colegio") 'actualizar grilla colegio
@@ -164,13 +129,10 @@
     End Sub
 
     Private Sub CMDAgregarDis_Click(sender As Object, e As EventArgs) Handles CMDAgregarDis.Click
-        Dim oMotivoDis As New Disercion(TXTMotivoDisersion.Text)
-        If oMotivoDis.Validacion Then
-            Dim TXT As String
-            TXT = "Insert Into MOTIVO_DISERSION(MOTIVO_DIS_DESCRIPCION) Values(:MOTIVO_DIS_DESCRIPCION)"
-            AccesoDB.Obtener_Datos(oMotivoDis.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "MOTIVO_DIS_DESCRIPCION", "", "", "", "", "", "", "", "")
-            MsgBox(oMotivoDis.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
+        Dim oDisersion As New MotivoDisersion(TXTMotivoDisersion.Text)
+        If oDisersion.Validacion Then
+            oDisersion.Guardar_MotivoDisersion()
+            MsgBox(oDisersion.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
             Administrar_Botones(motivosdedisersion, True)
             Actualizar_Grillas("Disersion") 'Actualizar grilla motivos de desersion
         End If
@@ -179,10 +141,6 @@
     Private Sub CMDAgregarClas_Click(sender As Object, e As EventArgs)
         Dim oClase As New ClasexMateria(Val(CBOMateriasClas.SelectedValue), Val(TXBanio.Text), Val(TXBdictadas.Text))
         If oClase.Validacion Then
-            Dim TXT As String
-            TXT = "Insert Into CLASE(RELA_MATERIA, CLASE_ANIO, CLASE_CANTDICTADAS) Values(:RELA_MATERIA, :CLASE_ANIO, :CLASE_CANTDICTADAS)"
-            AccesoDB.Obtener_Datos(oClase.Materia, oClase.Año, oClase.CantClases, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_MATERIA", "CLASE_ANIO", "CLASE_CANTDICTADAS", "", "", "", "", "", "")
             MsgBox(oClase.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
             Administrar_Botones(ClasesporMateria, True)
             Actualizar_Grillas("Clase") 'actualizar grilla 
@@ -192,10 +150,7 @@
     Private Sub CMDAgregarMat_Click(sender As Object, e As EventArgs) Handles CMDAgregarMat.Click
         Dim oMateria As New Materia(TXBnomb.Text, TXBCod.Text, Val(CBOCarrera.SelectedValue))
         If oMateria.Validacion Then
-            Dim TXT As String
-            TXT = "Insert Into MATERIA(RELA_CARRERA, MATERIA_NOMBRE, COD_MATERIA) Values(:RELA_CARRERA, :MATERIA_NOMBRE, :COD_MATERIA)"
-            AccesoDB.Obtener_Datos(oMateria.Carrera, oMateria.Nombre, oMateria.Codigo, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "RELA_CARRERA", "MATERIA_NOMBRE", "COD_MATERIA", "", "", "", "", "", "")
+            oMateria.Guardar_Materia()
             MsgBox(oMateria.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
             Administrar_Botones(Materias, True)
             Actualizar_Grillas("Materia") 'actualizar grilla materia
@@ -205,10 +160,7 @@
     Private Sub CMDAgregarOr_Click(sender As Object, e As EventArgs) Handles CMDAgregarOr.Click
         Dim oOrientacion As New Orientacion(TXTOrientacion.Text)
         If oOrientacion.Validacion Then
-            Dim TXT As String
-            TXT = "Insert Into ORIENTACION(ORIENTACION_DESCRIPCION) Values(:ORIENTACION_DESCRIPCION)"
-            AccesoDB.Obtener_Datos(oOrientacion.Nombre, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "ORIENTACION_DESCRIPCION", "", "", "", "", "", "", "", "")
+            oOrientacion.Guardar_Orientacion()
             MsgBox(oOrientacion.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
             Administrar_Botones(Orientaciones, True)
             Actualizar_Grillas("Orientacion") 'actualizar grilla orientacion
@@ -218,16 +170,12 @@
     Private Sub CMDAgregarCar_Click(sender As Object, e As EventArgs) Handles CMDAgregarCar.Click
         Dim oCarrera As New Carrera(TXTnomb.Text, Val(TXTduracion.Text), TXTcodig.Text)
         If oCarrera.Validacion Then
-            Dim TXT As String
-            TXT = "Insert Into CARRERA(CARRERA_NOMBRE, CARRERA_CANT_ANIOS, COD_CARRERA) Values(:CARRERA_NOMBRE, :CARRERA_CANT_ANIOS, :COD_CARRERA)"
-            AccesoDB.Obtener_Datos(oCarrera.Nombre, oCarrera.Años, oCarrera.CodCarrera, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
-            AccesoDB.Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
+            oCarrera.Guardar_Carrera()
             MsgBox(oCarrera.Mensaje("Guardar"), MsgBoxStyle.Information, "Sistema")
             Administrar_Botones(Carreras, True)
             Actualizar_Grillas("Carrera") 'actualizar grilla carrera
         End If
     End Sub
-
 
     Public Sub Gestionar_Individual(Boton As Button, Valor As Boolean)
         Boton.Enabled = Valor

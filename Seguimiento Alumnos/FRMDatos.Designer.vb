@@ -105,6 +105,7 @@ Partial Class FRMDatos
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TXTAlumnoDis = New System.Windows.Forms.TextBox()
         Me.Antecedentes = New System.Windows.Forms.GroupBox()
+        Me.CMDNuevo = New System.Windows.Forms.Button()
         Me.CMDCancelarAnt = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.DataGridAnt = New System.Windows.Forms.DataGridView()
@@ -135,7 +136,7 @@ Partial Class FRMDatos
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AgregarAlumnoAMateriaToolStripMenuItem, Me.AgregarMateriaToolStripMenuItem, Me.GestionDeAsistenciasToolStripMenuItem, Me.ExámenesToolStripMenuItem, Me.DisersiónToolStripMenuItem, Me.OtrosAntecedentesToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(750, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(765, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -1000,6 +1001,7 @@ Partial Class FRMDatos
         '
         'Antecedentes
         '
+        Me.Antecedentes.Controls.Add(Me.CMDNuevo)
         Me.Antecedentes.Controls.Add(Me.CMDCancelarAnt)
         Me.Antecedentes.Controls.Add(Me.Label29)
         Me.Antecedentes.Controls.Add(Me.DataGridAnt)
@@ -1020,13 +1022,24 @@ Partial Class FRMDatos
         Me.Antecedentes.TabStop = False
         Me.Antecedentes.Text = "....."
         '
+        'CMDNuevo
+        '
+        Me.CMDNuevo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDNuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDNuevo.Location = New System.Drawing.Point(15, 169)
+        Me.CMDNuevo.Name = "CMDNuevo"
+        Me.CMDNuevo.Size = New System.Drawing.Size(102, 24)
+        Me.CMDNuevo.TabIndex = 33
+        Me.CMDNuevo.Text = "Nuevo"
+        Me.CMDNuevo.UseVisualStyleBackColor = False
+        '
         'CMDCancelarAnt
         '
         Me.CMDCancelarAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDCancelarAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMDCancelarAnt.Location = New System.Drawing.Point(117, 203)
+        Me.CMDCancelarAnt.Location = New System.Drawing.Point(65, 204)
         Me.CMDCancelarAnt.Name = "CMDCancelarAnt"
-        Me.CMDCancelarAnt.Size = New System.Drawing.Size(84, 24)
+        Me.CMDCancelarAnt.Size = New System.Drawing.Size(100, 24)
         Me.CMDCancelarAnt.TabIndex = 32
         Me.CMDCancelarAnt.Text = "Cancelar"
         Me.CMDCancelarAnt.UseVisualStyleBackColor = False
@@ -1055,9 +1068,9 @@ Partial Class FRMDatos
         '
         Me.CMDBajaAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDBajaAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMDBajaAnt.Location = New System.Drawing.Point(212, 163)
+        Me.CMDBajaAnt.Location = New System.Drawing.Point(175, 204)
         Me.CMDBajaAnt.Name = "CMDBajaAnt"
-        Me.CMDBajaAnt.Size = New System.Drawing.Size(100, 24)
+        Me.CMDBajaAnt.Size = New System.Drawing.Size(102, 24)
         Me.CMDBajaAnt.TabIndex = 29
         Me.CMDBajaAnt.Text = "Baja Antecedente"
         Me.CMDBajaAnt.UseVisualStyleBackColor = False
@@ -1066,9 +1079,9 @@ Partial Class FRMDatos
         '
         Me.CMDModificarAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDModificarAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMDModificarAnt.Location = New System.Drawing.Point(118, 163)
+        Me.CMDModificarAnt.Location = New System.Drawing.Point(229, 169)
         Me.CMDModificarAnt.Name = "CMDModificarAnt"
-        Me.CMDModificarAnt.Size = New System.Drawing.Size(84, 24)
+        Me.CMDModificarAnt.Size = New System.Drawing.Size(102, 24)
         Me.CMDModificarAnt.TabIndex = 26
         Me.CMDModificarAnt.Text = "Modificar"
         Me.CMDModificarAnt.UseVisualStyleBackColor = False
@@ -1107,9 +1120,9 @@ Partial Class FRMDatos
         '
         Me.CMDGuardarAnt.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDGuardarAnt.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMDGuardarAnt.Location = New System.Drawing.Point(47, 163)
+        Me.CMDGuardarAnt.Location = New System.Drawing.Point(123, 169)
         Me.CMDGuardarAnt.Name = "CMDGuardarAnt"
-        Me.CMDGuardarAnt.Size = New System.Drawing.Size(65, 24)
+        Me.CMDGuardarAnt.Size = New System.Drawing.Size(103, 24)
         Me.CMDGuardarAnt.TabIndex = 8
         Me.CMDGuardarAnt.Text = "Guardar"
         Me.CMDGuardarAnt.UseVisualStyleBackColor = False
@@ -1148,14 +1161,14 @@ Partial Class FRMDatos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DimGray
-        Me.ClientSize = New System.Drawing.Size(750, 370)
+        Me.ClientSize = New System.Drawing.Size(765, 370)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.Antecedentes)
-        Me.Controls.Add(Me.Disersion)
-        Me.Controls.Add(Me.Examenes)
         Me.Controls.Add(Me.Asistencia)
         Me.Controls.Add(Me.Materia)
         Me.Controls.Add(Me.CarreraxAlumno)
+        Me.Controls.Add(Me.Antecedentes)
+        Me.Controls.Add(Me.Disersion)
+        Me.Controls.Add(Me.Examenes)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FRMDatos"
         Me.Text = "Datos del alumno en cursada"
@@ -1275,4 +1288,5 @@ Partial Class FRMDatos
     Friend WithEvents CMDCancelarAnt As System.Windows.Forms.Button
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents CBOEstadoDis As System.Windows.Forms.ComboBox
+    Friend WithEvents CMDNuevo As System.Windows.Forms.Button
 End Class

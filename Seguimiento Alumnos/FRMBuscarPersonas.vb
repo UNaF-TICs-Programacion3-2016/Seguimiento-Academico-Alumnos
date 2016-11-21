@@ -1,5 +1,4 @@
 ﻿Public Class FRMBuscarPersonas
-    Dim AccesoBD As New GestorBD
     Dim AlumnoNro As Integer
 
     Private Sub FRMBuscarPersonas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -25,18 +24,19 @@
     Private Sub Cargar_Grilla()
         'Cargar Grilla
         Dim Consulta As String
+        Dim oAlumno As New Alumno
         DataGridAlumnos.DataSource = Nothing
         DataGridAlumnos.Refresh()
         If CHKFiltrarNombre.CheckState = CheckState.Checked Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & TXTBuscar.Text & "%'"
+            oAlumno.Grilla_Alumno("Nombre", TXTBuscar.Text, DataGridAlumnos)
         ElseIf CHKFiltrarApellido.CheckState = CheckState.Checked Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & TXTBuscar.Text & "%'"
+            oAlumno.Grilla_Alumno("Apellido", TXTBuscar.Text, DataGridAlumnos)
         ElseIf CHKFiltrarDocumento.CheckState = CheckState.Checked Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO = " & TXTBuscar.Text & ""
+            oAlumno.Grilla_Alumno("Documento", TXTBuscar.Text, DataGridAlumnos)
         Else
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA"
+            oAlumno.Grilla_Alumno("Ninguno", TXTBuscar.Text, DataGridAlumnos)
         End If
-        DataGridAlumnos.DataSource = AccesoBD.Obtener_Tabla(Consulta)
+
     End Sub
 
     Private Sub CHKFiltrarNombre_Click(sender As Object, e As EventArgs) Handles CHKFiltrarNombre.Click
@@ -70,9 +70,18 @@
     Private Sub CMDSeleccionar_Click(sender As Object, e As EventArgs) Handles CMDSeleccionar.Click
         If DataGridAlumnos.CurrentRow.Index > -1 Then    'Si la cantidad de filas es mayor a 0 entonces
             AlumnoNro = Convert.ToInt32(DataGridAlumnos.CurrentRow.Cells(0).Value)
-            ParametrosxAlumno.IDAlumno = AlumnoNro
-            ParametrosxAlumno.TXTAlumno.Text = DataGridAlumnos.CurrentRow.Cells(1).Value.ToString & " " & DataGridAlumnos.CurrentRow.Cells(2).Value.ToString
-            ParametrosxAlumno.Cargar_Datos()
+            Dim Nombre As String
+            Nombre = DataGridAlumnos.CurrentRow.Cells(1).Value.ToString & " " & DataGridAlumnos.CurrentRow.Cells(2).Value.ToString
+            If ParametrosxAlumno.Visible = True Then
+                ParametrosxAlumno.IDAlumno = AlumnoNro
+                ParametrosxAlumno.TXTAlumno.Text = Nombre
+                ParametrosxAlumno.Cargar_Datos()
+            ElseIf FRMDatos.Visible = True Then
+                With FRMDatos
+                    .AlumnoID = AlumnoNro
+                    .Cargar_Datos(Nombre)
+                End With
+            End If
             Me.Close()
         Else
             MsgBox("Seleccione un alumno", MsgBoxStyle.Exclamation, "Sistema")
@@ -82,4 +91,5 @@
     Private Sub CMDCancelar_Click(sender As Object, e As EventArgs) Handles CMDCancelar.Click
         Me.Close()
     End Sub
+
 End Class

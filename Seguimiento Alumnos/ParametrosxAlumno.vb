@@ -25,9 +25,8 @@
 
     Private Sub TXTAlumno_TextChanged(sender As Object, e As EventArgs) Handles TXTAlumno.TextChanged
         'aca cargamos cbocarreras
-        CBOCarrera.DataSource = AccesoDB.Obtener_Tabla("Select ID_CARRERA, CARRERA_NOMBRE From CARRERA Inner Join CARRERAXALUMNO On ID_CARRERA = RELA_CARRERA Where RELA_ALUMNO = " & IDAlumno & "")
-        CBOCarrera.DisplayMember = "CARRERA_NOMBRE"
-        CBOCarrera.ValueMember = "ID_CARRERA"
+        Dim oCarrera As New Carrera
+        oCarrera.Traer_Carreras(CBOCarrera)
     End Sub
 
     Private Sub CMDBuscar_Click(sender As Object, e As EventArgs) Handles CMDBuscar.Click
