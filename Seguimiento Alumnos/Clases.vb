@@ -1274,6 +1274,30 @@ Public Class Orientacion
             Return "La modificación de la orientacion " & Nombre & " se ha realizado correctamente."
         End If
     End Function
+    Public Sub Traer_Orientacion(Objeto As Object, valor As Integer)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+        Dim TXT As String
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                If valor <> 0 Then
+                    TXT = "Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION JOIN ORIENTACIONXCOLEGIO ON ID_ORIENTACION = RELA_ORIENTACION where RELA_COLEGIO = " & valor & ""
+                Else
+                    TXT = "Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION"
+                End If
+                .DataSource = Obtener_Tabla(TXT)
+                .DisplayMember = "ORIENTACION_DESCRIPCION"
+                .ValueMember = "ID_ORIENTACION"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION")
+        End If
+    End Sub
+   
 End Class
 
 Public Class Materia
@@ -1577,4 +1601,28 @@ Public Class ObjetosVarios
             Datagrid1.DataSource = Obtener_Tabla("Select * FROM ESTADOCIVIL")
         End If
     End Sub
+    Public Sub Traer_Provincia(Objeto As Object, valor As Integer)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+        Dim TXT As String
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                If valor <> 0 Then
+                    TXT = "Select ID_PROVINCIA, PROVINCIA_NOMBRE, RELA_PAIS From PROVINCIA where RELA_PAIS = " & valor & ""
+                Else
+                    TXT = "Select ID_PROVINCIA, PROVINCIA_NOMBRE From PROVINCIA"
+                End If
+                .DataSource = Obtener_Tabla("Select ID_PROVINCIA, PROVINCIA_NOMBRE, RELA_PAIS From PROVINCIA where RELA_PAIS = " & valor & "")
+                .DisplayMember = "PROVINCIA_NOMBRE"
+                .ValueMember = "ID_PROVINCIA"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_PROVINCIA, PROVINCIA_NOMBRE From PROVINCIA")
+        End If
+    End Sub
+    
 End Class

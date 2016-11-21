@@ -128,12 +128,9 @@
 
     Sub Cargar_Orientacion()
         Dim Value As String
+        Dim oOrientacion As New Orientacion
         Value = CBOColegio.SelectedValue.ToString
-        With CBOOrientacion
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION JOIN ORIENTACIONXCOLEGIO ON ID_ORIENTACION = RELA_ORIENTACION where RELA_COLEGIO = " & Val(Value) & "")
-            .DisplayMember = "ORIENTACION_DESCRIPCION"
-            .ValueMember = "ID_ORIENTACION"
-        End With
+        oOrientacion.Traer_Orientacion(CBOOrientacion, Val(Value))
     End Sub
 
     Private Sub CBOColegio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOColegio.SelectedIndexChanged
@@ -166,15 +163,14 @@
     End Sub
 
     Private Sub CBOPais_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOPais.SelectedIndexChanged
+        Dim Value As String
         With CBOProvincia
-            Dim Index As String
             .DataSource = Nothing
             .Refresh()
-            Index = CBOPais.SelectedValue.ToString
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_PROVINCIA, PROVINCIA_NOMBRE, RELA_PAIS From PROVINCIA where RELA_PAIS = " & Val(Index) & "")
-            .DisplayMember = "PROVINCIA_NOMBRE"
-            .ValueMember = "ID_PROVINCIA"
+            Value = CBOPais.SelectedValue.ToString
         End With
+        Dim oObjetos As New ObjetosVarios
+        oObjetos.Traer_Provincia(CBOProvincia, Val(value))
     End Sub
 
     Private Sub CBOProvincia_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOProvincia.SelectedIndexChanged
