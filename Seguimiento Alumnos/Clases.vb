@@ -794,123 +794,6 @@ Public Class Alumno
     End Sub
 End Class
 
-Public Class Botones
-    Private _Nuevo As Boolean
-    Private _Guardar As Boolean
-    Private _Cancelar As Boolean
-    Private _Modificar As Boolean
-    Private _Borrar As Boolean
-    Private _Buscar As Boolean
-    Private _Salir As Boolean
-
-    Public Sub New(vNuevo As Boolean, vGuardar As Boolean, vModificar As Boolean, vCancelar As Boolean, vBorrar As Boolean, vBuscar As Boolean, vSalir As Boolean)
-        Nuevo = vNuevo
-        Guardar = vGuardar
-        Cancelar = vCancelar
-        Modificar = vModificar
-        Borrar = vBorrar
-        Buscar = vBuscar
-        Salir = vSalir
-    End Sub
-    Public Sub New()
-
-    End Sub
-    Public Property Nuevo As Boolean
-        Get
-            Return _Nuevo
-        End Get
-        Set(value As Boolean)
-            _Nuevo = value
-        End Set
-    End Property
-    Public Property Guardar As Boolean
-        Get
-            Return _Guardar
-        End Get
-        Set(value As Boolean)
-            _Guardar = value
-        End Set
-    End Property
-    Public Property Cancelar As Boolean
-        Get
-            Return _Cancelar
-        End Get
-        Set(value As Boolean)
-            _Cancelar = value
-        End Set
-    End Property
-    Public Property Modificar As Boolean
-        Get
-            Return _Modificar
-        End Get
-        Set(value As Boolean)
-            _Modificar = value
-        End Set
-    End Property
-    Public Property Borrar As Boolean
-        Get
-            Return _Borrar
-        End Get
-        Set(value As Boolean)
-            _Borrar = value
-        End Set
-    End Property
-    Public Property Buscar As Boolean
-        Get
-            Return _Buscar
-        End Get
-        Set(value As Boolean)
-            _Buscar = value
-        End Set
-    End Property
-    Public Property Salir As Boolean
-        Get
-            Return _Salir
-        End Get
-        Set(value As Boolean)
-            _Salir = value
-        End Set
-    End Property
-
-    Public Sub Gestionar_ABM(vnuevo As Button, vguardar As Button, vcancelar As Button, vmodificar As Button, vborrar As Button, vbuscar As Button, vsalir As Button)
-        vnuevo.Enabled = Nuevo
-        vguardar.Enabled = Guardar
-        vcancelar.Enabled = Cancelar
-        vmodificar.Enabled = Modificar
-        vborrar.Enabled = Borrar
-        vbuscar.Enabled = _Buscar
-        vsalir.Enabled = Salir
-    End Sub
-
-    Public Sub Gestionar_Individual(Boton As Button, Valor As Boolean)
-        Boton.Enabled = Valor
-    End Sub
-    Public Shared Sub Gestionar_Formulario(ByVal F As Control, Habilitar As Boolean, Limpiar As Boolean)
-        Dim Control As Control
-        Dim TXT As TextBox
-        Dim CBO As ComboBox
-        Dim DTP As DateTimePicker
-        For Each Control In F.Controls
-            If TypeOf Control Is TextBox Then
-                TXT = Control
-                TXT.Enabled = Habilitar
-                If Limpiar = True Then
-                    TXT.Text = ""
-                End If
-            ElseIf TypeOf Control Is ComboBox Then
-                CBO = Control
-                If Limpiar = True Then
-                    CBO.Text = ""
-                End If
-                CBO.Enabled = Habilitar
-            ElseIf TypeOf Control Is DateTimePicker Then
-                DTP = Control
-                DTP.Enabled = Habilitar
-            End If
-        Next
-    End Sub
-End Class
-
 Public Class GestorBD
     Private Conexion As New OracleConnection
     Private S1 As String
@@ -1624,5 +1507,28 @@ Public Class ObjetosVarios
             Datagrid1.DataSource = Obtener_Tabla("Select ID_PROVINCIA, PROVINCIA_NOMBRE From PROVINCIA")
         End If
     End Sub
-    
+
+    Public Sub Traer_Localidad(Objeto As Object, valor As Integer)
+        'método para cargar combobox y datagridviews
+        Dim Combo1 As New ComboBox
+        Dim Datagrid1 As New DataGridView
+        Dim TXT As String
+
+        If TypeOf Objeto Is ComboBox Then
+            Combo1 = Objeto
+            With Combo1
+                If valor <> 0 Then
+                    TXT = "Select ID_LOCALIDAD As ID, LOCALIDAD_NOMBRE, RELA_PROVINCIA From LOCALIDAD Where RELA_PROVINCIA = " & valor & ""
+                Else
+                    TXT = "Select iD_LOCALIDAD, LOCALIDAD_NOMBRE From LOCALIDAD"
+                End If
+                .DataSource = Obtener_Tabla(TXT)
+                .DisplayMember = "LOCALIDAD_NOMBRE"
+                .ValueMember = "ID"
+            End With
+        Else
+            Datagrid1 = Objeto
+            Datagrid1.DataSource = Obtener_Tabla("Select iD_LOCALIDAD, LOCALIDAD_NOMBRE From LOCALIDAD")
+        End If
+    End Sub
 End Class

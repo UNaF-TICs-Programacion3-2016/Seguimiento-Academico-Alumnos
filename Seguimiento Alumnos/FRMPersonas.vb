@@ -22,8 +22,7 @@
     Private Sub CMDBuscar_Click(sender As Object, e As EventArgs) Handles CMDBuscar.Click
         AlumnoNuevo.Tabla_Alumnos(DatagridAlumnos)
         Me.Width = 840
-        Dim gestionarbotones As New Botones(False, False, False, False, False, False, True)
-        gestionarbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+        Gestionar_ABM(False, False, False, False, False, False, True)
     End Sub
 
     Private Sub CMDSeleccionar_Click(sender As Object, e As EventArgs) Handles CMDSeleccionar.Click
@@ -38,13 +37,10 @@
             CBOEc.Text = TablaAlumnos.Rows(0).Item(7).ToString 'cargar cboestadocivil
             CBOLocalidad.Text = TablaDireccion.Rows(0).Item(2).ToString 'cargar combo localidad
             CBOOrientacion.Text = TablaAcademico.Rows(0).Item(3).ToString
-            Dim Gestionar2 As New Botones(True, False, True, False, True, True, True)
-            Gestionar2.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
-
+            Gestionar_ABM(True, False, False, True, True, True, True)
             CargarAlumno()
         Else
-            Dim GestionarBoton As New Botones(True, False, False, False, False, True, True)
-            GestionarBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+            Gestionar_ABM(True, False, False, False, False, True, True)
 
         End If
         Me.Width = 555
@@ -69,11 +65,10 @@
         Me.Width = 555
         DatosPersonales.Visible = True
         AntecedentesAc.Visible = False
-        Dim GestionBoton As New Botones(True, False, False, False, False, True, True)
-        Botones.Gestionar_Formulario(Me.DatosPersonales, False, True)
-        Botones.Gestionar_Formulario(Me.AntecedentesAc, False, True)
+        Gestionar_Formulario(Me.DatosPersonales, False, True)
+        Gestionar_Formulario(Me.AntecedentesAc, False, True)
         
-        GestionBoton.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+        Gestionar_ABM(True, False, False, False, False, True, True)
 
         'Cargar combobox
         Dim oColegio As New Colegio
@@ -97,10 +92,9 @@
                 'Si el alumno es nuevo....
                 AlumnoNuevo.Cargar_Alumno(Val(CBOCarreras.SelectedValue))
 
-                Dim gestionbotones As New Botones(True, False, True, False, True, True, True)
-                gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
-                Botones.Gestionar_Formulario(Me.DatosPersonales, False, False)
-                Botones.Gestionar_Formulario(Me.AntecedentesAc, False, False)
+                Gestionar_ABM(True, False, False, True, True, True, True)
+                Gestionar_Formulario(Me.DatosPersonales, False, False)
+                Gestionar_Formulario(Me.AntecedentesAc, False, False)
             End If
         Else
             If AlumnoNuevo.ValidarAntAcademicos() Then
@@ -111,19 +105,17 @@
                 AlumnoNuevo.Modificar_Alumno()
             End If
             MsgBox("Dato agregado correctamente", MsgBoxStyle.Information, "Sistema")
-            Dim gestionbotones As New Botones(True, False, True, False, True, True, True)
-            gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
-            Botones.Gestionar_Formulario(Me.DatosPersonales, False, False)
-            Botones.Gestionar_Formulario(Me.AntecedentesAc, False, False)
+            Gestionar_ABM(True, False, False, True, True, True, True)
+            Gestionar_Formulario(Me.DatosPersonales, False, False)
+            Gestionar_Formulario(Me.AntecedentesAc, False, False)
         End If
             
     End Sub
 
     Private Sub CMDModificar_Click(sender As Object, e As EventArgs) Handles CMDModificar.Click
-        Dim gestionbotones As New Botones(False, True, False, True, False, False, False)
-        gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
-        Botones.Gestionar_Formulario(Me.DatosPersonales, True, False)
-        Botones.Gestionar_Formulario(Me.AntecedentesAc, True, False)
+        Gestionar_ABM(False, True, True, False, False, False, True)
+        Gestionar_Formulario(Me.DatosPersonales, True, False)
+        Gestionar_Formulario(Me.AntecedentesAc, True, False)
     End Sub
 
     Sub Cargar_Orientacion()
@@ -140,26 +132,22 @@
     Private Sub CMDNuevo_Click(sender As Object, e As EventArgs) Handles CMDNuevo.Click
         AlumnoNuevo.Reiniciar_Persona()
         AlumnoID = 0
-        Dim GestionBotones As New Botones(False, True, False, True, False, False, True)
-        GestionBotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
-        Botones.Gestionar_Formulario(Me.DatosPersonales, True, True)
-        Botones.Gestionar_Formulario(Me.AntecedentesAc, True, True)
+        Gestionar_ABM(False, True, True, False, False, False, True)
+        Gestionar_Formulario(Me.DatosPersonales, True, True)
+        Gestionar_Formulario(Me.AntecedentesAc, True, True)
     End Sub
 
     Private Sub CMDCancelar_Click(sender As Object, e As EventArgs) Handles CMDCancelar.Click
-        Dim gestionbotones As New Botones(True, False, False, False, False, True, True)
-        gestionbotones.Gestionar_ABM(CMDNuevo, CMDGuardar, CMDCancelar, CMDModificar, CMDEliminar, CMDBuscar, CMDSalir)
+
         If AlumnoID = 0 Then
-            Botones.Gestionar_Formulario(Me.DatosPersonales, False, True)
-            Botones.Gestionar_Formulario(Me.AntecedentesAc, False, True)
+            Gestionar_Formulario(Me.DatosPersonales, False, True)
+            Gestionar_Formulario(Me.AntecedentesAc, False, True)
+            Gestionar_ABM(True, False, False, False, False, True, True)
         Else
-            Botones.Gestionar_Formulario(Me.DatosPersonales, False, False)
-            Botones.Gestionar_Formulario(Me.AntecedentesAc, False, False)
+            Gestionar_Formulario(Me.DatosPersonales, False, False)
+            Gestionar_Formulario(Me.AntecedentesAc, False, False)
+            Gestionar_ABM(True, False, False, True, True, True, True)
         End If
-    End Sub
-
-    Private Sub DatagridAlumnos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DatagridAlumnos.CellContentClick
-
     End Sub
 
     Private Sub CBOPais_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CBOPais.SelectedIndexChanged
@@ -179,21 +167,57 @@
         End If
     End Sub
     Private Sub Cargar_Localidad()
+        Dim value As String
         With CBOLocalidad
-            Dim Index As String
             .DataSource = Nothing
             .Refresh()
-            Index = CBOProvincia.SelectedValue.ToString
-            .DataSource = AccesoDB.Obtener_Tabla("Select ID_LOCALIDAD As ID, LOCALIDAD_NOMBRE, RELA_PROVINCIA From LOCALIDAD Where RELA_PROVINCIA = " & Val(Index) & "")
-            .DisplayMember = "LOCALIDAD_NOMBRE"
-            .ValueMember = "ID"
+            value = CBOProvincia.SelectedValue.ToString
         End With
+        Dim oObjetos As New ObjetosVarios
+        oObjetos.Traer_Localidad(CBOLocalidad, Val(value))
     End Sub
 
     Private Sub CMDEliminar_Click(sender As Object, e As EventArgs) Handles CMDEliminar.Click
         AlumnoNuevo.Borrar_Alumno(AlumnoID)
         MsgBox("El alumno ha sido borrado correctamente", MsgBoxStyle.Information, "Sistema")
-        Botones.Gestionar_Formulario(Me.AntecedentesAc, False, True)
-        Botones.Gestionar_Formulario(Me.DatosPersonales, False, True)
+        Gestionar_Formulario(Me.AntecedentesAc, False, True)
+        Gestionar_Formulario(Me.DatosPersonales, False, True)
+    End Sub
+
+    Private Sub Gestionar_Formulario(ByVal F As Control, Habilitar As Boolean, Limpiar As Boolean)
+        Dim Control As Control
+        Dim TXT As TextBox
+        Dim CBO As ComboBox
+        Dim DTP As DateTimePicker
+        For Each Control In F.Controls
+            If TypeOf Control Is TextBox Then
+                TXT = Control
+                TXT.Enabled = Habilitar
+                If Limpiar = True Then
+                    TXT.Text = ""
+                End If
+            ElseIf TypeOf Control Is ComboBox Then
+                CBO = Control
+                If Limpiar = True Then
+                    CBO.Text = ""
+                End If
+                CBO.Enabled = Habilitar
+            ElseIf TypeOf Control Is DateTimePicker Then
+                DTP = Control
+                DTP.Enabled = Habilitar
+            End If
+        Next
+    End Sub
+
+
+
+    Private Sub Gestionar_ABM(nuevo As Boolean, guardar As Boolean, cancelar As Boolean, modificar As Boolean, borrar As Boolean, buscar As Boolean, salir As Boolean)
+        CMDNuevo.Enabled = nuevo
+        CMDGuardar.Enabled = guardar
+        CMDCancelar.Enabled = cancelar
+        CMDModificar.Enabled = modificar
+        CMDEliminar.Enabled = borrar
+        CMDBuscar.Enabled = buscar
+        CMDSalir.Enabled = salir
     End Sub
 End Class

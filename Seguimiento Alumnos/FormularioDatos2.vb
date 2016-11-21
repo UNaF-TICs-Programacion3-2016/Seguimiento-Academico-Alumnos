@@ -153,13 +153,12 @@
         End If
     End Sub
     Private Sub Administrar_Botones(ByVal Grupo As Control, Valor As Boolean)
-        Dim GestionBotones As New Botones
         Dim Control1 As Control
         Dim boton1 As Button
         For Each Control1 In Grupo.Controls
             If TypeOf Control1 Is Button Then
                 boton1 = Control1
-                GestionBotones.Gestionar_Individual(boton1, Valor)
+                Gestionar_Individual(boton1, Valor)
             End If
         Next
     End Sub
@@ -229,5 +228,8 @@
         End If
     End Sub
 
-   
+
+    Public Sub Gestionar_Individual(Boton As Button, Valor As Boolean)
+        Boton.Enabled = Valor
+    End Sub
 End Class
