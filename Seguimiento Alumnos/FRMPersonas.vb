@@ -209,8 +209,6 @@
         Next
     End Sub
 
-
-
     Private Sub Gestionar_ABM(nuevo As Boolean, guardar As Boolean, cancelar As Boolean, modificar As Boolean, borrar As Boolean, buscar As Boolean, salir As Boolean)
         CMDNuevo.Enabled = nuevo
         CMDGuardar.Enabled = guardar

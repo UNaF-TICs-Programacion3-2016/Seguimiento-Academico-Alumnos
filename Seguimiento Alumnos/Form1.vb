@@ -15,27 +15,19 @@
         DisersionesTop.Show()
     End Sub
 
-    Private Sub GrupoResultados_Enter(sender As Object, e As EventArgs) Handles GrupoResultados.Enter
-
-    End Sub
-
-    Private Sub MenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip1.ItemClicked
-
-    End Sub
-
     Private Sub DatosPersonalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DatosPersonalesToolStripMenuItem.Click
         FRMPersonas.Show()
         FRMPersonas.DatosPersonales.Visible = True
     End Sub
 
     Private Sub AntecedentesAcToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AntecedentesAcToolStripMenuItem.Click
-        With FRMPersonas 
+        With FRMPersonas
             .Show()
             .AntecedentesAc.Visible = True
         End With
     End Sub
 
-    
+
     Private Sub CarreraxAlumnoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CarreraxAlumnoToolStripMenuItem.Click
         With FRMDatos
             .Show()

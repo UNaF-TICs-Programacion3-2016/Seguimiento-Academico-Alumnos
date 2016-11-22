@@ -706,15 +706,15 @@ Public Class Alumno
     Public Sub Grilla_Alumno(Tipo As String, Caracter As String, Grilla As DataGridView)
         Dim Consulta As String
         If Tipo = "Nombre" Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & Caracter & "%'"
+            Consulta = "Select ID_ALUMNO As ID, PERSONA_NOMBRE AS Nombre, PERSONA_APELLIDO As Apellido, PERSONA_DOCUMENTO As Documento, PERSONA_TELEFONO As Telefono From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_NOMBRE Like '" & Caracter & "%'"
         ElseIf Tipo = "Apellido" Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & Caracter & "%'"
+            Consulta = "Select ID_ALUMNO As ID, PERSONA_NOMBRE AS Nombre, PERSONA_APELLIDO As Apellido, PERSONA_DOCUMENTO As Documento, PERSONA_TELEFONO As Telefono From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_APELLIDO Like '" & Caracter & "%'"
         ElseIf Tipo = "Documento" Then
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO = " & Caracter & ""
+            Consulta = "Select ID_ALUMNO As ID, PERSONA_NOMBRE AS Nombre, PERSONA_APELLIDO As Apellido, PERSONA_DOCUMENTO As Documento, PERSONA_TELEFONO As Telefono From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA where PERSONA_DOCUMENTO = " & Caracter & ""
         Else
-            Consulta = "Select ID_ALUMNO, PERSONA_NOMBRE, PERSONA_APELLIDO, PERSONA_DOCUMENTO, PERSONA_TELEFONO From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA"
+            Consulta = "Select ID_ALUMNO As ID, PERSONA_NOMBRE AS Nombre, PERSONA_APELLIDO As Apellido, PERSONA_DOCUMENTO As Documento, PERSONA_TELEFONO As Telefono From ALUMNO Inner Join PERSONA ON ID_PERSONA = RELA_PERSONA"
         End If
-        Obtener_Tabla(Consulta)
+        Grilla.DataSource = Obtener_Tabla(Consulta)
     End Sub
     Public Sub Traer_Alumno(TablaAlumno As DataTable, TablaDireccion As DataTable, TablaAcademico As DataTable)
         Dim TXT As String
@@ -1178,6 +1178,9 @@ Public Class Orientacion
         IDOrientacion = Nothing
         Nombre = ""
     End Sub
+    Public Sub Insertar(vNombreorientacion As String)
+        Nombre = vNombreorientacion
+    End Sub
 
     Public Sub Eliminar_Materia()
         Dim TXT As String
@@ -1210,7 +1213,7 @@ Public Class Orientacion
             End With
         Else
             Datagrid1 = Objeto
-            Datagrid1.DataSource = Obtener_Tabla("Select ID_ORIENTACION, ORIENTACION_DESCRIPCION from ORIENTACION")
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_ORIENTACION As ID, ORIENTACION_DESCRIPCION As Orientacion from ORIENTACION")
         End If
     End Sub
    
@@ -1328,8 +1331,12 @@ Public Class Materia
         Else
             Datagrid1 = Objeto
             Datagrid1.DataSource = Obtener_Tabla("Select ID_MATERIA as ID, MATERIA_NOMBRE As Materia from MATERIA")
-            End
         End If
+    End Sub
+    Public Sub Recuperar_Datos(Tabla As DataTable)
+        Dim TXT As String
+        TXT = "Select ID_MATERIA, MATERIA_NOMBRE, CARRERA_NOMBRE, COD_MATERIA FROM MATERIA Inner Join CARRERA On ID_CARRERA = RELA_CARRERA Where ID_MATERIA = " & IDMateria & ""
+        Cargar_DataTable(TXT, Tabla)
     End Sub
 End Class
 Public Class Colegio
@@ -1394,6 +1401,10 @@ Public Class Colegio
         IDColegio = Nothing
     End Sub
 
+    Public Sub Insertar(vNombre As String, vTipo As Integer)
+        Nombre = vNombre
+        TipoColegio = vTipo
+    End Sub
     Public Sub Eliminar_Colegio()
         Dim TXT As String
         TXT = "Delete From ORIENTACIONXCOLEGIO Where RELA_COLEGIO = " & IDColegio & ""
@@ -1418,8 +1429,13 @@ Public Class Colegio
             End With
         Else
             Datagrid1 = Objeto
-            Datagrid1.DataSource = Obtener_Tabla("Select * From COLEGIO")
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_COLEGIO As ID, COLEGIO_NOMBRE As Colegio From COLEGIO")
         End If
+    End Sub
+    Public Sub Recuperar_Datos(Tabla As DataTable)
+        Dim TXT As String
+        TXT = "Select ID_COLEGIO, COLEGIO_NOMBRE, COLEGIO_TIPO FROM COLEGIO Where ID_COLEGIO = " & IDColegio & ""
+        Cargar_DataTable(TXT, Tabla)
     End Sub
 End Class
 Public Class MotivoDisersion
@@ -1457,6 +1473,10 @@ Public Class MotivoDisersion
         Nombre = vnombre
     End Sub
 
+    Public Sub Reiniciar_MotivoDisersion()
+        Nombre = ""
+        IDMotivoDis = Nothing
+    End Sub
 
     Public Sub Eliminar_Materia()
         Dim TXT As String
@@ -1481,9 +1501,10 @@ Public Class MotivoDisersion
         Else
             Datagrid1 = Objeto
             Datagrid1.DataSource = Obtener_Tabla("Select ID_MOTIVO_DIS as ID, MOTIVO_DIS_DESCRIPCION As Descripcion from MOTIVO_DISERSION")
-            End
+
         End If
     End Sub
+    
 End Class
 
 Public Class ClasexMateria
@@ -1618,8 +1639,9 @@ Public Class Carrera
         TXT = "Update CARRERA Set CARRERA_NOMBRE = :CARRERA_NOMBRE, CARRERA_CANT_ANIOS = :CARRERA_CANT_ANIOS, COD_CARRERA = :COD_CARRERA where ID_CARRERA = " & IDCarrera & ""
         Cargar_Datos(TXT, "CARRERA_NOMBRE", "CARRERA_CANT_ANIOS", "COD_CARRERA", "", "", "", "", "", "")
     End Sub
-    Public Sub Insertar(vNombre As String, vCodigo As String)
+    Public Sub Insertar(vNombre As String, vCantAños As Integer, vCodigo As String)
         Nombre = vNombre
+        Años = vCantAños
         CodCarrera = vCodigo
     End Sub
 
@@ -1648,8 +1670,13 @@ Public Class Carrera
             End With
         Else
             Datagrid1 = Objeto
-            Datagrid1.DataSource = Obtener_Tabla("Select ID_CARRERA, CARRERA_NOMBRE from CARRERA")
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_CARRERA As ID, CARRERA_NOMBRE As Carrera from CARRERA")
         End If
+    End Sub
+    Public Sub Recuperar_Datos(Tabla As DataTable)
+        Dim TXT As String
+        TXT = "Select ID_CARRERA, CARRERA_NOMBRE, CARRERA_CANT_ANIOS, COD_CARRERA FROM CARRERA Where ID_CARRERA = " & IDCarrera & ""
+        Cargar_DataTable(TXT, Tabla)
     End Sub
 End Class
 Public Class ObjetosVarios
@@ -1818,7 +1845,7 @@ Public Class Antecedentes
             End With
         Else
             Datagrid1 = Objeto
-            Datagrid1.DataSource = Obtener_Tabla("Select ID_ANTECEDENTE, DESCRIPCION from ANTECEDENTES Inner Join CATEGORIA_ANT on ID_CATEGORIA_ANT = RELA_CATEGORIA_ANT Where RELA_ALUMNO = " & valor & "")
+            Datagrid1.DataSource = Obtener_Tabla("Select ID_ANTECEDENTE As ID, DESCRIPCION As Descripcion from ANTECEDENTES Inner Join CATEGORIA_ANT on ID_CATEGORIA_ANT = RELA_CATEGORIA_ANT Where RELA_ALUMNO = " & valor & "")
         End If
     End Sub
 End Class
@@ -1829,6 +1856,14 @@ Public Class Clases
     Private CantDictadas As Integer
     Public IDClase As Integer
 
+    Public Sub New()
+
+    End Sub
+    Public Sub New(vMateria As Integer, vaño As Integer, vCantDictadas As Integer)
+        Materia = vMateria
+        Año = vaño
+        CantDictadas = vCantDictadas
+    End Sub
     Public Sub Guardar_Clase()
         Dim TXT As String
         Obtener_Datos(Materia, Año, CantDictadas, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing)
@@ -1847,7 +1882,6 @@ Public Class Clases
         Año = vAño
         CantDictadas = vCantDictadas
     End Sub
-
 
     Public Sub Reiniciar_Clase()
         Materia = Nothing

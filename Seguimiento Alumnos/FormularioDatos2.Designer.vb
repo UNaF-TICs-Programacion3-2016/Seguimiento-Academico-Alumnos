@@ -22,18 +22,7 @@ Partial Class FormularioDatos2
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ColegiosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrientacionesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,6 +31,7 @@ Partial Class FormularioDatos2
         Me.MotivosDeDisersiónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MateriasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Colegios = New System.Windows.Forms.GroupBox()
+        Me.CMDGuardarCol = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.DataGridCol = New System.Windows.Forms.DataGridView()
         Me.CMDCancelarCol = New System.Windows.Forms.Button()
@@ -52,6 +42,7 @@ Partial Class FormularioDatos2
         Me.TXTNombreCol = New System.Windows.Forms.TextBox()
         Me.LBLnombre = New System.Windows.Forms.Label()
         Me.Orientaciones = New System.Windows.Forms.GroupBox()
+        Me.CMDGuardarOr = New System.Windows.Forms.Button()
         Me.DataGridOr = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CMDCancelarOr = New System.Windows.Forms.Button()
@@ -60,6 +51,7 @@ Partial Class FormularioDatos2
         Me.CMDAgregarOr = New System.Windows.Forms.Button()
         Me.LBLorientacion = New System.Windows.Forms.Label()
         Me.Carreras = New System.Windows.Forms.GroupBox()
+        Me.CMDGuardarCar = New System.Windows.Forms.Button()
         Me.DataGridCar = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CMDCancelarCar = New System.Windows.Forms.Button()
@@ -72,14 +64,17 @@ Partial Class FormularioDatos2
         Me.LBLnomcod = New System.Windows.Forms.Label()
         Me.LBLcodcarrera = New System.Windows.Forms.Label()
         Me.motivosdedisersion = New System.Windows.Forms.GroupBox()
+        Me.CMDCancelarDis = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.DataGridDis = New System.Windows.Forms.DataGridView()
-        Me.CMDCancelarDis = New System.Windows.Forms.Button()
-        Me.CBOModificarDis = New System.Windows.Forms.Button()
+        Me.CMDGuardarDis = New System.Windows.Forms.Button()
+        Me.CMDModificarDis = New System.Windows.Forms.Button()
         Me.CMDAgregarDis = New System.Windows.Forms.Button()
         Me.TXTMotivoDisersion = New System.Windows.Forms.TextBox()
         Me.LBLmotidisersion = New System.Windows.Forms.Label()
         Me.Materias = New System.Windows.Forms.GroupBox()
+        Me.CMDGuardarMat = New System.Windows.Forms.Button()
+        Me.DataGridMat = New System.Windows.Forms.DataGridView()
         Me.CBOCarrera = New System.Windows.Forms.ComboBox()
         Me.LBLcarrera = New System.Windows.Forms.Label()
         Me.CMDCancelarMat = New System.Windows.Forms.Button()
@@ -91,6 +86,7 @@ Partial Class FormularioDatos2
         Me.LBLNomb = New System.Windows.Forms.Label()
         Me.LBLcodigo = New System.Windows.Forms.Label()
         Me.ClasesporMateria = New System.Windows.Forms.GroupBox()
+        Me.CMDGuardarClas = New System.Windows.Forms.Button()
         Me.CBOMateriasClas = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.DataGridClas = New System.Windows.Forms.DataGridView()
@@ -102,7 +98,6 @@ Partial Class FormularioDatos2
         Me.LBLdictadas = New System.Windows.Forms.Label()
         Me.LBLanio = New System.Windows.Forms.Label()
         Me.LBLmateria = New System.Windows.Forms.Label()
-        Me.DataGridMat = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1.SuspendLayout()
         Me.Colegios.SuspendLayout()
         CType(Me.DataGridCol, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,9 +108,9 @@ Partial Class FormularioDatos2
         Me.motivosdedisersion.SuspendLayout()
         CType(Me.DataGridDis, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Materias.SuspendLayout()
+        CType(Me.DataGridMat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ClasesporMateria.SuspendLayout()
         CType(Me.DataGridClas, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridMat, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -166,6 +161,7 @@ Partial Class FormularioDatos2
         '
         'Colegios
         '
+        Me.Colegios.Controls.Add(Me.CMDGuardarCol)
         Me.Colegios.Controls.Add(Me.Label4)
         Me.Colegios.Controls.Add(Me.DataGridCol)
         Me.Colegios.Controls.Add(Me.CMDCancelarCol)
@@ -184,6 +180,18 @@ Partial Class FormularioDatos2
         Me.Colegios.TabStop = False
         Me.Colegios.Text = "Colegios"
         '
+        'CMDGuardarCol
+        '
+        Me.CMDGuardarCol.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarCol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarCol.ForeColor = System.Drawing.Color.Black
+        Me.CMDGuardarCol.Location = New System.Drawing.Point(120, 106)
+        Me.CMDGuardarCol.Name = "CMDGuardarCol"
+        Me.CMDGuardarCol.Size = New System.Drawing.Size(97, 23)
+        Me.CMDGuardarCol.TabIndex = 9
+        Me.CMDGuardarCol.Text = "Guardar"
+        Me.CMDGuardarCol.UseVisualStyleBackColor = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -199,23 +207,15 @@ Partial Class FormularioDatos2
         '
         Me.DataGridCol.AllowUserToAddRows = False
         Me.DataGridCol.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridCol.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridCol.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridCol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridCol.DefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridCol.Location = New System.Drawing.Point(244, 39)
         Me.DataGridCol.Name = "DataGridCol"
         Me.DataGridCol.RowHeadersVisible = False
@@ -227,7 +227,7 @@ Partial Class FormularioDatos2
         Me.CMDCancelarCol.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDCancelarCol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDCancelarCol.ForeColor = System.Drawing.Color.Black
-        Me.CMDCancelarCol.Location = New System.Drawing.Point(66, 140)
+        Me.CMDCancelarCol.Location = New System.Drawing.Point(17, 142)
         Me.CMDCancelarCol.Name = "CMDCancelarCol"
         Me.CMDCancelarCol.Size = New System.Drawing.Size(96, 23)
         Me.CMDCancelarCol.TabIndex = 6
@@ -239,7 +239,7 @@ Partial Class FormularioDatos2
         Me.CMDModificarCol.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDModificarCol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDModificarCol.ForeColor = System.Drawing.Color.Black
-        Me.CMDModificarCol.Location = New System.Drawing.Point(119, 106)
+        Me.CMDModificarCol.Location = New System.Drawing.Point(120, 142)
         Me.CMDModificarCol.Name = "CMDModificarCol"
         Me.CMDModificarCol.Size = New System.Drawing.Size(96, 23)
         Me.CMDModificarCol.TabIndex = 5
@@ -260,7 +260,7 @@ Partial Class FormularioDatos2
         '
         'CBXtipo
         '
-        Me.CBXtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBXtipo.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBXtipo.ForeColor = System.Drawing.Color.Black
         Me.CBXtipo.FormattingEnabled = True
         Me.CBXtipo.Location = New System.Drawing.Point(100, 56)
@@ -281,7 +281,7 @@ Partial Class FormularioDatos2
         '
         'TXTNombreCol
         '
-        Me.TXTNombreCol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTNombreCol.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TXTNombreCol.ForeColor = System.Drawing.Color.Black
         Me.TXTNombreCol.Location = New System.Drawing.Point(85, 25)
         Me.TXTNombreCol.Name = "TXTNombreCol"
@@ -301,6 +301,7 @@ Partial Class FormularioDatos2
         '
         'Orientaciones
         '
+        Me.Orientaciones.Controls.Add(Me.CMDGuardarOr)
         Me.Orientaciones.Controls.Add(Me.DataGridOr)
         Me.Orientaciones.Controls.Add(Me.Label2)
         Me.Orientaciones.Controls.Add(Me.CMDCancelarOr)
@@ -317,27 +318,23 @@ Partial Class FormularioDatos2
         Me.Orientaciones.TabStop = False
         Me.Orientaciones.Text = "Orientaciones"
         '
+        'CMDGuardarOr
+        '
+        Me.CMDGuardarOr.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarOr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarOr.ForeColor = System.Drawing.Color.Black
+        Me.CMDGuardarOr.Location = New System.Drawing.Point(131, 80)
+        Me.CMDGuardarOr.Name = "CMDGuardarOr"
+        Me.CMDGuardarOr.Size = New System.Drawing.Size(97, 23)
+        Me.CMDGuardarOr.TabIndex = 10
+        Me.CMDGuardarOr.Text = "Guardar"
+        Me.CMDGuardarOr.UseVisualStyleBackColor = False
+        '
         'DataGridOr
         '
         Me.DataGridOr.AllowUserToAddRows = False
         Me.DataGridOr.AllowUserToDeleteRows = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridOr.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridOr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridOr.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridOr.Location = New System.Drawing.Point(278, 34)
         Me.DataGridOr.Name = "DataGridOr"
         Me.DataGridOr.RowHeadersVisible = False
@@ -359,7 +356,7 @@ Partial Class FormularioDatos2
         Me.CMDCancelarOr.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDCancelarOr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDCancelarOr.ForeColor = System.Drawing.Color.Black
-        Me.CMDCancelarOr.Location = New System.Drawing.Point(72, 117)
+        Me.CMDCancelarOr.Location = New System.Drawing.Point(19, 113)
         Me.CMDCancelarOr.Name = "CMDCancelarOr"
         Me.CMDCancelarOr.Size = New System.Drawing.Size(101, 23)
         Me.CMDCancelarOr.TabIndex = 7
@@ -371,7 +368,7 @@ Partial Class FormularioDatos2
         Me.CMDModificarOr.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDModificarOr.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDModificarOr.ForeColor = System.Drawing.Color.Black
-        Me.CMDModificarOr.Location = New System.Drawing.Point(129, 81)
+        Me.CMDModificarOr.Location = New System.Drawing.Point(131, 114)
         Me.CMDModificarOr.Name = "CMDModificarOr"
         Me.CMDModificarOr.Size = New System.Drawing.Size(101, 23)
         Me.CMDModificarOr.TabIndex = 6
@@ -411,6 +408,7 @@ Partial Class FormularioDatos2
         '
         'Carreras
         '
+        Me.Carreras.Controls.Add(Me.CMDGuardarCar)
         Me.Carreras.Controls.Add(Me.DataGridCar)
         Me.Carreras.Controls.Add(Me.Label3)
         Me.Carreras.Controls.Add(Me.CMDCancelarCar)
@@ -431,27 +429,23 @@ Partial Class FormularioDatos2
         Me.Carreras.TabStop = False
         Me.Carreras.Text = "Carreras"
         '
+        'CMDGuardarCar
+        '
+        Me.CMDGuardarCar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarCar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarCar.ForeColor = System.Drawing.Color.Black
+        Me.CMDGuardarCar.Location = New System.Drawing.Point(145, 124)
+        Me.CMDGuardarCar.Name = "CMDGuardarCar"
+        Me.CMDGuardarCar.Size = New System.Drawing.Size(101, 23)
+        Me.CMDGuardarCar.TabIndex = 12
+        Me.CMDGuardarCar.Text = "Guardar"
+        Me.CMDGuardarCar.UseVisualStyleBackColor = False
+        '
         'DataGridCar
         '
         Me.DataGridCar.AllowUserToAddRows = False
         Me.DataGridCar.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridCar.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridCar.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridCar.Location = New System.Drawing.Point(280, 34)
         Me.DataGridCar.Name = "DataGridCar"
         Me.DataGridCar.RowHeadersVisible = False
@@ -474,7 +468,7 @@ Partial Class FormularioDatos2
         Me.CMDCancelarCar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDCancelarCar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDCancelarCar.ForeColor = System.Drawing.Color.Black
-        Me.CMDCancelarCar.Location = New System.Drawing.Point(74, 161)
+        Me.CMDCancelarCar.Location = New System.Drawing.Point(16, 161)
         Me.CMDCancelarCar.Name = "CMDCancelarCar"
         Me.CMDCancelarCar.Size = New System.Drawing.Size(101, 23)
         Me.CMDCancelarCar.TabIndex = 9
@@ -486,7 +480,7 @@ Partial Class FormularioDatos2
         Me.CMDModificarCar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDModificarCar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDModificarCar.ForeColor = System.Drawing.Color.Black
-        Me.CMDModificarCar.Location = New System.Drawing.Point(133, 124)
+        Me.CMDModificarCar.Location = New System.Drawing.Point(145, 161)
         Me.CMDModificarCar.Name = "CMDModificarCar"
         Me.CMDModificarCar.Size = New System.Drawing.Size(101, 23)
         Me.CMDModificarCar.TabIndex = 8
@@ -508,6 +502,7 @@ Partial Class FormularioDatos2
         'TXTduracion
         '
         Me.TXTduracion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTduracion.ForeColor = System.Drawing.Color.Black
         Me.TXTduracion.Location = New System.Drawing.Point(89, 80)
         Me.TXTduracion.Name = "TXTduracion"
         Me.TXTduracion.Size = New System.Drawing.Size(100, 20)
@@ -516,6 +511,7 @@ Partial Class FormularioDatos2
         'TXTnomb
         '
         Me.TXTnomb.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTnomb.ForeColor = System.Drawing.Color.Black
         Me.TXTnomb.Location = New System.Drawing.Point(89, 52)
         Me.TXTnomb.Name = "TXTnomb"
         Me.TXTnomb.Size = New System.Drawing.Size(100, 20)
@@ -524,6 +520,7 @@ Partial Class FormularioDatos2
         'TXTcodig
         '
         Me.TXTcodig.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TXTcodig.ForeColor = System.Drawing.Color.Black
         Me.TXTcodig.Location = New System.Drawing.Point(89, 23)
         Me.TXTcodig.Name = "TXTcodig"
         Me.TXTcodig.Size = New System.Drawing.Size(100, 20)
@@ -564,10 +561,11 @@ Partial Class FormularioDatos2
         '
         'motivosdedisersion
         '
+        Me.motivosdedisersion.Controls.Add(Me.CMDCancelarDis)
         Me.motivosdedisersion.Controls.Add(Me.Label5)
         Me.motivosdedisersion.Controls.Add(Me.DataGridDis)
-        Me.motivosdedisersion.Controls.Add(Me.CMDCancelarDis)
-        Me.motivosdedisersion.Controls.Add(Me.CBOModificarDis)
+        Me.motivosdedisersion.Controls.Add(Me.CMDGuardarDis)
+        Me.motivosdedisersion.Controls.Add(Me.CMDModificarDis)
         Me.motivosdedisersion.Controls.Add(Me.CMDAgregarDis)
         Me.motivosdedisersion.Controls.Add(Me.TXTMotivoDisersion)
         Me.motivosdedisersion.Controls.Add(Me.LBLmotidisersion)
@@ -579,6 +577,18 @@ Partial Class FormularioDatos2
         Me.motivosdedisersion.TabIndex = 6
         Me.motivosdedisersion.TabStop = False
         Me.motivosdedisersion.Text = "Motivos de Deserción"
+        '
+        'CMDCancelarDis
+        '
+        Me.CMDCancelarDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDCancelarDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDCancelarDis.ForeColor = System.Drawing.Color.Black
+        Me.CMDCancelarDis.Location = New System.Drawing.Point(32, 106)
+        Me.CMDCancelarDis.Name = "CMDCancelarDis"
+        Me.CMDCancelarDis.Size = New System.Drawing.Size(97, 23)
+        Me.CMDCancelarDis.TabIndex = 11
+        Me.CMDCancelarDis.Text = "Cancelar"
+        Me.CMDCancelarDis.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -595,52 +605,36 @@ Partial Class FormularioDatos2
         '
         Me.DataGridDis.AllowUserToAddRows = False
         Me.DataGridDis.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridDis.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridDis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridDis.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridDis.Location = New System.Drawing.Point(308, 32)
         Me.DataGridDis.Name = "DataGridDis"
         Me.DataGridDis.RowHeadersVisible = False
         Me.DataGridDis.Size = New System.Drawing.Size(292, 174)
         Me.DataGridDis.TabIndex = 9
         '
-        'CMDCancelarDis
+        'CMDGuardarDis
         '
-        Me.CMDCancelarDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.CMDCancelarDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CMDCancelarDis.ForeColor = System.Drawing.Color.Black
-        Me.CMDCancelarDis.Location = New System.Drawing.Point(87, 98)
-        Me.CMDCancelarDis.Name = "CMDCancelarDis"
-        Me.CMDCancelarDis.Size = New System.Drawing.Size(97, 23)
-        Me.CMDCancelarDis.TabIndex = 8
-        Me.CMDCancelarDis.Text = "Cancelar"
-        Me.CMDCancelarDis.UseVisualStyleBackColor = False
+        Me.CMDGuardarDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarDis.ForeColor = System.Drawing.Color.Black
+        Me.CMDGuardarDis.Location = New System.Drawing.Point(147, 69)
+        Me.CMDGuardarDis.Name = "CMDGuardarDis"
+        Me.CMDGuardarDis.Size = New System.Drawing.Size(97, 23)
+        Me.CMDGuardarDis.TabIndex = 8
+        Me.CMDGuardarDis.Text = "Guardar"
+        Me.CMDGuardarDis.UseVisualStyleBackColor = False
         '
-        'CBOModificarDis
+        'CMDModificarDis
         '
-        Me.CBOModificarDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.CBOModificarDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CBOModificarDis.ForeColor = System.Drawing.Color.Black
-        Me.CBOModificarDis.Location = New System.Drawing.Point(147, 69)
-        Me.CBOModificarDis.Name = "CBOModificarDis"
-        Me.CBOModificarDis.Size = New System.Drawing.Size(97, 23)
-        Me.CBOModificarDis.TabIndex = 7
-        Me.CBOModificarDis.Text = "Modificar"
-        Me.CBOModificarDis.UseVisualStyleBackColor = False
+        Me.CMDModificarDis.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDModificarDis.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDModificarDis.ForeColor = System.Drawing.Color.Black
+        Me.CMDModificarDis.Location = New System.Drawing.Point(147, 106)
+        Me.CMDModificarDis.Name = "CMDModificarDis"
+        Me.CMDModificarDis.Size = New System.Drawing.Size(97, 23)
+        Me.CMDModificarDis.TabIndex = 7
+        Me.CMDModificarDis.Text = "Modificar"
+        Me.CMDModificarDis.UseVisualStyleBackColor = False
         '
         'CMDAgregarDis
         '
@@ -675,6 +669,7 @@ Partial Class FormularioDatos2
         '
         'Materias
         '
+        Me.Materias.Controls.Add(Me.CMDGuardarMat)
         Me.Materias.Controls.Add(Me.DataGridMat)
         Me.Materias.Controls.Add(Me.CBOCarrera)
         Me.Materias.Controls.Add(Me.LBLcarrera)
@@ -694,6 +689,29 @@ Partial Class FormularioDatos2
         Me.Materias.TabIndex = 7
         Me.Materias.TabStop = False
         Me.Materias.Text = "Materias"
+        '
+        'CMDGuardarMat
+        '
+        Me.CMDGuardarMat.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarMat.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarMat.ForeColor = System.Drawing.Color.Black
+        Me.CMDGuardarMat.Location = New System.Drawing.Point(114, 142)
+        Me.CMDGuardarMat.Name = "CMDGuardarMat"
+        Me.CMDGuardarMat.Size = New System.Drawing.Size(97, 23)
+        Me.CMDGuardarMat.TabIndex = 15
+        Me.CMDGuardarMat.Text = "Guardar"
+        Me.CMDGuardarMat.UseVisualStyleBackColor = False
+        '
+        'DataGridMat
+        '
+        Me.DataGridMat.AllowUserToAddRows = False
+        Me.DataGridMat.AllowUserToDeleteRows = False
+        Me.DataGridMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridMat.Location = New System.Drawing.Point(259, 35)
+        Me.DataGridMat.Name = "DataGridMat"
+        Me.DataGridMat.RowHeadersVisible = False
+        Me.DataGridMat.Size = New System.Drawing.Size(337, 196)
+        Me.DataGridMat.TabIndex = 14
         '
         'CBOCarrera
         '
@@ -719,7 +737,7 @@ Partial Class FormularioDatos2
         Me.CMDCancelarMat.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDCancelarMat.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDCancelarMat.ForeColor = System.Drawing.Color.Black
-        Me.CMDCancelarMat.Location = New System.Drawing.Point(60, 171)
+        Me.CMDCancelarMat.Location = New System.Drawing.Point(14, 171)
         Me.CMDCancelarMat.Name = "CMDCancelarMat"
         Me.CMDCancelarMat.Size = New System.Drawing.Size(94, 25)
         Me.CMDCancelarMat.TabIndex = 11
@@ -731,7 +749,7 @@ Partial Class FormularioDatos2
         Me.CMDModificarMat.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDModificarMat.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDModificarMat.ForeColor = System.Drawing.Color.Black
-        Me.CMDModificarMat.Location = New System.Drawing.Point(113, 140)
+        Me.CMDModificarMat.Location = New System.Drawing.Point(117, 171)
         Me.CMDModificarMat.Name = "CMDModificarMat"
         Me.CMDModificarMat.Size = New System.Drawing.Size(94, 25)
         Me.CMDModificarMat.TabIndex = 10
@@ -798,6 +816,7 @@ Partial Class FormularioDatos2
         '
         'ClasesporMateria
         '
+        Me.ClasesporMateria.Controls.Add(Me.CMDGuardarClas)
         Me.ClasesporMateria.Controls.Add(Me.CBOMateriasClas)
         Me.ClasesporMateria.Controls.Add(Me.Label6)
         Me.ClasesporMateria.Controls.Add(Me.DataGridClas)
@@ -818,10 +837,22 @@ Partial Class FormularioDatos2
         Me.ClasesporMateria.TabStop = False
         Me.ClasesporMateria.Text = "Clases por Materia"
         '
+        'CMDGuardarClas
+        '
+        Me.CMDGuardarClas.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CMDGuardarClas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDGuardarClas.ForeColor = System.Drawing.Color.Black
+        Me.CMDGuardarClas.Location = New System.Drawing.Point(122, 129)
+        Me.CMDGuardarClas.Name = "CMDGuardarClas"
+        Me.CMDGuardarClas.Size = New System.Drawing.Size(73, 23)
+        Me.CMDGuardarClas.TabIndex = 15
+        Me.CMDGuardarClas.Text = "Guardar"
+        Me.CMDGuardarClas.UseVisualStyleBackColor = False
+        '
         'CBOMateriasClas
         '
         Me.CBOMateriasClas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CBOMateriasClas.ForeColor = System.Drawing.Color.White
+        Me.CBOMateriasClas.ForeColor = System.Drawing.Color.Black
         Me.CBOMateriasClas.FormattingEnabled = True
         Me.CBOMateriasClas.Location = New System.Drawing.Point(79, 23)
         Me.CBOMateriasClas.Name = "CBOMateriasClas"
@@ -843,23 +874,7 @@ Partial Class FormularioDatos2
         '
         Me.DataGridClas.AllowUserToAddRows = False
         Me.DataGridClas.AllowUserToDeleteRows = False
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridClas.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridClas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridClas.DefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridClas.Location = New System.Drawing.Point(287, 32)
         Me.DataGridClas.Name = "DataGridClas"
         Me.DataGridClas.RowHeadersVisible = False
@@ -871,7 +886,7 @@ Partial Class FormularioDatos2
         Me.CMDModificarClas.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDModificarClas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDModificarClas.ForeColor = System.Drawing.Color.Black
-        Me.CMDModificarClas.Location = New System.Drawing.Point(120, 126)
+        Me.CMDModificarClas.Location = New System.Drawing.Point(120, 158)
         Me.CMDModificarClas.Name = "CMDModificarClas"
         Me.CMDModificarClas.Size = New System.Drawing.Size(75, 23)
         Me.CMDModificarClas.TabIndex = 11
@@ -883,7 +898,7 @@ Partial Class FormularioDatos2
         Me.CMDCancelarClas.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CMDCancelarClas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDCancelarClas.ForeColor = System.Drawing.Color.Black
-        Me.CMDCancelarClas.Location = New System.Drawing.Point(71, 157)
+        Me.CMDCancelarClas.Location = New System.Drawing.Point(22, 158)
         Me.CMDCancelarClas.Name = "CMDCancelarClas"
         Me.CMDCancelarClas.Size = New System.Drawing.Size(75, 23)
         Me.CMDCancelarClas.TabIndex = 7
@@ -905,7 +920,7 @@ Partial Class FormularioDatos2
         'TXBdictadas
         '
         Me.TXBdictadas.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXBdictadas.ForeColor = System.Drawing.Color.White
+        Me.TXBdictadas.ForeColor = System.Drawing.Color.Black
         Me.TXBdictadas.Location = New System.Drawing.Point(79, 79)
         Me.TXBdictadas.Name = "TXBdictadas"
         Me.TXBdictadas.Size = New System.Drawing.Size(100, 20)
@@ -914,7 +929,7 @@ Partial Class FormularioDatos2
         'TXBanio
         '
         Me.TXBanio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TXBanio.ForeColor = System.Drawing.Color.White
+        Me.TXBanio.ForeColor = System.Drawing.Color.Black
         Me.TXBanio.Location = New System.Drawing.Point(79, 50)
         Me.TXBanio.Name = "TXBanio"
         Me.TXBanio.Size = New System.Drawing.Size(54, 20)
@@ -953,30 +968,6 @@ Partial Class FormularioDatos2
         Me.LBLmateria.TabIndex = 0
         Me.LBLmateria.Text = "Materia"
         '
-        'DataGridMat
-        '
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridMat.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
-        Me.DataGridMat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridMat.DefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridMat.Location = New System.Drawing.Point(259, 35)
-        Me.DataGridMat.Name = "DataGridMat"
-        Me.DataGridMat.Size = New System.Drawing.Size(337, 196)
-        Me.DataGridMat.TabIndex = 14
-        '
         'FormularioDatos2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -984,12 +975,12 @@ Partial Class FormularioDatos2
         Me.BackColor = System.Drawing.Color.DimGray
         Me.ClientSize = New System.Drawing.Size(644, 304)
         Me.Controls.Add(Me.MenuStrip1)
-        Me.Controls.Add(Me.Orientaciones)
-        Me.Controls.Add(Me.Carreras)
         Me.Controls.Add(Me.Colegios)
         Me.Controls.Add(Me.motivosdedisersion)
         Me.Controls.Add(Me.Materias)
         Me.Controls.Add(Me.ClasesporMateria)
+        Me.Controls.Add(Me.Orientaciones)
+        Me.Controls.Add(Me.Carreras)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "FormularioDatos2"
         Me.Text = "Datos del Sistema"
@@ -1009,10 +1000,10 @@ Partial Class FormularioDatos2
         CType(Me.DataGridDis, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Materias.ResumeLayout(False)
         Me.Materias.PerformLayout()
+        CType(Me.DataGridMat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ClasesporMateria.ResumeLayout(False)
         Me.ClasesporMateria.PerformLayout()
         CType(Me.DataGridClas, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridMat, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1068,8 +1059,8 @@ Partial Class FormularioDatos2
     Friend WithEvents CMDCancelarCol As System.Windows.Forms.Button
     Friend WithEvents CMDModificarCol As System.Windows.Forms.Button
     Friend WithEvents CMDAgregarCol As System.Windows.Forms.Button
-    Friend WithEvents CMDCancelarDis As System.Windows.Forms.Button
-    Friend WithEvents CBOModificarDis As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarDis As System.Windows.Forms.Button
+    Friend WithEvents CMDModificarDis As System.Windows.Forms.Button
     Friend WithEvents CMDAgregarDis As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DataGridDis As System.Windows.Forms.DataGridView
@@ -1086,4 +1077,10 @@ Partial Class FormularioDatos2
     Friend WithEvents LBLanio As System.Windows.Forms.Label
     Friend WithEvents LBLmateria As System.Windows.Forms.Label
     Friend WithEvents DataGridMat As System.Windows.Forms.DataGridView
+    Friend WithEvents CMDCancelarDis As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarCol As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarOr As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarCar As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarMat As System.Windows.Forms.Button
+    Friend WithEvents CMDGuardarClas As System.Windows.Forms.Button
 End Class
